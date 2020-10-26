@@ -7,13 +7,13 @@
 
 <!--Template, COPY to use for your own servlet-->
     <servlet>
-        <servlet-name>ServletTemplate</servlet-name>
-        <servlet-class>ServletTemplate</servlet-class>
+        <servlet-name>ServletPlan</servlet-name>
+        <servlet-class>ServletPlan</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ServletTemplate</servlet-name>
-        <url-pattern>/linkTemplate</url-pattern>
+        <servlet-name>ServletPlan</servlet-name>
+        <url-pattern>/linkPlan</url-pattern>
     </servlet-mapping>
 
 <!--Fires on login with google-->
@@ -27,7 +27,26 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <!--Fires when Reservations button is clicked-->
+    <servlet>
+        <servlet-name>ServletReservations</servlet-name>
+        <servlet-class>ServletReservations</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>ServletReservations</servlet-name>
+        <url-pattern>/linkReservations</url-pattern>
+    </servlet-mapping>
 
+    <!--Fires when Invitations button is clicked-->
+    <servlet>
+        <servlet-name>ServletInvitations</servlet-name>
+        <servlet-class>ServletInvitations</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletInvitations</servlet-name>
+        <url-pattern>/linkInvitations</url-pattern>
+    </servlet-mapping>
 
 </web-app>

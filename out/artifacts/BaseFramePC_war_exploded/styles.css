@@ -1,5 +1,5 @@
 body {
-    background-image: url('Pictures/HomePagePic.jpg');
+    background-image: url('Pictures/home_blurred.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,7 +9,38 @@ body {
     padding: 100px;
 }
 
-.card-img-top {
-    width: 256px;
-    height: 256px;
+.g-signin2 {
+    border: 8px solid #505050 !important;
+    border-radius: 3%;
 }
+
+/*@media (max-width: 575px) {*/
+/*    body {*/
+/*        background: blue;*/
+/*    }*/
+/*}*/
+
+/*@media (min-width: 576px) {*/
+/*    body {*/
+/*        background: red;*/
+/*    }*/
+/*}*/
+
+/*@media (min-width: 768px) {*/
+/*    body {*/
+/*        background: green;*/
+/*    }*/
+/*}*/
+
+/*@media (min-width: 992px) {*/
+/*    body {*/
+/*        background: yellow;*/
+/*    }*/
+/*}*/
+
+/*@media (min-width: 1200px) {*/
+/*    body {*/
+/*        background: black;*/
+/*    }*/
+/*}*/
+
