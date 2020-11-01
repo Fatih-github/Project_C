@@ -8,7 +8,7 @@ body {
 .container {
     background-color: #fafafa;
     margin-top: 100px;
-    margin-left: 37.5%;
+    margin-left: 40%;
     width: 400px;
     box-shadow: 10px 15px 20px rgba(0, 0, 0, .1);
     display: grid;
@@ -42,17 +42,14 @@ form {
     grid-row-gap: 20px;
 }
 
-form p {
-    font-weight: 600;
+.form-horizontal {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.form-field {
-    display: flex;
-    justify-content: space-between;
-}
-
-input,select {
-    padding: 10px 15px;
+select {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .btn {

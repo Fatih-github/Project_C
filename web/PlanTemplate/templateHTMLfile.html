@@ -24,34 +24,56 @@
                     <form action="#">
                         <h2 class="heading">Reserve Online</h2>
 
-                        <div class="form-field">
-                            <p>Your Name</p>
-                            <input type="text" placeholder="Your Name">
+                        <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label"><b>Name</b></label>
+                                <div class="controls float-right">
+                                    <input type="Name" class="form-control" id="inputName" placeholder="Your Name">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-field">
-                            <p>Your email</p>
-                            <input type="email" placeholder="Your email">
-                        </div>
-                        <div class="form-field">
-                            <p>Date</p>
-                            <input type="date">
-                        </div>
-                        <div class="form-field">
-                            <p>Time</p>
-                            <select>
-                                <option value="1">09:00 - 13:00 (morning)</option>
-                                <option value="2">13:00 - 17:00 (afternoon)</option>
-                            </select>
-                        </div>
-                        <div class="form-field">
-                            <p>How many people?</p>
-                            <select name="select" id="#">
 
-                                <option value="1">1 person</option>
-                                <option value="2">2 persons</option>
-                                <option value="3">3 persons</option>
-                                <option value="4">4 persons</option>
-                            </select>
+                        <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label"><b>Email</b></label>
+                                <div class="controls float-right">
+                                    <input type="Email" class="form-control" id="inputMail" placeholder="Your Email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label"><b>Date</b></label>
+                                <div class="controls float-right">
+                                    <input type="checkbox" id="checkboxG1" class="css-checkbox" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label"><b>Time</b></label>
+                                <select class="controls float-right">
+                                    <option selected>Open this select menu</option>
+                                    <option value="Morning">Morning (09:00 - 12:00)</option>
+                                    <option value="Afternoon">Afternoon (13:00 - 17:00</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control=label"><b>Number of people</b></label>
+                                <select class="controls float-right">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">1 person</option>
+                                    <option value="2">2 persons</option>
+                                    <option value="3">3 persons</option>
+                                    <option value="4">4 persons</option>
+                                </select>
+                            </div>
                         </div>
                     </form>
                     <a href="Confirmation.html">
