@@ -104,3 +104,13 @@ select {
     background-color: #000000;
     color: white;
 }
+
+.individu1 {
+    margin-left: 35%;
+    display: inline-block;
+    float: left;
+    background-color: white;
+    border: black;
+    color: black;
+    border: 2px solid #000000;
+}
