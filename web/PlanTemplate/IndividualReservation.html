@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,900" rel="stylesheet">
+</head>
+
+<div class="container">
+    <div class="card-body p-5">
+        <div class="container-form">
+
+
+            <a href="IndividualReservation.html">
+                <button class="button individu1">Individual</button>
+            </a>
+
+
+            <a href="TeamReservation.html">
+                <button class="button team1">Team</button>
+            </a>
+
+
+            <form action="#">
+                <h2 class="heading">Reserve as an individual</h2>
+
+                <div class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label"><b>Name</b></label>
+                        <div class="controls float-right">
+                            <input type="Name" class="form-control" id="inputName" placeholder="Your Name">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label"><b>Email</b></label>
+                        <div class="controls float-right">
+                            <input type="Email" class="form-control" id="inputMail" placeholder="Your Email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label"><b>Date</b></label>
+                        <div class="controls float-right">
+                            <input type="checkbox" id="checkboxG1" class="css-checkbox" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label"><b>Time</b></label>
+                    </div>
+                    <div class="checkcheck">
+                        <input type="checkbox" id="timeslot1"name="timeslot1" value="Morning">
+                        <label for="timeslot1"> 09:00 - 13:00 (Morning)</label><br>
+                        <input type="checkbox" id="timeslot2"name="timeslot2" value="Evening">
+                        <label for="timeslot1"> 13:00 - 17:00 (Afternoon)</label>
+
+                    </div>
+                </div>
+        </div>
+        </form>
+        <a href="Confirmation.html">
+            <button class="button button1">Submit</button>
+        </a>
+    </div>
+</div>
+</div>
+</html>
