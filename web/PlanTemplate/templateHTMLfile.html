@@ -9,6 +9,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
+
     <meta name="google-signin-client_id" content="621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
@@ -21,6 +28,8 @@
     <div class="container">
             <div class="card-body p-5">
                 <div class="container-form">
+
+
                     <form action="#">
                         <h2 class="heading">Reserve Online</h2>
 
@@ -46,7 +55,8 @@
                             <div class="control-group">
                                 <label class="control-label"><b>Date</b></label>
                                 <div class="controls float-right">
-                                    <input type="checkbox" id="checkboxG1" class="css-checkbox" />
+                                    <div class="datepicker" data-date-format="mm/dd/yyyy"></div>
+                                    <button type="button" class="btn btn-primary btn_save">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -62,19 +72,6 @@
                             </div>
                         </div>
 
-
-                        <div class="form-horizontal">
-                            <div class="control-group">
-                                <label class="control=label"><b>Number of people</b></label>
-                                <select class="controls float-right">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">1 person</option>
-                                    <option value="2">2 persons</option>
-                                    <option value="3">3 persons</option>
-                                    <option value="4">4 persons</option>
-                                </select>
-                            </div>
-                        </div>
                     </form>
                     <a href="Confirmation.html">
                         <button class="button button1">Submit</button>
@@ -90,4 +87,34 @@
         $("#nav-placeholder").load("nav-bar.jsp");
     });
 </script>
+
+<script>
+    $(document).ready(function () {
+
+
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            multidate: true,
+            daysOfWeekDisabled: [0, 6],
+            clearBtn: true,
+            todayHighlight: true,
+            daysOfWeekHighlighted: [1, 2, 3, 4, 5],
+            startDate: 'now',
+            endDate: '+6d',
+            datesDisabled: '+6d',
+            weekStart: 1
+        });
+
+        $('.datepicker').on('changeDate', function(evt) {
+            console.log(evt.date);
+        });
+
+        $('.btn').on('click', function() {
+            var the_date = $('.datepicker:first').datepicker('getDates');
+            console.log(the_date);
+        });
+
+    });
+</script>
+
 </html>
