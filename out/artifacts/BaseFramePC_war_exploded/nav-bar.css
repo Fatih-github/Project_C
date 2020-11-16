@@ -1,0 +1,13 @@
+.navbar {
+    padding: 0.8rem;
+    font-size: 30px;
+}
+
+.navbar-nav li {
+    padding-right: 10px;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+}
+

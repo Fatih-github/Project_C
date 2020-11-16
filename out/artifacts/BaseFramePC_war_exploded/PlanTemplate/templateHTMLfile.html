@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <meta name="google-signin-client_id" content="621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <link rel = "stylesheet" type = "text/css" href="PlanTemplate/templateCSSfile.css"/>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        <div class="card border-0 shadow my-5">
+            <div class="card-body p-5">
+                <div class="container-form">
+                    <form action="#">
+                        <h2 class="heading">Reserve Online</h2>
+
+                        <div class="form-field">
+                            <p>Your Name</p>
+                            <input type="text" placeholder="Your Name">
+                        </div>
+                        <div class="form-field">
+                            <p>Your email</p>
+                            <input type="email" placeholder="Your email">
+                        </div>
+                        <div class="form-field">
+                            <p>Date</p>
+                            <input type="date">
+                        </div>
+                        <div class="form-field">
+                            <p>Time</p>
+                            <select>
+                                <option value="1">09:00 - 13:00 (morning)</option>
+                                <option value="2">13:00 - 17:00 (afternoon)</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <p>How many people?</p>
+                            <select name="select" id="#">
+
+                                <option value="1">1 person</option>
+                                <option value="2">2 persons</option>
+                                <option value="3">3 persons</option>
+                                <option value="4">4 persons</option>
+                            </select>
+                        </div>
+                    </form>
+                    <a href="Confirmation.html">
+                        <button class="button button1">Submit</button>
+                    </a>
+                </div>
+                <div style="height: 500px"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function(){
+        $("#nav-placeholder").load("nav-bar.jsp");
+    });
+</script>
+</html>
