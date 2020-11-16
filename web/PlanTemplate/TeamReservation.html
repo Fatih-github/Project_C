@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!--Font-->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,900" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
+
 </head>
 <div class="container">
     <div class="card-body p-5">
@@ -48,10 +56,11 @@
                     <div class="control-group">
                         <label class="control-label"><b>Date</b></label>
                         <div class="controls float-right">
-                            <input type="checkbox" id="checkboxG1" class="css-checkbox" />
+                            <div class="datepicker" data-date-format="mm/dd/yyyy"></div>
                         </div>
                     </div>
                 </div>
+
                 <div class="form-horizontal">
                     <div class="control-group">
                         <label class="control-label"><b>Time</b></label>
@@ -85,4 +94,33 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+
+
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            multidate: true,
+            daysOfWeekDisabled: [0, 6],
+            clearBtn: true,
+            todayHighlight: true,
+            daysOfWeekHighlighted: [1, 2, 3, 4, 5],
+            startDate: 'now',
+            endDate: '+6d',
+            datesDisabled: '+6d',
+            weekStart: 1
+        });
+
+        $('.datepicker').on('changeDate', function(evt) {
+            console.log(evt.date);
+        });
+
+        $('.btn').on('click', function() {
+            var the_date = $('.datepicker:first').datepicker('getDates');
+            console.log(the_date);
+        });
+
+    });
+</script>
 </html>
