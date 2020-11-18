@@ -37,11 +37,11 @@
     <%
         String name = request.getParameter("name");
         String id_token = request.getParameter("id_token");
-        String email = request.getParameter("email");
+        String Email = request.getParameter("email");
 
         System.out.println("user: " + name);
         System.out.println("id_token: " + id_token);
-        System.out.println("email: " + email);
+        System.out.println("email: " + Email);
         Connection database = null;
         Statement st = null;
         try {
@@ -50,7 +50,7 @@
                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                             "BaseFramePC", "none");
             st = database.createStatement();
-            String sql = "select * from loginattempts where loginname='Fatih' limit 10";
+            String sql = "select * from loginattempts where email=Email order by attime limit 10";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 %>
