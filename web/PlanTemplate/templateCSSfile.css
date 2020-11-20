@@ -114,3 +114,12 @@ select {
     color: black;
     border: 2px solid #000000;
 }
+
+.form-check{
+    float: right;
+}
+
+.time-label{
+    margin-right: 5px;
+}
+

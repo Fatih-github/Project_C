@@ -132,7 +132,17 @@ select {
     color: white;
 }
 
+.form-check{
+    float: right;
+}
 
+.form-check-input{
+    float: right;
+}
+
+.form-check-label{
+    float: right;
+}
 
 .checkcheck{
     float: right;

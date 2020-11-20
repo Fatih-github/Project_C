@@ -35,14 +35,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Merge reservationtest with master">
-      <change afterPath="$PROJECT_DIR$/web/PlanTemplate/IndividualFile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/PlanTemplate/TeamFile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-11-2020_09_28__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16-11-2020_09_28__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-11-2020_21_26__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-11-2020_21_26__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletInvitations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletPlan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletReservations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletTemplate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/PlanTemplate/Confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/Confirmation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PlanTemplate/IndividualReservation.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/IndividualReservation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanTemplate/TeamReservation.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/TeamReservation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/PlanTemplate/style1.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/style1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PlanTemplate/templateCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/templateCSSfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,17 +111,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="BaseFramePC" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -362,5 +354,9 @@
     <state x="-1181" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1605515830726" />
     <state x="-1181" y="232" key="git4idea.branch.GitSmartOperationDialog/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605515830726" />
     <state x="739" y="232" key="git4idea.branch.GitSmartOperationDialog/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605515830726" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1605898936423">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1605898936423" />
   </component>
 </project>
