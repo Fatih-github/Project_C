@@ -16,6 +16,11 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+
     <meta name="google-signin-client_id" content="621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
@@ -51,14 +56,44 @@
                             </div>
                         </div>
 
-                        <div class="form-horizontal">
-                            <div class="control-group">
-                                <label class="control-label"><b>Date (choose 1 or more day(s))</b></label>
-                                <div class="controls float-right">
-                                    <div class="datepicker" data-date-format="mm/dd/yyyy"></div>
+
+                        <div class="control-group">
+                            <label class="control-label"><b>Date</b></label>
+                            <div class="card border-0">
+                                <div class="row px-3">
+                                    <div class="col-sm-2"> <label class="text-grey mt-1 mb-3">Day</label> </div>
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3"> <select class="mb-2 mob">
+                                            <option id="opt1">Mon</option>
+                                            <option id="opt2">Tue</option>
+                                            <option id="opt3">Wed</option>
+                                            <option id="opt4">Thu</option>
+                                            <option id="opt5">Fri</option>
+                                        </select>
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select class="mob mb-2">
+                                                    <option id="Time1">Morning</option>
+                                                    <option id="Time2">Afternoon</option>
+                                                    <option id="Time3">Entire day</option>
+                                                    </select>
+                                            </div>
+                                            <div class="mt-1 cancel fa fa-times text-danger"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row px-3 mt-3">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-10">
+                                        <div class="row px-3">
+                                            <div class="fa fa-plus-circle text-success add"></div>
+                                            <p class="text-success ml-3 add">Add</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="form-horizontal">
                             <div class="control-group">
@@ -92,34 +127,7 @@
     });
 </script>
 
-<script>
-    $(document).ready(function () {
 
-
-        $('.datepicker').datepicker({
-            format: 'mm/dd/yyyy',
-            multidate: true,
-            daysOfWeekDisabled: [0, 6],
-            clearBtn: true,
-            todayHighlight: true,
-            daysOfWeekHighlighted: [1, 2, 3, 4, 5],
-            startDate: 'now',
-            endDate: '+7d',
-            datesDisabled: '+7d',
-            weekStart: 1
-        });
-
-        $('.datepicker').on('changeDate', function(evt) {
-            console.log(evt.date);
-        });
-
-        $('.btn').on('click', function() {
-            var the_date = $('.datepicker:first').datepicker('getDates');
-            console.log(the_date);
-        });
-
-    });
-</script>
 
 <script>
     function displayResult() {
@@ -131,6 +139,42 @@
         console.log(cb2.checked);
 
     }
+</script>
+
+<script>
+    $(document).ready(function(){
+
+        $('.add').click(function(){
+            $(".list").append(
+                '<div class="mb-2 row justify-content-between px-3">' +
+                '<select class="mob mb-2">' +
+                '<option id="opt1">Mon</option>' +
+                '<option id="opt2">Tue</option>' +
+                '<option id="opt3">Wed</option>' +
+                '<option id="opt4">Thu</option>' +
+                '<option id="opt5">Fri</option>' +
+                '</select>' +
+
+                '<div class="mob">' +
+                '<label class="text-grey mr-1">Session</label>' +
+                '<select class="mob mb-2">' +
+                '<option id="Time1">Morning</option>' +
+                '<option id="Time2">Afternoon</option>' +
+                '<option id="Time3">Entire day</option>' +
+                '</select>' +
+                '</div>' +
+
+                '<div class="mt-1 cancel fa fa-times text-danger">' +
+                '</div>' +
+                '</div>');
+        });
+
+        $(".list").on('click', '.cancel', function(){
+            $(this).parent().remove();
+        });
+
+    });
+
 </script>
 
 </html>
