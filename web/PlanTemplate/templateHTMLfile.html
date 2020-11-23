@@ -106,6 +106,72 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1">Day</label>
+                                            <select id="day3" class="mb-2 mob">
+                                                <option value="mon">Mon</option>
+                                                <option value="tue">Tue</option>
+                                                <option value="wed">Wed</option>
+                                                <option value="thu">Thu</option>
+                                                <option value="fri">Fri</option>
+                                            </select>
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select id="session3" class="mob mb-2">
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1">Day</label>
+                                            <select id="day4" class="mb-2 mob">
+                                                <option value="mon">Mon</option>
+                                                <option value="tue">Tue</option>
+                                                <option value="wed">Wed</option>
+                                                <option value="thu">Thu</option>
+                                                <option value="fri">Fri</option>
+                                            </select>
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select id="session4" class="mob mb-2">
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1">Day</label>
+                                            <select id="day5" class="mb-2 mob">
+                                                <option value="mon">Mon</option>
+                                                <option value="tue">Tue</option>
+                                                <option value="wed">Wed</option>
+                                                <option value="thu">Thu</option>
+                                                <option value="fri">Fri</option>
+                                            </select>
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select id="session5" class="mob mb-2">
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -139,44 +205,15 @@
         console.log(document.getElementById('session').value);
         console.log(document.getElementById('day2').value);
         console.log(document.getElementById('session2').value);
-
+        console.log(document.getElementById('day3').value);
+        console.log(document.getElementById('session3').value);
+        console.log(document.getElementById('day4').value);
+        console.log(document.getElementById('session4').value);
+        console.log(document.getElementById('day5').value);
+        console.log(document.getElementById('session5').value);
     }
 </script>
 
-<script>
-    $(document).ready(function(){
 
-        $('.add').click(function(){
-            $(".list").append(
-                '<div class="mb-2 row justify-content-between px-3">' +
-                '<select id="dayAdd" class="mob mb-2">' +
-                '<option value="mon">Mon</option>' +
-                '<option value="tue">Tue</option>' +
-                '<option value="wed">Wed</option>' +
-                '<option value="thu">Thu</option>' +
-                '<option value="fri">Fri</option>' +
-                '</select>' +
-
-                '<div class="mob">' +
-                '<label class="text-grey mr-1">Session</label>' +
-                '<select id="sessionAdd" class="mob mb-2">' +
-                '<option value="morning">Morning</option>' +
-                '<option value="afternoon">Afternoon</option>' +
-                '<option value="day">Entire day</option>' +
-                '</select>' +
-                '</div>' +
-
-                '<div class="mt-1 cancel fa fa-times text-danger">' +
-                '</div>' +
-                '</div>');
-        });
-
-        $(".list").on('click', '.cancel', function(){
-            $(this).parent().remove();
-        });
-
-    });
-
-</script>
 
 </html>
