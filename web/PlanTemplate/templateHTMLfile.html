@@ -61,50 +61,52 @@
                             <label class="control-label"><b>Date</b></label>
                             <div class="card border-0">
                                 <div class="row px-3">
-                                    <div class="col-sm-2"> <label class="text-grey mt-1 mb-3">Day</label> </div>
                                     <div class="col-sm-10 list">
-                                        <div class="mb-2 row justify-content-between px-3"> <select class="mb-2 mob">
-                                            <option id="opt1">Mon</option>
-                                            <option id="opt2">Tue</option>
-                                            <option id="opt3">Wed</option>
-                                            <option id="opt4">Thu</option>
-                                            <option id="opt5">Fri</option>
-                                        </select>
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1">Day</label>
+                                            <select id="day" class="mb-2 mob">
+                                                <option value="mon">Mon</option>
+                                                <option value="tue">Tue</option>
+                                                <option value="wed">Wed</option>
+                                                <option value="thu">Thu</option>
+                                                <option value="fri">Fri</option>
+                                            </select>
+
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Session</label>
-                                                <select class="mob mb-2">
-                                                    <option id="Time1">Morning</option>
-                                                    <option id="Time2">Afternoon</option>
-                                                    <option id="Time3">Entire day</option>
+                                                <select id="session" class="mob mb-2">
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
                                                     </select>
                                             </div>
-                                            <div class="mt-1 cancel fa fa-times text-danger"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row px-3 mt-3">
-                                    <div class="col-sm-2"></div>
-                                    <div class="col-sm-10">
-                                        <div class="row px-3">
-                                            <div class="fa fa-plus-circle text-success add"></div>
-                                            <p class="text-success ml-3 add">Add</p>
+
+
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1">Day</label>
+                                            <select id="day2" class="mb-2 mob">
+                                                <option value="mon">Mon</option>
+                                                <option value="tue">Tue</option>
+                                                <option value="wed">Wed</option>
+                                                <option value="thu">Thu</option>
+                                                <option value="fri">Fri</option>
+                                            </select>
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select id="session2" class="mob mb-2">
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
-                            </div>
-                        </div>
-
-
-                        <div class="form-horizontal">
-                            <div class="control-group">
-                                <label class="control-label"><b>Time</b></label>
-                            </div>
-                            <div class="form-check">
-                                <label class="time-label" for="timeslot1"> 09:00 - 13:00 (Morning)</label>
-                                <input class="pull-right" type="checkbox" id="timeslot1"name="timeslot1" value="Morning">
-                                <br>
-                                <label class="time-label" for="timeslot2"> 13:00 - 17:00 (Afternoon)</label>
-                                <input class="pull-right" type="checkbox" id="timeslot2"name="timeslot2" value="Evening">
 
                             </div>
                         </div>
@@ -133,10 +135,10 @@
     function displayResult() {
         console.log(document.getElementById('inputName').value);
         console.log(document.getElementById('inputMail').value);
-        const cb = document.getElementById('timeslot1');
-        console.log(cb.checked);
-        const cb2 = document.getElementById('timeslot2');
-        console.log(cb2.checked);
+        console.log(document.getElementById('day').value);
+        console.log(document.getElementById('session').value);
+        console.log(document.getElementById('day2').value);
+        console.log(document.getElementById('session2').value);
 
     }
 </script>
@@ -147,20 +149,20 @@
         $('.add').click(function(){
             $(".list").append(
                 '<div class="mb-2 row justify-content-between px-3">' +
-                '<select class="mob mb-2">' +
-                '<option id="opt1">Mon</option>' +
-                '<option id="opt2">Tue</option>' +
-                '<option id="opt3">Wed</option>' +
-                '<option id="opt4">Thu</option>' +
-                '<option id="opt5">Fri</option>' +
+                '<select id="dayAdd" class="mob mb-2">' +
+                '<option value="mon">Mon</option>' +
+                '<option value="tue">Tue</option>' +
+                '<option value="wed">Wed</option>' +
+                '<option value="thu">Thu</option>' +
+                '<option value="fri">Fri</option>' +
                 '</select>' +
 
                 '<div class="mob">' +
                 '<label class="text-grey mr-1">Session</label>' +
-                '<select class="mob mb-2">' +
-                '<option id="Time1">Morning</option>' +
-                '<option id="Time2">Afternoon</option>' +
-                '<option id="Time3">Entire day</option>' +
+                '<select id="sessionAdd" class="mob mb-2">' +
+                '<option value="morning">Morning</option>' +
+                '<option value="afternoon">Afternoon</option>' +
+                '<option value="day">Entire day</option>' +
                 '</select>' +
                 '</div>' +
 
