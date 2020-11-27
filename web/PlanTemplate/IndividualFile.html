@@ -20,6 +20,9 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <link rel = "stylesheet" href="templateCSSfile.css"/>
+
+    <script src="Resources/index.js"></script>
+
 </head>
 
 <body>
@@ -27,7 +30,7 @@
 
 <div class="container">
     <div class="card-body p-5">
-        <div class="container-form">
+        <div class="container-form" id="form">
 
 
             <a href="IndividualFile.html">
@@ -40,7 +43,6 @@
             </a>
 
 
-
             <form action="#">
                 <h2 class="heading">Reserve as an individual</h2>
 
@@ -48,7 +50,7 @@
                     <div class="control-group">
                         <label class="control-label"><b>Name</b></label>
                         <div class="controls float-right">
-                            <input type="Name" class="form-control" id="inputName" placeholder="Your Name">
+                            <input type="Name" class="form-control" id="inputName" placeholder="Your Name" id="name">
                         </div>
                     </div>
                 </div>
@@ -57,7 +59,7 @@
                     <div class="control-group">
                         <label class="control-label"><b>Email</b></label>
                         <div class="controls float-right">
-                            <input type="Email" class="form-control" id="inputMail" placeholder="Your Email">
+                            <input type="Email" class="form-control" id="inputMail" placeholder="Your Email" id="email">
                         </div>
                     </div>
                 </div>
@@ -76,9 +78,9 @@
                         <label class="control-label"><b>Time</b></label>
                     </div>
                     <div class="checkcheck">
-                        <input type="checkbox" id="timeslot1"name="timeslot1" value="Morning">
+                        <input type="checkbox" id="timeslot1"name="timeslot1" value="Morning" id="morning">
                         <label for="timeslot1"> 09:00 - 13:00 (Morning)</label><br>
-                        <input type="checkbox" id="timeslot2"name="timeslot2" value="Evening">
+                        <input type="checkbox" id="timeslot2"name="timeslot2" value="Evening" id="evening">
                         <label for="timeslot1"> 13:00 - 17:00 (Afternoon)</label>
 
                     </div>
@@ -86,8 +88,8 @@
                 <br>
 
             </form>
-            <a href="Confirmation.html">
-                <button class="btn">Submit</button>
+
+                <button class="btn" id="confirm">Submit</button>
             </a>
         </div>
         <div style="height: 500px"></div>

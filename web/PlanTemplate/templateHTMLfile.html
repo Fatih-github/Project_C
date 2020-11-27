@@ -25,6 +25,10 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <link rel = "stylesheet" href="templateCSSfile.css"/>
+
+
+
+
 </head>
 
 <body>
@@ -55,6 +59,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
 
 
                         <div class="control-group">
@@ -172,10 +177,76 @@
                                         </div>
                                     </div>
 
+
+
                                 </div>
 
                             </div>
+                            <br>
+
+
                         </div>
+                        <!-- Begin van de code voor de stoelen -->
+
+                        <div class="control-group">
+                        <div class="container2">
+                            <label class="control-label"><b>Seats</b></label>
+
+                            <div class="row2">
+                                <div class="seat" id="seat1"></div>
+                                <div class="seat" id="seat2"></div>
+                                <div class="seat" id="seat3"></div>
+                                <div class="seat" id="seat4"></div>
+                                <div class="seat" id="seat5"></div>
+                                <div class="seat" id="seat6"></div>
+                                <div class="seat" id="seat7"></div>
+                                <div class="seat" id="seat8"></div>
+                            </div>
+
+                            <p id = "GFG_DOWN" style =
+                                    "font-size: 24px; font-weight: bold; color: green;">
+                            </p>
+
+
+                            <script>
+                                function storeid(){
+                                    var className = document.getElementsByClassName('seat');
+                                    var classnameCount = className.length;
+                                    window.IdStore = new Array();
+                                    for(var j = 0; j < classnameCount; j++){
+                                        debugger;
+                                        IdStore.push(className[j].id);
+                                    }
+                                }
+                                storeid();
+
+                                function shuffle(IdStore) {
+                                    for (let i = IdStore.length - 1; i > 0; i--) {
+                                        const j = Math.floor(Math.random() * (i + 1));
+                                        [IdStore[i], IdStore[j]] = [IdStore[j], IdStore[i]];
+                                    }
+                                }
+
+                                shuffle(IdStore);
+
+                                function GFG_Fun() {
+                                        console.log(IdStore[Math.floor(Math.random() * IdStore.length)]);}
+
+
+                            </script>
+
+
+                            <button class="button button1" onclick = "GFG_Fun()"> Check for seats</button>
+
+                            <!-- Einde van de code voor de stoelen -->
+
+                            </div>
+                        </div>
+                        </div>
+                        <br>
+
+
+
 
                     </form>
                     <button onclick="displayResult()">Change text</button>
@@ -211,6 +282,7 @@
         console.log(document.getElementById('session4').value);
         console.log(document.getElementById('day5').value);
         console.log(document.getElementById('session5').value);
+
     }
 </script>
 
