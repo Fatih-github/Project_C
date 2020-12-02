@@ -80,9 +80,6 @@
                 console.log("nummer 4: " + Bool);
               }
               if (Bool === true) {
-
-
-
                   //send user details to server
                 var redirectUrl = 'login';
                 //using jquery to post data dynamically
@@ -90,11 +87,10 @@
                         '<input type="text" name="id_token" value="' + googleUser.getAuthResponse().id_token + '" />' +
                         '<input type="text" name="name" value="' + googleUser.getBasicProfile().getGivenName() + '" />' +
                         '<input type="text" name="email" value="' + googleUser.getBasicProfile().getEmail() + '" />' +
+                        '<input type="text" name="image" value="' + googleUser.getBasicProfile().getImageUrl() + '" />' +
                         '</form>');
                 $('body').append(form);
                 form.submit();
-
-
               }
           });
       });

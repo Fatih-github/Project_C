@@ -60,4 +60,25 @@
         <url-pattern>/linkHome</url-pattern>
     </servlet-mapping>
 
+    <!--Fires when delete reservation button is clicked-->
+    <servlet>
+        <servlet-name>ServletDeleteReservations</servlet-name>
+        <servlet-class>ServletDeleteReservations</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletDeleteReservations</servlet-name>
+        <url-pattern>/linkDeleteReservations</url-pattern>
+    </servlet-mapping>
+
+    <!--Fires when update reservation button is clicked-->
+    <servlet>
+        <servlet-name>ServletUpdateReservations</servlet-name>
+        <servlet-class>ServletUpdateReservations</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletUpdateReservations</servlet-name>
+        <url-pattern>/linkUpdateReservations</url-pattern>
+    </servlet-mapping>
 </web-app>

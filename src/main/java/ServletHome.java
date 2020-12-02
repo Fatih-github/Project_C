@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public class ServletHome extends HttpServlet{
 
-
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         RequestDispatcher view = req.getRequestDispatcher("LoginTemplate/templateHTMLfile.html");
         view.forward(req, res);

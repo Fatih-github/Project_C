@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -35,12 +37,8 @@
         </thead>
 
     <%
-        String name = request.getParameter("name");
-        String id_token = request.getParameter("id_token");
         String Email = request.getParameter("email");
 
-        System.out.println("user: " + name);
-        System.out.println("id_token: " + id_token);
         System.out.println("email: " + Email);
         Connection database = null;
         Statement st = null;
@@ -50,7 +48,7 @@
                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                             "BaseFramePC", "none");
             st = database.createStatement();
-            String sql = "select * from loginattempts where email=Email order by attime limit 10";
+            String sql = "select * from loginattempts where email='" + Email + "' order by attime limit 10";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 %>
@@ -60,10 +58,10 @@
                         <td class="table"><%=rs.getString("email")%></td>
                         <td class="table"><%=rs.getString("loginname")%></td>
                         <td class="table">
-                            <a href="${pageContext.request.contextPath}/linkHome"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <a onclick="onUpdate()" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         </td>
                         <td class="table">
-                            <a href="${pageContext.request.contextPath}/linkHome"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <a onclick="onDelete()" style="color: #007bff; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                 </tbody>
@@ -85,14 +83,55 @@
         $("#nav-placeholder").load("nav-bar.jsp");
     });
 
-    $("tr.table").click(function() {
-        var tableData = $(this).children("td").map(function() {
-            return $(this).text();
-        }).get();
+    function onDelete() {
+        var tableData;
 
-        alert($.trim(tableData[0]) + " , " + $.trim(tableData[1]));
-        //call servlet here (with ajax)
-    });
+        $("tr.table").click(function () {
+            tableData = $(this).children("td").map(function () {
+                return $(this).text();
+            }).get();
+        });
 
+        $.confirm({
+            title: 'Delete Reservation',
+            content: 'Are you sure you want to delete this reservation?',
+            buttons: {
+                confirm: function () {
+                    var redirectUrl = 'linkDeleteReservations';
+                    //using jquery to post data dynamically
+                    var form = $('<form action="' + redirectUrl + '" method="post">' +
+                        '<input type="text" name="time" value="' + tableData[0] + '" />' +
+                        '<input type="text" name="email" value="' + tableData[1] + '" />' +
+                        '<input type="text" name="name" value="' + tableData[2] + '" />' +
+                        '</form>');
+                    $('body').append(form);
+                    form.submit();
+                },
+                cancel: function () {
+
+                }
+            }
+        });
+    }
+
+    function onUpdate() {
+        $("tr.table").click(function () {
+            var tableData = $(this).children("td").map(function () {
+                return $(this).text();
+            }).get();
+
+            // alert($.trim(tableData[0]) + " , " + $.trim(tableData[1]) + ", " + $.trim(tableData[2]));
+
+            var redirectUrl = 'linkUpdateReservations';
+            //using jquery to post data dynamically
+            var form = $('<form action="' + redirectUrl + '" method="post">' +
+                '<input type="text" name="time" value="' + tableData[0] + '" />' +
+                '<input type="text" name="email2" value="' + tableData[1] + '" />' +
+                '<input type="text" name="name" value="' + tableData[2] + '" />' +
+                '</form>');
+            $('body').append(form);
+            form.submit();
+        });
+    }
 </script>
 </html>

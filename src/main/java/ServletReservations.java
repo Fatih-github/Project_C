@@ -8,13 +8,7 @@ import java.io.PrintWriter;
 import java.sql.*;
 
 public class ServletReservations extends HttpServlet{
-
-
-
-
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-
-
         String email = req.getParameter("email");
         ResultSet rs = DatabaseManager.getResultsFromQuery("select * from logintable where logintable_emailaddress='"+ email +"' limit 10");
         req.setAttribute("results", rs);
@@ -32,12 +26,7 @@ public class ServletReservations extends HttpServlet{
             e.printStackTrace();
         }
 
-
-
         System.out.println(email + " sent reservations request to ReservationServlet");
-
-
-
 
         RequestDispatcher view = req.getRequestDispatcher("ReservationsTemplate/templateHTMLfile.jsp");
         view.forward(req, res);

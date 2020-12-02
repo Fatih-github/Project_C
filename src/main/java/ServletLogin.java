@@ -12,44 +12,24 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class ServletLogin extends HttpServlet{
-
-
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-
         DatabaseManager.setup();
-
-
         System.out.println("ServletLogin service");
 
-
-
         try {
-
             String name = req.getParameter("name");
             String id_token = req.getParameter("id_token");
             String email = req.getParameter("email");
-
 
             System.out.println(email + " logged in with token " + id_token);
 
             //DatabaseManager.logLoginAttempt(name, email);
             DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
-
         } catch (Exception e) {
-
-
             System.out.println("ServletLogin encountered failed login attempt");
-
             //throw new RuntimeException(e);
         }
-
         RequestDispatcher view = req.getRequestDispatcher("LoginTemplate/templateHTMLfile.html");
         view.forward(req, res);
-
     }
-
-
-
-
-
 }
