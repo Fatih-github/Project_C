@@ -69,17 +69,14 @@
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
                                             <label class="text-grey mr-1">Day</label>
-                                            <select id="day" class="mb-2 mob">
+                                            <select id="day" class="mb-2 mob" disabled>
                                                 <option value="mon">Mon</option>
-                                                <option value="tue">Tue</option>
-                                                <option value="wed">Wed</option>
-                                                <option value="thu">Thu</option>
-                                                <option value="fri">Fri</option>
                                             </select>
 
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Session</label>
                                                 <select id="session" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
                                                     <option value="morning">Morning</option>
                                                     <option value="afternoon">Afternoon</option>
                                                     <option value="day">Entire day</option>
@@ -92,17 +89,14 @@
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
                                             <label class="text-grey mr-1">Day</label>
-                                            <select id="day2" class="mb-2 mob">
-                                                <option value="mon">Mon</option>
+                                            <select id="day2" class="mb-2 mob" disabled>
                                                 <option value="tue">Tue</option>
-                                                <option value="wed">Wed</option>
-                                                <option value="thu">Thu</option>
-                                                <option value="fri">Fri</option>
                                             </select>
 
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Session</label>
                                                 <select id="session2" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
                                                     <option value="morning">Morning</option>
                                                     <option value="afternoon">Afternoon</option>
                                                     <option value="day">Entire day</option>
@@ -114,17 +108,14 @@
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
                                             <label class="text-grey mr-1">Day</label>
-                                            <select id="day3" class="mb-2 mob">
-                                                <option value="mon">Mon</option>
-                                                <option value="tue">Tue</option>
+                                            <select id="day3" class="mb-2 mob" disabled>
                                                 <option value="wed">Wed</option>
-                                                <option value="thu">Thu</option>
-                                                <option value="fri">Fri</option>
                                             </select>
 
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Session</label>
                                                 <select id="session3" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
                                                     <option value="morning">Morning</option>
                                                     <option value="afternoon">Afternoon</option>
                                                     <option value="day">Entire day</option>
@@ -136,17 +127,14 @@
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
                                             <label class="text-grey mr-1">Day</label>
-                                            <select id="day4" class="mb-2 mob">
-                                                <option value="mon">Mon</option>
-                                                <option value="tue">Tue</option>
-                                                <option value="wed">Wed</option>
+                                            <select id="day4" class="mb-2 mob" disabled>
                                                 <option value="thu">Thu</option>
-                                                <option value="fri">Fri</option>
                                             </select>
 
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Session</label>
                                                 <select id="session4" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
                                                     <option value="morning">Morning</option>
                                                     <option value="afternoon">Afternoon</option>
                                                     <option value="day">Entire day</option>
@@ -158,17 +146,14 @@
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
                                             <label class="text-grey mr-1">Day</label>
-                                            <select id="day5" class="mb-2 mob">
-                                                <option value="mon">Mon</option>
-                                                <option value="tue">Tue</option>
-                                                <option value="wed">Wed</option>
-                                                <option value="thu">Thu</option>
+                                            <select id="day5" class="mb-2 mob" disabled>
                                                 <option value="fri">Fri</option>
                                             </select>
 
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Session</label>
                                                 <select id="session5" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
                                                     <option value="morning">Morning</option>
                                                     <option value="afternoon">Afternoon</option>
                                                     <option value="day">Entire day</option>
@@ -203,9 +188,7 @@
                                 <div class="seat" id="seat8"></div>
                             </div>
 
-                            <p id = "GFG_DOWN" style =
-                                    "font-size: 24px; font-weight: bold; color: green;">
-                            </p>
+
 
 
                             <script>
@@ -214,7 +197,7 @@
                                     var classnameCount = className.length;
                                     window.IdStore = new Array();
                                     for(var j = 0; j < classnameCount; j++){
-                                        debugger;
+                                        <!--debugger;-->
                                         IdStore.push(className[j].id);
                                     }
                                 }
@@ -249,11 +232,11 @@
 
 
                     </form>
-                    <button onclick="displayResult()">Change text</button>
-
                     <a href="Confirmation.html">
                         <button class="button button1">Submit</button>
                     </a>
+
+                    <button onclick="displayResult()">Change text</button>
                 </div>
                 <div style="height: 500px"></div>
             </div>
@@ -270,18 +253,33 @@
 
 <script>
     function displayResult() {
-        console.log(document.getElementById('inputName').value);
-        console.log(document.getElementById('inputMail').value);
-        console.log(document.getElementById('day').value);
-        console.log(document.getElementById('session').value);
-        console.log(document.getElementById('day2').value);
-        console.log(document.getElementById('session2').value);
-        console.log(document.getElementById('day3').value);
-        console.log(document.getElementById('session3').value);
-        console.log(document.getElementById('day4').value);
-        console.log(document.getElementById('session4').value);
-        console.log(document.getElementById('day5').value);
-        console.log(document.getElementById('session5').value);
+        if (document.getElementById('inputName').value) {
+            console.log(document.getElementById('inputName').value);
+        }
+        if (document.getElementById('inputMail').value) {
+            console.log(document.getElementById('inputMail').value);
+        }
+        if (document.getElementById('session').value){
+            console.log(document.getElementById('day').value);
+            console.log(document.getElementById('session').value);
+        }
+        if (document.getElementById('session2').value){
+            console.log(document.getElementById('day2').value);
+            console.log(document.getElementById('session2').value);
+        }
+        if (document.getElementById('session3').value){
+            console.log(document.getElementById('day3').value);
+            console.log(document.getElementById('session3').value);
+        }
+        if (document.getElementById('session4').value){
+            console.log(document.getElementById('day4').value);
+            console.log(document.getElementById('session4').value);
+        }
+        if (document.getElementById('session5').value){
+            console.log(document.getElementById('day5').value);
+            console.log(document.getElementById('session5').value);
+        }
+
 
     }
 </script>

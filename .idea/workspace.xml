@@ -34,14 +34,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Er wordt nu een random seat gelogd wanneer er op de knop &quot;Check for seats&quot; wordt gedrukt.">
-      <change afterPath="$PROJECT_DIR$/web/PlanTemplate/Resources/index.js" afterDir="false" />
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Kalendar + console log">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanTemplate/IndividualFile.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/IndividualFile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanTemplate/IndividualReservation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanTemplate/TeamReservation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanTemplate/style1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanTemplate/templateCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/templateCSSfile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +69,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -217,6 +211,7 @@
       <workItem from="1606121668346" duration="6405000" />
       <workItem from="1606380671931" duration="2538000" />
       <workItem from="1606466034666" duration="998000" />
+      <workItem from="1606642848807" duration="7079000" />
     </task>
     <task id="LOCAL-00001" summary="Merge reservationtest with master">
       <created>1605515887878</created>
