@@ -81,6 +81,8 @@ select {
     box-shadow: 10px 12px 15px rgba(0, 0, 0, .3);
 }
 
+
+
 .button {
     border: none;
     color: white;
@@ -163,6 +165,13 @@ select {
     font-size: 14px;
     letter-spacing: 1px;
     text-align: center !important
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 input:focus,

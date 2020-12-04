@@ -35,7 +35,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Dagen kiezen">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" afterDir="false" />
     </list>
