@@ -68,7 +68,7 @@
                                 <div class="row px-3">
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
-                                            <label class="text-grey mr-1">Mon:</label>
+                                            <label class="text-grey mr-1" id="Mon" value="Mon">Mon:</label>
 
 
                                             <div class="mob">
@@ -85,11 +85,11 @@
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Seat</label>
                                                 <select id="seats" class="mob mb-2">
-                                                    <option value="morning">Seat1</option>
-                                                    <option value="afternoon">Seat2</option>
-                                                    <option value="day">Seat3</option>
-                                                    <option value="afternoon">Seat4</option>
-                                                    <option value="day">Seat5</option>
+                                                    <option value="MonS1">Seat1</option>
+                                                    <option value="MonS2">Seat2</option>
+                                                    <option value="MonS3">Seat3</option>
+                                                    <option value="MonS4">Seat4</option>
+                                                    <option value="MonS5">Seat5</option>
                                                 </select>
                                             </div>
 
@@ -100,7 +100,7 @@
 
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
-                                            <label class="text-grey mr-1">Tue:</label>
+                                            <label class="text-grey mr-1" id="Tue" value="Tue">Tue:</label>
 
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Session</label>
@@ -114,11 +114,11 @@
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Seat</label>
                                                 <select id="seats2" class="mob mb-2">
-                                                    <option value="morning">Seat1</option>
-                                                    <option value="afternoon">Seat2</option>
-                                                    <option value="day">Seat3</option>
-                                                    <option value="afternoon">Seat4</option>
-                                                    <option value="day">Seat5</option>
+                                                    <option value="TueS1">Seat1</option>
+                                                    <option value="TueS2">Seat2</option>
+                                                    <option value="TueS3">Seat3</option>
+                                                    <option value="TueS4">Seat4</option>
+                                                    <option value="TueS5">Seat5</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -126,7 +126,7 @@
 
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
-                                            <label class="text-grey mr-1">Wed:</label>
+                                            <label class="text-grey mr-1" id="Wed" value="Wed">Wed:</label>
 
 
                                             <div class="mob">
@@ -142,11 +142,11 @@
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Seat</label>
                                                 <select id="seats3" class="mob mb-2">
-                                                    <option value="morning">Seat1</option>
-                                                    <option value="afternoon">Seat2</option>
-                                                    <option value="day">Seat3</option>
-                                                    <option value="afternoon">Seat4</option>
-                                                    <option value="day">Seat5</option>
+                                                    <option value="WedS1">Seat1</option>
+                                                    <option value="WedS2">Seat2</option>
+                                                    <option value="WedS3">Seat3</option>
+                                                    <option value="WedS4">Seat4</option>
+                                                    <option value="WedS5">Seat5</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -154,7 +154,7 @@
 
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
-                                            <label class="text-grey mr-1">Thu:</label>
+                                            <label class="text-grey mr-1" id="Thu" value="Thu">Thu:</label>
 
 
                                             <div class="mob">
@@ -169,11 +169,11 @@
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Seat</label>
                                                 <select id="seats4" class="mob mb-2">
-                                                    <option value="morning">Seat1</option>
-                                                    <option value="afternoon">Seat2</option>
-                                                    <option value="day">Seat3</option>
-                                                    <option value="afternoon">Seat4</option>
-                                                    <option value="day">Seat5</option>
+                                                    <option value="ThuS1">Seat1</option>
+                                                    <option value="ThuS2">Seat2</option>
+                                                    <option value="ThuS3">Seat3</option>
+                                                    <option value="ThuS4">Seat4</option>
+                                                    <option value="ThuS5">Seat5</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -181,7 +181,7 @@
 
                                     <div class="col-sm-10 list">
                                         <div class="mb-2 row justify-content-between px-3">
-                                            <label class="text-grey mr-1">Fri:</label>
+                                            <label class="text-grey mr-1" id="Fri" value="Fri">Fri:</label>
 
 
                                             <div class="mob">
@@ -196,11 +196,11 @@
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Seat</label>
                                                 <select id="seats5" class="mob mb-2">
-                                                    <option value="morning">Seat1</option>
-                                                    <option value="afternoon">Seat2</option>
-                                                    <option value="day">Seat3</option>
-                                                    <option value="afternoon">Seat4</option>
-                                                    <option value="day">Seat5</option>
+                                                    <option value="FriS1">Seat1</option>
+                                                    <option value="FriS2">Seat2</option>
+                                                    <option value="FriS3">Seat3</option>
+                                                    <option value="FriS4">Seat4</option>
+                                                    <option value="FriS5">Seat5</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -305,24 +305,29 @@
             console.log(document.getElementById('inputMail').value);
         }
         if (document.getElementById('session').value){
-            console.log(document.getElementById('day').value);
+            console.log('Mon');
             console.log(document.getElementById('session').value);
+            console.log(document.getElementById('seats').value);
         }
         if (document.getElementById('session2').value){
-            console.log(document.getElementById('day2').value);
+            console.log('Tue');
             console.log(document.getElementById('session2').value);
+            console.log(document.getElementById('seats2').value);
         }
         if (document.getElementById('session3').value){
-            console.log(document.getElementById('day3').value);
+            console.log('Wed');
             console.log(document.getElementById('session3').value);
+            console.log(document.getElementById('seats3').value);
         }
         if (document.getElementById('session4').value){
-            console.log(document.getElementById('day4').value);
+            console.log('Thu');
             console.log(document.getElementById('session4').value);
+            console.log(document.getElementById('seats4').value);
         }
         if (document.getElementById('session5').value){
-            console.log(document.getElementById('day5').value);
+            console.log('Fri');
             console.log(document.getElementById('session5').value);
+            console.log(document.getElementById('seats5').value);
         }
 
 
