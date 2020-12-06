@@ -9,7 +9,9 @@ import java.io.IOException;
 public class ServletHome extends HttpServlet{
 
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        RequestDispatcher view = req.getRequestDispatcher("LoginTemplate/templateHTMLfile.html");
+        String image = req.getParameter("image");
+        System.out.println("image url: " + image);
+        RequestDispatcher view = req.getRequestDispatcher("LoginTemplate/templateHTMLfile.jsp");
         view.forward(req, res);
     }
 }

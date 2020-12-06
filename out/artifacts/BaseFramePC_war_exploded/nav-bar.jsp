@@ -13,7 +13,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="<%=request.getContextPath()%>/linkHome"><img src="LoginTemplate/Resources/ngti-logo.png" alt="Logo" style="width:50px; height:50px"></a>
+        <a class="navbar-brand" onclick="onHome()" style="cursor: pointer"><img src="LoginTemplate/Resources/ngti-logo.png" alt="Logo" style="width:50px; height:50px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,8 +31,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-<%--                    <img class="nav-link" src="<%=request.getParameter("image")%>" alt="profilePic">--%>
-                    profilePic
+                    <img class="nav-link2" src="<%=session.getAttribute("image")%>" alt="F" style="width: 1.65em; height: 1.65em; margin-top: 0.3em; border-radius: 25px">
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<%=request.getContextPath()%>/index.jsp" onclick="signOut();">Sign out</a>
@@ -68,6 +67,19 @@
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+            '</form>');
+        $('body').append(form);
+        form.submit();
+    }
+
+    function onHome() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        var profile = auth2.currentUser.get().getBasicProfile();
+
+        var redirectUrl = 'linkHome';
+        //using jquery to post data dynamically
+        var form = $('<form action="' + redirectUrl + '" method="post">' +
+            '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();

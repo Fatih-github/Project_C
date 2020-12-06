@@ -1,3 +1,4 @@
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +28,11 @@
             </div>
         </div>
     </div>
+
+    <%
+        String image = request.getParameter("image");
+        session.setAttribute("image", image);
+    %>
 </body>
 
 <script>
