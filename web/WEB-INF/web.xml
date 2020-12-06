@@ -49,4 +49,15 @@
         <url-pattern>/linkInvitations</url-pattern>
     </servlet-mapping>
 
+    <!--Fires when Submit button in reservations is pressed-->
+    <servlet>
+        <servlet-name>ServletBooking</servlet-name>
+        <servlet-class>ServletBooking</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletBooking</servlet-name>
+        <url-pattern>/linkBooking</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -84,6 +84,34 @@
                                             <div class="mob">
                                                 <label class="text-grey mr-1">Seat</label>
                                                 <select id="seats" class="mob mb-2">
+                                                    <%
+                                                    String Email = "0986192@hr.nl";
+
+                                                    System.out.println("email: " + Email);
+                                                    Connection database = null;
+                                                    Statement st = null;
+                                                    try {
+                                                    Class.forName("org.postgresql.Driver");
+                                                    database = DriverManager
+                                                    .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                                    "BaseFramePC", "none");
+                                                    st = database.createStatement();
+                                                    String sql = "select * from loginattempts where email='" + Email + "' order by attime limit 10";
+                                                    ResultSet rs = st.executeQuery(sql);
+                                                    while (rs.next()) {
+
+
+
+                                                    %>
+                                                    <option value="morning"><%=rs.getString("attime")%></option>
+                                                    <%
+                                                    }
+                                                    }
+                                                    catch (Exception ex)
+                                                    {
+                                                    System.out.println("Error: " + ex);
+                                                    }
+                                                    %>
                                                     <option value="MonS1">Seat1</option>
                                                     <option value="MonS2">Seat2</option>
                                                     <option value="MonS3">Seat3</option>
@@ -277,6 +305,36 @@
             console.log(document.getElementById('seats5').value);
         }
 
+        //send user details to server
+        var redirectUrl = 'linkBooking';
+        var auth2 = gapi.auth2.getAuthInstance();
+        var profile = auth2.currentUser.get().getBasicProfile();
+        //using jquery to post data dynamically
+        var form = $('<form action="' + redirectUrl + '" method="post">' +
+            '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+
+            '<input type="text" name="Day1" value="' + document.getElementById('Mon') + '" />' +
+            '<input type="text" name="Session1" value="' + document.getElementById('session').value + '" />' +
+            '<input type="text" name="Seat1" value="' + document.getElementById('seats').value + '" />' +
+
+            '<input type="text" name="Day2" value="' + document.getElementById('Tue') + '" />' +
+            '<input type="text" name="Session2" value="' + document.getElementById('session2').value + '" />' +
+            '<input type="text" name="Seat2" value="' + document.getElementById('seats2').value + '" />' +
+
+            '<input type="text" name="Day3" value="' + document.getElementById('Wed') + '" />' +
+            '<input type="text" name="Session3" value="' + document.getElementById('session3').value + '" />' +
+            '<input type="text" name="Seat3" value="' + document.getElementById('seats3').value + '" />' +
+
+            '<input type="text" name="Day4" value="' + document.getElementById('Thu') + '" />' +
+            '<input type="text" name="Session4" value="' + document.getElementById('session4').value + '" />' +
+            '<input type="text" name="Seat4" value="' + document.getElementById('seats4').value + '" />' +
+
+            '<input type="text" name="Day5" value="' + document.getElementById('Fri') + '" />' +
+            '<input type="text" name="Session5" value="' + document.getElementById('session5').value + '" />' +
+            '<input type="text" name="Seat5" value="' + document.getElementById('seats5').value + '" />' +
+            '</form>');
+        $('body').append(form);
+        form.submit();
 
     }
 </script>

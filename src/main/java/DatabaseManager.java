@@ -121,7 +121,18 @@ class DatabaseManager {
         }
     }
 
-
+    static ResultSet getResultsFromQuery(String sql){
+        try {
+            Statement st = database.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            System.out.println("successfully executed: " + sql);
+            return rs;
+        } catch (SQLException e) {
+            System.out.println("failed while executing: " + sql);
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 }
 

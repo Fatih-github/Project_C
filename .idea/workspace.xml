@@ -34,9 +34,33 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Dagen kiezen">
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Console Log seats">
+      <change afterPath="$PROJECT_DIR$/web/ReservationsTemplate/templateHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/PlanTemplate/Confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/PlanTemplate/Confirmation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/PlanTemplate/templateCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/PlanTemplate/templateCSSfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/PlanTemplate/templateHTMLfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/PlanTemplate/templateHTMLfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main$DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main$DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main$DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main$DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletInvitations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletPlan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletReservations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Table.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +71,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -92,6 +117,17 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="BaseFramePC" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

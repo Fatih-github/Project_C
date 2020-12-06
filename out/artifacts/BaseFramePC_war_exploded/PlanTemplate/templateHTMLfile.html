@@ -9,59 +9,229 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+
     <meta name="google-signin-client_id" content="621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-    <link rel = "stylesheet" type = "text/css" href="PlanTemplate/templateCSSfile.css"/>
+    <link rel = "stylesheet" href="templateCSSfile.css"/>
+
+
+
+
 </head>
 
 <body>
     <div id="nav-placeholder"></div>
 
     <div class="container">
-        <div class="card border-0 shadow my-5">
             <div class="card-body p-5">
                 <div class="container-form">
+
+
                     <form action="#">
                         <h2 class="heading">Reserve Online</h2>
 
-                        <div class="form-field">
-                            <p>Your Name</p>
-                            <input type="text" placeholder="Your Name">
+                        <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label"><b>Name</b></label>
+                                <div class="controls float-right">
+                                    <input type="Name" class="form-control" id="inputName" placeholder="Your Name">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-field">
-                            <p>Your email</p>
-                            <input type="email" placeholder="Your email">
-                        </div>
-                        <div class="form-field">
-                            <p>Date</p>
-                            <input type="date">
-                        </div>
-                        <div class="form-field">
-                            <p>Time</p>
-                            <select>
-                                <option value="1">09:00 - 13:00 (morning)</option>
-                                <option value="2">13:00 - 17:00 (afternoon)</option>
-                            </select>
-                        </div>
-                        <div class="form-field">
-                            <p>How many people?</p>
-                            <select name="select" id="#">
 
-                                <option value="1">1 person</option>
-                                <option value="2">2 persons</option>
-                                <option value="3">3 persons</option>
-                                <option value="4">4 persons</option>
-                            </select>
+                        <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label"><b>Email</b></label>
+                                <div class="controls float-right">
+                                    <input type="Email" class="form-control" id="inputMail" placeholder="Your Email">
+                                </div>
+                            </div>
                         </div>
+
+
+                        <div class="control-group">
+                            <label class="control-label"><b></b></label>
+                            <div class="card border-0">
+                                <div class="row px-3">
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1" id="Mon" value="Mon">Mon:</label>
+
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select id="session" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
+                                                    </select>
+                                            </div>
+
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Seat</label>
+                                                <select id="seats" class="mob mb-2">
+                                                    <option value="MonS1">Seat1</option>
+                                                    <option value="MonS2">Seat2</option>
+                                                    <option value="MonS3">Seat3</option>
+                                                    <option value="MonS4">Seat4</option>
+                                                    <option value="MonS5">Seat5</option>
+                                                </select>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1" id="Tue" value="Tue">Tue:</label>
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select id="session2" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
+                                                </select>
+                                            </div>
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Seat</label>
+                                                <select id="seats2" class="mob mb-2">
+                                                    <option value="TueS1">Seat1</option>
+                                                    <option value="TueS2">Seat2</option>
+                                                    <option value="TueS3">Seat3</option>
+                                                    <option value="TueS4">Seat4</option>
+                                                    <option value="TueS5">Seat5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1" id="Wed" value="Wed">Wed:</label>
+
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select id="session3" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Seat</label>
+                                                <select id="seats3" class="mob mb-2">
+                                                    <option value="WedS1">Seat1</option>
+                                                    <option value="WedS2">Seat2</option>
+                                                    <option value="WedS3">Seat3</option>
+                                                    <option value="WedS4">Seat4</option>
+                                                    <option value="WedS5">Seat5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1" id="Thu" value="Thu">Thu:</label>
+
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select id="session4" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
+                                                </select>
+                                            </div>
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Seat</label>
+                                                <select id="seats4" class="mob mb-2">
+                                                    <option value="ThuS1">Seat1</option>
+                                                    <option value="ThuS2">Seat2</option>
+                                                    <option value="ThuS3">Seat3</option>
+                                                    <option value="ThuS4">Seat4</option>
+                                                    <option value="ThuS5">Seat5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-10 list">
+                                        <div class="mb-2 row justify-content-between px-3">
+                                            <label class="text-grey mr-1" id="Fri" value="Fri">Fri:</label>
+
+
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Session</label>
+                                                <select id="session5" class="mob mb-2">
+                                                    <option value="" disabled selected></option>
+                                                    <option value="morning">Morning</option>
+                                                    <option value="afternoon">Afternoon</option>
+                                                    <option value="day">Entire day</option>
+                                                </select>
+                                            </div>
+                                            <div class="mob">
+                                                <label class="text-grey mr-1">Seat</label>
+                                                <select id="seats5" class="mob mb-2">
+                                                    <option value="FriS1">Seat1</option>
+                                                    <option value="FriS2">Seat2</option>
+                                                    <option value="FriS3">Seat3</option>
+                                                    <option value="FriS4">Seat4</option>
+                                                    <option value="FriS5">Seat5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br><br>
+
+
+
+
+
+                                </div>
+                                <br>
+                                <a><img src="https://i.ibb.co/h89cD9p/download-1.png" alt="download-1" class="center"></a>
+
+                            </div>
+                        </div>
+                        <br>
+
+
+
+
+
                     </form>
                     <a href="Confirmation.html">
                         <button class="button button1">Submit</button>
                     </a>
+
+                    <button onclick="displayResult()">Change text</button>
                 </div>
                 <div style="height: 500px"></div>
             </div>
-        </div>
     </div>
 </body>
 
@@ -70,4 +240,57 @@
         $("#nav-placeholder").load("nav-bar.jsp");
     });
 </script>
+
+
+
+<script>
+    function displayResult() {
+        if (document.getElementById('inputName').value) {
+            console.log(document.getElementById('inputName').value);
+        }
+        if (document.getElementById('inputMail').value) {
+            console.log(document.getElementById('inputMail').value);
+        }
+        if (document.getElementById('session').value){
+            console.log('Mon');
+            console.log(document.getElementById('session').value);
+            console.log(document.getElementById('seats').value);
+        }
+        if (document.getElementById('session2').value){
+            console.log('Tue');
+            console.log(document.getElementById('session2').value);
+            console.log(document.getElementById('seats2').value);
+        }
+        if (document.getElementById('session3').value){
+            console.log('Wed');
+            console.log(document.getElementById('session3').value);
+            console.log(document.getElementById('seats3').value);
+        }
+        if (document.getElementById('session4').value){
+            console.log('Thu');
+            console.log(document.getElementById('session4').value);
+            console.log(document.getElementById('seats4').value);
+        }
+        if (document.getElementById('session5').value){
+            console.log('Fri');
+            console.log(document.getElementById('session5').value);
+            console.log(document.getElementById('seats5').value);
+        }
+
+        //send user details to server
+        var redirectUrl = 'linkBooking';
+        //using jquery to post data dynamically
+        var form = $('<form action="' + redirectUrl + '" method="post">' +
+            '<input type="text" name="Day" value="' + document.getElementById('Fri') + '" />' +
+            '<input type="text" name="Session" value="' + document.getElementById('session5').value + '" />' +
+            '<input type="text" name="Seat" value="' + document.getElementById('seats5').value + '" />' +
+            '</form>');
+        $('body').append(form);
+        form.submit();
+
+    }
+</script>
+
+
+
 </html>
