@@ -22,7 +22,7 @@
                     <a class="nav-link" onclick="onPlan()" >Plan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" onclick="onReservations()" >Reservations</a>
+                    <a class="nav-link" onclick="onReservations()" style="cursor: pointer">Reservations</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<%=request.getContextPath()%>/linkInvitations">Invitations</a>
