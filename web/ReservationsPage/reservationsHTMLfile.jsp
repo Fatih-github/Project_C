@@ -56,15 +56,15 @@
                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                             "BaseFramePC", "none");
             st = database.createStatement();
-            String sql = "select * from logintable where logintable_loginname='Tony' limit 10";
+            String sql = "select * from loginattempts where email='" + email + "' limit 10";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 %>
                 <tbody>
                     <tr class="table">
-                        <td class="table"><%=rs.getString("logintable_timestamp")%></td>
-                        <td class="table"><%=rs.getString("logintable_loginname")%></td>
-                        <td class="table"><%=rs.getString("logintable_emailaddress")%></td>
+                        <td class="table"><%=rs.getString("attime")%></td>
+                        <td class="table"><%=rs.getString("email")%></td>
+                        <td class="table"><%=rs.getString("loginname")%></td>
                         <td class="table">
                             <a onclick="onUpdate()" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         </td>
