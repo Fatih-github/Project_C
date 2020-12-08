@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" onclick="onPlan()" >Plan</a>
+                    <a class="nav-link" onclick="onPlan()" style="cursor: pointer">Plan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" onclick="onReservations()" style="cursor: pointer">Reservations</a>
