@@ -10,7 +10,9 @@ public class ServletHome extends HttpServlet{
 
 
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        RequestDispatcher view = req.getRequestDispatcher("LoginTemplate/templateHTMLfile.html");
+        System.out.println("\n\n ServletHome JAVA code");
+
+        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.html");
         view.forward(req, res);
     }
 }
