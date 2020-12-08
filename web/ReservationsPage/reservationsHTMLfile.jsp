@@ -58,7 +58,7 @@
                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                             "BaseFramePC", "none");
             st = database.createStatement();
-            String sql = "select * from loginattempts where email='" + email + "' limit 10";
+            String sql = "select * from loginattempts where email='" + email + "' order by attime limit 10";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 %>
