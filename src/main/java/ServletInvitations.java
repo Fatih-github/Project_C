@@ -10,11 +10,9 @@ public class ServletInvitations extends HttpServlet{
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println("gelukt");
-        }
+        System.out.println("\n\n ServletInvitations JAVA code");
 
-        RequestDispatcher view = req.getRequestDispatcher("InvitationsTemplate/templateHTMLfile.html");
+        RequestDispatcher view = req.getRequestDispatcher("InvitationsPage/invitationsHTMLfile.html");
         view.forward(req, res);
 
     }

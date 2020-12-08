@@ -1,0 +1,135 @@
+body {
+    background-image: url('Resources/blurred_desk1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    background-color: #fafafa;
+    margin-top: 100px;
+    margin-left: 35%;
+    width: 600px;
+    box-shadow: 10px 15px 20px rgba(0, 0, 0, .1);
+    display: grid;
+}
+
+.confirmation {
+    background-color: #fafafa;
+    margin-left: 25%;
+    margin-top: 100px;
+    width: 50%;
+    box-shadow: 10px 15px 20px rgba(0, 0, 0, .1);
+    display: grid;
+    padding: 20px 0;
+    color: #000;
+    text-align: center;
+}
+
+.heading {
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.container-form {
+    padding: 20px 0;
+    margin: auto;
+    color: #000;
+}
+
+form {
+    display: grid;
+    grid-row-gap: 20px;
+}
+
+.form-horizontal {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+select {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #000000;
+}
+
+.button1:hover {
+    background-color: #000000;
+    color: white;
+}
+
+.form-check{
+    float: right;
+}
+
+.card {
+    background-color: #424242;
+    padding: 40px 10px
+}
+
+.fa {
+    font-size: 25px;
+    cursor: pointer
+}
+
+input,
+select {
+    padding: 2px 6px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: transparent;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center !important
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+::placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.container2 {
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+.option{
+    background-color: white;
+    color: black;
+    border: 2px solid #000000;
+}

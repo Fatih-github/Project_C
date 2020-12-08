@@ -15,41 +15,27 @@ public class ServletLogin extends HttpServlet{
 
 
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-
         DatabaseManager.setup();
 
-
-        System.out.println("ServletLogin service");
-
-
+        System.out.println("\n\n ServletLogin JAVA code");
 
         try {
 
             String name = req.getParameter("name");
+            String lastname = req.getParameter("lastname");
             String id_token = req.getParameter("id_token");
             String email = req.getParameter("email");
 
-
             System.out.println(email + " logged in with token " + id_token);
-
-            //DatabaseManager.logLoginAttempt(name, email);
             DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
 
+            DatabaseManager.createAccountIfNotExists(name, lastname, email);
+
         } catch (Exception e) {
-
-
             System.out.println("ServletLogin encountered failed login attempt");
-
-            //throw new RuntimeException(e);
         }
 
-        RequestDispatcher view = req.getRequestDispatcher("LoginTemplate/templateHTMLfile.html");
+        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.html");
         view.forward(req, res);
-
     }
-
-
-
-
-
 }
