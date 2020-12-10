@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" onclick="onPlan()" >Plan</a>
+                    <a class="nav-link" onclick="onPlan()" style="cursor: pointer">Plan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" onclick="onReservations()" style="cursor: pointer">Reservations</a>
@@ -70,15 +70,12 @@
     }
 
     function onReservations() {
-
-
         console.log("onreservations called")
 
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
         console.log(profile.getName());
         console.log(profile.getEmail());
-
 
         var redirectUrl = 'linkReservations';
         //using jquery to post data dynamically
@@ -90,15 +87,12 @@
     }
 
     function onPlan() {
-
-
         console.log("onPlan called")
 
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
         console.log(profile.getName());
         console.log(profile.getEmail());
-
 
         var redirectUrl = 'plan';
         //using jquery to post data dynamically

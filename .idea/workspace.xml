@@ -28,9 +28,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main$DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main$DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main$DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main$DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletInvitations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletPlan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletReservations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletTemplate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/PlanPage/planCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planCSSfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nav-bar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,13 +122,6 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-365" />
@@ -242,13 +263,13 @@
       </method>
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="" />
+      <changelist id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="" />
       <created>1600768191881</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -262,7 +283,19 @@
       <workItem from="1602752618281" duration="2413000" />
       <workItem from="1603364268869" duration="2929000" />
       <workItem from="1604314771570" duration="228000" />
+      <workItem from="1607452280459" duration="9105000" />
+      <workItem from="1607500924319" duration="30486000" />
+      <workItem from="1607591111713" duration="622000" />
+      <workItem from="1607601082953" duration="11612000" />
     </task>
+    <task id="LOCAL-00001" summary="new master code">
+      <created>1607452173313</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607452173313</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -340,7 +373,7 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -367,6 +400,14 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new master code" />
+    <option name="LAST_COMMIT_MESSAGE" value="new master code" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/ServletLogin.java">
