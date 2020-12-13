@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -56,15 +58,15 @@
                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                             "BaseFramePC", "none");
             st = database.createStatement();
-            String sql = "select * from logintable where logintable_loginname='Tony' limit 10";
+            String sql = "select * from loginattempts where email='" + email + "' order by attime limit 10";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 %>
                 <tbody>
                     <tr class="table">
-                        <td class="table"><%=rs.getString("logintable_timestamp")%></td>
-                        <td class="table"><%=rs.getString("logintable_loginname")%></td>
-                        <td class="table"><%=rs.getString("logintable_emailaddress")%></td>
+                        <td class="table"><%=rs.getString("attime")%></td>
+                        <td class="table"><%=rs.getString("email")%></td>
+                        <td class="table"><%=rs.getString("loginname")%></td>
                         <td class="table">
                             <a onclick="onUpdate()" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         </td>

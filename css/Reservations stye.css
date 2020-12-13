@@ -1,14 +1,18 @@
 body {
-    background-image: url('Resources/blurred_desk1.jpg');
+    background-image: url("https://i.pinimg.com/originals/15/73/36/157336e1b03e5ca97e9640c2f9012452.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 1px;
 }
 
 .container {
     background-color: #fafafa;
     margin-top: 100px;
-    margin-left: 40%;
+    margin-left: 37.5%;
     width: 400px;
     box-shadow: 10px 15px 20px rgba(0, 0, 0, .1);
     display: grid;
@@ -16,8 +20,7 @@ body {
 
 .confirmation {
     background-color: #fafafa;
-    margin-left: 25%;
-    margin-top: 100px;
+    margin: auto;
     width: 50%;
     box-shadow: 10px 15px 20px rgba(0, 0, 0, .1);
     display: grid;
@@ -42,14 +45,17 @@ form {
     grid-row-gap: 20px;
 }
 
-.form-horizontal {
-    padding-top: 10px;
-    padding-bottom: 10px;
+form p {
+    font-weight: 600;
 }
 
-select {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.form-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+input,select {
+    padding: 10px 15px;
 }
 
 .btn {
@@ -103,14 +109,4 @@ select {
 .button1:hover {
     background-color: #000000;
     color: white;
-}
-
-.individu1 {
-    margin-left: 35%;
-    display: inline-block;
-    float: left;
-    background-color: white;
-    border: black;
-    color: black;
-    border: 2px solid #000000;
 }

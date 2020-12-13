@@ -27,7 +27,9 @@ public class ServletLogin extends HttpServlet{
             String email = req.getParameter("email");
 
             System.out.println(email + " logged in with token " + id_token);
-            DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
+            if (email != null && name != null) {
+                DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
+            }
 
             DatabaseManager.createAccountIfNotExists(name, lastname, email);
 
@@ -35,7 +37,7 @@ public class ServletLogin extends HttpServlet{
             System.out.println("ServletLogin encountered failed login attempt");
         }
 
-        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.html");
+        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.jsp");
         view.forward(req, res);
     }
 }
