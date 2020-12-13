@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--%>
-<%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>--%>
-<%--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>--%>
-
     <meta name="google-signin-client_id" content="621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
@@ -16,7 +12,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="<%=request.getContextPath()%>/linkHome" onclick="javascript:onHome()"><img src="LoginPage/Resources/ngti-logo.png" alt="Logo" style="width:50px; height:50px"></a>
+        <a class="navbar-brand" onclick="onHome()" style="cursor: pointer"><img src="LoginPage/Resources/ngti-logo.png" alt="Logo" style="width:50px; height:50px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,7 +30,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    foto gebruiker
+                    <img class="nav-link2" src="<%=session.getAttribute("image")%>" alt="F" style="width: 1.65em; height: 1.65em; margin-top: 0.3em; border-radius: 25px">
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<%=request.getContextPath()%>/index.jsp" onclick="signOut();">Sign out</a>
@@ -61,14 +57,14 @@
     }
 
     function onHome() {
-    //send user details to server
-        var redirectUrl = 'login';
+        var auth2 = gapi.auth2.getAuthInstance();
+        var profile = auth2.currentUser.get().getBasicProfile();
+
+        var redirectUrl = 'linkHome';
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
-        '<input type="text" name="id_token" value="' + googleUser.getAuthResponse().id_token + '" />' +
-        '<input type="text" name="name" value="' + googleUser.getBasicProfile().getGivenName() + '" />' +
-        '<input type="text" name="email" value="' + googleUser.getBasicProfile().getEmail() + '" />' +
-        '</form>');
+            '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
+            '</form>');
         $('body').append(form);
         form.submit();
     }

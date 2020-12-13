@@ -36,44 +36,44 @@ class DatabaseManager {
         }
 
         employeeTable = new Table("employeeTable",
-                "employeeTable_employeeID SERIAL PRIMARY KEY, " +
-                "employeeTable_lastName varchar(35), " +
-                "employeeTable_firstName varchar(35), " +
-                "employeeTable_emailAddress varchar(35) UNIQUE, " +
-                "employeeTable_isAdmin bool, " +
-                "employeeTable_isBHV bool");
+                "employeeID SERIAL PRIMARY KEY, " +
+                "emailAddress varchar(35) UNIQUE, " +
+                "lastName varchar(35), " +
+                "firstName varchar(35), " +
+                "isAdmin bool, " +
+                "isBHV bool");
 
         loginTable = new Table("loginTable",
-                "loginTable_emailAddress varchar(35), " +
-                        "loginTable_timeStamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
-                        "loginTable_loginName varchar(35), " +
-                        "loginTable_employeeID INT, " +
-                        "FOREIGN KEY(loginTable_employeeID) REFERENCES employeeTable(employeeTable_employeeID)");
+                "employeeID INT, " +
+                "emailAddress varchar(35), " +
+                "loginName varchar(35), " +
+                "timeStamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
+                "FOREIGN KEY(employeeID) REFERENCES employeeTable(employeeID)");
 
         workspaceTable = new Table("workspaceTable",
-                "workspaceTable_workspaceID INT PRIMARY KEY, " +
-                        "workspaceTable_blockNumber INT");
+                "workspaceID INT PRIMARY KEY, " +
+                "roomID varchar(20), " +
+                "slotAmount INT");
 
         reservationTable = new Table("reservationTable",
-                "reservationTable_reservationTableID INT PRIMARY KEY, " +
-                        "reservationTable_workspaceID INT, " +
-                        "reservationTable_date varchar(20), " +
-                        "reservationTable_slots INT, " +
-                        "reservationTable_state INT, " +
-                        "reservationTable_employeeID INT, " +
-                        "FOREIGN KEY(reservationTable_employeeID) REFERENCES employeeTable(employeeTable_employeeID), " +
-                        "FOREIGN KEY(reservationTable_workspaceID) REFERENCES workspaceTable(workspaceTable_workspaceID)");
+                "reservationID SERIAL PRIMARY KEY, " +
+                "workspaceID INT, " +
+                "employeeID INT[], " +
+                "date varchar(20), " +
+                "timeSlot varchar(20), " +
+                "FOREIGN KEY(workspaceID) REFERENCES workspaceTable(workspaceID), " +
+                "FOREIGN KEY(employeeID) REFERENCES employeeTable(employeeID)");
 
         invitationTable = new Table("invitationTable",
-                "invitationTable_invitedBy varchar(35), " +
-                        "invitationTable_invitee varchar(35), " +
-                        "invitationTable_employeeID INT, " +
-                        "invitationTable_reservationID INT, " +
-                        "FOREIGN KEY(invitationTable_employeeID) REFERENCES employeeTable(employeeTable_employeeID), " +
-                        "FOREIGN KEY(invitationTable_reservationID) REFERENCES reservationTable(reservationTable_reservationTableID), " +
-                        "PRIMARY KEY(invitationTable_employeeID, invitationTable_reservationID)");
+                "invitedBy varchar(35), " +
+                "invitee varchar(35), " +
+                "employeeID INT, " +
+                "reservationID INT, " +
+                "FOREIGN KEY(employeeID) REFERENCES employeeTable(employeeID), " +
+                "FOREIGN KEY(reservationID) REFERENCES reservationTable(reservationID), " +
+                "PRIMARY KEY(employeeID, reservationID)");
 
-        // setting up tables
+        //setting up tables
         //setupLoginTable();
         //note2
     }
