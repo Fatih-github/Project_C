@@ -36,6 +36,8 @@ public class ServletPlan extends HttpServlet{
 
         DatabaseManager.getResultsFromQuery("select logintable_employeeid from logintable where logintable_emailaddress = '"+email+"'");
 
+
+        
         if (Day1.equals(null) && Session1.equals(null) && Seat1.equals(null)){
             DatabaseManager.executeSQLstatement("insert into reservationtable values (1,1,"+Day1+", "+Session1+", "+Seat1+",1) ");
             System.out.println("Day 1 test");
