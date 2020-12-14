@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class ServletPlanSubmit extends HttpServlet{
@@ -14,9 +16,12 @@ public class ServletPlanSubmit extends HttpServlet{
 
         System.out.println("\n\n ServletPlanSubmit JAVA code");
 
-        System.out.println("sub: " + req.getParameter("submission"));
-        String submission = req.getParameter("submission").replace("\"", "'");
-        System.out.println(submission);
+        String submission = req.getParameter("submission");
+        System.out.println("submission: " + submission);
+
+        ArrayList<HashMap<String, String>> submissionMaps = DataHelper.getHashmapsFromJsonString(submission);
+        String email = req.getParameter("email");
+
 
 //        String DateOne = req.getParameter("DateOne");
 //        String Timeslot1 = req.getParameter("Timeslot1");
