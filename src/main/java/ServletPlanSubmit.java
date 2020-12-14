@@ -22,7 +22,7 @@ public class ServletPlanSubmit extends HttpServlet{
         ArrayList<HashMap<String, String>> submissionMaps = DataHelper.getHashmapsFromJsonString(submission);
         String email = req.getParameter("email");
 
-        //loop over all submitted days
+        //loop over all submitted day
         for(HashMap<String, String> subMap: submissionMaps){
             String date = subMap.get("date");
             String timeslot = subMap.get("timeslot");
