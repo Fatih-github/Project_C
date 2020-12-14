@@ -393,7 +393,7 @@
 
 <script>
     var date = new Date();
-    var array = []
+    var dateArray = []
     var count = 0;
 
     for(var i = 0; i < 14; i++)
@@ -404,29 +404,22 @@
         if(date.getDay() === 5) {
             date.setDate(date.getDate() + 2)
         }
-        array[count++] = new Date(date.setDate(date.getDate() + 1)).toDateString();
-        console.log(date.getDay())
-        console.log(array[i]);
+        dateArray[count++] = new Date(date.setDate(date.getDate() + 1)).toDateString();
+        console.log(date.getDay());
+        console.log(dateArray[i]);
     }
 
-    document.getElementById("DateOne").innerHTML = array[0]
-    document.getElementById("DateTwo").innerHTML = array[1]
-    document.getElementById("DateThree").innerHTML = array[2]
-    document.getElementById("DateFour").innerHTML = array[3]
-    document.getElementById("DateFive").innerHTML = array[4]
-    document.getElementById("DateSix").innerHTML = array[5]
-    document.getElementById("DateSeven").innerHTML = array[6]
-    document.getElementById("DateEight").innerHTML = array[7]
-    document.getElementById("DateNine").innerHTML = array[8]
-    document.getElementById("DateTen").innerHTML = array[9]
+    document.getElementById("DateOne").innerHTML = dateArray[0];
+    document.getElementById("DateTwo").innerHTML = dateArray[1];
+    document.getElementById("DateThree").innerHTML = dateArray[2];
+    document.getElementById("DateFour").innerHTML = dateArray[3];
+    document.getElementById("DateFive").innerHTML = dateArray[4];
+    document.getElementById("DateSix").innerHTML = dateArray[5];
+    document.getElementById("DateSeven").innerHTML = dateArray[6];
+    document.getElementById("DateEight").innerHTML = dateArray[7];
+    document.getElementById("DateNine").innerHTML = dateArray[8];
+    document.getElementById("DateTen").innerHTML = dateArray[9];
 
-    // var data = [];
-    // var stored;
-    // $('#Invite2').on('change',function() {
-    //     stored = $(this).val();
-    //     alert($(this).val());
-    //     console.log(stored);
-    // });
 
     var stored;
     $('#Invite2').select2({
@@ -439,53 +432,103 @@
         var redirectUrl = 'planSubmit';
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
-        //using jquery to post data dynamically
+
+        // create dict for enumerating timeSlots
+        let timeSlots =
+            {"Choose..." : 0,
+            "morning" : 1,
+            "afternoon" : 2,
+            "day" : 3};
+
+        // create dict for enumerating rooms
+        let rooms =
+            {"Choose..." : 0,
+            "room1" : 1,
+            "room2" : 2,
+            "room3" : 3,
+            "room4" : 4,
+            "room5" : 5};
+
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
 
-            '<input type="text" name="DateOne" value="' + array[0] + '" />' +
-            '<input type="text" name="Timeslot1" value="' + document.getElementById('Timeslot1').value + '" />' +
-            '<input type="text" name="Room1" value="' + document.getElementById('Room1').value + '" />' +
-
-            '<input type="text" name="DateTwo" value="' + array[1] + '" />' +
-            '<input type="text" name="Timeslot2" value="' + document.getElementById('Timeslot2').value + '" />' +
-            '<input type="text" name="Room2" value="' + document.getElementById('Room2').value + '" />' +
-            '<input type="text" name="Invite2" value="' + stored + '" />' +
-
-            '<input type="text" name="DateThree" value="' + array[2] + '" />' +
-            '<input type="text" name="Timeslot3" value="' + document.getElementById('Timeslot3').value + '" />' +
-            '<input type="text" name="Room3" value="' + document.getElementById('Room3').value + '" />' +
-
-            '<input type="text" name="DateFour" value="' + array[3] + '" />' +
-            '<input type="text" name="Timeslot4" value="' + document.getElementById('Timeslot4').value + '" />' +
-            '<input type="text" name="Room4" value="' + document.getElementById('Room4').value + '" />' +
-
-            '<input type="text" name="DateFive" value="' + array[4] + '" />' +
-            '<input type="text" name="Timeslot5" value="' + document.getElementById('Timeslot5').value + '" />' +
-            '<input type="text" name="Room5" value="' + document.getElementById('Room5').value + '" />' +
-
-            '<input type="text" name="DateSix" value="' + array[5] + '" />' +
-            '<input type="text" name="Timeslot6" value="' + document.getElementById('Timeslot6').value + '" />' +
-            '<input type="text" name="Room6" value="' + document.getElementById('Room6').value + '" />' +
-
-            '<input type="text" name="DateSeven" value="' + array[6] + '" />' +
-            '<input type="text" name="Timeslot7" value="' + document.getElementById('Timeslot7').value + '" />' +
-            '<input type="text" name="Room7" value="' + document.getElementById('Room7').value + '" />' +
-
-            '<input type="text" name="DateEight" value="' + array[7] + '" />' +
-            '<input type="text" name="Timeslot8" value="' + document.getElementById('Timeslot8').value + '" />' +
-            '<input type="text" name="Room8" value="' + document.getElementById('Room8').value + '" />' +
-
-            '<input type="text" name="DateNine" value="' + array[8] + '" />' +
-            '<input type="text" name="Timeslot9" value="' + document.getElementById('Timeslot9').value + '" />' +
-            '<input type="text" name="Room9" value="' + document.getElementById('Room9').value + '" />' +
-
-            '<input type="text" name="DateTen" value="' + array[9] + '" />' +
-            '<input type="text" name="Timeslot10" value="' + document.getElementById('Timeslot10').value + '" />' +
-            '<input type="text" name="Room10" value="' + document.getElementById('Room10').value + '" />' +
             '</form>');
         $('body').append(form);
+
+
+        var submitList = [];
+        for (let i = 1; i < 11; i++) {
+            console.log("\n\nreading day:" + i.toString());
+            console.log("reading timeslot:" + i.toString() + " " + document.getElementById('Timeslot'+ i.toString()).value);
+            var entry ={
+                date : dateArray[i-1],
+                timeSlot : timeSlots[document.getElementById('Timeslot'+ i.toString()).value],
+                room : rooms[document.getElementById('Room'+ i.toString()).value]
+
+            };
+            console.log("entry creation complete for day:" + i.toString());
+            console.log("date: " + entry["date"]);
+            console.log("timeslot: " + entry["timeSlot"]);
+            console.log("room: " + entry["room"]);
+            console.log("entry: " + JSON.stringify(entry))
+            submitList.push(JSON.stringify(entry));
+        }
+
+        // console.log("submitList:" + submitList.toString());
+        var sub = submitList.toString().replaceAll("\"", "'");
+        console.log("submitList:" + sub);
+        form.append('<input type="text" name="submission" value="' + sub + '" />');
         form.submit();
+
+        //
+        //
+        // //using jquery to post data dynamically
+        // var form = $('<form action="' + redirectUrl + '" method="post">' +
+        //     '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+        //
+        //     '<input type="text" name="DateOne" value="' + dateArray[0] + '" />' +
+        //     '<input type="text" name="Timeslot1" value="' + document.getElementById('Timeslot1').value + '" />' +
+        //     '<input type="text" name="Room1" value="' + document.getElementById('Room1').value + '" />' +
+        //
+        //     '<input type="text" name="DateTwo" value="' + dateArray[1] + '" />' +
+        //     '<input type="text" name="Timeslot2" value="' + document.getElementById('Timeslot2').value + '" />' +
+        //     '<input type="text" name="Room2" value="' + document.getElementById('Room2').value + '" />' +
+        //     '<input type="text" name="Invite2" value="' + stored + '" />' +
+        //
+        //     '<input type="text" name="DateThree" value="' + dateArray[2] + '" />' +
+        //     '<input type="text" name="Timeslot3" value="' + document.getElementById('Timeslot3').value + '" />' +
+        //     '<input type="text" name="Room3" value="' + document.getElementById('Room3').value + '" />' +
+        //
+        //     '<input type="text" name="DateFour" value="' + dateArray[3] + '" />' +
+        //     '<input type="text" name="Timeslot4" value="' + document.getElementById('Timeslot4').value + '" />' +
+        //     '<input type="text" name="Room4" value="' + document.getElementById('Room4').value + '" />' +
+        //
+        //     '<input type="text" name="DateFive" value="' + dateArray[4] + '" />' +
+        //     '<input type="text" name="Timeslot5" value="' + document.getElementById('Timeslot5').value + '" />' +
+        //     '<input type="text" name="Room5" value="' + document.getElementById('Room5').value + '" />' +
+        //
+        //     '<input type="text" name="DateSix" value="' + dateArray[5] + '" />' +
+        //     '<input type="text" name="Timeslot6" value="' + document.getElementById('Timeslot6').value + '" />' +
+        //     '<input type="text" name="Room6" value="' + document.getElementById('Room6').value + '" />' +
+        //
+        //     '<input type="text" name="DateSeven" value="' + dateArray[6] + '" />' +
+        //     '<input type="text" name="Timeslot7" value="' + document.getElementById('Timeslot7').value + '" />' +
+        //     '<input type="text" name="Room7" value="' + document.getElementById('Room7').value + '" />' +
+        //
+        //     '<input type="text" name="DateEight" value="' + dateArray[7] + '" />' +
+        //     '<input type="text" name="Timeslot8" value="' + document.getElementById('Timeslot8').value + '" />' +
+        //     '<input type="text" name="Room8" value="' + document.getElementById('Room8').value + '" />' +
+        //
+        //     '<input type="text" name="DateNine" value="' + dateArray[8] + '" />' +
+        //     '<input type="text" name="Timeslot9" value="' + document.getElementById('Timeslot9').value + '" />' +
+        //     '<input type="text" name="Room9" value="' + document.getElementById('Room9').value + '" />' +
+        //
+        //     '<input type="text" name="DateTen" value="' + dateArray[9] + '" />' +
+        //     '<input type="text" name="Timeslot10" value="' + document.getElementById('Timeslot10').value + '" />' +
+        //     '<input type="text" name="Room10" value="' + document.getElementById('Room10').value + '" />' +
+        //     '</form>');
+        // $('body').append(form);
+        // form.submit();
     }
 </script>
 </html>
