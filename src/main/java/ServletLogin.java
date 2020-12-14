@@ -35,7 +35,7 @@ public class ServletLogin extends HttpServlet{
             System.out.println("ServletLogin encountered failed login attempt");
         }
 
-        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.html");
+        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.jsp");
         view.forward(req, res);
     }
 }

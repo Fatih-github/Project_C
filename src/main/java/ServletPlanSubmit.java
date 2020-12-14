@@ -25,8 +25,11 @@ public class ServletPlanSubmit extends HttpServlet{
         //loop over all submitted day
         for(HashMap<String, String> subMap: submissionMaps){
             String date = subMap.get("date");
-            String timeslot = subMap.get("timeslot");
+            String timeslot = subMap.get("timeSlot");
             String room = subMap.get("room");
+            System.out.println("date " +date);
+            System.out.println("timeSlot " + timeslot);
+            System.out.println("room " + room);
             DatabaseManager.reservationTable.insertValues("DEFAULT", room, email, "NULL", date, timeslot);
         }
 

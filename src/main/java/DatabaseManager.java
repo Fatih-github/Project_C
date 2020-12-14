@@ -78,7 +78,6 @@ class DatabaseManager {
                 "groupID INT, " +
                 "date varchar(20), " +
                 "timeSlot varchar(20), " +
-                "FOREIGN KEY(roomID) REFERENCES roomTable(roomID), " +
                 "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
                 "FOREIGN KEY(groupID) REFERENCES groupTable(groupID)");
 

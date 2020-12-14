@@ -26,10 +26,14 @@ public class DataHelper {
 
     public static HashMap<String, String> getHashmapFromJsonString(String input){
         HashMap<String, String> out = new HashMap<>();
-        String[] entries = input.split(",");
+        String[] entries = input.replaceAll("'", "").replaceAll("\\{", "").replaceAll("}", "").split(",");
+        System.out.println("\n\ninput " + input);
         for (String entry : entries){
-            input.replaceAll("'", "").replaceAll("\\{", "").replaceAll("}", "");
-            String[] kv = input.split(":");
+            System.out.println("entry before format " + entry);
+            entry.replaceAll("'", "").replaceAll("\\{", "").replaceAll("}", "");
+            System.out.println("entry after format " + entry);
+            String[] kv = entry.split(":");
+            System.out.println("Entry put as:  K: '" + kv[0] + "' V: '" + kv[1] + "'");
             out.put(kv[0], kv[1]);
         }
         return out;
