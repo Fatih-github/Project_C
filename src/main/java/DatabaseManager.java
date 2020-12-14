@@ -139,7 +139,7 @@ class DatabaseManager {
     static class Table{
 
         private String _tableName;
-
+        //stuff
         public Table(String tableName, String createTableArguments){
             _tableName = tableName;
             if (!executeSQLstatement("CREATE TABLE IF NOT EXISTS " + tableName + "(" + createTableArguments + ")")){
