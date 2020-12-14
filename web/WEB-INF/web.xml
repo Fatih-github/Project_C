@@ -96,5 +96,25 @@
         <url-pattern>/linkUpdateReservations</url-pattern>
     </servlet-mapping>
 
+    <!--Fires when update reservation button is clicked-->
+    <servlet>
+        <servlet-name>ServletAcceptInvites</servlet-name>
+        <servlet-class>ServletAcceptInvites</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>ServletAcceptInvites</servlet-name>
+        <url-pattern>/linkAcceptInvite</url-pattern>
+    </servlet-mapping>
+
+    <!--Fires when update reservation button is clicked-->
+    <servlet>
+        <servlet-name>ServletDeclineInvites</servlet-name>
+        <servlet-class>ServletDeclineInvites</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletDeclineInvites</servlet-name>
+        <url-pattern>/linkDeclineInvite</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -31,7 +31,9 @@ public class ServletLogin extends HttpServlet{
                 DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
             }
 
-            DatabaseManager.createAccountIfNotExists(name, lastname, email);
+            if (email != null && name != null && lastname != null) {
+                DatabaseManager.createAccountIfNotExists(name, lastname, email);
+            }
 
         } catch (Exception e) {
             System.out.println("ServletLogin encountered failed login attempt");

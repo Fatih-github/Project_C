@@ -7,13 +7,19 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
-public class ServletReservations extends HttpServlet{
-
+public class ServletDeclineInvites extends HttpServlet{
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+        String Date = req.getParameter("Date");
+        String TimeSlot = req.getParameter("TimeSlot");
+        String Room = req.getParameter("Room");
+        String ReservationId = req.getParameter("ReservationId");
 
+        //boolean rs = DatabaseManager.executeSQLstatement("delete from loginattempts where attime='" + time + "' and email='"+ email +"' and loginname='" + name + "'");
 
-        System.out.println("\n\n ServletReservations JAVA code");
-        System.out.println("cleanup merge function found");
+        System.out.println(Date + " Date accepted");
+        System.out.println(TimeSlot + " Timeslot accepted");
+        System.out.println(Room + " room accepted");
+        System.out.println(ReservationId + " ReservationId accepted");
 
         String email = req.getParameter("email");
 

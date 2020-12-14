@@ -25,7 +25,7 @@
                     <a class="nav-link" onclick="onReservations()" style="cursor: pointer">Reservations</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<%=request.getContextPath()%>/linkInvitations">Invitations</a>
+                    <a class="nav-link" onclick="onInvitations()" style="cursor: pointer">Invitations</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -103,5 +103,22 @@
         form.submit();
     }
 
+    function onInvitations() {
+        console.log("onInvitations called")
+
+        var auth2 = gapi.auth2.getAuthInstance();
+        var profile = auth2.currentUser.get().getBasicProfile();
+        console.log(profile.getName());
+        console.log(profile.getEmail());
+
+        var redirectUrl = 'linkInvitations';
+        //using jquery to post data dynamically
+        var form = $('<form action="' + redirectUrl + '" method="post">' +
+            '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+            '<input type="text" name="name" value="' + profile.getName() + '" />' +
+            '</form>');
+        $('body').append(form);
+        form.submit();
+    }
 </script>
 </html>

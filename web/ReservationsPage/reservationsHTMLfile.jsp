@@ -28,11 +28,12 @@
     <table class="table table-bordered table-responsive-sm table-hover">
         <thead>
             <tr>
-                <th>attime</th>
-                <th>email</th>
-                <th>loginname</th>
-                <th width="10em">update</th>
-                <th width="10em">delete</th>
+                <th>Date</th>
+                <th>TimeSlot</th>
+                <th>Room</th>
+                <th>Attendees</th>
+                <th>update</th>
+                <th>delete</th>
             </tr>
         </thead>
 
@@ -41,8 +42,8 @@
         System.out.println("\tRESERVATIONS JSP");
 
         String name = request.getParameter("name");
-        String id_token = request.getParameter("id_token");
         String email = request.getParameter("email");
+        String Id = (String)request.getAttribute("Id");
 
         System.out.println("\t\tuser: " + name);
         System.out.println("\t\tid_token: " + id_token);
@@ -58,15 +59,16 @@
                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                             "BaseFramePC", "none");
             st = database.createStatement();
-            String sql = "select * from loginattempts where email='" + email + "' order by attime limit 10";
+            String sql = "select * from reservationtable where reservationtable_reservationtableid='" + Id + "' order by reservationtable_date";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 %>
                 <tbody>
                     <tr class="table">
-                        <td class="table"><%=rs.getString("attime")%></td>
-                        <td class="table"><%=rs.getString("email")%></td>
-                        <td class="table"><%=rs.getString("loginname")%></td>
+                        <td class="table"><%=rs.getString("reservationtable_date")%></td>
+                        <td class="table"><%=rs.getString("reservationtable_slots")%></td>
+                        <td class="table"><%=rs.getString("reservationtable_workspaceid")%></td>
+                        <td class="table"><%=rs.getString("reservationtable_state")%></td>
                         <td class="table">
                             <a onclick="onUpdate()" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         </td>

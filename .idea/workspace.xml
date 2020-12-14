@@ -27,35 +27,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ServletDeclineInvites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main$DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main$DataBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletInvitations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletInvitations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServletLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main$DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main$DataBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletReservations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletInvitations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletLogin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletPlan.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletReservations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServletTemplate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanPage/planCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planCSSfile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/PlanPage/Confirmation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nav-bar.jsp" afterDir="false" />
@@ -68,53 +65,14 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServletLogin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/workspaceBackup.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="REBASE" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="newMaster" />
+        <entry key="$PROJECT_DIR$" value="Test" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -123,47 +81,24 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-365" />
-    <option name="y" value="-23" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1hrTQ4q5261SFL3YyLwXy902aa8" />
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="BaseFramePC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BaseFramePC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BaseFramePC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BaseFramePC" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -269,7 +204,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="" />
+      <changelist id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="" />
       <created>1600768191881</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -283,94 +218,13 @@
       <workItem from="1602752618281" duration="2413000" />
       <workItem from="1603364268869" duration="2929000" />
       <workItem from="1604314771570" duration="228000" />
-      <workItem from="1607452280459" duration="9105000" />
-      <workItem from="1607500924319" duration="30486000" />
-      <workItem from="1607591111713" duration="622000" />
-      <workItem from="1607601082953" duration="11612000" />
+      <workItem from="1607637449382" duration="1034000" />
+      <workItem from="1607772861681" duration="13529000" />
+      <workItem from="1607788550485" duration="10134000" />
+      <workItem from="1607843507593" duration="20855000" />
+      <workItem from="1607931826749" duration="3113000" />
     </task>
-    <task id="LOCAL-00001" summary="new master code">
-      <created>1607452173313</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1607452173313</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="341000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18123667" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Web" order="6" side_tool="true" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2654388" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18923241" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Web" order="6" side_tool="true" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35211268" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -402,34 +256,84 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new master code" />
-    <option name="LAST_COMMIT_MESSAGE" value="new master code" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServletLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state width="905" height="74" key="GridCell.Tab.0.bottom" timestamp="1607935416697">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607935416697" />
+    <state width="905" height="74" key="GridCell.Tab.0.center" timestamp="1607935416697">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607935416697" />
+    <state width="905" height="74" key="GridCell.Tab.0.left" timestamp="1607935416696">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607935416696" />
+    <state width="905" height="74" key="GridCell.Tab.0.right" timestamp="1607935416697">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607935416697" />
+    <state width="905" height="74" key="GridCell.Tab.1.bottom" timestamp="1607935416340">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
+    <state width="905" height="74" key="GridCell.Tab.1.center" timestamp="1607935416339">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1607935416339" />
+    <state width="905" height="74" key="GridCell.Tab.1.left" timestamp="1607935416339">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1607935416339" />
+    <state width="905" height="74" key="GridCell.Tab.1.right" timestamp="1607935416340">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
+    <state width="905" height="74" key="GridCell.Tab.2.bottom" timestamp="1607935416340">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
+    <state width="905" height="74" key="GridCell.Tab.2.center" timestamp="1607935416340">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
+    <state width="905" height="74" key="GridCell.Tab.2.left" timestamp="1607935416340">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
+    <state width="905" height="74" key="GridCell.Tab.2.right" timestamp="1607935416340">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="74" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
+    <state width="905" height="59" key="GridCell.Tab.3.bottom" timestamp="1607798779782">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="59" key="GridCell.Tab.3.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607798779782" />
+    <state width="905" height="59" key="GridCell.Tab.3.center" timestamp="1607798779782">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="59" key="GridCell.Tab.3.center/0.0.1366.728@0.0.1366.728" timestamp="1607798779782" />
+    <state width="905" height="59" key="GridCell.Tab.3.left" timestamp="1607798779782">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="59" key="GridCell.Tab.3.left/0.0.1366.728@0.0.1366.728" timestamp="1607798779782" />
+    <state width="905" height="59" key="GridCell.Tab.3.right" timestamp="1607798779782">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="59" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1607798779782" />
+    <state x="129" y="55" key="MergeDialog" timestamp="1607637588829">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="129" y="55" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1607637588829" />
+    <state x="471" y="77" key="git4idea.branch.GitSmartOperationDialog" timestamp="1607462100038">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="471" y="77" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.728@0.0.1366.728" timestamp="1607462100038" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1607870042140">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1607870042140" />
   </component>
 </project>
