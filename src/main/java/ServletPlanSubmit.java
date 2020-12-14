@@ -22,6 +22,13 @@ public class ServletPlanSubmit extends HttpServlet{
         ArrayList<HashMap<String, String>> submissionMaps = DataHelper.getHashmapsFromJsonString(submission);
         String email = req.getParameter("email");
 
+        for(HashMap<String, String> subMap: submissionMaps){
+            String date = subMap.get("date");
+            String timeslot = subMap.get("timeslot");
+            String room = subMap.get("room");
+            DatabaseManager.reservationTable.insertValues("DEFAULT", room, email, "NULL", date, timeslot);
+        }
+
 
 //        String DateOne = req.getParameter("DateOne");
 //        String Timeslot1 = req.getParameter("Timeslot1");
