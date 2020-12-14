@@ -26,10 +26,10 @@ public class ServletLogin extends HttpServlet{
             String id_token = req.getParameter("id_token");
             String email = req.getParameter("email");
 
-            System.out.println(email + " logged in with token " + id_token);
-            DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
-
             DatabaseManager.createAccountIfNotExists(name, lastname, email);
+
+            System.out.println(email + " logged in with token " + id_token);
+            DatabaseManager.loginTable.insertValues(email, name, "DEFAULT");
 
         } catch (Exception e) {
             System.out.println("ServletLogin encountered failed login attempt");
