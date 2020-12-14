@@ -462,8 +462,8 @@
             console.log("reading timeslot:" + i.toString() + " " + document.getElementById('Timeslot'+ i.toString()).value);
             var entry ={
                 date : dateArray[i-1],
-                timeSlot : timeSlots[document.getElementById('Timeslot'+ i.toString()).value],
-                room : rooms[document.getElementById('Room'+ i.toString()).value]
+                timeSlot : document.getElementById('Timeslot'+ i.toString()).value,
+                room : document.getElementById('Room'+ i.toString()).value
 
             };
             console.log("entry creation complete for day:" + i.toString());
