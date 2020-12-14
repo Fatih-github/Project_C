@@ -196,7 +196,7 @@
                 var isStarted = false;
                 var playerCount = 0;
 
-                // An array of PathIdContainer objects that the server
+                // An dateArray of PathIdContainer objects that the server
                 // did not yet handle.
                 // They are ordered by id (ascending).
                 var pathsNotHandled = [];
@@ -504,7 +504,7 @@
                                         canvasBackgroundCtx.drawImage(canvasServerImage,
                                                 0, 0);
 
-                                        // Now go through the pathsNotHandled array and
+                                        // Now go through the pathsNotHandled dateArray and
                                         // remove the paths that were already handled by
                                         // the server.
                                         while (pathsNotHandled.length > 0
@@ -800,7 +800,7 @@
 
                 function pushPath(path) {
 
-                    // Push it into the pathsNotHandled array.
+                    // Push it into the pathsNotHandled dateArray.
                     var container = new PathIdContainer(path, nextMsgId++);
                     pathsNotHandled.push(container);
 
