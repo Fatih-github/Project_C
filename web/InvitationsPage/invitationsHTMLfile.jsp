@@ -56,17 +56,17 @@
                                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                                             "BaseFramePC", "none");
                             st = database.createStatement();
-                            String sql = "select * from invitationtable join reservationtable on invitationtable_reservationid=reservationtable_reservationtableid where invitationtable_invitee='" + name + "'";
+                            String sql = "select * from invitationtable inv join reservationtable res on inv.reservationid=res.reservationid where invitee='" + name + "'";
                             ResultSet rs = st.executeQuery(sql);
                             while (rs.next()) {
                     %>
                     <tbody>
                     <tr class="table">
-                        <td class="table"><%=rs.getString("reservationtable_date")%></td>
-                        <td class="table"><%=rs.getString("reservationtable_slots")%></td>
-                        <td class="table"><%=rs.getString("reservationtable_workspaceid")%></td>
-                        <td class="table"><%=rs.getString("invitationtable_invitedby")%></td>
-                        <td class="table" style="display: none"><%=rs.getString("invitationtable_reservationid")%></td>
+                        <td class="table"><%=rs.getString("date")%></td>
+                        <td class="table"><%=rs.getString("timeslots")%></td>
+                        <td class="table"><%=rs.getString("workspaceid")%></td>
+                        <td class="table"><%=rs.getString("invitedby")%></td>
+                        <td class="table" style="display: none"><%=rs.getString("invitationtable.reservationid")%></td>
                         <td class="table">
                             <a onclick="onAccept()" style="color: #007bff; cursor: pointer"> <i class="fa fa-check" aria-hidden="true"></i></a>
                         </td>

@@ -44,9 +44,9 @@
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String Id = (String)request.getAttribute("Id");
+//        System.out.println("reservationshtml id: " + Id);
 
         System.out.println("\t\tuser: " + name);
-        System.out.println("\t\tid_token: " + id_token);
         System.out.println("\t\temail: " + email);
         Connection database = null;
         Statement st = null;
@@ -59,16 +59,19 @@
                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                             "BaseFramePC", "none");
             st = database.createStatement();
-            String sql = "select * from reservationtable where reservationtable_reservationtableid='" + Id + "' order by reservationtable_date";
+            String sql = "select date, timeslot, invitee, roomid, res.reservationid, invitedby, res.workspaceid from reservationtable res join workspacetable wrk on res.workspaceid=wrk.workspaceid join invitationtable inv on inv.reservationid=res.reservationid where res.employeeid='"+Id+"'";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 %>
                 <tbody>
                     <tr class="table">
-                        <td class="table"><%=rs.getString("reservationtable_date")%></td>
-                        <td class="table"><%=rs.getString("reservationtable_slots")%></td>
-                        <td class="table"><%=rs.getString("reservationtable_workspaceid")%></td>
-                        <td class="table"><%=rs.getString("reservationtable_state")%></td>
+                        <td class="table"><%=rs.getString("date")%></td>
+                        <td class="table"><%=rs.getString("timeslot")%></td>
+                        <td class="table"><%=rs.getString("roomid")%></td>
+                        <td class="table"><%=rs.getString("invitee")%></td>
+                        <td class="table" style="display: none"><%=rs.getString("reservationid")%></td>
+                        <td class="table" style="display: none"><%=rs.getString("invitedby")%></td>
+                        <td class="table" style="display: none"><%=rs.getString("workspaceid")%></td>
                         <td class="table">
                             <a onclick="onUpdate()" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         </td>
@@ -96,6 +99,8 @@
 
     function onDelete() {
         var tableData;
+        var auth2 = gapi.auth2.getAuthInstance();
+        var profile = auth2.currentUser.get().getBasicProfile();
 
         $("tr.table").click(function () {
             tableData = $(this).children("td").map(function () {
@@ -111,9 +116,10 @@
                     var redirectUrl = 'linkDeleteReservations';
                     //using jquery to post data dynamically
                     var form = $('<form action="' + redirectUrl + '" method="post">' +
-                        '<input type="text" name="time" value="' + tableData[0] + '" />' +
-                        '<input type="text" name="email" value="' + tableData[1] + '" />' +
-                        '<input type="text" name="name" value="' + tableData[2] + '" />' +
+                        '<input type="text" name="reservationId" value="' + tableData[4] + '" />' +
+                        '<input type="text" name="invitedby" value="' + tableData[5] + '" />' +
+                        '<input type="text" name="workspaceId" value="' + tableData[6] + '" />' +
+                        '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                         '</form>');
                     $('body').append(form);
                     form.submit();
@@ -126,8 +132,12 @@
     }
 
     function onUpdate() {
+        var tableData
+        var auth2 = gapi.auth2.getAuthInstance();
+        var profile = auth2.currentUser.get().getBasicProfile();
+
         $("tr.table").click(function () {
-            var tableData = $(this).children("td").map(function () {
+            tableData = $(this).children("td").map(function () {
                 return $(this).text();
             }).get();
 
@@ -136,9 +146,14 @@
             var redirectUrl = 'linkUpdateReservations';
             //using jquery to post data dynamically
             var form = $('<form action="' + redirectUrl + '" method="post">' +
-                '<input type="text" name="time" value="' + tableData[0] + '" />' +
-                '<input type="text" name="email2" value="' + tableData[1] + '" />' +
-                '<input type="text" name="name" value="' + tableData[2] + '" />' +
+                '<input type="text" name="date" value="' + tableData[0] + '" />' +
+                '<input type="text" name="timeSlot" value="' + tableData[1] + '" />' +
+                '<input type="text" name="roomId" value="' + tableData[2] + '" />' +
+                '<input type="text" name="invitee" value="' + tableData[3] + '" />' +
+                '<input type="text" name="reservationId" value="' + tableData[4] + '" />' +
+                '<input type="text" name="invitedby" value="' + tableData[5] + '" />' +
+                '<input type="text" name="workspaceId" value="' + tableData[6] + '" />' +
+                '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                 '</form>');
             $('body').append(form);
             form.submit();

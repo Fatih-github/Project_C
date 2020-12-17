@@ -9,40 +9,60 @@ import java.sql.*;
 
 public class ServletUpdateReservations extends HttpServlet{
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        String time = req.getParameter("time");
-        String email2 = req.getParameter("email2");
-        String name = req.getParameter("name");
+        String invitedby = req.getParameter("invitedby");
+        String reservationId = req.getParameter("reservationId");
+        String workspaceId = req.getParameter("workspaceId");
+        String email = req.getParameter("email");
 
-        String oldTime = req.getParameter("oldTime");
-        String oldEmail = req.getParameter("oldEmail");
-        String oldName = req.getParameter("oldName");
+        String date = req.getParameter("date");
+        String timeSlot = req.getParameter("timeSlot");
+        String roomId = req.getParameter("roomId");
+        String invitee = req.getParameter("invitee");
 
-        if (time != null && email2 != null && name != null)
+        String oldDate = req.getParameter("oldDate");
+        String oldTimeSlot = req.getParameter("oldTimeSlot");
+        String oldRoomId = req.getParameter("oldRoomId");
+        String oldInvitee = req.getParameter("oldInvitee");
+
+        if (date != null && timeSlot != null && roomId != null && invitee != null)
         {
-            System.out.println("ik zit in time != null && email2 != null && name != null");
-            System.out.println("----------------------------------------------------------");
-            if (time.isEmpty() && email2.isEmpty() && name.isEmpty()) {
-                System.out.println("ik zit in time.isEmpty() && email2.isEmpty() && name.isEmpty()");
-                System.out.println("----------------------------------------------------------");
-                time = oldTime;
-                email2 = oldEmail;
-                name = oldName;
+            if (date.isEmpty() && timeSlot.isEmpty() && roomId.isEmpty() && invitee.isEmpty()) {
+                date = oldDate;
+                timeSlot = oldTimeSlot;
+                roomId = oldRoomId;
+                invitee = oldInvitee;
             }
         }
 
         System.out.println("nieuwe gegevens");
-        System.out.println(time + " sent reservations request to UpdateReservationServlet");
-        System.out.println(email2 + " sent reservations request to UpdateReservationServlet");
-        System.out.println(name + " sent reservations request to UpdateReservationServlet");
+        System.out.println(date + " sent reservations request to UpdateReservationServlet");
+        System.out.println(timeSlot + " sent reservations request to UpdateReservationServlet");
+        System.out.println(roomId + " sent reservations request to UpdateReservationServlet");
+        System.out.println(invitee + " sent reservations request to UpdateReservationServlet");
 
         System.out.println("oude gegevens");
-        System.out.println(oldTime + " sent reservations request to UpdateReservationServlet");
-        System.out.println(oldEmail + " sent reservations request to UpdateReservationServlet");
-        System.out.println(oldName + " sent reservations request to UpdateReservationServlet");
+        System.out.println(oldDate + " sent reservations request to UpdateReservationServlet");
+        System.out.println(oldTimeSlot + " sent reservations request to UpdateReservationServlet");
+        System.out.println(oldRoomId + " sent reservations request to UpdateReservationServlet");
+        System.out.println(oldInvitee + " sent reservations request to UpdateReservationServlet");
         System.out.println("--------------------");
 
-        if (time != null && !time.isEmpty() && email2 != null && !email2.isEmpty() && name != null && !name.isEmpty() && oldTime != null && oldEmail != null && oldName != null && !oldTime.isEmpty() && !oldEmail.isEmpty() && !oldName.isEmpty()) {
-            boolean rs = DatabaseManager.executeSQLstatement("update loginattempts set attime='" + time.trim() + "', email='" + email2.trim() + "', loginname='" + name.trim() + "' where attime='" + oldTime.trim() +"' and email='" + oldEmail.trim() + "' and loginname='" + oldName.trim() + "'");
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeeID from employeeTable where emailAddress='"+email+"'");
+
+        try {
+            if(resultSetId.next()) {
+                req.setAttribute("Id", resultSetId.getString(1));
+                System.out.println("reservation id: " + resultSetId.getString(1));
+            }
+        } catch (SQLException throwables) {
+            System.out.println("reservation id is missing");
+            throwables.printStackTrace();
+        }
+
+        if (date != null && !date.isEmpty() && timeSlot != null && !timeSlot.isEmpty() && roomId != null && !roomId.isEmpty() && invitee != null && !invitee.isEmpty() && oldDate != null && !oldDate.isEmpty() && oldTimeSlot != null && !oldTimeSlot.isEmpty() && oldRoomId != null && !oldRoomId.isEmpty() && oldInvitee != null && !oldInvitee.isEmpty()) {
+            DatabaseManager.executeSQLstatement("update invitationtable set invitee='" + invitee + "' where reservationid='" + reservationId +"'");
+            DatabaseManager.executeSQLstatement("update reservationtable set date='" + date + "', timeslot='" + timeSlot + "' where reservationid='" + reservationId +"'");
+            DatabaseManager.executeSQLstatement("update workspacetable set roomid='" + roomId + "' where workspaceid='" + workspaceId +"'");
             System.out.println("ik zit in big if statement");
             System.out.println("----------------------------------------------------------");
             RequestDispatcher view = req.getRequestDispatcher("ReservationsPage/reservationsHTMLfile.jsp");

@@ -4,8 +4,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ServletPlanSubmit extends HttpServlet{
 
@@ -103,56 +106,126 @@ public class ServletPlanSubmit extends HttpServlet{
         String[] arrInvite10 = Invite10.split(",");
         System.out.println("arrInvite10: " + Arrays.toString(arrInvite10));
 
-        //DatabaseManager.getResultsFromQuery("select logintable_employeeid from logintable where logintable_emailaddress = '"+email+"'");
+        ResultSet userId = DatabaseManager.getResultsFromQuery("select employeeid, firstname, lastname from employeetable where emailaddress = '"+email+"'");
 
-        if (!DateOne.equals(null) && !Timeslot1.equals(null) && !Timeslot1.equals("Choose...") && !Room1.equals(null)){
-            DatabaseManager.reservationTable.insertValues("3", "2", DateOne, "5", "4", "3");
+        String userIdString = "";
+        String userNameString = "";
+        String userSurnameString = "";
+
+        try {
+            if(userId.next()) {
+                userIdString = userId.getString(1);
+                userNameString = userId.getString(2);
+                userSurnameString = userId.getString(3);
+                System.out.println("userId: " + userId.getString(1));
+                System.out.println("userName: " + userId.getString(2));
+                System.out.println("userSurname: " + userId.getString(3));
+            }
+        } catch (SQLException throwables) {
+            System.out.println("userId is missing");
+            throwables.printStackTrace();
+        }
+
+        if (!DateOne.equals(null) && !Timeslot1.equals(null) && !Timeslot1.equals("Choose...") && !Room1.equals(null) && !Room1.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room1, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateOne, Timeslot1);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite1).replace("[", "{").replace("]", "}"), userIdString, reservationId);
             System.out.println("Day 1 test");
         }
 
-        if (!DateTwo.equals(null) && !Timeslot2.equals(null) && !Timeslot2.equals("Choose...") && !Room2.equals(null)){
-            DatabaseManager.reservationTable.insertValues("1", "2", DateOne, "5", "4", "3");
+        if (!DateTwo.equals(null) && !Timeslot2.equals(null) && !Timeslot2.equals("Choose...") && !Room2.equals(null) && !Room2.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room2, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateTwo, Timeslot2);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite2).replace("[", "{").replace("]", "}"), userIdString, reservationId);
             System.out.println("Day 2 test");
         }
 
-        if (!DateThree.equals(null) && !Timeslot3.equals(null) && !Timeslot3.equals("Choose...") && !Room3.equals(null)){
-            DatabaseManager.reservationTable.insertValues("1", "2", DateOne, "5", "4", "3");
+        if (!DateThree.equals(null) && !Timeslot3.equals(null) && !Timeslot3.equals("Choose...") && !Room3.equals(null) && !Room3.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room3, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateThree, Timeslot3);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite3).replace("[", "{").replace("]", "}"), userIdString, reservationId);
             System.out.println("Day 3 test");
         }
 
-        if (!DateFour.equals(null) && !Timeslot4.equals(null) && !Timeslot4.equals("Choose...") && !Room4.equals(null)){
-            DatabaseManager.reservationTable.insertValues("1", "2", DateOne, "5", "4", "3");
+        if (!DateFour.equals(null) && !Timeslot4.equals(null) && !Timeslot4.equals("Choose...") && !Room4.equals(null) && !Room4.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room4, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateFour, Timeslot4);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite4).replace("[", "{").replace("]", "}"), userIdString, reservationId);
             System.out.println("Day 4 test");
         }
 
-        if (!DateFive.equals(null) && !Timeslot5.equals(null) && !Timeslot5.equals("Choose...") && !Room5.equals(null)){
-            DatabaseManager.reservationTable.insertValues("1", "2", DateOne, "5", "4", "3");
+        if (!DateFive.equals(null) && !Timeslot5.equals(null) && !Timeslot5.equals("Choose...") && !Room5.equals(null) && !Room5.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room5, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateFive, Timeslot5);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite5).replace("[", "{").replace("]", "}"), userIdString, reservationId);
             System.out.println("Day 5 test");
         }
 
-        if (!DateSix.equals(null) && !Timeslot6.equals(null) && !Timeslot6.equals("Choose...") && !Room6.equals(null)){
-            DatabaseManager.reservationTable.insertValues("1", "2", DateOne, "5", "4", "3");
-            System.out.println("Day 1 test");
+        if (!DateSix.equals(null) && !Timeslot6.equals(null) && !Timeslot6.equals("Choose...") && !Room6.equals(null) && !Room6.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room6, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateSix, Timeslot6);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite6).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            System.out.println("Day 6 test");
         }
 
-        if (!DateSeven.equals(null) && !Timeslot7.equals(null) && !Timeslot7.equals("Choose...") && !Room7.equals(null)){
-            DatabaseManager.reservationTable.insertValues("1", "2", DateOne, "5", "4", "3");
-            System.out.println("Day 2 test");
+        if (!DateSeven.equals(null) && !Timeslot7.equals(null) && !Timeslot7.equals("Choose...") && !Room7.equals(null) && !Room7.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room7, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateSeven, Timeslot7);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite7).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            System.out.println("Day 7 test");
         }
 
-        if (!DateEight.equals(null) && !Timeslot8.equals(null) && !Timeslot8.equals("Choose...") && !Room8.equals(null)){
-            DatabaseManager.reservationTable.insertValues("1", "2", DateOne, "5", "4", "3");
-            System.out.println("Day 3 test");
+        if (!DateEight.equals(null) && !Timeslot8.equals(null) && !Timeslot8.equals("Choose...") && !Room8.equals(null) && !Room8.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room8, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateEight, Timeslot8);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite8).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            System.out.println("Day 8 test");
         }
 
-        if (!DateNine.equals(null) && !Timeslot9.equals(null) && !Timeslot9.equals("Choose...") && !Room9.equals(null)){
-            DatabaseManager.reservationTable.insertValues("1", "2", DateOne, "5", "4", "3");
-            System.out.println("Day 4 test");
+        if (!DateNine.equals(null) && !Timeslot9.equals(null) && !Timeslot9.equals("Choose...") && !Room9.equals(null) && !Room9.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room9, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateNine, Timeslot9);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite9).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            System.out.println("Day 9 test");
         }
 
-        if (!DateTen.equals(null) && !Timeslot10.equals(null) && !Timeslot10.equals("Choose...") && !Room10.equals(null)){
-            DatabaseManager.reservationTable.insertValues("1", "2", DateOne, "5", "4", "3");
-            System.out.println("Day 5 test");
+        if (!DateTen.equals(null) && !Timeslot10.equals(null) && !Timeslot10.equals("Choose...") && !Room10.equals(null) && !Room10.equals("Choose...")){
+            int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
+            DatabaseManager.workspaceTable.insertValues(workspaceId, Room10, 10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateTen, Timeslot10);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite10).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            System.out.println("Day 10 test");
+        }
+
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeeID from employeeTable where emailAddress='"+email+"'");
+
+        try {
+            if(resultSetId.next()) {
+                req.setAttribute("Id", resultSetId.getString(1));
+                System.out.println("reservation id: " + resultSetId.getString(1));
+            }
+        } catch (SQLException throwables) {
+            System.out.println("reservation id is missing");
+            throwables.printStackTrace();
         }
 
         RequestDispatcher view = req.getRequestDispatcher("ReservationsPage/reservationsHTMLfile.jsp");

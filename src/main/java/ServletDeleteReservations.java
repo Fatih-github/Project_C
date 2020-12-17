@@ -9,15 +9,34 @@ import java.sql.*;
 
 public class ServletDeleteReservations extends HttpServlet{
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        String time = req.getParameter("time");
+        String invitedby = req.getParameter("invitedby");
         String email = req.getParameter("email");
-        String name = req.getParameter("name");
+        String reservationId = req.getParameter("reservationId");
+        String workspaceId = req.getParameter("workspaceId");
 
-        boolean rs = DatabaseManager.executeSQLstatement("delete from loginattempts where attime='" + time + "' and email='"+ email +"' and loginname='" + name + "'");
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select firstname, lastname from employeeTable where emailAddress='"+email+"'");
 
-        System.out.println(time + " sent reservations request to ReservationServletasdasdsdasda");
-        System.out.println(email + " sent reservations request to ReservationServletasdasdsdasda");
-        System.out.println(name + " sent reservations request to ReservationServletasdasdsdasda");
+        String resultNameString = "";
+        String resultSurnameString = "";
+
+        try {
+            if(resultSetId.next()) {
+                resultNameString = resultSetId.getString(1);
+                resultSurnameString = resultSetId.getString(2);
+                System.out.println(resultNameString+" "+resultSurnameString);
+            }
+        } catch (SQLException throwables) {
+            System.out.println("employee name is missing");
+            throwables.printStackTrace();
+        }
+
+        DatabaseManager.executeSQLstatement("delete from invitationtable where reservationid='" + reservationId + "'");
+        DatabaseManager.executeSQLstatement("delete from reservationtable where reservationid='" + reservationId + "'");
+        DatabaseManager.executeSQLstatement("delete from workspacetable where workspaceid='" + workspaceId + "'");
+
+        System.out.println(invitedby + " invitedby");
+        System.out.println(email + " email");
+        System.out.println(reservationId + " reservationid");
 
         RequestDispatcher view = req.getRequestDispatcher("ReservationsPage/reservationsHTMLfile.jsp");
         view.forward(req, res);

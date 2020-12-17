@@ -28,16 +28,20 @@
             <h1 class="font-weight-light">Update your reservation</h1>
             <form>
                 <div class="form-group">
-                    <label for="name">name</label>
-                    <input class="form-control" id="name" value="" placeholder="<%=request.getParameter("name")%>">
+                    <label for="date">Date</label>
+                    <input class="form-control" id="date" value="" placeholder="<%=request.getParameter("date")%>">
                 </div>
                 <div class="form-group">
-                    <label for="time">time</label>
-                    <input class="form-control" id="time" value="" placeholder="<%=request.getParameter("time")%>">
+                    <label for="timeSlot">Timeslot</label>
+                    <input class="form-control" id="timeSlot" value="" placeholder="<%=request.getParameter("timeSlot")%>">
                 </div>
                 <div class="form-group">
-                    <label for="email2">email</label>
-                    <input class="form-control" id="email2" value="" placeholder="<%=request.getParameter("email2")%>">
+                    <label for="roomId">Room</label>
+                    <input class="form-control" id="roomId" value="" placeholder="<%=request.getParameter("roomId")%>">
+                </div>
+                <div class="form-group">
+                    <label for="invitee">Invite</label>
+                    <input class="form-control" id="invitee" value="" placeholder="<%=request.getParameter("invitee")%>">
                 </div>
                 <button type="button" onclick="onUpdate2()" class="btn btn-primary">Submit</button>
             </form>
@@ -64,12 +68,16 @@
                     var redirectUrl = 'linkUpdateReservations';
                     //using jquery to post data dynamically
                     var form = $('<form action="' + redirectUrl + '" method="post">' +
-                        '<input type="text" name="name" value="' + document.getElementById("name").value + '" />' +
-                        '<input type="text" name="time" value="' + document.getElementById("time").value + '" />' +
-                        '<input type="text" name="email2" value="' + document.getElementById("email2").value + '" />' +
-                        '<input type="text" name="oldName" value=" <%=request.getParameter("name")%> " />' +
-                        '<input type="text" name="oldTime" value=" <%=request.getParameter("time")%> " />' +
-                        '<input type="text" name="oldEmail" value=" <%=request.getParameter("email2")%> " />' +
+                        '<input type="text" name="date" value="' + document.getElementById("date").value + '" />' +
+                        '<input type="text" name="timeSlot" value="' + document.getElementById("timeSlot").value + '" />' +
+                        '<input type="text" name="roomId" value="' + document.getElementById("roomId").value + '" />' +
+                        '<input type="text" name="invitee" value="' + document.getElementById("invitee").value + '" />' +
+                        '<input type="text" name="oldDate" value=" <%=request.getParameter("date")%> " />' +
+                        '<input type="text" name="oldTimeSlot" value=" <%=request.getParameter("timeSlot")%> " />' +
+                        '<input type="text" name="oldRoomId" value=" <%=request.getParameter("roomId")%> " />' +
+                        '<input type="text" name="oldInvitee" value=" <%=request.getParameter("invitee")%> " />' +
+                        '<input type="text" name="reservationId" value=" <%=request.getParameter("reservationId")%> " />' +
+                        '<input type="text" name="workspaceId" value=" <%=request.getParameter("workspaceId")%> " />' +
                         '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                         '</form>');
                     $('body').append(form);

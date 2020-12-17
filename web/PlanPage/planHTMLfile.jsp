@@ -69,7 +69,7 @@
                         <label>Invite</label>
                         <select id="Invite1" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -107,7 +107,7 @@
                         <label>Invite</label>
                         <select id="Invite2" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -145,7 +145,7 @@
                         <label>Invite</label>
                         <select id="Invite3" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -183,7 +183,7 @@
                         <label>Invite</label>
                         <select id="Invite4" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -221,7 +221,7 @@
                         <label>Invite</label>
                         <select id="Invite5" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -259,7 +259,7 @@
                         <label>Invite</label>
                         <select id="Invite6" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -297,7 +297,7 @@
                         <label>Invite</label>
                         <select id="Invite7" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -335,7 +335,7 @@
                         <label>Invite</label>
                         <select id="Invite8" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -373,7 +373,7 @@
                         <label>Invite</label>
                         <select id="Invite9" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -411,7 +411,7 @@
                         <label>Invite</label>
                         <select id="Invite10" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeetable_employeeid")%>"><%=rs.getString("employeetable_firstname")%> <%=rs.getString("employeetable_lastname")%></option>
+                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -467,14 +467,6 @@
     document.getElementById("DateEight").innerHTML = array[7]
     document.getElementById("DateNine").innerHTML = array[8]
     document.getElementById("DateTen").innerHTML = array[9]
-
-    // var data = [];
-    // var stored;
-    // $('#Invite2').on('change',function() {
-    //     stored = $(this).val();
-    //     alert($(this).val());
-    //     console.log(stored);
-    // });
 
     var Invite1;
     $('#Invite1').select2({

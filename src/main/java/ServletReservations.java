@@ -17,11 +17,12 @@ public class ServletReservations extends HttpServlet{
 
         String email = req.getParameter("email");
 
-        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeetable_employeeid from employeetable where employeetable_emailaddress='"+email+"'");
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeeID from employeeTable where emailAddress='"+email+"'");
 
         try {
             if(resultSetId.next()) {
                 req.setAttribute("Id", resultSetId.getString(1));
+                System.out.println("reservation id: " + resultSetId.getString(1));
             }
         } catch (SQLException throwables) {
             System.out.println("reservation id is missing");

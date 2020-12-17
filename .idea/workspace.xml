@@ -27,35 +27,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServletDeclineInvites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="reserveren en invites">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletInvitations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletInvitations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletDeclineInvites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletDeclineInvites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServletReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletReservations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletInvitations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletPlan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletUpdateReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletUpdateReservations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletReservations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanPage/Confirmation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nav-bar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/ReservationsPage/updateReservations.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/updateReservations.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,8 +212,19 @@
       <workItem from="1607772861681" duration="13529000" />
       <workItem from="1607788550485" duration="10134000" />
       <workItem from="1607843507593" duration="20855000" />
-      <workItem from="1607931826749" duration="3113000" />
+      <workItem from="1607931826749" duration="8094000" />
+      <workItem from="1607947799716" duration="4191000" />
+      <workItem from="1607959372183" duration="9184000" />
+      <workItem from="1608042973611" duration="10770000" />
     </task>
+    <task id="LOCAL-00001" summary="reserveren en invites">
+      <created>1607938576595</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607938576595</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,56 +258,58 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="reserveren en invites" />
+    <option name="LAST_COMMIT_MESSAGE" value="reserveren en invites" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="905" height="74" key="GridCell.Tab.0.bottom" timestamp="1607935416697">
+    <state width="905" height="207" key="GridCell.Tab.0.bottom" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607935416697" />
-    <state width="905" height="74" key="GridCell.Tab.0.center" timestamp="1607935416697">
+    <state width="905" height="207" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.0.center" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607935416697" />
-    <state width="905" height="74" key="GridCell.Tab.0.left" timestamp="1607935416696">
+    <state width="905" height="207" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.0.left" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607935416696" />
-    <state width="905" height="74" key="GridCell.Tab.0.right" timestamp="1607935416697">
+    <state width="905" height="207" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.0.right" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607935416697" />
-    <state width="905" height="74" key="GridCell.Tab.1.bottom" timestamp="1607935416340">
+    <state width="905" height="207" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.1.bottom" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
-    <state width="905" height="74" key="GridCell.Tab.1.center" timestamp="1607935416339">
+    <state width="905" height="207" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.1.center" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1607935416339" />
-    <state width="905" height="74" key="GridCell.Tab.1.left" timestamp="1607935416339">
+    <state width="905" height="207" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.1.left" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1607935416339" />
-    <state width="905" height="74" key="GridCell.Tab.1.right" timestamp="1607935416340">
+    <state width="905" height="207" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.1.right" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
-    <state width="905" height="74" key="GridCell.Tab.2.bottom" timestamp="1607935416340">
+    <state width="905" height="207" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.2.bottom" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
-    <state width="905" height="74" key="GridCell.Tab.2.center" timestamp="1607935416340">
+    <state width="905" height="207" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.2.center" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
-    <state width="905" height="74" key="GridCell.Tab.2.left" timestamp="1607935416340">
+    <state width="905" height="207" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.2.left" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
-    <state width="905" height="74" key="GridCell.Tab.2.right" timestamp="1607935416340">
+    <state width="905" height="207" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
+    <state width="905" height="207" key="GridCell.Tab.2.right" timestamp="1608064385706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="74" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1607935416340" />
+    <state width="905" height="207" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1608064385706" />
     <state width="905" height="59" key="GridCell.Tab.3.bottom" timestamp="1607798779782">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -327,6 +330,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="129" y="55" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1607637588829" />
+    <state x="275" y="84" key="Vcs.Push.Dialog.v2" timestamp="1607938586135">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="84" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607938586135" />
     <state x="471" y="77" key="git4idea.branch.GitSmartOperationDialog" timestamp="1607462100038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

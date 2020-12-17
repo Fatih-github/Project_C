@@ -23,7 +23,7 @@ public class ServletDeclineInvites extends HttpServlet{
 
         String email = req.getParameter("email");
 
-        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeetable_employeeid from employeetable where employeetable_emailaddress='"+email+"'");
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeeID from employeeTable where emailAddress='"+email+"'");
 
         try {
             if(resultSetId.next()) {

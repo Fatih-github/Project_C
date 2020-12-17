@@ -23,7 +23,7 @@ public class ServletAcceptInvites extends HttpServlet{
 
         String email = req.getParameter("email");
 
-        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeetable_employeeid from employeetable where employeetable_emailaddress='"+email+"'");
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeeID from employeeTable where emailAddress='"+email+"'");
 
         try {
             System.out.println(resultSetId.getString(1));
