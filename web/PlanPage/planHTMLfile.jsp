@@ -39,6 +39,7 @@
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS)));
                     int dayNum = cal.get(Calendar.DAY_OF_WEEK);
+                    int weeknum = cal.get(Calendar.WEEK_OF_YEAR);
                     if (!(dayNum == 1 || dayNum == 7)){
                         %>
 
@@ -76,6 +77,14 @@
                                         <option value="Jan">Jan</option>
                                         <option value="Luc">Luc</option>
                                     </select>
+                                </div>
+                            </div>
+                        <%
+                    }else if(dayNum == 1){ // not a workday
+                        %>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <h3 style="margin-top: 1.2em" id="DateW"><%=  "Week: " + weeknum%></h3>
                                 </div>
                             </div>
                         <%
