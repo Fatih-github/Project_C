@@ -95,6 +95,29 @@ class DatabaseManager {
         //setting up tables
         //setupLoginTable();
         //note2
+
+
+        //Creating mockdata to test
+        int roomAmount = 6;
+        int roomSlotAmount = 5;
+        System.out.println("Putting room mock data into the database");
+        for(int i = 0; i < roomAmount; i++) {
+            ResultSet rs = getResultsFromQuery("select roomID from roomTable where roomID= 'Room " + (i+1) + "'");
+            try {
+                if (!rs.next())
+                    roomTable.insertValues("Room " + (i+1), roomSlotAmount);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
+        System.out.println("Putting employee mock data into the database");
+        createAccountIfNotExists("John", "Doe", "Johndoe@hr.nl");
+        createAccountIfNotExists("Jane", "Smith", "Janesmith@hr.nl");
+        createAccountIfNotExists("Mary", "Major", "Marymajor@hr.nl");
+        createAccountIfNotExists("Mark", "Moe", "Markmoe@hr.nl");
+        createAccountIfNotExists("Richard", "Miles", "Richardmiles@hr.nl");
+
     }
 
     static boolean executeSQLstatement(String sql){
@@ -123,13 +146,14 @@ class DatabaseManager {
         }
     }
 
-    //Still gives an error, no problem
+    //Still gives an error, rs.next() always executed
     static void createAccountIfNotExists(String name, String lastname, String email) {
-        ResultSet rs = getResultsFromQuery("select emailaddress from employeeTable where emailaddress='" + email + "'");
+        ResultSet rs = getResultsFromQuery("select emailAddress from employeeTable where emailAddress=lower('" + email + "')");
         try {
-            if (!rs.next())
+            if(!rs.next()) {
+                employeeTable.insertValues(email.toLowerCase(), lastname, name, false, false);
                 System.out.println("A new user is being created, name: " + name + " " + lastname);
-                employeeTable.insertValues(email, lastname, name, false, false);
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -138,7 +162,7 @@ class DatabaseManager {
 
     static class Table{
 
-        private String _tableName;
+        private final String _tableName;
 
         public Table(String tableName, String createTableArguments){
             _tableName = tableName;
