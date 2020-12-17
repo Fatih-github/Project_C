@@ -90,8 +90,11 @@
                         <%
                     }
                 }
+
                 //code after adding days to page
             %>
+                <br>
+                <button type="button" class="btn btn-primary" onclick="onPlan2()">Submit</button>
             </form>
 
             <%--<form>
