@@ -12,7 +12,24 @@ public class ServletHome extends HttpServlet{
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         System.out.println("\n\n ServletHome JAVA code");
 
-        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.html");
+        try {
+
+            String name = req.getParameter("name");
+            String lastname = req.getParameter("lastname");
+            String id_token = req.getParameter("id_token");
+            String email = req.getParameter("email");
+
+            System.out.println(email + " logged in with token " + id_token);
+            DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
+
+            DatabaseManager.createAccountIfNotExists(name, lastname, email);
+
+        } catch (Exception e) {
+            System.out.println("Home test");
+        }
+
+
+        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.jsp");
         view.forward(req, res);
     }
 }

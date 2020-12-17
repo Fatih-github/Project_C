@@ -106,13 +106,13 @@ class DatabaseManager {
 
 
     static void createAccountIfNotExists(String name, String lastname, String email) {
-        ResultSet rs = getResultsFromQuery("select employeeTable_emailAddress from employeeTable where employeeTable_emailAddress='" + email + "'");
-        try {
-            if (!rs.next())
-                employeeTable.insertValues("DEFAULT", lastname, name, email, false, false);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+//        ResultSet rs = getResultsFromQuery("select employeeTable_emailAddress from employeeTable where employeeTable_emailAddress='" + email + "'");
+//        try {
+//            if (!rs.next())
+//                employeeTable.insertValues("DEFAULT", lastname, name, email, false, false);
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
     }
 
 
