@@ -1,3 +1,8 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.temporal.TemporalUnit" %>
+<%@ page import="java.time.temporal.ChronoUnit" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Calendar" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +23,9 @@
 
 </head>
 
+
+
+
 <body>
 <div id="nav-placeholder"></div>
 
@@ -25,6 +33,59 @@
     <div class="card border-0 shadow my-5">
         <div class="card-body p-5" style="min-height: 46em">
             <form>
+            <%
+                //forloop adding days to page
+                for (int i = 0; i < 14; i++) {
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS)));
+                    int dayNum = cal.get(Calendar.DAY_OF_WEEK);
+                    if (!(dayNum == 1 || dayNum == 7)){
+                        %>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <h3 style="margin-top: 1.2em" id="Date<%= ""+i %>"><%=  new SimpleDateFormat("EEE dd MMM yyyy").format(Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS)))%></h3>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Timeslot</label>
+                                    <select id="Timeslot<%= ""+i %>" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option value="morning">Morning</option>
+                                        <option value="afternoon">Afternoon</option>
+                                        <option value="day">Entire day</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label>Room</label>
+                                    <select id="Room<%= ""+i %>" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option value="room1">room1</option>
+                                        <option value="room2">room2</option>
+                                        <option value="room3">room3</option>
+                                        <option value="room4">room4</option>
+                                        <option value="room5">room5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Invite (ctrl + click)</label>
+                                    <select id="Invite<%= ""+i %>" class="form-control" multiple="multiple" size="2">
+                                        <option value="Peter">Peter</option>
+                                        <option value="John">John</option>
+                                        <option value="Fatih">Fatih</option>
+                                        <option value="Jan">Jan</option>
+                                        <option value="Luc">Luc</option>
+                                    </select>
+                                </div>
+                            </div>
+                        <%
+                    }
+                }
+                //code after adding days to page
+            %>
+            </form>
+
+            <%--<form>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <h3 style="margin-top: 1.2em" id="DateOne"></h3>
@@ -38,6 +99,7 @@
                             <option value="day">Entire day</option>
                         </select>
                     </div>
+
                     <div class="form-group col-md-3">
                         <label>Room</label>
                         <select id="Room1" class="form-control">
@@ -377,7 +439,7 @@
                 </div>
                 <br>
                 <button type="button" class="btn btn-primary" onclick="onPlan2()">Submit</button>
-            </form>
+            </form>--%>
         </div>
     </div>
 </div>
@@ -409,16 +471,16 @@
         console.log(dateArray[i]);
     }
 
-    document.getElementById("DateOne").innerHTML = dateArray[0];
-    document.getElementById("DateTwo").innerHTML = dateArray[1];
-    document.getElementById("DateThree").innerHTML = dateArray[2];
-    document.getElementById("DateFour").innerHTML = dateArray[3];
-    document.getElementById("DateFive").innerHTML = dateArray[4];
-    document.getElementById("DateSix").innerHTML = dateArray[5];
-    document.getElementById("DateSeven").innerHTML = dateArray[6];
-    document.getElementById("DateEight").innerHTML = dateArray[7];
-    document.getElementById("DateNine").innerHTML = dateArray[8];
-    document.getElementById("DateTen").innerHTML = dateArray[9];
+    // document.getElementById("DateOne").innerHTML = dateArray[0];
+    // document.getElementById("DateTwo").innerHTML = dateArray[1];
+    // document.getElementById("DateThree").innerHTML = dateArray[2];
+    // document.getElementById("DateFour").innerHTML = dateArray[3];
+    // document.getElementById("DateFive").innerHTML = dateArray[4];
+    // document.getElementById("DateSix").innerHTML = dateArray[5];
+    // document.getElementById("DateSeven").innerHTML = dateArray[6];
+    // document.getElementById("DateEight").innerHTML = dateArray[7];
+    // document.getElementById("DateNine").innerHTML = dateArray[8];
+    // document.getElementById("DateTen").innerHTML = dateArray[9];
 
 
     var stored;
