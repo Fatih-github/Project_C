@@ -27,17 +27,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletLogin.class" afterDir="false" />
-    </list>
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -187,6 +177,11 @@
         <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="-9" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectId" id="1hrTQ4q5261SFL3YyLwXy902aa8" />
   <component name="ProjectView">
@@ -385,14 +380,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607955263157</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finished reservations to database">
+      <created>1607959611007</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607959611007</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4158000" />
+    <option name="totallyTimeSpent" value="5002000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16204691" />
@@ -500,7 +502,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes to the database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to the database" />
+    <MESSAGE value="finished reservations to database" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished reservations to database" />
   </component>
   <component name="WindowStateProjectService">
     <state x="740" y="336" key="#BuildArtifactsBeforeRunChooser" />
