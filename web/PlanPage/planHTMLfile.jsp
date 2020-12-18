@@ -32,7 +32,7 @@
 <div class="container" style="min-height: 48em">
     <div class="card border-0 shadow my-5">
         <div class="card-body p-5" style="min-height: 46em">
-            <form>
+            <form id="planRequestForm">
             <%
                 //forloop adding days to page
                 for (int i = 0; i < 14; i++) {
@@ -82,7 +82,7 @@
                         <%
                     }else if(dayNum == 1){ // not a workday
                         %>
-                            <div class="form-row">
+                            <div class="Week-row">
                                 <div class="form-group col-md-3">
                                     <h3 style="margin-top: 1.2em" id="DateW"><%=  "Week: " + weeknum%></h3>
                                 </div>
@@ -97,361 +97,6 @@
                 <button type="button" class="btn btn-primary" onclick="onPlan2()">Submit</button>
             </form>
 
-            <%--<form>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateOne"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot1" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room1" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite1" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateTwo"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot2" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room2" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite2" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateThree"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot3" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room3" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite3" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateFour"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot4" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room4" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite4" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateFive"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot5" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room5" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite5" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateSix"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot6" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room6" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite6" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateSeven"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot7" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room7" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite7" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateEight"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot8" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room8" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite8" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateNine"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot9" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room9" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite9" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <h3 style="margin-top: 1.2em" id="DateTen"></h3>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Timeslot</label>
-                        <select id="Timeslot10" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Room</label>
-                        <select id="Room10" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="room1">room1</option>
-                            <option value="room2">room2</option>
-                            <option value="room3">room3</option>
-                            <option value="room4">room4</option>
-                            <option value="room5">room5</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Invite (ctrl + click)</label>
-                        <select id="Invite10" class="form-control" multiple="multiple" size="2">
-                            <option value="Peter">Peter</option>
-                            <option value="John">John</option>
-                            <option value="Fatih">Fatih</option>
-                            <option value="Jan">Jan</option>
-                            <option value="Luc">Luc</option>
-                        </select>
-                    </div>
-                </div>
-                <br>
-                <button type="button" class="btn btn-primary" onclick="onPlan2()">Submit</button>
-            </form>--%>
         </div>
     </div>
 </div>
@@ -469,31 +114,6 @@
     var date = new Date();
     var dateArray = []
     var count = 0;
-
-    for(var i = 0; i < 14; i++)
-    {
-        if(date.getDay() === 6) {
-            date.setDate(date.getDate() + 1)
-        }
-        if(date.getDay() === 5) {
-            date.setDate(date.getDate() + 2)
-        }
-        dateArray[count++] = new Date(date.setDate(date.getDate() + 1)).toDateString();
-        console.log(date.getDay());
-        console.log(dateArray[i]);
-    }
-
-    // document.getElementById("DateOne").innerHTML = dateArray[0];
-    // document.getElementById("DateTwo").innerHTML = dateArray[1];
-    // document.getElementById("DateThree").innerHTML = dateArray[2];
-    // document.getElementById("DateFour").innerHTML = dateArray[3];
-    // document.getElementById("DateFive").innerHTML = dateArray[4];
-    // document.getElementById("DateSix").innerHTML = dateArray[5];
-    // document.getElementById("DateSeven").innerHTML = dateArray[6];
-    // document.getElementById("DateEight").innerHTML = dateArray[7];
-    // document.getElementById("DateNine").innerHTML = dateArray[8];
-    // document.getElementById("DateTen").innerHTML = dateArray[9];
-
 
     var stored;
     $('#Invite2').select2({
@@ -516,24 +136,33 @@
 
 
         var submitList = [];
-        for (let i = 1; i < 11; i++) {
-            console.log("\n\nreading day:" + i.toString());
-            console.log("reading timeslot:" + i.toString() + " " + document.getElementById('Timeslot'+ i.toString()).value);
-            var entry ={
-                date : dateArray[i-1],
-                timeSlot : document.getElementById('Timeslot'+ i.toString()).value,
-                room : document.getElementById('Room'+ i.toString()).value
 
-            };
-            console.log("entry creation complete for day:" + i.toString());
-            console.log("date: " + entry["date"]);
-            console.log("timeslot: " + entry["timeSlot"]);
-            console.log("room: " + entry["room"]);
-            console.log("entry: " + JSON.stringify(entry))
-            submitList.push(JSON.stringify(entry));
+        var elements = document.getElementById("planRequestForm").elements;
+        var amountOFElements = elements.length;
+
+        for(i = 0; i < amountOFElements; i++){
+            console.log("current i: " + i.toString());
+            element = elements[i];
+            try {
+                if (document.getElementById('Timeslot' + i.toString()).value !== "Choose...") {
+                    var entry = {
+                        date: document.getElementById("Date" + i.toString()).innerText,
+                        timeSlot: document.getElementById('Timeslot' + i.toString()).value,
+                        room: document.getElementById('Room' + i.toString()).value
+
+                    };
+                    console.log("\tentry creation complete for day:" + i.toString());
+                    console.log("\t\tdate: " + entry["date"]);
+                    console.log("\t\ttimeslot: " + entry["timeSlot"]);
+                    console.log("\t\troom: " + entry["room"]);
+                    console.log("\tentry: " + JSON.stringify(entry))
+                    submitList.push(JSON.stringify(entry));
+                }
+            } catch (e) {
+                console.log("error in adding day at pos" + i.toString())
+            }
         }
 
-        // console.log("submitList:" + submitList.toString());
         var sub = submitList.toString().replaceAll("\"", "'");
         console.log("submitList:" + sub);
         form.append('<input type="text" name="submission" value="' + sub + '" />');

@@ -43,28 +43,14 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.62205225">
+    <splitter split-orientation="horizontal" split-proportion="0.70523256">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="94" column="14" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
-                  <folding>
-                    <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#div#2;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#div#3;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#div#5;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#div#6;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#div#7;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#div#8;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#div#9;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-                  </folding>
+                <state relative-caret-position="119">
+                  <caret line="116" selection-start-line="116" selection-end-line="116" />
                 </state>
               </provider>
             </entry>
@@ -72,7 +58,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/time/Instant.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="249">
+                <state relative-caret-position="12631">
                   <caret line="848" column="19" selection-start-line="848" selection-start-column="19" selection-end-line="848" selection-end-column="19" />
                 </state>
               </provider>
@@ -89,25 +75,30 @@
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-459" />
-              </provider>
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-663" />
+                <state relative-caret-position="87">
+                  <caret line="58" column="51" lean-forward="true" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
+                </state>
               </provider>
             </entry>
           </file>
         </leaf>
       </split-second>
     </splitter>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>form-co</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -156,8 +147,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -204,6 +193,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -334,7 +325,9 @@
       <workItem from="1607616789295" duration="1898000" />
       <workItem from="1607860011279" duration="3856000" />
       <workItem from="1607943337108" duration="6675000" />
-      <workItem from="1608196884173" duration="8084000" />
+      <workItem from="1608196884173" duration="9459000" />
+      <workItem from="1608214618222" duration="1084000" />
+      <workItem from="1608226307810" duration="7009000" />
     </task>
     <task id="LOCAL-00001" summary="Changes to the database">
       <created>1607861911491</created>
@@ -385,17 +378,24 @@
       <option name="project" value="LOCAL" />
       <updated>1608212323070</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="re-added submit button, new buy in onSubmit()">
+      <created>1608212709396</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608212709396</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13086000" />
+    <option name="totallyTimeSpent" value="22554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16364606" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08315565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -405,7 +405,7 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16684724" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36403033" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -503,7 +503,8 @@
     <MESSAGE value="finished reservations to database" />
     <MESSAGE value="cleaned up reservations to database" />
     <MESSAGE value="rewrote dayrepresentation to serverside date generation and added weekNum" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewrote dayrepresentation to serverside date generation and added weekNum" />
+    <MESSAGE value="re-added submit button, new buy in onSubmit()" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-added submit button, new buy in onSubmit()" />
   </component>
   <component name="WindowStateProjectService">
     <state x="740" y="336" key="#BuildArtifactsBeforeRunChooser" />
@@ -635,6 +636,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/time/Instant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12631">
+          <caret line="848" column="19" selection-start-line="848" selection-start-column="19" selection-end-line="848" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServletPlan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -642,36 +650,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/time/Instant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="848" column="19" selection-start-line="848" selection-start-column="19" selection-end-line="848" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-459" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="94" column="14" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#3;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#5;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#6;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#7;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#8;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#9;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
         </state>
       </provider>
     </entry>
