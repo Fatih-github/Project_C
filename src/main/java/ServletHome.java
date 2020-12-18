@@ -10,7 +10,9 @@ public class ServletHome extends HttpServlet{
 
 
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        System.out.println("\n\n ServletHome JAVA code");
+        DatabaseManager.setup();
+
+        System.out.println("\n\n ServletHome JAVA Code");
 
         try {
 
@@ -20,14 +22,15 @@ public class ServletHome extends HttpServlet{
             String email = req.getParameter("email");
 
             System.out.println(email + " logged in with token " + id_token);
-            DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
+            if (email != null && name != null) {
+                DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
+            }
 
-            DatabaseManager.createAccountIfNotExists(name, lastname, email);
+//            DatabaseManager.createAccountIfNotExists(name, lastname, email);
 
         } catch (Exception e) {
-            System.out.println("Home test");
+            System.out.println("ServletLogin encountered failed login attempt");
         }
-
 
         RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.jsp");
         view.forward(req, res);
