@@ -22,8 +22,6 @@
     <div class="container">
         <div class="card border-0 shadow my-5">
             <div class="card-body p-5">
-                <h1 class="font-weight-light">Login Template</h1>
-
                 <%
                     String name = request.getParameter("name");
                     String id_token = request.getParameter("id_token");
@@ -38,9 +36,10 @@
                         st = database.createStatement();
                         String sql = "select * from logintable where logintable_emailaddress = '"+email+"'";
                         ResultSet rs = st.executeQuery(sql);
+                        rs.next();
                 %>
                 <tbody>
-                <h1><%=rs.getString("logintable_emailaddress")%></h1>
+                <h1 class="font-weight-light">Hello <%=rs.getString("logintable_loginname")%>!</h1>
                 </tbody>
                 <%
                     }
@@ -48,6 +47,7 @@
                         System.out.println("Error: " + ex);
                     }
                 %>
+
 
 
                 <div style="height: 500px"></div>

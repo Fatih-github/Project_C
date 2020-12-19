@@ -27,10 +27,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Java denk ik?">
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Werkende database call login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,7 +371,7 @@
       <workItem from="1608219503660" duration="1674000" />
       <workItem from="1608221244699" duration="42000" />
       <workItem from="1608222588704" duration="1839000" />
-      <workItem from="1608288522905" duration="2697000" />
+      <workItem from="1608288522905" duration="4317000" />
     </task>
     <task id="LOCAL-00001" summary="Java denk ik?">
       <created>1608289345017</created>
@@ -381,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608289345017</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Werkende database call login">
+      <created>1608291297543</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608291297543</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -489,7 +495,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Java denk ik?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Java denk ik?" />
+    <MESSAGE value="Werkende database call login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Werkende database call login" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/ServletLogin.java">
