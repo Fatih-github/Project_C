@@ -10,8 +10,8 @@ class DatabaseManager {
     static Table loginTable;
     static Table employeeTable;
     static Table roomTable;
-    static Table groupTable;
-    static Table memberTable;
+    //static Table groupIDTable;
+    //static Table memberTable;
     static Table reservationTable;
     static Table invitationTable;
 
@@ -39,7 +39,8 @@ class DatabaseManager {
 
         //For creating an employee in our database
         employeeTable = new Table("employeeTable",
-                "emailAddress varchar(35) PRIMARY KEY, " +
+                "employeeID SERIAL PRIMARY KEY, " +
+                "emailAddress varchar(35) UNIQUE, " +
                 "lastName varchar(35), " +
                 "firstName varchar(35), " +
                 "isAdmin bool, " +
@@ -50,47 +51,45 @@ class DatabaseManager {
                 "emailAddress varchar(35), " +
                 "loginName varchar(35), " +
                 "timeStamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
-                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress)");
+                "FOREIGN KEY(employeeID) REFERENCES employeeTable(employeeID)");
 
         //For data of the workspaces
         roomTable = new Table("roomTable",
                 "roomID varchar(10) PRIMARY KEY, " +
                 "slotAmount INT");
 
-        //For creating a team number which can apply to all team members
-        groupTable = new Table("groupTable",
-                "groupID SERIAL PRIMARY KEY");
-
-        //For referencing a member from a team
-        memberTable = new Table("memberTable",
-                "groupID INT, " +
-                "emailAddress varchar(35), " +
-                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID), " +
-                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress)");
-
-        //insert into reservationtable
-        //Values (ARRAY[1, 2, 3])
         //For creating a reservation
         reservationTable = new Table("reservationTable",
                 "reservationID SERIAL PRIMARY KEY, " +
                 "roomID varchar(10), " +
-                "emailAddress varchar(35), " +
-                "groupID INT, " +
-                "date varchar(20), " +
+                "invitationID INT, " +
+                "employeeID INT, " +
+                "date date, " +
                 "timeSlot varchar(20), " +
                 "FOREIGN KEY(roomID) REFERENCES roomTable(roomID), " +
-                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
-                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID)");
+                "FOREIGN KEY(employeeID) REFERENCES employeeTable(employeeID)");
 
         //*Can still be changed, work in progress*
         invitationTable = new Table("invitationTable",
+                "invitationID SERIAL PRIMARY KEY, " +
                 "invitedBy varchar(35), " +
-                "invitee varchar(35), " +
-                "emailAddress varchar(35), " +
+                "invitee text[], " +
                 "reservationID INT, " +
-                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
-                "FOREIGN KEY(reservationID) REFERENCES reservationTable(reservationID), " +
-                "PRIMARY KEY(emailAddress, reservationID)");
+                "FOREIGN KEY(reservationID) REFERENCES reservationTable(reservationID)");
+
+
+//        //maybe add column?
+//        //For creating a team number which can apply to all team members
+//        groupIDTable = new Table("groupIDTable",
+//                "groupID SERIAL PRIMARY KEY");
+//
+//        //For referencing a member from a team (tussentabel)
+//        memberTable = new Table("memberTable",
+//                "groupID INT, " +
+//                "employeeID INT, " +
+//                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID), " +
+//                "FOREIGN KEY(employeeID) REFERENCES employeeTable(employeeID)");
+
 
         //setting up tables
         //setupLoginTable();
@@ -151,7 +150,7 @@ class DatabaseManager {
         ResultSet rs = getResultsFromQuery("select emailAddress from employeeTable where emailAddress=lower('" + email + "')");
         try {
             if(!rs.next()) {
-                employeeTable.insertValues(email.toLowerCase(), lastname, name, false, false);
+                employeeTable.insertValues("DEFAULT", email.toLowerCase(), lastname, name, false, false);
                 System.out.println("A new user is being created, name: " + name + " " + lastname);
             }
         } catch (SQLException throwables) {
