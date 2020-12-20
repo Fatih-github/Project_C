@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*" %>
+        <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,27 +28,48 @@
                     String email = request.getParameter("email");
                     Connection database = null;
                     Statement st = null;
+                    ResultSet rs = null;
                     try {
                         Class.forName("org.postgresql.Driver");
                         database = DriverManager
                                 .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                                         "BaseFramePC", "none");
                         st = database.createStatement();
-                        String sql = "select * from logintable where logintable_emailaddress = '"+email+"'";
-                        ResultSet rs = st.executeQuery(sql);
+                        String sql = "select * from logintable where logintable_emailaddress = '" + email + "'";
+                        rs = st.executeQuery(sql);
                         rs.next();
                 %>
                 <tbody>
                 <h1 class="font-weight-light">Hello <%=rs.getString("logintable_loginname")%>!</h1>
+                <%
+                    rs.beforeFirst();
+                %>
                 </tbody>
                 <%
-                    }
-                    catch (Exception ex) {
+                    } catch (Exception ex) {
                         System.out.println("Error: " + ex);
                     }
                 %>
 
+                <div class="form-group col-md-3">
+                    <label>Choose your team:</label>
+                    <%
+                        int i = 4;
+                        for (int j = 0; j < i; j++)
+                        {%>
+                            <select id=("Invite" <%%>) class="form-control" multiple="multiple">
+                            <% while (rs.next()) { %>
+                            <option><%=rs.getString("logintable_loginname")%></option>
+                            <%
+                            }
+                            %>
+                            </select><%
+                            }%>
 
+
+
+
+                </div>
 
                 <div style="height: 500px"></div>
             </div>
