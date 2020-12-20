@@ -34,7 +34,7 @@
                         database = DriverManager
                                 .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                                         "BaseFramePC", "none");
-                        st = database.createStatement();
+                        st = database.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
                         String sql = "select * from logintable where logintable_emailaddress = '" + email + "'";
                         rs = st.executeQuery(sql);
                         rs.next();
@@ -52,12 +52,10 @@
                 %>
 
                 <div class="form-group col-md-3">
-                    <label>Choose your team:</label>
+                    <label class="control-label label info">Choose your team: (ctrl + click)</label>
                     <%
-                        int i = 4;
-                        for (int j = 0; j < i; j++)
                         {%>
-                            <select id=("Invite" <%%>) class="form-control" multiple="multiple">
+                            <select id=("Invite") class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
                             <option><%=rs.getString("logintable_loginname")%></option>
                             <%
@@ -65,10 +63,6 @@
                             %>
                             </select><%
                             }%>
-
-
-
-
                 </div>
 
                 <div style="height: 500px"></div>
