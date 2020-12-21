@@ -51,17 +51,7 @@
                     }
                 %>
 
-                <style>
-                    .team
-                    {
-                        color: black;
-                        font-size: 1rem;
-                        display: inline-block;
-                        width: 300px;
-                        position: relative;
-                        cursor: pointer;
-                    }
-                </style>
+
 
                 <div class="form-group col-md-3">
                     <span class="control-label label_info">Choose your team: (ctrl + click)</span>
@@ -149,4 +139,17 @@
         });
     }
 </script>
+
+<style>
+    .team
+    {
+        color: black;
+        font-size: 1rem;
+        display: inline-block;
+        width: 300px;
+        position: relative;
+        cursor: pointer;
+    }
+</style>
+
 </html>
