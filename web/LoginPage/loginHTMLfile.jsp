@@ -51,11 +51,23 @@
                     }
                 %>
 
+                <style>
+                    .team
+                    {
+                        color: black;
+                        font-size: 1rem;
+                        display: inline-block;
+                        width: 300px;
+                        position: relative;
+                        cursor: pointer;
+                    }
+                </style>
+
                 <div class="form-group col-md-3">
-                    <label class="control-label label info">Choose your team: (ctrl + click)</label>
+                    <span class="control-label label_info">Choose your team: (ctrl + click)</span>
                     <%
                         {%>
-                            <select id=("Invite") class="form-control" multiple="multiple">
+                            <select id="Invite" class="form-control team" multiple="multiple">
                             <% while (rs.next()) { %>
                             <option><%=rs.getString("logintable_loginname")%></option>
                             <%
@@ -63,6 +75,12 @@
                             %>
                             </select><%
                             }%>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <span class="control-label label_info">Reservations this week:</span>
+
+
                 </div>
 
                 <div style="height: 500px"></div>

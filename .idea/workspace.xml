@@ -27,7 +27,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Werkende database call login">
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/LoginPage/loginCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginCSSfile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
@@ -373,6 +373,8 @@
       <workItem from="1608221244699" duration="42000" />
       <workItem from="1608222588704" duration="1839000" />
       <workItem from="1608288522905" duration="4317000" />
+      <workItem from="1608480455296" duration="2563000" />
+      <workItem from="1608555552526" duration="435000" />
     </task>
     <task id="LOCAL-00001" summary="Java denk ik?">
       <created>1608289345017</created>
@@ -388,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608291297543</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="css">
+      <created>1608480415925</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608480415925</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -497,7 +506,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Java denk ik?" />
     <MESSAGE value="Werkende database call login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Werkende database call login" />
+    <MESSAGE value="css" />
+    <option name="LAST_COMMIT_MESSAGE" value="css" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/ServletLogin.java">
