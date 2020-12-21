@@ -39,6 +39,7 @@
                         rs = st.executeQuery(sql);
                         rs.next();
                 %>
+
                 <tbody>
                 <h1 class="font-weight-light">Hello <%=rs.getString("logintable_loginname")%>!</h1>
                 <%
@@ -50,8 +51,6 @@
                         System.out.println("Error: " + ex);
                     }
                 %>
-
-
 
                 <div class="form-group col-md-3">
                     <span class="control-label label_info">Choose your team: (ctrl + click)</span>
@@ -67,10 +66,46 @@
                             }%>
                 </div>
 
-                <div class="form-group col-md-3">
+                <div class="reservations form-group col-md-3">
                     <span class="control-label label_info">Reservations this week:</span>
 
+                    <div class="container">
+                        <div class="card border-0 shadow my-5">
+                            <div class="card-body p-5">
 
+                                <table class="table table-bordered table-responsive-sm table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>attime</th>
+                                        <th>email</th>
+                                        <th>loginname</th>
+                                        <th width="10em">update</th>
+                                        <th width="10em">delete</th>
+                                    </tr>
+                                    </thead>
+
+                                <tbody>
+                                <tr class="table">
+                                    <%
+                                        rs.beforeFirst();
+                                        while (rs.next()) { %>
+                                    <td class="table"><%=rs.getString("logintable_timestamp")%></td>
+                                    <td class="table"><%=rs.getString("logintable_emailaddress")%></td>
+                                    <td class="table"><%=rs.getString("logintable_loginname")%></td>
+                                    <td class="table">
+                                        <a onclick="onUpdate()" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                    </td>
+                                    <td class="table">
+                                        <a onclick="onDelete()" style="color: #007bff; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </td>
+                                </tbody>
+                                    <%}%>
+
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div style="height: 500px"></div>
@@ -149,6 +184,10 @@
         width: 300px;
         position: relative;
         cursor: pointer;
+    }
+
+    .reservations
+    {
     }
 </style>
 
