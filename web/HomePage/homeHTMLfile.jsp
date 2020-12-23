@@ -1,4 +1,4 @@
-        <%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,66 +13,66 @@
     <meta name="google-signin-client_id" content="621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-    <link rel = "stylesheet" type = "text/css"  href="LoginPage/loginCSSfile.css"/>
+    <link rel = "stylesheet" type = "text/css"  href="HomePage/homeCSSfile.css"/>
 </head>
 
 <body>
-    <div id="nav-placeholder"></div>
+<div id="nav-placeholder"></div>
 
-    <div class="container">
-        <div class="card border-0 shadow my-5">
-            <div class="card-body p-5">
-                <%
-                    String name = request.getParameter("name");
-                    String id_token = request.getParameter("id_token");
-                    String email = request.getParameter("email");
-                    Connection database = null;
-                    Statement st = null;
-                    ResultSet rs = null;
-                    try {
-                        Class.forName("org.postgresql.Driver");
-                        database = DriverManager
-                                .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
-                                        "BaseFramePC", "none");
-                        st = database.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                        String sql = "select * from logintable where logintable_emailaddress = '" + email + "'";
-                        rs = st.executeQuery(sql);
-                        rs.next();
-                %>
+<div class="container">
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+            <%
+                String name = request.getParameter("name");
+                String id_token = request.getParameter("id_token");
+                String email = request.getParameter("email");
+                Connection database = null;
+                Statement st = null;
+                ResultSet rs = null;
+                try {
+                    Class.forName("org.postgresql.Driver");
+                    database = DriverManager
+                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                    "BaseFramePC", "none");
+                    st = database.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                    String sql = "select * from logintable where logintable_emailaddress = '" + email + "'";
+                    rs = st.executeQuery(sql);
+                    rs.next();
+            %>
 
-                <tbody>
-                <span  STYLE="font-size: 300%; font-weight: bold" class="welcome control-label label_info">Hello <%=rs.getString("logintable_loginname")%>!</span>
+            <tbody>
+            <span  STYLE="font-size: 300%; font-weight: bold" class="welcome control-label label_info">Hello <%=rs.getString("logintable_loginname")%>!</span>
+            <%
+                rs.beforeFirst();
+            %>
+            </tbody>
+            <%
+                } catch (Exception ex) {
+                    System.out.println("Error: " + ex);
+                }
+            %>
+
+            <p>It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</p>
+            <p>We hope to see you soon at the office!</p>
+
+
+
+        </div>
+        <div class="row">
+            <div class="team1 form-group col-md-3">
+                <span STYLE="font-size: x-large" class="m-4 text-nowrap control-label label_info ">Create a team: (ctrl + click)</span> <br>
                 <%
                     rs.beforeFirst();
-                %>
-                </tbody>
-                <%
-                    } catch (Exception ex) {
-                        System.out.println("Error: " + ex);
-                    }
-                %>
-
-                <p>It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</p>
-                <p>We hope to see you soon at the office!</p>
-
-
-
-                </div>
-                <div class="row">
-                <div class="team1 form-group col-md-3">
-                    <span STYLE="font-size: x-large" class="m-4 text-nowrap control-label label_info ">Create a team: (ctrl + click)</span> <br>
+                    {%>
+                <select id="Invite" class="mw-100 form-control col-xs-6 col-sm-6 col-md-6 team" multiple="multiple">
+                    <% while (rs.next()) { %>
+                    <option><%=rs.getString("logintable_loginname")%></option>
                     <%
-                        rs.beforeFirst();
-                        {%>
-                    <select id="Invite" class="mw-100 form-control col-xs-6 col-sm-6 col-md-6 team" multiple="multiple">
-                        <% while (rs.next()) { %>
-                        <option><%=rs.getString("logintable_loginname")%></option>
-                        <%
-                            }
-                        %>
-                    </select><%
-                    }%>
-                </div>
+                        }
+                    %>
+                </select><%
+                }%>
+            </div>
 
 
             <div class="reservations form-group col-md-3">
@@ -121,13 +121,13 @@
 
                 <div style="height: 500px"></div>
             </div>
-                </div>
         </div>
     </div>
-    <%
-        String image = request.getParameter("image");
-        session.setAttribute("image", image);
-    %>
+</div>
+<%
+    String image = request.getParameter("image");
+    session.setAttribute("image", image);
+%>
 </body>
 
 <script>
@@ -229,7 +229,7 @@
     }
 
     .tableres{
-       margin-top: 10px;
+        margin-top: 10px;
         margin-left: 20px;
     }
 

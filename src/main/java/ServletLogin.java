@@ -29,7 +29,7 @@ public class ServletLogin extends HttpServlet{
             System.out.println(email + " logged in with token " + id_token);
             DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
 
-            DatabaseManager.createAccountIfNotExists(name, lastname, email);
+//            DatabaseManager.createAccountIfNotExists(name, lastname, email);
 
         } catch (Exception e) {
             System.out.println("ServletLogin encountered failed login attempt");

@@ -24,11 +24,23 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/Kylian" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="team + reservations">
+      <change afterPath="$PROJECT_DIR$/web/HomePage/homeHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletLogin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,50 +51,12 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServletLogin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/workspaceBackup.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -102,41 +76,10 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-365" />
-    <option name="y" value="-23" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
-  </component>
   <component name="ProjectId" id="1hrTQ4q5261SFL3YyLwXy902aa8" />
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="BaseFramePC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BaseFramePC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BaseFramePC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BaseFramePC" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -165,6 +108,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Unnamed">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.38" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/BaseFramePC_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -374,6 +328,7 @@
       <workItem from="1608288522905" duration="4317000" />
       <workItem from="1608480455296" duration="2563000" />
       <workItem from="1608555552526" duration="5100000" />
+      <workItem from="1608658978208" duration="12977000" />
     </task>
     <task id="LOCAL-00001" summary="Java denk ik?">
       <created>1608289345017</created>
@@ -413,80 +368,6 @@
     <option name="localTasksCounter" value="6" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="341000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18123667" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Web" order="6" side_tool="true" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2654388" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18923241" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Web" order="6" side_tool="true" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35211268" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
@@ -495,7 +376,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Kylian" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -523,27 +416,58 @@
     <MESSAGE value="team + reservations" />
     <option name="LAST_COMMIT_MESSAGE" value="team + reservations" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServletLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/PlanTemplate/templateHTMLfile.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state width="1293" height="238" key="GridCell.Tab.0.bottom" timestamp="1608748957911">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.0.bottom/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957911" />
+    <state width="1293" height="238" key="GridCell.Tab.0.center" timestamp="1608748957910">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.0.center/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957910" />
+    <state width="1293" height="238" key="GridCell.Tab.0.left" timestamp="1608748957910">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.0.left/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957910" />
+    <state width="1293" height="238" key="GridCell.Tab.0.right" timestamp="1608748957910">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.0.right/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957910" />
+    <state width="1293" height="238" key="GridCell.Tab.1.bottom" timestamp="1608748957648">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.1.bottom/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957648" />
+    <state width="1293" height="238" key="GridCell.Tab.1.center" timestamp="1608748957647">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.1.center/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957647" />
+    <state width="1293" height="238" key="GridCell.Tab.1.left" timestamp="1608748957647">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.1.left/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957647" />
+    <state width="1293" height="238" key="GridCell.Tab.1.right" timestamp="1608748957648">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.1.right/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957648" />
+    <state width="1293" height="238" key="GridCell.Tab.2.bottom" timestamp="1608748957649">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.2.bottom/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957649" />
+    <state width="1293" height="238" key="GridCell.Tab.2.center" timestamp="1608748957649">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.2.center/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957649" />
+    <state width="1293" height="238" key="GridCell.Tab.2.left" timestamp="1608748957648">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.2.left/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957648" />
+    <state width="1293" height="238" key="GridCell.Tab.2.right" timestamp="1608748957649">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="238" key="GridCell.Tab.2.right/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608748957649" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608662701067">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1608662701067" />
   </component>
 </project>
