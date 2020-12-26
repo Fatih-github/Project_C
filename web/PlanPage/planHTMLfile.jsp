@@ -3,6 +3,8 @@
 <%@ page import="java.time.temporal.ChronoUnit" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Calendar" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.HashMap" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,23 +36,87 @@
         <div class="card-body p-5" style="min-height: 46em">
             <form id="planRequestForm">
             <%
-                //forloop adding days to page
+                //container class
+                class Reservation{
+                    String date;
+                    String roomId;
+                    String timeSlot;
+
+                    public Reservation(String inp_date, String inp_roomId, String inp_timeSlot){
+                        date = inp_date;
+                        roomId = inp_roomId;
+                        timeSlot = inp_timeSlot;
+                    }
+
+                    @Override
+                    public String toString() {
+                        return date + ", " + roomId + ", " + timeSlot;
+                    }
+                }
+                HashMap<String, Reservation> dateMap = new HashMap<>();
+
+                // get reservations based on email adress
+                try {
+                    System.out.println("\t\t planHTMLfile JSP/JAVA code");
+
+
+
+
+                    //<editor-fold desc="database setup">
+                    String email = request.getParameter("email");
+                    Connection database = null;
+                    Statement st = null;
+                    Class.forName("org.postgresql.Driver");
+                    database = DriverManager
+                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                    "BaseFramePC", "none");
+                    st = database.createStatement();
+                    //</editor-fold>
+                    String sql = "select date, roomid, timeslot from reservationtable where emailaddress='" + email + "'";
+                    ResultSet plannedDates = st.executeQuery(sql);
+
+                    //store all planned dates in a HashMap
+                    while (plannedDates.next()){
+                        Reservation currentReservation =
+                                new Reservation(plannedDates.getString(1),
+                                plannedDates.getString(2),
+                                plannedDates.getString(3));
+                        System.out.println("reservation: " + currentReservation);
+                        dateMap.put(plannedDates.getString(1), currentReservation);
+                    }
+
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
+                //for loop adding days to page
                 for (int i = 0; i < 14; i++) {
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS)));
                     int dayNum = cal.get(Calendar.DAY_OF_WEEK);
                     int weeknum = cal.get(Calendar.WEEK_OF_YEAR);
                     if (!(dayNum == 1 || dayNum == 7)){
-                        %>
 
+                        String dateString = new SimpleDateFormat("EEE dd MMM yyyy").format(Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS)));
+                        Reservation currentReservation;
+                        if (dateMap.containsKey(dateString)){
+                            currentReservation = dateMap.get(dateString);
+                        }else{
+                            currentReservation = new Reservation("n.a.", "Nothing planned", "Nothing planned");
+                        }
+
+                        %>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <h3 style="margin-top: 1.2em" id="Date<%= ""+i %>"><%=  new SimpleDateFormat("EEE dd MMM yyyy").format(Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS)))%></h3>
+                                    <h3 style="margin-top: 1.2em" id="Date<%= ""+i %>"><%=dateString%></h3>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Timeslot</label>
                                     <select id="Timeslot<%= ""+i %>" class="form-control">
-                                        <option selected>Choose...</option>
+                                        <option selected><%= currentReservation.timeSlot%></option>
                                         <option value="morning">Morning</option>
                                         <option value="afternoon">Afternoon</option>
                                         <option value="day">Entire day</option>
@@ -60,7 +126,7 @@
                                 <div class="form-group col-md-3">
                                     <label>Room</label>
                                     <select id="Room<%= ""+i %>" class="form-control">
-                                        <option selected>Choose...</option>
+                                        <option selected><%= currentReservation.roomId%></option>
                                         <option value="room1">room1</option>
                                         <option value="room2">room2</option>
                                         <option value="room3">room3</option>
@@ -144,7 +210,7 @@
             console.log("current i: " + i.toString());
             element = elements[i];
             try {
-                if (document.getElementById('Timeslot' + i.toString()).value !== "Choose...") {
+                if (document.getElementById('Timeslot' + i.toString()).value !== "Nothing planned") {
                     var entry = {
                         date: document.getElementById("Date" + i.toString()).innerText,
                         timeSlot: document.getElementById('Timeslot' + i.toString()).value,
