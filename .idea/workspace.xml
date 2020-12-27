@@ -34,10 +34,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="reservations tabel">
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="meer style changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HomePage/homeHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/HomePage/homeHTMLfile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +314,7 @@
       <workItem from="1608480455296" duration="2563000" />
       <workItem from="1608555552526" duration="5100000" />
       <workItem from="1608658978208" duration="12977000" />
-      <workItem from="1609073621874" duration="2302000" />
+      <workItem from="1609073621874" duration="3512000" />
     </task>
     <task id="LOCAL-00001" summary="Java denk ik?">
       <created>1608289345017</created>
@@ -351,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608556304944</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="meer style changes">
+      <created>1609085108888</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609085108888</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,6 +407,7 @@
     <MESSAGE value="Werkende database call login" />
     <MESSAGE value="css" />
     <MESSAGE value="team + reservations" />
-    <option name="LAST_COMMIT_MESSAGE" value="team + reservations" />
+    <MESSAGE value="meer style changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="meer style changes" />
   </component>
 </project>

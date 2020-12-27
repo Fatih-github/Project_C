@@ -52,19 +52,19 @@
                 }
             %>
 
-            <p>It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</p>
-            <p>We hope to see you soon at the office!</p>
+            <h5>It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</h5>
+            <h5>We hope to see you soon at the office!</h5>
 
 
 
         </div>
         <div class="row">
-            <div class="team1 form-group col-md-3">
+            <div class="team1 form-group col-md-2">
                 <span STYLE="font-size: x-large" class="m-4 text-nowrap control-label label_info ">Create a team: (ctrl + click)</span> <br>
                 <%
                     rs.beforeFirst();
                     {%>
-                <select id="Invite" class="mw-100 form-control col-xs-6 col-sm-6 col-md-6 team" multiple="multiple">
+                <select id="Invite" class="mw-100 form-control col-xs-4 col-sm-4 col-md-4 team" multiple="multiple">
                     <% while (rs.next()) { %>
                     <option><%=rs.getString("logintable_loginname")%></option>
                     <%
@@ -82,7 +82,7 @@
                     <div class="card border-0">
                         <div class="card-body p-2">
 
-                            <table STYLE="font-size: small" class="table m-6 table-bordered table-responsive-sm table-hover table-dark table-sm col-xs-6 col-sm-6 col-md-6">
+                            <table STYLE="font-size: small" class="table m-7 table-bordered table-responsive-sm table-hover table-dark table-sm col-xs-7 col-sm-7 col-md-7">
                                 <thead>
                                 <tr>
                                     <th>attime</th>
