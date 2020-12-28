@@ -32,6 +32,9 @@
     <%
         String image = request.getParameter("image");
         session.setAttribute("image", image);
+
+        String email = request.getParameter("email");
+        session.setAttribute("email", email);
     %>
 </body>
 

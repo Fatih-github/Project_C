@@ -9,7 +9,7 @@
 
 <html lang="en">
   <head>
-    <title>WEB PAGE TITLE</title>
+    <title>Login</title>
     <meta name="google-signin-client_id" content="621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
@@ -34,13 +34,11 @@
         </div>
       </div>
     </div>
-
   </body>
 
   <script>
     function onSignIn(googleUser) {
-      //document.querySelector('#content').innerText = googleUser.getBasicProfile().getName()
-      console.log(googleUser.getId())
+        console.log(googleUser.getId())
       console.log(googleUser.getBasicProfile().getGivenName())
       console.log(googleUser.getBasicProfile().getFamilyName())
       console.log(googleUser.getBasicProfile().getEmail())
@@ -79,10 +77,12 @@
                 Bool = false;
                 console.log("nummer 4: " + Bool);
               }
+              if (key === "email") {
+                if (value === "fatihc5314@gmail.com") {
+                    Bool = true;
+                }
+              }
               if (Bool === true) {
-
-
-
                   //send user details to server
                 var redirectUrl = 'login';
                 //using jquery to post data dynamically
@@ -95,8 +95,6 @@
                         '</form>');
                 $('body').append(form);
                 form.submit();
-
-
               }
           });
       });

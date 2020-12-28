@@ -117,4 +117,38 @@
         <servlet-name>ServletDeclineInvites</servlet-name>
         <url-pattern>/linkDeclineInvite</url-pattern>
     </servlet-mapping>
+
+    <!--Fires when Admin button is clicked-->
+    <servlet>
+        <servlet-name>ServletAdmin</servlet-name>
+        <servlet-class>ServletAdmin</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletAdmin</servlet-name>
+        <url-pattern>/linkAdmin</url-pattern>
+    </servlet-mapping>
+
+    <!--Fires when Admin Submit button is clicked-->
+    <servlet>
+        <servlet-name>ServletAdminSubmit</servlet-name>
+        <servlet-class>ServletAdminSubmit</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletAdminSubmit</servlet-name>
+        <url-pattern>/linkAdminSubmit</url-pattern>
+    </servlet-mapping>
+
+    <!--Fires when Overview button is clicked-->
+    <servlet>
+        <servlet-name>ServletOverview</servlet-name>
+        <servlet-class>ServletOverview</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletOverview</servlet-name>
+        <url-pattern>/linkOverview</url-pattern>
+    </servlet-mapping>
+
 </web-app>

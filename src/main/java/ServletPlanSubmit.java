@@ -131,7 +131,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room1, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateOne, Timeslot1);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite1).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite1).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 1 test");
         }
 
@@ -140,7 +140,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room2, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateTwo, Timeslot2);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite2).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite2).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 2 test");
         }
 
@@ -149,7 +149,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room3, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateThree, Timeslot3);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite3).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite3).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 3 test");
         }
 
@@ -158,7 +158,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room4, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateFour, Timeslot4);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite4).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite4).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 4 test");
         }
 
@@ -167,7 +167,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room5, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateFive, Timeslot5);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite5).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite5).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 5 test");
         }
 
@@ -176,7 +176,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room6, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateSix, Timeslot6);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite6).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite6).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 6 test");
         }
 
@@ -185,7 +185,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room7, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateSeven, Timeslot7);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite7).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite7).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 7 test");
         }
 
@@ -194,7 +194,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room8, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateEight, Timeslot8);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite8).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite8).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 8 test");
         }
 
@@ -203,7 +203,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room9, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateNine, Timeslot9);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite9).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite9).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 9 test");
         }
 
@@ -212,7 +212,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room10, 10);
             DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateTen, Timeslot10);
-            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite10).replace("[", "{").replace("]", "}"), userIdString, reservationId);
+            DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite10).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 10 test");
         }
 

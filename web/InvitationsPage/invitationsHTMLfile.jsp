@@ -56,22 +56,24 @@
                                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                                             "BaseFramePC", "none");
                             st = database.createStatement();
-                            String sql = "select * from invitationtable inv join reservationtable res on inv.reservationid=res.reservationid where invitee='" + name + "'";
+                            String sql = "select to_char(date, 'Dy Mon DD YYYY') as date, timeslot, roomid, invitedby, res.reservationid as reservationid, res.workspaceid as workspaceid from invitationtable inv join reservationtable res on inv.reservationid=res.reservationid join workspacetable wrk on wrk.workspaceid=res.workspaceid where '" + name + "' = any(invitee) and date > current_date order by res.date";
                             ResultSet rs = st.executeQuery(sql);
                             while (rs.next()) {
                     %>
                     <tbody>
                     <tr class="table">
                         <td class="table"><%=rs.getString("date")%></td>
-                        <td class="table"><%=rs.getString("timeslots")%></td>
-                        <td class="table"><%=rs.getString("workspaceid")%></td>
+                        <td class="table"><%=rs.getString("timeslot")%></td>
+                        <td class="table"><%=rs.getString("roomid")%></td>
                         <td class="table"><%=rs.getString("invitedby")%></td>
-                        <td class="table" style="display: none"><%=rs.getString("invitationtable.reservationid")%></td>
-                        <td class="table">
+                        <td class="table" style="display: none"><%=rs.getString("reservationid")%></td>
+                        <td class="table" style="display: none"><%=rs.getString("workspaceid")%></td>
+                        <td class="table command">
                             <a onclick="onAccept()" style="color: #007bff; cursor: pointer"> <i class="fa fa-check" aria-hidden="true"></i></a>
                         </td>
-                        <td class="table">
-                            <a onclick="onDecline()" style="color: #007bff; cursor: pointer"> <i class="fa fa-ban" aria-hidden="true"></i></a>                        </td>
+                        <td class="table command">
+                            <a onclick="onDecline()" style="color: #007bff; cursor: pointer"> <i class="fa fa-ban" aria-hidden="true"></i></a>
+                        </td>
                     </tr>
                     </tbody>
                     <%
@@ -117,6 +119,7 @@
                         '<input type="text" name="TimeSlot" value="' + tableData[1] + '" />' +
                         '<input type="text" name="Room" value="' + tableData[2] + '" />' +
                         '<input type="text" name="ReservationId" value="' + tableData[4] + '" />' +
+                        '<input type="text" name="WorkspaceId" value="' + tableData[5] + '" />' +
                         '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                         '</form>');
                     $('body').append(form);
@@ -152,6 +155,7 @@
                         '<input type="text" name="TimeSlot" value="' + tableData[1] + '" />' +
                         '<input type="text" name="Room" value="' + tableData[2] + '" />' +
                         '<input type="text" name="ReservationId" value="' + tableData[4] + '" />' +
+                        '<input type="text" name="workspaceid" value="' + tableData[5] + '" />' +
                         '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                         '</form>');
                     $('body').append(form);

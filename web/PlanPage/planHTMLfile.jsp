@@ -31,6 +31,7 @@
                 <%
                     Connection database = null;
                     Statement st = null;
+                    String Id = (String)request.getAttribute("Id");
                     try {
                         Class.forName("org.postgresql.Driver");
                         database = DriverManager
@@ -38,7 +39,7 @@
                                         "BaseFramePC", "none");
                         st = database.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                                 ResultSet.CONCUR_READ_ONLY);
-                        String sql = "select * from employeetable";
+                        String sql = "select * from employeetable where employeeid !='"+Id+"'"; //where employeeid !='"+Id+"'
                         ResultSet rs = st.executeQuery(sql);
                 %>
                 <div class="form-row">
@@ -49,13 +50,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot1" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label> <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModalCenter">?</button>
                         <select id="Room1" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -63,13 +64,29 @@
                             <option value="room3">room3</option>
                             <option value="room4">room4</option>
                             <option value="room5">room5</option>
+                            <option value="room6">room6</option>
+                            <option value="room7">room7</option>
+                            <option value="room8">room8</option>
+                            <option value="room9">room9</option>
+                            <option value="room10">room10</option>
+                            <option value="room11">room11</option>
+                            <option value="room12">room12</option>
+                            <option value="room13">room13</option>
+                            <option value="room14">room14</option>
+                            <option value="room15">room15</option>
+                            <option value="room16">room16</option>
+                            <option value="room17">room17</option>
+                            <option value="room18">room18</option>
+                            <option value="room19">room19</option>
+                            <option value="room20">room20</option>
+                            <option value="room21">room21</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
                         <label>Invite</label>
                         <select id="Invite1" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -87,13 +104,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot2" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label>
                         <select id="Room2" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -107,7 +124,7 @@
                         <label>Invite</label>
                         <select id="Invite2" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -125,13 +142,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot3" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label>
                         <select id="Room3" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -145,7 +162,7 @@
                         <label>Invite</label>
                         <select id="Invite3" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -163,13 +180,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot4" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label> <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModalCenter">?</button>
                         <select id="Room4" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -183,7 +200,7 @@
                         <label>Invite</label>
                         <select id="Invite4" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -201,13 +218,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot5" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label>
                         <select id="Room5" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -221,7 +238,7 @@
                         <label>Invite</label>
                         <select id="Invite5" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -239,13 +256,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot6" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label>
                         <select id="Room6" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -259,7 +276,7 @@
                         <label>Invite</label>
                         <select id="Invite6" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -277,13 +294,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot7" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label> <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModalCenter">?</button>
                         <select id="Room7" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -297,7 +314,7 @@
                         <label>Invite</label>
                         <select id="Invite7" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -315,13 +332,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot8" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label>
                         <select id="Room8" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -335,7 +352,7 @@
                         <label>Invite</label>
                         <select id="Invite8" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -353,13 +370,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot9" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label>
                         <select id="Room9" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -373,7 +390,7 @@
                         <label>Invite</label>
                         <select id="Invite9" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -391,13 +408,13 @@
                         <label>Timeslot</label>
                         <select id="Timeslot10" class="form-control">
                             <option selected>Choose...</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="day">Entire day</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Entire day">Entire day</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Room</label>
+                        <label>Room </label> <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModalCenter">?</button>
                         <select id="Room10" class="form-control">
                             <option selected>Choose...</option>
                             <option value="room1">room1</option>
@@ -411,7 +428,7 @@
                         <label>Invite</label>
                         <select id="Invite10" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("employeeid")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -420,6 +437,49 @@
                 </div>
                 <br>
                 <button type="button" class="btn btn-primary" onclick="onPlan2()">Submit</button>
+
+                <pre id="content" style="white-space: pre-wrap;"></pre>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">officeMap</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="container modal-body" id="dynamic-content">
+                                <img src="PlanPage/Resources/officeMap.jpg" alt="officeMap" class="img-fluid">
+                                <div class="office1"><h3>1</h3></div>
+                                <div class="office2"><h3>2</h3></div>
+                                <div class="office3"><h3>3</h3></div>
+                                <div class="office4"><h3>4</h3></div>
+                                <div class="office5"><h3>5</h3></div>
+                                <div class="office6"><h3>6</h3></div>
+                                <div class="office7"><h3>7</h3></div>
+                                <div class="office8"><h3>8</h3></div>
+                                <div class="office9"><h3>9</h3></div>
+                                <div class="office10"><h3>10</h3></div>
+                                <div class="office11"><h3>11</h3></div>
+                                <div class="office12"><h3>12</h3></div>
+                                <div class="office13"><h3>13</h3></div>
+                                <div class="office14"><h3>14</h3></div>
+                                <div class="office15"><h3>15</h3></div>
+                                <div class="office16"><h3>16</h3></div>
+                                <div class="office17"><h3>17</h3></div>
+                                <div class="office18"><h3>18</h3></div>
+                                <div class="office19"><h3>19</h3></div>
+                                <div class="office20"><h3>20</h3></div>
+                                <div class="office21"><h3>21</h3></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <%
                     }
                     catch (Exception ex) {
@@ -437,7 +497,6 @@
         $("#nav-placeholder").load("nav-bar.jsp");
     });
 </script>
-
 
 <script>
     var date = new Date();

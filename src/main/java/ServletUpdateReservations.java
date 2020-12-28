@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.util.Arrays;
 
 public class ServletUpdateReservations extends HttpServlet{
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -18,6 +19,8 @@ public class ServletUpdateReservations extends HttpServlet{
         String timeSlot = req.getParameter("timeSlot");
         String roomId = req.getParameter("roomId");
         String invitee = req.getParameter("invitee");
+        String[] invitee2 = invitee.split(",");
+        System.out.println("array to string: " + Arrays.toString(invitee2).replace("[", "{'").replace("]", "'}"));
 
         String oldDate = req.getParameter("oldDate");
         String oldTimeSlot = req.getParameter("oldTimeSlot");
@@ -26,11 +29,17 @@ public class ServletUpdateReservations extends HttpServlet{
 
         if (date != null && timeSlot != null && roomId != null && invitee != null)
         {
-            if (date.isEmpty() && timeSlot.isEmpty() && roomId.isEmpty() && invitee.isEmpty()) {
-                date = oldDate;
+            if (date.isEmpty()) {
+                date = oldDate.trim();
+            }
+            if (timeSlot.isEmpty()) {
                 timeSlot = oldTimeSlot;
+            }
+            if (roomId.isEmpty() ) {
                 roomId = oldRoomId;
-                invitee = oldInvitee;
+            }
+            if (invitee.isEmpty() || invitee.equals("undefined")) {
+                invitee2 = oldInvitee.split(",");
             }
         }
 
@@ -60,7 +69,26 @@ public class ServletUpdateReservations extends HttpServlet{
         }
 
         if (date != null && !date.isEmpty() && timeSlot != null && !timeSlot.isEmpty() && roomId != null && !roomId.isEmpty() && invitee != null && !invitee.isEmpty() && oldDate != null && !oldDate.isEmpty() && oldTimeSlot != null && !oldTimeSlot.isEmpty() && oldRoomId != null && !oldRoomId.isEmpty() && oldInvitee != null && !oldInvitee.isEmpty()) {
-            DatabaseManager.executeSQLstatement("update invitationtable set invitee='" + invitee + "' where reservationid='" + reservationId +"'");
+            ResultSet result = DatabaseManager.getResultsFromQuery("select array_length(array" + Arrays.toString(invitee2).replace(", ", "', '").replace("[", "['").replace("]", "']") + " , 1) = array_length(inviteeaccepted || array['1'], 1) - 1 + array_length(invitee || array['1'], 1) - 1 and invitee || inviteeaccepted = array" + Arrays.toString(invitee2).replace(", ", "', '").replace("[", "['").replace("]", "']") + " from invitationtable\n" +
+                    "where reservationid='" +reservationId.trim()+ "'");
+            try {
+                if(result.next()) {
+                    System.out.println("result from query: " + result.getString(1));
+                    if (result.getString(1).equals("f")) {
+                        System.out.println("in result.getString(1).equals(f)");
+                        DatabaseManager.executeSQLstatement("update invitationtable \n" +
+                                "set inviteeaccepted = '{}'::text[] \n" +
+                                "where reservationid='" + reservationId + "'");
+                        DatabaseManager.executeSQLstatement("update invitationtable set invitee='" + Arrays.toString(invitee2).replace("[", "{").replace("]", "}") + "' where reservationid='" + reservationId +"'");
+                    }
+                }
+            } catch (SQLException throwables) {
+                System.out.println("updatereservations catch");
+                throwables.printStackTrace();
+            }
+
+
+            System.out.println("result from query: " + result);
             DatabaseManager.executeSQLstatement("update reservationtable set date='" + date + "', timeslot='" + timeSlot + "' where reservationid='" + reservationId +"'");
             DatabaseManager.executeSQLstatement("update workspacetable set roomid='" + roomId + "' where workspaceid='" + workspaceId +"'");
             System.out.println("ik zit in big if statement");

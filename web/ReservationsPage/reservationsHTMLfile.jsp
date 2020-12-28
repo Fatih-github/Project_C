@@ -32,6 +32,7 @@
                 <th>TimeSlot</th>
                 <th>Room</th>
                 <th>Attendees</th>
+                <th>Organizer</th>
                 <th>update</th>
                 <th>delete</th>
             </tr>
@@ -48,6 +49,7 @@
 
         System.out.println("\t\tuser: " + name);
         System.out.println("\t\temail: " + email);
+        System.out.println("\t\tid: " + Id);
         Connection database = null;
         Statement st = null;
         try {
@@ -59,26 +61,29 @@
                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                             "BaseFramePC", "none");
             st = database.createStatement();
-            String sql = "select date, timeslot, invitee, roomid, res.reservationid, invitedby, res.workspaceid from reservationtable res join workspacetable wrk on res.workspaceid=wrk.workspaceid join invitationtable inv on inv.reservationid=res.reservationid where res.employeeid='"+Id+"'";
+            String sql = "select to_char(date, 'Dy Mon DD YYYY') as date, timeslot, invitee, inviteeaccepted, roomid, res.reservationid, invitedby, res.workspaceid, res.employeeid from reservationtable res join workspacetable wrk on res.workspaceid=wrk.workspaceid join invitationtable inv on inv.reservationid=res.reservationid where res.employeeid='"+Id+"' and date >= current_date or '" + name + "'=any(inviteeaccepted) order by res.date";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 %>
-                <tbody>
-                    <tr class="table">
-                        <td class="table"><%=rs.getString("date")%></td>
-                        <td class="table"><%=rs.getString("timeslot")%></td>
-                        <td class="table"><%=rs.getString("roomid")%></td>
-                        <td class="table"><%=rs.getString("invitee")%></td>
-                        <td class="table" style="display: none"><%=rs.getString("reservationid")%></td>
-                        <td class="table" style="display: none"><%=rs.getString("invitedby")%></td>
-                        <td class="table" style="display: none"><%=rs.getString("workspaceid")%></td>
-                        <td class="table">
-                            <a onclick="onUpdate()" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        </td>
-                        <td class="table">
-                            <a onclick="onDelete()" style="color: #007bff; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>                        </td>
-                    </tr>
-                </tbody>
+        <tbody>
+            <tr class="table">
+                <td class="table"><%=rs.getString("date")%></td>
+                <td class="table"><%=rs.getString("timeslot")%></td>
+                <td class="table"><%=rs.getString("roomid")%></td>
+                <td class="table"><%=rs.getString("inviteeaccepted").replace("{", " ").replace("}", " ").replace("\"", "").replace(",", ", ")%></td>
+                <td class="table" style="display: none"><%=rs.getString("invitee").replace("{", " ").replace("}", " ").replace("\"", "").replace(",", ", ")%></td>
+                <td class="table" style="display: none"><%=rs.getString("reservationid")%></td>
+                <td class="table"><%=rs.getString("invitedby")%></td>
+                <td class="table" style="display: none"><%=rs.getString("workspaceid")%></td>
+                <td class="table" style="display: none"><%=rs.getString("employeeid")%></td>
+                <td class="table command">
+                    <a onclick="onUpdate(this)" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                </td>
+                <td class="table command">
+                    <a onclick="onDelete()" style="color: #007bff; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        </tbody>
                 <%
             }
         }
@@ -116,48 +121,65 @@
                     var redirectUrl = 'linkDeleteReservations';
                     //using jquery to post data dynamically
                     var form = $('<form action="' + redirectUrl + '" method="post">' +
-                        '<input type="text" name="reservationId" value="' + tableData[4] + '" />' +
-                        '<input type="text" name="invitedby" value="' + tableData[5] + '" />' +
-                        '<input type="text" name="workspaceId" value="' + tableData[6] + '" />' +
+                        '<input type="text" name="inviteeaccepted" value="' + tableData[3] + '" />' +
+                        '<input type="text" name="reservationId" value="' + tableData[5] + '" />' +
+                        '<input type="text" name="invitedby" value="' + tableData[6] + '" />' +
+                        '<input type="text" name="workspaceId" value="' + tableData[7] + '" />' +
+                        '<input type="text" name="employeeId" value="' + tableData[8] + '" />' +
                         '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                         '</form>');
                     $('body').append(form);
                     form.submit();
                 },
                 cancel: function () {
-
+                    console.log(tableData);
                 }
             }
         });
     }
 
-    function onUpdate() {
-        var tableData
+    function onUpdate($this) {
+        var tableData;
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
 
-        $("tr.table").click(function () {
-            tableData = $(this).children("td").map(function () {
-                return $(this).text();
-            }).get();
+        tableData = $($this).closest('tr').children("td").map(function() {
+            return $(this).text();
+        }).get();
 
-            // alert($.trim(tableData[0]) + " , " + $.trim(tableData[1]) + ", " + $.trim(tableData[2]));
-
+        if( tableData[8] == <%=Id%>) {
+            console.log("if statement");
+            console.log(tableData);
             var redirectUrl = 'linkUpdateReservations';
             //using jquery to post data dynamically
             var form = $('<form action="' + redirectUrl + '" method="post">' +
                 '<input type="text" name="date" value="' + tableData[0] + '" />' +
                 '<input type="text" name="timeSlot" value="' + tableData[1] + '" />' +
                 '<input type="text" name="roomId" value="' + tableData[2] + '" />' +
-                '<input type="text" name="invitee" value="' + tableData[3] + '" />' +
-                '<input type="text" name="reservationId" value="' + tableData[4] + '" />' +
-                '<input type="text" name="invitedby" value="' + tableData[5] + '" />' +
-                '<input type="text" name="workspaceId" value="' + tableData[6] + '" />' +
+                '<input type="text" name="inviteeaccepted" value="' + tableData[3] + '" />' +
+                '<input type="text" name="invitee" value="' + tableData[4] + '" />' +
+                '<input type="text" name="reservationId" value="' + tableData[5] + '" />' +
+                '<input type="text" name="invitedby" value="' + tableData[6] + '" />' +
+                '<input type="text" name="workspaceId" value="' + tableData[7] + '" />' +
+                '<input type="text" name="employeeId" value="' + tableData[8] + '" />' +
                 '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                 '</form>');
             $('body').append(form);
             form.submit();
-        });
+        }
+        else {
+            console.log(tableData);
+            console.log("else statement");
+            $.confirm({
+                title: 'update Reservation',
+                content: 'Only the organiser ' + tableData[6] + ' is allowed to update this reservation',
+                buttons: {
+                    confirm: function () {
+
+                    }
+                }
+            });
+        }
     }
 
 </script>

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.sql.*" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,29 @@
     <link rel = "stylesheet" type = "text/css" href = "nav-bar.css"/>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <%
+        System.out.println("\tnavbar JSP");
+
+        String email = (String)session.getAttribute("email");
+
+        System.out.println("\t\temail: " + email);
+        Connection database = null;
+        Statement st = null;
+        try {
+            System.out.println("\t\t navbar JAVA code");
+
+            Class.forName("org.postgresql.Driver");
+            database = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                            "BaseFramePC", "none");
+            st = database.createStatement();
+            String sql = "select emailaddress, isadmin from employeetable where emailaddress='" + email + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+//            String isAdmin = rs.getString(2);
+            System.out.println("\t\tisAdmin: " + rs.getString(2));
+    %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" onclick="onHome()" style="cursor: pointer"><img src="LoginPage/Resources/ngti-logo.png" alt="Logo" style="width:50px; height:50px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,6 +50,14 @@
                 <li class="nav-item">
                     <a class="nav-link" onclick="onInvitations()" style="cursor: pointer">Invitations</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="onOverview()" style="cursor: pointer">Overview</a>
+                </li>
+                <% if(!rs.getString(2).equals("f")) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="onAdmin()" style="cursor: pointer">Admin</a>
+                    </li>
+                <% }%>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -38,6 +69,13 @@
             </ul>
         </div>
     </nav>
+    <%
+            }
+        }
+        catch (Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+    %>
 </body>
 
 <script>
@@ -64,6 +102,7 @@
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
+            '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();
@@ -81,6 +120,7 @@
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+            '<input type="text" name="name" value="' + profile.getName() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();
@@ -112,6 +152,35 @@
         console.log(profile.getEmail());
 
         var redirectUrl = 'linkInvitations';
+        //using jquery to post data dynamically
+        var form = $('<form action="' + redirectUrl + '" method="post">' +
+            '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+            '<input type="text" name="name" value="' + profile.getName() + '" />' +
+            '</form>');
+        $('body').append(form);
+        form.submit();
+    }
+
+    function onOverview() {
+        console.log("onOverview called")
+
+        var redirectUrl = 'linkOverview';
+        //using jquery to post data dynamically
+        var form = $('<form action="' + redirectUrl + '" method="post">' +
+            '</form>');
+        $('body').append(form);
+        form.submit();
+    }
+
+    function onAdmin() {
+        console.log("onAdmin called")
+
+        var auth2 = gapi.auth2.getAuthInstance();
+        var profile = auth2.currentUser.get().getBasicProfile();
+        console.log(profile.getName());
+        console.log(profile.getEmail());
+
+        var redirectUrl = 'linkAdmin';
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +

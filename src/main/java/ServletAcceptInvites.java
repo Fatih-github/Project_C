@@ -13,6 +13,7 @@ public class ServletAcceptInvites extends HttpServlet{
         String TimeSlot = req.getParameter("TimeSlot");
         String Room = req.getParameter("Room");
         String ReservationId = req.getParameter("ReservationId");
+        String WorkspaceId = req.getParameter("WorkspaceId");
 
         //boolean rs = DatabaseManager.executeSQLstatement("delete from loginattempts where attime='" + time + "' and email='"+ email +"' and loginname='" + name + "'");
 
@@ -20,26 +21,29 @@ public class ServletAcceptInvites extends HttpServlet{
         System.out.println(TimeSlot + " Timeslot accepted");
         System.out.println(Room + " room accepted");
         System.out.println(ReservationId + " ReservationId accepted");
+        System.out.println(WorkspaceId + " WorkspaceId accepted");
 
         String email = req.getParameter("email");
 
-        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeeID from employeeTable where emailAddress='"+email+"'");
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeeID, firstname, lastname from employeeTable where emailAddress='"+email+"'");
 
-        try {
-            System.out.println(resultSetId.getString(1));
-        } catch (SQLException throwables) {
-            System.out.println("resultset leeg");
-            throwables.printStackTrace();
-        }
+        String firstName = null;
+        String lastName = null;
 
         try {
             if(resultSetId.next()) {
                 req.setAttribute("Id", resultSetId.getString(1));
+                firstName = resultSetId.getString(2);
+                lastName = resultSetId.getString(3);
             }
         } catch (SQLException throwables) {
             System.out.println("reservation id is missing");
             throwables.printStackTrace();
         }
+
+        DatabaseManager.executeSQLstatement("update invitationtable set invitee = array_remove(invitee, '" + firstName+" "+lastName + "')" + "where '" + firstName+" "+lastName + "' = any(invitee) and reservationid='"+ReservationId+"'");
+        DatabaseManager.executeSQLstatement("update invitationtable set inviteeaccepted = array_append(inviteeaccepted, '" + firstName+" "+lastName + "') where reservationid='" + ReservationId + "'");
+
 
         RequestDispatcher view = req.getRequestDispatcher("ReservationsPage/reservationsHTMLfile.jsp");
         view.forward(req, res);

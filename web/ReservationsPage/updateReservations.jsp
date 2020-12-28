@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -27,23 +29,78 @@
         <div class="card-body p-5" style="min-height: 46em">
             <h1 class="font-weight-light">Update your reservation</h1>
             <form>
+                <%
+                    Connection database = null;
+                    Statement st = null;
+                    String Id = (String)request.getAttribute("Id");
+                    String result;
+                    System.out.println("invitee: " + request.getParameter("invitee"));
+                    System.out.println("inviteeaccepted:" + request.getParameter("inviteeaccepted") + "test");
+                    if (request.getParameter("invitee") != null && !request.getParameter("invitee").isEmpty() && !request.getParameter("invitee").equals("  ") && request.getParameter("inviteeaccepted") != null && !request.getParameter("inviteeaccepted").isEmpty() && !request.getParameter("inviteeaccepted").equals("  ")) {
+                        result = request.getParameter("invitee") + ", " + request.getParameter("inviteeaccepted");
+                    }
+                    else if (request.getParameter("invitee") != null && !request.getParameter("invitee").isEmpty() && !request.getParameter("invitee").equals("  ")) {
+                        result = request.getParameter("invitee");
+                    }
+                    else if (request.getParameter("inviteeaccepted") != null && !request.getParameter("inviteeaccepted").isEmpty() && !request.getParameter("inviteeaccepted").equals("  ")) {
+                        result = request.getParameter("inviteeaccepted");
+                    }
+                    else {
+                        result = "";
+                    }
+                    try {
+                        Class.forName("org.postgresql.Driver");
+                        database = DriverManager
+                                .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                        "BaseFramePC", "none");
+                        st = database.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                ResultSet.CONCUR_READ_ONLY);
+                        String sql = "select * from employeetable where employeeid != '"+Id+"'";
+                        ResultSet rs = st.executeQuery(sql);
+                %>
                 <div class="form-group">
                     <label for="date">Date</label>
-                    <input class="form-control" id="date" value="" placeholder="<%=request.getParameter("date")%>">
+                    <select class="form-control" id="date">
+                        <option disabled selected><%=request.getParameter("date")%></option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="timeSlot">Timeslot</label>
-                    <input class="form-control" id="timeSlot" value="" placeholder="<%=request.getParameter("timeSlot")%>">
+                    <select class="form-control" id="timeSlot">
+                        <option disabled selected><%=request.getParameter("timeSlot")%></option>
+                        <option value="Morning">Morning</option>
+                        <option value="Afternoon">Afternoon</option>
+                        <option value="Entire day">Entire day</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="roomId">Room</label>
-                    <input class="form-control" id="roomId" value="" placeholder="<%=request.getParameter("roomId")%>">
+                    <select class="form-control" id="roomId">
+                        <option disabled selected><%=request.getParameter("roomId")%></option>
+                        <option value="room1">room1</option>
+                        <option value="room2">room2</option>
+                        <option value="room3">room3</option>
+                        <option value="room4">room4</option>
+                        <option value="room5">room5</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="invitee">Invite</label>
-                    <input class="form-control" id="invitee" value="" placeholder="<%=request.getParameter("invitee")%>">
+                    <select class="form-control" id="invitee" multiple="multiple">
+                        <% while (rs.next()) { %>
+                        <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                        <%
+                            }
+                        %>
+                    </select>
                 </div>
                 <button type="button" onclick="onUpdate2()" class="btn btn-primary">Submit</button>
+                <%
+                    }
+                    catch (Exception ex) {
+                        System.out.println("Error: " + ex);
+                    }
+                %>
             </form>
         </div>
     </div>
@@ -54,6 +111,42 @@
     $(function(){
         $("#nav-placeholder").load("nav-bar.jsp");
     });
+
+    var date = new Date();
+    var array = []
+    var count = 0;
+
+    for(var i = 0; i < 14; i++)
+    {
+        if(date.getDay() === 6) {
+            date.setDate(date.getDate() + 1)
+        }
+        if(date.getDay() === 5) {
+            date.setDate(date.getDate() + 2)
+        }
+        array[count++] = new Date(date.setDate(date.getDate() + 1)).toDateString();
+        console.log("date: " + array[i]);
+        console.log("day number: " + date.getDay());
+    }
+
+    var select = document.getElementById("date");
+
+    for(var i = 0; i < array.length; i++) {
+        var opt = array[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+    }
+
+    var Invite;
+    $('#invitee').select2({
+        placeholder: '<%=result%>'
+    });
+    $("#invitee").on("select2:select select2:unselect", function (e) {
+        //this returns all the selected item
+        Invite = $(this).val();
+    })
 
     function onUpdate2() {
         var auth2 = gapi.auth2.getAuthInstance();
@@ -71,11 +164,11 @@
                         '<input type="text" name="date" value="' + document.getElementById("date").value + '" />' +
                         '<input type="text" name="timeSlot" value="' + document.getElementById("timeSlot").value + '" />' +
                         '<input type="text" name="roomId" value="' + document.getElementById("roomId").value + '" />' +
-                        '<input type="text" name="invitee" value="' + document.getElementById("invitee").value + '" />' +
+                        '<input type="text" name="invitee" value="' + Invite + '" />' +
                         '<input type="text" name="oldDate" value=" <%=request.getParameter("date")%> " />' +
                         '<input type="text" name="oldTimeSlot" value=" <%=request.getParameter("timeSlot")%> " />' +
                         '<input type="text" name="oldRoomId" value=" <%=request.getParameter("roomId")%> " />' +
-                        '<input type="text" name="oldInvitee" value=" <%=request.getParameter("invitee")%> " />' +
+                        '<input type="text" name="oldInvitee" value=" <%=result%> " />' +
                         '<input type="text" name="reservationId" value=" <%=request.getParameter("reservationId")%> " />' +
                         '<input type="text" name="workspaceId" value=" <%=request.getParameter("workspaceId")%> " />' +
                         '<input type="text" name="email" value="' + profile.getEmail() + '" />' +

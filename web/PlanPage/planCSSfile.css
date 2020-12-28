@@ -5,131 +5,622 @@ body {
     background-size: cover;
 }
 
-/*.container {*/
-/*    background-color: #fafafa;*/
-/*    margin-top: 100px;*/
-/*    margin-left: 35%;*/
-/*    width: 600px;*/
-/*    box-shadow: 10px 15px 20px rgba(0, 0, 0, .1);*/
-/*    display: grid;*/
-/*}*/
+.container {
+    position: relative;
+}
 
-/*.confirmation {*/
-/*    background-color: #fafafa;*/
-/*    margin-left: 25%;*/
-/*    margin-top: 100px;*/
-/*    width: 50%;*/
-/*    box-shadow: 10px 15px 20px rgba(0, 0, 0, .1);*/
-/*    display: grid;*/
-/*    padding: 20px 0;*/
-/*    color: #000;*/
-/*    text-align: center;*/
-/*}*/
+/*Computer/laptop*/
+@media screen and (min-width: 1200px){
+    /* Bottom right text */
+    .office1 {
+        position: absolute;
+        bottom: 34%;
+        left: 59%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office2 {
+        position: absolute;
+        bottom: 44%;
+        left: 59%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office3 {
+        position: absolute;
+        bottom: 54%;
+        left: 59%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office4 {
+        position: absolute;
+        bottom: 63%;
+        left: 59%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office5 {
+        position: absolute;
+        bottom: 73%;
+        left: 59%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office6 {
+        position: absolute;
+        bottom: 73%;
+        left: 72.5%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office7 {
+        position: absolute;
+        bottom: 73%;
+        left: 84%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office8 {
+        position: absolute;
+        bottom: 60%;
+        left: 78%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office9 {
+        position: absolute;
+        bottom: 48%;
+        left: 71%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office10 {
+        position: absolute;
+        bottom: 48%;
+        left: 82%;
+        background-color: red;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .office11 {
+        position: absolute;
+        bottom: 48%;
+        left: 89%;
+        background-color: red;
+        color: white;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .office12 {
+        position: absolute;
+        bottom: 18%;
+        left: 76%;
+        background-color: red;
+        color: white;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+    .office13 {
+        position: absolute;
+        bottom: 18%;
+        left: 69.5%;
+        background-color: red;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .office14 {
+        position: absolute;
+        bottom: 18%;
+        left: 63.5%;
+        background-color: red;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .office15 {
+        position: absolute;
+        bottom: 18%;
+        left: 14.5%;
+        background-color: red;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .office16 {
+        position: absolute;
+        bottom: 72%;
+        left: 37%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office17 {
+        position: absolute;
+        bottom: 48%;
+        left: 33%;
+        background-color: red;
+        color: white;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .office18 {
+        position: absolute;
+        bottom: 35%;
+        left: 10%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office19 {
+        position: absolute;
+        bottom: 48%;
+        left: 10%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office20 {
+        position: absolute;
+        bottom: 60%;
+        left: 10%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office21 {
+        position: absolute;
+        bottom: 72%;
+        left: 10%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
 
-/*.heading {*/
-/*    font-size: 35px;*/
-/*    text-transform: uppercase;*/
-/*}*/
+/*Ipad*/
+@media screen and (max-width: 1199px) and (min-width: 990px) {
+    .container h3 {
+        font-size: 1.2rem;
+    }
 
-/*.container-form {*/
-/*    padding: 20px 0;*/
-/*    margin: auto;*/
-/*    color: #000;*/
-/*}*/
+    .office1 {
+        position: absolute;
+        bottom: 34.5%;
+        left: 58.5%;
+        background-color: red;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .office2 {
+        position: absolute;
+        bottom: 44%;
+        left: 58.5%;
+        background-color: red;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .office3 {
+        position: absolute;
+        bottom: 53%;
+        left: 58.5%;
+        background-color: red;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .office4 {
+        position: absolute;
+        bottom: 63%;
+        left: 58.5%;
+        background-color: red;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .office5 {
+        position: absolute;
+        bottom: 72%;
+        left: 58.5%;
+        background-color: red;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .office6 {
+        position: absolute;
+        bottom: 72%;
+        left: 72%;
+        background-color: red;
+        color: white;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .office7 {
+        position: absolute;
+        bottom: 72%;
+        left: 84%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office8 {
+        position: absolute;
+        bottom: 60%;
+        left: 78%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office9 {
+        position: absolute;
+        bottom: 48%;
+        left: 70%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office10 {
+        position: absolute;
+        bottom: 48%;
+        left: 81.5%;
+        background-color: red;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .office11 {
+        position: absolute;
+        bottom: 48%;
+        left: 88%;
+        background-color: red;
+        color: white;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .office12 {
+        position: absolute;
+        bottom: 18%;
+        left: 76%;
+        background-color: red;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .office13 {
+        position: absolute;
+        bottom: 18%;
+        left: 69%;
+        background-color: red;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .office14 {
+        position: absolute;
+        bottom: 18%;
+        left: 63%;
+        background-color: red;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .office15 {
+        position: absolute;
+        bottom: 18%;
+        left: 14.5%;
+        background-color: red;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .office16 {
+        position: absolute;
+        bottom: 72%;
+        left: 37%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office17 {
+        position: absolute;
+        bottom: 48%;
+        left: 33%;
+        background-color: red;
+        color: white;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .office18 {
+        position: absolute;
+        bottom: 35%;
+        left: 10%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office19 {
+        position: absolute;
+        bottom: 48%;
+        left: 10%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office20 {
+        position: absolute;
+        bottom: 60%;
+        left: 10%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .office21 {
+        position: absolute;
+        bottom: 72%;
+        left: 10%;
+        background-color: red;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
 
-/*form {*/
-/*    display: grid;*/
-/*    grid-row-gap: 20px;*/
-/*}*/
+/*Mobile*/
+@media screen and (max-width: 750px) {
+    .container h3 {
+        font-size: 1.2rem;
+    }
 
-/*.form-horizontal {*/
-/*    padding-top: 10px;*/
-/*    padding-bottom: 10px;*/
-/*}*/
+    .office1 {
+        position: absolute;
+        bottom: 30%;
+        left: 58%;
+    }
+    .office2 {
+        position: absolute;
+        bottom: 39%;
+        left: 58%;
+    }
+    .office3 {
+        position: absolute;
+        bottom: 47%;
+        left: 58%;
+    }
+    .office4 {
+        position: absolute;
+        bottom: 56%;
+        left: 58%;
+    }
+    .office5 {
+        position: absolute;
+        bottom: 64%;
+        left: 58%;
+    }
+    .office6 {
+        position: absolute;
+        bottom: 64%;
+        left: 71.5%;
+    }
+    .office7 {
+        position: absolute;
+        bottom: 64%;
+        left: 83%;
+    }
+    .office8 {
+        position: absolute;
+        bottom: 53%;
+        left: 76%;
+    }
+    .office9 {
+        position: absolute;
+        bottom: 42%;
+        left: 70%;
+    }
+    .office10 {
+        position: absolute;
+        bottom: 42%;
+        left: 79%;
+    }
+    .office11 {
+        position: absolute;
+        bottom: 42%;
+        left: 86%;
+    }
+    .office12 {
+        position: absolute;
+        bottom: 15%;
+        left: 74%;
+    }
+    .office13 {
+        position: absolute;
+        bottom: 15%;
+        left: 67%;
+    }
+    .office14 {
+        position: absolute;
+        bottom: 15%;
+        left: 61%;
+    }
+    .office15 {
+        position: absolute;
+        bottom: 15%;
+        left: 16%;
+    }
+    .office16 {
+        position: absolute;
+        bottom: 63%;
+        left: 37%;
+    }
+    .office17 {
+        position: absolute;
+        bottom: 42%;
+        left: 33%;
+    }
+    .office18 {
+        position: absolute;
+        bottom: 31%;
+        left: 12%;
+    }
+    .office19 {
+        position: absolute;
+        bottom: 42%;
+        left: 12%;
+    }
+    .office20 {
+        position: absolute;
+        bottom: 53%;
+        left: 12%;
+    }
+    .office21 {
+        position: absolute;
+        bottom: 63%;
+        left: 12%;
+    }
+}
 
-/*select {*/
-/*    padding-top: 10px;*/
-/*    padding-bottom: 10px;*/
-/*}*/
+@media screen and (max-width: 989px) and (min-width: 751px) {
+    .container h3 {
+        font-size: 1.2rem;
+    }
 
-/*.button {*/
-/*    border: none;*/
-/*    color: white;*/
-/*    padding: 16px 32px;*/
-/*    text-align: center;*/
-/*    text-decoration: none;*/
-/*    display: inline-block;*/
-/*    font-size: 16px;*/
-/*    margin: 4px 2px;*/
-/*    transition-duration: 0.4s;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.button1 {*/
-/*    background-color: white;*/
-/*    color: black;*/
-/*    border: 2px solid #000000;*/
-/*}*/
-
-/*.button1:hover {*/
-/*    background-color: #000000;*/
-/*    color: white;*/
-/*}*/
-
-/*.form-check{*/
-/*    float: right;*/
-/*}*/
-
-/*.card {*/
-/*    background-color: #424242;*/
-/*    padding: 40px 10px*/
-/*}*/
-
-/*.fa {*/
-/*    font-size: 25px;*/
-/*    cursor: pointer*/
-/*}*/
-
-/*input,*/
-/*select {*/
-/*    padding: 2px 6px;*/
-/*    border: none;*/
-/*    border-bottom: 1px solid #fff;*/
-/*    box-sizing: border-box;*/
-/*    color: #fff;*/
-/*    background-color: transparent;*/
-/*    font-size: 14px;*/
-/*    letter-spacing: 1px;*/
-/*    text-align: center !important*/
-/*}*/
-
-/*.center {*/
-/*    display: block;*/
-/*    margin-left: auto;*/
-/*    margin-right: auto;*/
-/*    width: 50%;*/
-/*}*/
-
-
-/*::placeholder {*/
-/*    color: #fff;*/
-/*    opacity: 1*/
-/*}*/
-
-/*button:focus {*/
-/*    -moz-box-shadow: none !important;*/
-/*    -webkit-box-shadow: none !important;*/
-/*    box-shadow: none !important;*/
-/*    outline-width: 0*/
-/*}*/
-
-/*.container2 {*/
-/*    perspective: 1000px;*/
-/*    margin-bottom: 30px;*/
-/*}*/
-
-/*.option{*/
-/*    background-color: white;*/
-/*    color: black;*/
-/*    border: 2px solid #000000;*/
-/*}*/
+    .office1 {
+        position: absolute;
+        bottom: 31%;
+        left: 59%;
+    }
+    .office2 {
+        position: absolute;
+        bottom: 41%;
+        left: 59%;
+    }
+    .office3 {
+        position: absolute;
+        bottom: 50%;
+        left: 59%;
+    }
+    .office4 {
+        position: absolute;
+        bottom: 59%;
+        left: 59%;
+    }
+    .office5 {
+        position: absolute;
+        bottom: 68%;
+        left: 59%;
+    }
+    .office6 {
+        position: absolute;
+        bottom: 68%;
+        left: 73%;
+    }
+    .office7 {
+        position: absolute;
+        bottom: 68%;
+        left: 84%;
+    }
+    .office8 {
+        position: absolute;
+        bottom: 56%;
+        left: 77%;
+    }
+    .office9 {
+        position: absolute;
+        bottom: 44%;
+        left: 71%;
+    }
+    .office10 {
+        position: absolute;
+        bottom: 44%;
+        left: 81%;
+    }
+    .office11 {
+        position: absolute;
+        bottom: 44%;
+        left: 87%;
+    }
+    .office12 {
+        position: absolute;
+        bottom: 16%;
+        left: 76%;
+    }
+    .office13 {
+        position: absolute;
+        bottom: 16%;
+        left: 69%;
+    }
+    .office14 {
+        position: absolute;
+        bottom: 16%;
+        left: 63%;
+    }
+    .office15 {
+        position: absolute;
+        bottom: 16%;
+        left: 16%;
+    }
+    .office16 {
+        position: absolute;
+        bottom: 67%;
+        left: 39%;
+    }
+    .office17 {
+        position: absolute;
+        bottom: 44%;
+        left: 33.5%;
+    }
+    .office18 {
+        position: absolute;
+        bottom: 33%;
+        left: 12%;
+    }
+    .office19 {
+        position: absolute;
+        bottom: 45%;
+        left: 12%;
+    }
+    .office20 {
+        position: absolute;
+        bottom: 56%;
+        left: 12%;
+    }
+    .office21 {
+        position: absolute;
+        bottom: 67%;
+        left: 12%;
+    }
+}

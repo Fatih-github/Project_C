@@ -59,14 +59,15 @@ class DatabaseManager {
                 "reservationID SERIAL PRIMARY KEY, " +
                         "workspaceID INT, " +
                         "employeeID INT, " +
-                        "date varchar(20), " +
+                        "date date, " +
                         "timeSlot varchar(20), " +
                         "FOREIGN KEY(workspaceID) REFERENCES workspaceTable(workspaceID), " +
                         "FOREIGN KEY(employeeID) REFERENCES employeeTable(employeeID)");
 
         invitationTable = new Table("invitationTable",
                 "invitedBy varchar(35), " +
-                        "invitee INT[], " +
+                        "invitee text[], " +
+                        "inviteeAccepted text[], " +
                         "employeeID INT, " +
                         "reservationID INT, " +
                         "FOREIGN KEY(employeeID) REFERENCES employeeTable(employeeID), " +
