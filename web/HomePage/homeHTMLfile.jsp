@@ -198,6 +198,7 @@
         margin-left: 25px;
     }
 
+
     .team
     {
         font-size: 1rem;
@@ -207,6 +208,7 @@
         cursor: pointer;
         margin-top: 10px;
         margin-left: 25px;
+
     }
 
 
@@ -238,9 +240,12 @@
         clear: both;
     }
 
-    select option:hover,
-    select option:active,
-    select option:checked{
+    select option{
+        color: white;
+        background: #2ecc71;
+    }
+
+    select option:hover{
         color: white;
         background:#9f8974 ;
     }
@@ -250,7 +255,8 @@
     }
 
 
-    select > option:checked {
+    select option:checked
+    select option:active{
         background: linear-gradient( #343a40, #343a40);
         color:white;
     }
