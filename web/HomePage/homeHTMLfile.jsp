@@ -240,14 +240,10 @@
         clear: both;
     }
 
-    select option{
-        color: white;
-        background: #2ecc71;
-    }
 
     select option:hover{
         color: white;
-        background:#9f8974 ;
+        background:#343a40 ;
     }
 
     select option:focus{
@@ -257,7 +253,7 @@
 
     select option:checked
     select option:active{
-        background: linear-gradient( #343a40, #343a40);
+        background: linear-gradient( #9f8974, #9f8974);
         color:white;
     }
 
