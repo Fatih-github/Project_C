@@ -34,7 +34,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="het luktniet" />
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="kleuren">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HomePage/homeHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/HomePage/homeHTMLfile.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -412,7 +415,8 @@
     <MESSAGE value="team + reservations" />
     <MESSAGE value="meer style changes" />
     <MESSAGE value="het luktniet" />
-    <option name="LAST_COMMIT_MESSAGE" value="het luktniet" />
+    <MESSAGE value="kleuren" />
+    <option name="LAST_COMMIT_MESSAGE" value="kleuren" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1293" height="238" key="GridCell.Tab.0.bottom" timestamp="1609171048032">
