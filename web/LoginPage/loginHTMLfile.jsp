@@ -242,7 +242,7 @@
     select option:active,
     select option:checked{
         color: white;
-        background:#9f8974 ;
+        background:#343a40 ;
     }
 
     select option:focus{
@@ -251,7 +251,7 @@
 
 
     select > option:checked {
-        background: linear-gradient( #343a40, #343a40);
+        background: linear-gradient( #9f8974, #9f8974);
         color:white;
     }
 
