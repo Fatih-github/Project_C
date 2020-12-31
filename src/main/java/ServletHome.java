@@ -1,3 +1,8 @@
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.jackson.JacksonFactory;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +27,8 @@ public class ServletHome extends HttpServlet{
             String email = req.getParameter("email");
 
             System.out.println(email + " logged in with token " + id_token);
-            if (email != null && name != null) {
+            if (email == null && name == null) {
+                System.out.println("servlet home test");
                 DatabaseManager.loginTable.insertValues(email, "DEFAULT", name, "NULL");
             }
 
@@ -32,7 +38,7 @@ public class ServletHome extends HttpServlet{
             System.out.println("ServletLogin encountered failed login attempt");
         }
 
-        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.jsp");
+        RequestDispatcher view = req.getRequestDispatcher("HomePage/homeHTMLfile.jsp");
         view.forward(req, res);
     }
 }

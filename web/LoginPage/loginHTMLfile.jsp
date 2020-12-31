@@ -14,6 +14,9 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <link rel = "stylesheet" type = "text/css"  href="LoginPage/loginCSSfile.css"/>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -64,9 +67,9 @@
                     <%
                         rs.beforeFirst();
                         {%>
-                    <select id="Invite" class="mw-100 form-control col-xs-4 col-sm-4 col-md-4 team" multiple="multiple">
+                    <select id="Invite" class="js-example-basic-multiple mw-100 form-control col-xs-4 col-sm-4 col-md-4 team" multiple="multiple">
                         <% while (rs.next()) { %>
-                        <option><%=rs.getString("logintable_loginname")%></option>
+                        <option class="teamoptions"><%=rs.getString("logintable_loginname")%></option>
                         <%
                             }
                         %>
@@ -185,6 +188,11 @@
             form.submit();
         });
     }
+
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+
 </script>
 
 <style>
@@ -220,8 +228,6 @@
     }
 
 
-
-
     .reservationtable{
         color: white;
         background-color: #9f8974;
@@ -250,15 +256,15 @@
     }
 
 
-    select > option:checked {
-        background: linear-gradient( #9f8974, #9f8974);
+    select option:checked,
+    select option:active{
         color:white;
+        background: linear-gradient( #9f8974, #9f8974);
     }
 
     p{
         margin-bottom: 0px;
     }
-
 
 
 </style>

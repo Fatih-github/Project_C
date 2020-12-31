@@ -60,7 +60,7 @@
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
 
-        var redirectUrl = 'linkHome';
+        var redirectUrl = 'login';
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
