@@ -35,13 +35,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="meer style changes in homePage">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nav-bar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,6 +315,7 @@
       <workItem from="1608658978208" duration="12977000" />
       <workItem from="1609073621874" duration="3512000" />
       <workItem from="1609171079942" duration="316000" />
+      <workItem from="1609413291877" duration="6907000" />
     </task>
     <task id="LOCAL-00001" summary="Java denk ik?">
       <created>1608289345017</created>
@@ -384,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609171391999</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="meer style changes in homePage">
+      <created>1609413347369</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1609413347369</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,6 +439,7 @@
     <MESSAGE value="meer style changes" />
     <MESSAGE value="het luktniet" />
     <MESSAGE value="kleuren" />
-    <option name="LAST_COMMIT_MESSAGE" value="kleuren" />
+    <MESSAGE value="meer style changes in homePage" />
+    <option name="LAST_COMMIT_MESSAGE" value="meer style changes in homePage" />
   </component>
 </project>

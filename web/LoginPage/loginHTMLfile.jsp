@@ -14,9 +14,6 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <link rel = "stylesheet" type = "text/css"  href="LoginPage/loginCSSfile.css"/>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -55,19 +52,19 @@
                     }
                 %>
 
-                <h5>It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</h5>
-                <h5>We hope to see you soon at the office!</h5>
+                <h5 class="text-justify">It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</h5>
+                <h5 class="text-justify">We hope to see you soon at the office!</h5>
 
 
 
                 </div>
-                <div class="row">
+            <div class="row">
                 <div class="team1 form-group col-md-2">
-                    <span STYLE="font-size: x-large" class="m-4 text-nowrap control-label label_info ">Create a team: (ctrl + click)</span> <br>
+                    <span STYLE="font-size: x-large" class="text-nowrap control-label">Create a team: (ctrl + click)</span> <br>
                     <%
                         rs.beforeFirst();
                         {%>
-                    <select id="Invite" class="js-example-basic-multiple mw-100 form-control col-xs-4 col-sm-4 col-md-4 team" multiple="multiple">
+                    <select id="Invite" class="team form-control" multiple="multiple">
                         <% while (rs.next()) { %>
                         <option class="teamoptions"><%=rs.getString("logintable_loginname")%></option>
                         <%
@@ -78,45 +75,45 @@
                 </div>
 
 
-            <div class="reservations form-group col-md-3">
-                <span STYLE="font-size: x-large" class="text-nowrap control-label label_info ">Upcoming reservations:</span><br>
+                <div class="reservations form-group col-md-3">
+                    <span STYLE="font-size: x-large" class="text-nowrap control-label label_info ">Upcoming reservations:</span><br>
 
-                <div class="container_reservations">
-                    <div class="card border-0">
-                        <div class="card-body p-2">
+                    <div class="container_reservations">
+                        <div class="card border-0">
+                            <div class="card-body p-2">
 
-                            <table STYLE="font-size: small" class="table m-7 table-bordered table-responsive-md table-hover table-dark table-md col-xs-7 col-sm-7 col-md-7">
-                                <thead>
-                                <tr>
-                                    <th>attime</th>
-                                    <th>email</th>
-                                    <th>loginname</th>
-                                    <th width="10em">update</th>
-                                    <th width="10em">delete</th>
-                                </tr>
-                                </thead>
+                                <table STYLE="font-size: small" class="table m-7 table-bordered table-responsive-md table-hover table-dark table-md col-xs-7 col-sm-7 col-md-7">
+                                    <thead>
+                                    <tr>
+                                        <th>attime</th>
+                                        <th>email</th>
+                                        <th>loginname</th>
+                                        <th width="10em">update</th>
+                                        <th width="10em">delete</th>
+                                    </tr>
+                                    </thead>
 
-                                <tbody>
-                                <tr class="table reservationtable">
-                                        <%
-                                        rs.beforeFirst();
-                                        while (rs.next()){ %>
+                                    <tbody>
+                                    <tr class="table reservationtable">
+                                            <%
+                                            rs.beforeFirst();
+                                            while (rs.next()){ %>
 
-                                    <td class="table reservationtable"><%=rs.getString("logintable_timestamp")%></td>
-                                    <td class="table reservationtable"><%=rs.getString("logintable_emailaddress")%></td>
-                                    <td class="table reservationtable"><%=rs.getString("logintable_loginname")%></td>
-                                    <td class="table reservationtable">
-                                        <a onclick="onUpdate()" style="color: white; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                    </td>
-                                    <td class="table reservationtable">
-                                        <a onclick="onDelete()" style="color: white; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
-                                    </td>
-                                </tbody>
-                                <%}%>
+                                        <td class="table reservationtable"><%=rs.getString("logintable_timestamp")%></td>
+                                        <td class="table reservationtable"><%=rs.getString("logintable_emailaddress")%></td>
+                                        <td class="table reservationtable"><%=rs.getString("logintable_loginname")%></td>
+                                        <td class="table reservationtable">
+                                            <a onclick="onUpdate()" style="color: white; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        </td>
+                                        <td class="table reservationtable">
+                                            <a onclick="onDelete()" style="color: white; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        </td>
+                                    </tbody>
+                                    <%}%>
 
-                                </tr>
-                            </table>
-                        </div>
+                                    </tr>
+                                </table>
+                            </div>
                         <div class="clear">
                         </div>
                     </div>
@@ -189,14 +186,9 @@
         });
     }
 
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-    });
-
 </script>
 
 <style>
-
     .welcome{
         position: relative;
         top: -5px;
@@ -208,37 +200,25 @@
 
     .team
     {
-        font-size: 1rem;
+        width: auto;
+        font-size: x-large;
         display: inline-block;
-        width: 300px;
         position: relative;
         cursor: pointer;
         margin-top: 10px;
         margin-left: 25px;
     }
 
-
     .reservations
     {
         margin-left: 350px;
     }
-
-
-    .container_reservations{
-    }
-
 
     .reservationtable{
         color: white;
         background-color: #9f8974;
 
     }
-
-    .tableres{
-       margin-top: 10px;
-        margin-left: 20px;
-    }
-
 
     .clear{
         clear: both;
