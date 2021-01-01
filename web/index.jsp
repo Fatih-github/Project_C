@@ -9,7 +9,7 @@
 
 <html lang="en">
   <head>
-    <title>Login</title>
+    <title>OfficePlanager - Login</title>
     <meta name="google-signin-client_id" content="621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 

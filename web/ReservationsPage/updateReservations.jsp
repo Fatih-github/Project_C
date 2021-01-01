@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <title>OfficePlanager - updateReservation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -82,6 +83,22 @@
                         <option value="room3">room3</option>
                         <option value="room4">room4</option>
                         <option value="room5">room5</option>
+                        <option value="room6">room6</option>
+                        <option value="room7">room7</option>
+                        <option value="room8">room8</option>
+                        <option value="room9">room9</option>
+                        <option value="room10">room10</option>
+                        <option value="room11">room11</option>
+                        <option value="room12">room12</option>
+                        <option value="room13">room13</option>
+                        <option value="room14">room14</option>
+                        <option value="room15">room15</option>
+                        <option value="room16">room16</option>
+                        <option value="room17">room17</option>
+                        <option value="room18">room18</option>
+                        <option value="room19">room19</option>
+                        <option value="room20">room20</option>
+                        <option value="room21">room21</option>
                     </select>
                 </div>
                 <div class="form-group">

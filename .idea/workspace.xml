@@ -28,57 +28,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServletAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServletAdminSubmit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServletOverview.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/AdminPage/Resources/DeskImage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/AdminPage/Resources/HomePagePic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/AdminPage/Resources/blurred_desk1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/AdminPage/Resources/ngti-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/AdminPage/adminCSSfile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/AdminPage/adminHTMLfile.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/OverviewPage/Resources/DeskImage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/OverviewPage/Resources/HomePagePic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/OverviewPage/Resources/blurred_desk1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/OverviewPage/Resources/ngti-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/OverviewPage/overviewCSSfile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/OverviewPage/overviewHTMLfile.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/PlanPage/Resources/600x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/PlanPage/Resources/grid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/PlanPage/Resources/officeMap.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletDeclineInvites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletDeclineInvites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletUpdateReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletUpdateReservations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletPlan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HomePage/Resources/DeskImage.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HomePage/Resources/HomePagePic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HomePage/Resources/blurred_desk1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HomePage/Resources/ngti-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HomePage/homeCSSfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/InvitationsPage/invitationsCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/InvitationsPage/invitationsCSSfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/AdminPage/adminHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/AdminPage/adminHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanPage/planCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planCSSfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/OverviewPage/overviewHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/OverviewPage/overviewHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsCSSfile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/ReservationsPage/updateReservations.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/updateReservations.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nav-bar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +209,11 @@
       <workItem from="1608718780801" duration="11988000" />
       <workItem from="1608975634966" duration="26640000" />
       <workItem from="1609064022639" duration="11583000" />
-      <workItem from="1609147689014" duration="1533000" />
+      <workItem from="1609147689014" duration="1817000" />
+      <workItem from="1609426160031" duration="997000" />
+      <workItem from="1609433954731" duration="37000" />
+      <workItem from="1609505591938" duration="344000" />
+      <workItem from="1609509019819" duration="292000" />
     </task>
     <task id="LOCAL-00001" summary="reserveren en invites">
       <created>1607938576595</created>
@@ -260,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607938576595</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finished reservation system&#10;Admin page has been made&#10;Overview page has been made">
+      <created>1609149482962</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609149482962</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +264,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="reserveren en invites" />
-    <option name="LAST_COMMIT_MESSAGE" value="reserveren en invites" />
+    <MESSAGE value="finished reservation system&#10;Admin page has been made&#10;Overview page has been made" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished reservation system&#10;Admin page has been made&#10;Overview page has been made" />
   </component>
 </project>
