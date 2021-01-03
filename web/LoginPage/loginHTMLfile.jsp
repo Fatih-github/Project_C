@@ -209,10 +209,10 @@
         margin-left: 25px;
     }
 
-    .reservations
-    {
-        margin-left: 350px;
-    }
+    /*.reservations*/
+    /*{*/
+    /*    margin-left: 350px;*/
+    /*}*/
 
     .reservationtable{
         color: white;

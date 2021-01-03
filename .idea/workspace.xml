@@ -34,7 +34,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="bootstrap fixen" />
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="bootstrap trachten te fixen" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -312,7 +312,7 @@
       <workItem from="1608658978208" duration="12977000" />
       <workItem from="1609073621874" duration="3512000" />
       <workItem from="1609171079942" duration="316000" />
-      <workItem from="1609413291877" duration="8189000" />
+      <workItem from="1609413291877" duration="8505000" />
     </task>
     <task id="LOCAL-00001" summary="Java denk ik?">
       <created>1608289345017</created>
@@ -391,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609537743817</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="bootstrap trachten te fixen">
+      <created>1609675407003</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1609675407003</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,6 +452,7 @@
     <MESSAGE value="kleuren" />
     <MESSAGE value="meer style changes in homePage" />
     <MESSAGE value="bootstrap fixen" />
-    <option name="LAST_COMMIT_MESSAGE" value="bootstrap fixen" />
+    <MESSAGE value="bootstrap trachten te fixen" />
+    <option name="LAST_COMMIT_MESSAGE" value="bootstrap trachten te fixen" />
   </component>
 </project>
