@@ -21,7 +21,7 @@
 
     <div class="container">
         <div class="card border-0 shadow my-5">
-            <div class="card-body p-5">
+            <div class="card-body mb-4 mt-3">
                 <%
                     String name = request.getParameter("name");
                     String id_token = request.getParameter("id_token");
@@ -58,8 +58,7 @@
 
 
                 </div>
-            <div class="row">
-                <div class="team1 form-group col-md-2">
+                <div class="team1 form-group col-md-2 mb-5">
                     <span STYLE="font-size: x-large" class="text-nowrap control-label">Create a team: (ctrl + click)</span> <br>
                     <%
                         rs.beforeFirst();
@@ -117,7 +116,7 @@
                         <div class="clear">
                         </div>
                     </div>
-                </div>
+
 
                 <div style="height: 500px"></div>
             </div>
@@ -195,7 +194,7 @@
     }
 
     .team1{
-        margin-left: 25px;
+
     }
 
     .team
