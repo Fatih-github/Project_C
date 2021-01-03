@@ -39,11 +39,12 @@ class DatabaseManager {
 
         //For creating an employee in our database
         employeeTable = new Table("employeeTable",
-                "emailAddress varchar(35) PRIMARY KEY, " +
-                "lastName varchar(35), " +
-                "firstName varchar(35), " +
-                "isAdmin bool, " +
-                "isBHV bool");
+                "employeeID SERIAL PRIMARY KEY, " +
+                        "emailAddress varchar(35) UNIQUE, " +
+                        "lastName varchar(35), " +
+                        "firstName varchar(35), " +
+                        "isAdmin bool, " +
+                        "isBHV bool");
 
         //For logging logins
         loginTable = new Table("loginTable",
@@ -124,11 +125,12 @@ class DatabaseManager {
 
     //Still gives an error, no problem
     static void createAccountIfNotExists(String name, String lastname, String email) {
-        ResultSet rs = getResultsFromQuery("select emailaddress from employeeTable where emailaddress='" + email + "'");
+        ResultSet rs = getResultsFromQuery("select emailAddress from employeeTable where emailAddress=lower('" + email + "')");
         try {
-            if (!rs.next())
+            if(!rs.next()) {
+                employeeTable.insertValues("DEFAULT", email.toLowerCase(), lastname, name, false, false);
                 System.out.println("A new user is being created, name: " + name + " " + lastname);
-                employeeTable.insertValues(email, lastname, name, false, false);
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
