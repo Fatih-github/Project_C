@@ -91,6 +91,7 @@
                         '<input type="text" name="name" value="' + googleUser.getBasicProfile().getGivenName() + '" />' +
                         '<input type="text" name="email" value="' + googleUser.getBasicProfile().getEmail() + '" />' +
                         '<input type="text" name="lastname" value="' + googleUser.getBasicProfile().getFamilyName() + '" />' +
+                        '<input type="text" name="image" value="' + googleUser.getBasicProfile().getImageUrl() + '" />' +
                         '</form>');
                 $('body').append(form);
                 form.submit();

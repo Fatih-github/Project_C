@@ -16,16 +16,16 @@
         <url-pattern>/plan</url-pattern>
     </servlet-mapping>
 
-    <!--Template, COPY to use for your own servlet-->
-<!--    <servlet>-->
-<!--        <servlet-name>ServletPlanSubmit</servlet-name>-->
-<!--        <servlet-class>ServletPlanSubmit</servlet-class>-->
-<!--    </servlet>-->
+    Template, COPY to use for your own servlet
+    <servlet>
+        <servlet-name>ServletPlanSubmit</servlet-name>
+        <servlet-class>ServletPlanSubmit</servlet-class>
+    </servlet>
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>ServletPlanSubmit</servlet-name>-->
-<!--        <url-pattern>/planSubmit</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>ServletPlanSubmit</servlet-name>
+        <url-pattern>/planSubmit</url-pattern>
+    </servlet-mapping>
 
 
 <!--Fires on login with google-->

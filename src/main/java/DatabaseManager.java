@@ -9,7 +9,9 @@ class DatabaseManager {
 
     static Table loginTable;
     static Table employeeTable;
-    static Table workspaceTable;
+    static Table roomTable;
+    static Table groupTable;
+    static Table memberTable;
     static Table reservationTable;
     static Table invitationTable;
 
@@ -35,45 +37,86 @@ class DatabaseManager {
             System.exit(0);
         }
 
+        //For creating an employee in our database
         employeeTable = new Table("employeeTable",
-                "employeeTable_employeeID SERIAL PRIMARY KEY, " +
-                "employeeTable_lastName varchar(35), " +
-                "employeeTable_firstName varchar(35), " +
-                "employeeTable_emailAddress varchar(35) UNIQUE, " +
-                "employeeTable_isAdmin bool, " +
-                "employeeTable_isBHV bool");
+                "employeeID SERIAL PRIMARY KEY, " +
+                        "emailAddress varchar(35) UNIQUE, " +
+                        "lastName varchar(35), " +
+                        "firstName varchar(35), " +
+                        "isAdmin bool, " +
+                        "isBHV bool");
 
+        //For logging logins
         loginTable = new Table("loginTable",
-                "loginTable_emailAddress varchar(35), " +
-                        "loginTable_timeStamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
-                        "loginTable_loginName varchar(35), " +
-                        "loginTable_employeeID INT, " +
-                        "FOREIGN KEY(loginTable_employeeID) REFERENCES employeeTable(employeeTable_employeeID)");
+                "emailAddress varchar(35), " +
+                "loginName varchar(35), " +
+                "timeStamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
+                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress)");
 
-        workspaceTable = new Table("workspaceTable",
-                "workspaceTable_workspaceID INT PRIMARY KEY, " +
-                        "workspaceTable_blockNumber INT");
+        //For data of the workspaces
+        roomTable = new Table("roomTable",
+                "roomID varchar(10) PRIMARY KEY, " +
+                "slotAmount INT");
 
+        //For creating a team number which can apply to all team members
+        groupTable = new Table("groupTable",
+                "groupID SERIAL PRIMARY KEY");
+
+        //For referencing a member from a team
+        memberTable = new Table("memberTable",
+                "groupID INT, " +
+                "emailAddress varchar(35), " +
+                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID), " +
+                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress)");
+
+        //insert into reservationtable
+        //Values (ARRAY[1, 2, 3])
+        //For creating a reservation
         reservationTable = new Table("reservationTable",
-                "reservationTable_reservationTableID INT PRIMARY KEY, " +
-                        "reservationTable_workspaceID INT, " +
-                        "reservationTable_date varchar(20), " +
-                        "reservationTable_slots INT, " +
-                        "reservationTable_state INT, " +
-                        "reservationTable_employeeID INT, " +
-                        "FOREIGN KEY(reservationTable_employeeID) REFERENCES employeeTable(employeeTable_employeeID), " +
-                        "FOREIGN KEY(reservationTable_workspaceID) REFERENCES workspaceTable(workspaceTable_workspaceID)");
+                "reservationID SERIAL PRIMARY KEY, " +
+                "roomID varchar(10), " +
+                "emailAddress varchar(35), " +
+                "groupID INT, " +
+                "date varchar(20), " +
+                "timeSlot varchar(20), " +
+                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
+                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID)");
 
+        //*Can still be changed, work in progress*
         invitationTable = new Table("invitationTable",
-                "invitationTable_invitedBy varchar(35), " +
-                        "invitationTable_invitee varchar(35), " +
-                        "invitationTable_employeeID INT, " +
-                        "invitationTable_reservationID INT, " +
-                        "FOREIGN KEY(invitationTable_employeeID) REFERENCES employeeTable(employeeTable_employeeID), " +
-                        "FOREIGN KEY(invitationTable_reservationID) REFERENCES reservationTable(reservationTable_reservationTableID), " +
-                        "PRIMARY KEY(invitationTable_employeeID, invitationTable_reservationID)");
+                "invitedBy varchar(35), " +
+                "invitee varchar(35), " +
+                "emailAddress varchar(35), " +
+                "reservationID INT, " +
+                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
+                "FOREIGN KEY(reservationID) REFERENCES reservationTable(reservationID), " +
+                "PRIMARY KEY(emailAddress, reservationID)");
 
-        // setting up tables
+
+
+        //Creating mockdata to test
+        int roomAmount = 6;
+        int roomSlotAmount = 5;
+        System.out.println("Putting room mock data into the database");
+        for(int i = 0; i < roomAmount; i++) {
+            ResultSet rs = getResultsFromQuery("select roomID from roomTable where roomID= 'Room " + (i+1) + "'");
+            try {
+                if (!rs.next())
+                    roomTable.insertValues("Room " + (i+1), roomSlotAmount);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
+        System.out.println("Putting employee mock data into the database");
+        createAccountIfNotExists("John", "Doe", "Johndoe@hr.nl");
+        createAccountIfNotExists("Jane", "Smith", "Janesmith@hr.nl");
+        createAccountIfNotExists("Mary", "Major", "Marymajor@hr.nl");
+        createAccountIfNotExists("Mark", "Moe", "Markmoe@hr.nl");
+        createAccountIfNotExists("Richard", "Miles", "Richardmiles@hr.nl");
+
+
+        //setting up tables
         //setupLoginTable();
         //note2
     }
@@ -104,12 +147,14 @@ class DatabaseManager {
         }
     }
 
-
+    //Still gives an error, no problem
     static void createAccountIfNotExists(String name, String lastname, String email) {
-        ResultSet rs = getResultsFromQuery("select employeeTable_emailaddress from employeeTable where employeeTable_emailaddress='" + email + "'");
+        ResultSet rs = getResultsFromQuery("select emailAddress from employeeTable where emailAddress=lower('" + email + "')");
         try {
-            if (!rs.next())
-                employeeTable.insertValues("DEFAULT", lastname, name, email, false, false);
+            if(!rs.next()) {
+                employeeTable.insertValues("DEFAULT", email.toLowerCase(), lastname, name, false, false);
+                System.out.println("A new user is being created, name: " + name + " " + lastname);
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -119,7 +164,7 @@ class DatabaseManager {
     static class Table{
 
         private String _tableName;
-
+        //stuff
         public Table(String tableName, String createTableArguments){
             _tableName = tableName;
             if (!executeSQLstatement("CREATE TABLE IF NOT EXISTS " + tableName + "(" + createTableArguments + ")")){

@@ -17,27 +17,244 @@
 </head>
 
 <body>
-    <div id="nav-placeholder"></div>
+<div id="nav-placeholder"></div>
 
-    <div class="container">
-        <div class="card border-0 shadow my-5">
-            <div class="card-body p-5">
-                <h1 class="font-weight-light">Login Template</h1>
-                <p class="lead">...</p>
-                <p class="lead mb-0">...</p>
+<div class="container">
+    <div class="card border-0 shadow my-5">
+        <div class="card-body mb-4 mt-3">
+            <%
+                String name = request.getParameter("name");
+                String id_token = request.getParameter("id_token");
+                String email = request.getParameter("email");
+                Connection database = null;
+                Statement st = null;
+                ResultSet rs = null;
+                try {
+                    Class.forName("org.postgresql.Driver");
+                    database = DriverManager
+                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                    "BaseFramePC", "none");
+                    st = database.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                    String sql = "select * from logintable where emailaddress = '" + email + "'";
+                    rs = st.executeQuery(sql);
+                    rs.next();
+            %>
+
+            <tbody>
+            <span  STYLE="font-size: 300%; font-weight: bold" class="welcome control-label label_info">Hello <%=rs.getString("loginname")%>!</span>
+            <%
+                rs.beforeFirst();
+            %>
+            </tbody>
+            <%
+                } catch (Exception ex) {
+                    System.out.println("Error: " + ex);
+                }
+            %>
+
+            <h5 class="text-justify">It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</h5>
+            <h5 class="text-justify">We hope to see you soon at the office!</h5>
+
+
+
+        </div>
+        <div class="team1 form-group col-md-2 mb-5">
+            <span STYLE="font-size: x-large" class="text-nowrap control-label">Create a team: (ctrl + click)</span> <br>
+            <%
+                rs.beforeFirst();
+                {%>
+            <select id="Invite" class="team form-control" multiple="multiple">
+                <% while (rs.next()) { %>
+                <option class="teamoptions"><%=rs.getString("loginname")%></option>
+                <%
+                    }
+                %>
+            </select><%
+            }%>
+
+            <input class="teamname form-control" type="text" placeholder="Team name...">
+            <button class="teamsubmit btn btn-sm" type="submit" value="Submit">Submit</button>
+        </div>
+
+
+
+        <div class="reservations form-group col-md-3">
+            <span STYLE="font-size: x-large" class="text-nowrap control-label label_info">Upcoming reservations:</span><br>
+
+            <div class="container_reservations">
+                <div class="card border-0">
+                    <div class="card-body p-0">
+
+                        <table STYLE="font-size: small" class="table m-7 table-bordered table-responsive-md table-hover table-dark table-md col-xs-7 col-sm-7 col-md-7">
+                            <thead>
+                            <tr>
+                                <th>attime</th>
+                                <th>email</th>
+                                <th>loginname</th>
+                                <th width="10em">update</th>
+                                <th width="10em">delete</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr class="table reservationtable">
+                                    <%
+                                            rs.beforeFirst();
+                                            while (rs.next()){ %>
+
+                                <td class="table reservationtable"><%=rs.getString("timestamp")%></td>
+                                <td class="table reservationtable"><%=rs.getString("emailaddress")%></td>
+                                <td class="table reservationtable"><%=rs.getString("loginname")%></td>
+                                <td class="table reservationtable">
+                                    <a onclick="onUpdate()" style="color: white; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                </td>
+                                <td class="table reservationtable">
+                                    <a onclick="onDelete()" style="color: white; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                </td>
+                            </tbody>
+                            <%}%>
+
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+
+
                 <div style="height: 500px"></div>
             </div>
         </div>
     </div>
-    <%
-        String image = request.getParameter("image");
-        session.setAttribute("image", image);
-    %>
+</div>
+<%
+    String image = request.getParameter("image");
+    session.setAttribute("image", image);
+%>
 </body>
 
 <script>
     $(function(){
         $("#nav-placeholder").load("nav-bar.jsp");
     });
+
+    function onDelete() {
+        var tableData;
+
+        $("tr.table").click(function () {
+            tableData = $(this).children("td").map(function () {
+                return $(this).text();
+            }).get();
+        });
+
+        $.confirm({
+            title: 'Delete Reservation',
+            content: 'Are you sure you want to delete this reservation?',
+            buttons: {
+                confirm: function () {
+                    var redirectUrl = 'linkDeleteReservations';
+                    //using jquery to post data dynamically
+                    var form = $('<form action="' + redirectUrl + '" method="post">' +
+                        '<input type="text" name="time" value="' + tableData[0] + '" />' +
+                        '<input type="text" name="email" value="' + tableData[1] + '" />' +
+                        '<input type="text" name="name" value="' + tableData[2] + '" />' +
+                        '</form>');
+                    $('body').append(form);
+                    form.submit();
+                },
+                cancel: function () {
+
+                }
+            }
+        });
+    }
+
+    function onUpdate() {
+        $("tr.table").click(function () {
+            var tableData = $(this).children("td").map(function () {
+                return $(this).text();
+            }).get();
+
+            // alert($.trim(tableData[0]) + " , " + $.trim(tableData[1]) + ", " + $.trim(tableData[2]));
+
+            var redirectUrl = 'linkUpdateReservations';
+            //using jquery to post data dynamically
+            var form = $('<form action="' + redirectUrl + '" method="post">' +
+                '<input type="text" name="time" value="' + tableData[0] + '" />' +
+                '<input type="text" name="email2" value="' + tableData[1] + '" />' +
+                '<input type="text" name="name" value="' + tableData[2] + '" />' +
+                '</form>');
+            $('body').append(form);
+            form.submit();
+        });
+    }
+
 </script>
+
+<style>
+    .welcome{
+        position: relative;
+        top: -5px;
+    }
+
+    .team1{
+        width: 280px;
+    }
+
+    .team
+    {
+        width: auto;
+        font-size: x-large;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .teamsubmit{
+        margin-top: 10px;
+        color: #343a40;
+        background-color: #9f8974;
+    }
+
+    .teamname{
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .reservationtable{
+        color: white;
+        background-color: #9f8974;
+
+    }
+
+    .clear{
+        clear: both;
+    }
+
+    select option:hover,
+    select option:active,
+    select option:checked{
+        color: white;
+        background:#343a40 ;
+    }
+
+    select option:focus{
+        color: white;
+    }
+
+
+    select option:checked,
+    select option:active{
+        color:white;
+        background: linear-gradient( #9f8974, #9f8974);
+    }
+
+    p{
+        margin-bottom: 0px;
+    }
+
+
+</style>
+
 </html>

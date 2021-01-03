@@ -250,10 +250,10 @@ public class CompressionResponseStream extends ServletOutputStream {
 
 
     /**
-     * Write <code>b.length</code> bytes from the specified byte array
+     * Write <code>b.length</code> bytes from the specified byte dateArray
      * to our output stream.
      *
-     * @param b The byte array to be written
+     * @param b The byte dateArray to be written
      *
      * @exception IOException if an input/output error occurs
      */
@@ -287,10 +287,10 @@ public class CompressionResponseStream extends ServletOutputStream {
 
 
     /**
-     * Write <code>len</code> bytes from the specified byte array, starting
+     * Write <code>len</code> bytes from the specified byte dateArray, starting
      * at the specified offset, to our output stream.
      *
-     * @param b The byte array containing the bytes to be written
+     * @param b The byte dateArray containing the bytes to be written
      * @param off Zero-relative starting offset of the bytes to be written
      * @param len The number of bytes to be written
      *
@@ -417,7 +417,7 @@ public class CompressionResponseStream extends ServletOutputStream {
 
 
     /**
-     * Checks if any entry in the string array starts with the specified value
+     * Checks if any entry in the string dateArray starts with the specified value
      *
      * @param sArray the StringArray
      * @param value string

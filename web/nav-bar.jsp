@@ -70,15 +70,12 @@
     }
 
     function onReservations() {
-
-
         console.log("onreservations called")
 
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
         console.log(profile.getName());
         console.log(profile.getEmail());
-
 
         var redirectUrl = 'linkReservations';
         //using jquery to post data dynamically
@@ -90,15 +87,12 @@
     }
 
     function onPlan() {
-
-
         console.log("onPlan called")
 
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
         console.log(profile.getName());
         console.log(profile.getEmail());
-
 
         var redirectUrl = 'plan';
         //using jquery to post data dynamically
