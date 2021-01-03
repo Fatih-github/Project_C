@@ -15,6 +15,7 @@ class DatabaseManager {
     static Table reservationTable;
     static Table invitationTable;
 
+    //Some comment to change a file for pushing
     public static void setup(){
         if (database != null){return;}
 
