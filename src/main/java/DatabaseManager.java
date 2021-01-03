@@ -92,6 +92,30 @@ class DatabaseManager {
                 "FOREIGN KEY(reservationID) REFERENCES reservationTable(reservationID), " +
                 "PRIMARY KEY(emailAddress, reservationID)");
 
+
+
+        //Creating mockdata to test
+        int roomAmount = 6;
+        int roomSlotAmount = 5;
+        System.out.println("Putting room mock data into the database");
+        for(int i = 0; i < roomAmount; i++) {
+            ResultSet rs = getResultsFromQuery("select roomID from roomTable where roomID= 'Room " + (i+1) + "'");
+            try {
+                if (!rs.next())
+                    roomTable.insertValues("Room " + (i+1), roomSlotAmount);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
+        System.out.println("Putting employee mock data into the database");
+        createAccountIfNotExists("John", "Doe", "Johndoe@hr.nl");
+        createAccountIfNotExists("Jane", "Smith", "Janesmith@hr.nl");
+        createAccountIfNotExists("Mary", "Major", "Marymajor@hr.nl");
+        createAccountIfNotExists("Mark", "Moe", "Markmoe@hr.nl");
+        createAccountIfNotExists("Richard", "Miles", "Richardmiles@hr.nl");
+
+
         //setting up tables
         //setupLoginTable();
         //note2
