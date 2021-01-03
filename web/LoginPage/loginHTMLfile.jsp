@@ -72,8 +72,10 @@
                     </select><%
                     }%>
 
-                    <input class="teamsubmit btn btn-outline-primary" type="submit" value="Submit">
+                    <input class="teamname form-control" type="text" placeholder="Team name...">
+                    <button class="teamsubmit btn btn-sm" type="submit" value="Submit">Submit</button>
                 </div>
+
 
 
                 <div class="reservations form-group col-md-3">
@@ -195,6 +197,10 @@
         top: -5px;
     }
 
+    .team1{
+        width: 280px;
+    }
+
     .team
     {
         width: auto;
@@ -206,8 +212,14 @@
     }
 
     .teamsubmit{
+        margin-top: 10px;
         color: #343a40;
         background-color: #9f8974;
+    }
+
+    .teamname{
+        width: 100%;
+        margin-top: 10px;
     }
 
     .reservationtable{
