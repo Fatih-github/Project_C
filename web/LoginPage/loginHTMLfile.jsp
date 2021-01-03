@@ -71,6 +71,8 @@
                         %>
                     </select><%
                     }%>
+
+                    <input class="teamsubmit btn btn-outline-primary" type="submit" value="Submit">
                 </div>
 
 
@@ -79,7 +81,7 @@
 
                     <div class="container_reservations">
                         <div class="card border-0">
-                            <div class="card-body p-2">
+                            <div class="card-body p-0">
 
                                 <table STYLE="font-size: small" class="table m-7 table-bordered table-responsive-md table-hover table-dark table-md col-xs-7 col-sm-7 col-md-7">
                                     <thead>
@@ -193,10 +195,6 @@
         top: -5px;
     }
 
-    .team1{
-
-    }
-
     .team
     {
         width: auto;
@@ -205,13 +203,12 @@
         position: relative;
         cursor: pointer;
         margin-top: 10px;
-        margin-left: 25px;
     }
 
-    /*.reservations*/
-    /*{*/
-    /*    margin-left: 350px;*/
-    /*}*/
+    .teamsubmit{
+        color: #343a40;
+        background-color: #9f8974;
+    }
 
     .reservationtable{
         color: white;
