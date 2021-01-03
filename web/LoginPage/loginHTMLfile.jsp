@@ -76,7 +76,7 @@
 
 
                 <div class="reservations form-group col-md-3">
-                    <span STYLE="font-size: x-large" class="text-nowrap control-label label_info ">Upcoming reservations:</span><br>
+                    <span STYLE="font-size: x-large" class="text-nowrap control-label label_info">Upcoming reservations:</span><br>
 
                     <div class="container_reservations">
                         <div class="card border-0">
