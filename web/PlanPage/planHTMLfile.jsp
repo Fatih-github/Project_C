@@ -5,15 +5,19 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <title>OfficePlanager - Plan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -22,7 +26,6 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <link rel="stylesheet" type="text/css" href="PlanPage/planCSSfile.css"/>
-
 </head>
 
 
@@ -55,6 +58,25 @@
                 }
                 HashMap<String, Reservation> dateMap = new HashMap<>();
 
+
+                //container class
+                class Employee{
+                    String eFirstname;
+                    String eLastname;
+
+                    public Employee(String fName, String lName){
+                        eFirstname = fName;
+                        eLastname = lName;
+                    }
+
+                    @Override
+                    public String toString() {
+                        return eFirstname + " " + eLastname;
+                    }
+                }
+                ArrayList<String> employeeList = new ArrayList<>();
+
+                //ResultSet employeeResultSet = null;
                 // get reservations based on email adress
                 try {
                     System.out.println("\t\t planHTMLfile JSP/JAVA code");
@@ -72,9 +94,9 @@
                                     "BaseFramePC", "none");
                     st = database.createStatement();
                     //</editor-fold>
+
                     String sql = "select date, roomid, timeslot from reservationtable where emailaddress='" + email + "'";
                     ResultSet plannedDates = st.executeQuery(sql);
-
                     //store all planned dates in a HashMap
                     while (plannedDates.next()){
                         Reservation currentReservation =
@@ -84,6 +106,19 @@
                         System.out.println("reservation: " + currentReservation);
                         dateMap.put(plannedDates.getString(1), currentReservation);
                     }
+
+                    sql = "select firstname, lastname from employeetable where emailaddress !='" + email + "'";
+                    ResultSet employeeResultSet = st.executeQuery(sql);
+                    //store all emplyees in a HashMap
+                    while (employeeResultSet.next()){
+                        Employee currentEmployee =
+                                new Employee(employeeResultSet.getString(1),
+                                        employeeResultSet.getString(2));
+                        System.out.println("employee: " + currentEmployee);
+                        employeeList.add(currentEmployee.toString());
+                    }
+
+
 
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
@@ -97,7 +132,7 @@
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS)));
                     int dayNum = cal.get(Calendar.DAY_OF_WEEK);
-                    int weeknum = cal.get(Calendar.WEEK_OF_YEAR);
+                    int weeknum = cal.get(Calendar.WEEK_OF_YEAR) +1;
                     if (!(dayNum == 1 || dayNum == 7)){
 
                         String dateString = new SimpleDateFormat("EEE dd MMM yyyy").format(Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS)));
@@ -105,7 +140,7 @@
                         if (dateMap.containsKey(dateString)){
                             currentReservation = dateMap.get(dateString);
                         }else{
-                            currentReservation = new Reservation("n.a.", "Nothing planned", "Nothing planned");
+                            currentReservation = new Reservation("n.a.", "Flex", "Nothing planned");
                         }
 
                         %>
@@ -120,6 +155,7 @@
                                         <option value="morning">Morning</option>
                                         <option value="afternoon">Afternoon</option>
                                         <option value="day">Entire day</option>
+                                        <option value="Nothing planned">Nothing planned</option>
                                     </select>
                                 </div>
 
@@ -127,6 +163,8 @@
                                     <label>Room</label>
                                     <select id="Room<%= ""+i %>" class="form-control">
                                         <option selected><%= currentReservation.roomId%></option>
+                                        <option value="Flex">Flex</option>
+                                        <option value="room1">room1</option>
                                         <option value="room1">room1</option>
                                         <option value="room2">room2</option>
                                         <option value="room3">room3</option>
@@ -135,13 +173,20 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label>Invite (ctrl + click)</label>
-                                    <select id="Invite<%= ""+i %>" class="form-control" multiple="multiple" size="2">
-                                        <option value="Peter">Peter</option>
-                                        <option value="John">John</option>
-                                        <option value="Fatih">Fatih</option>
-                                        <option value="Jan">Jan</option>
-                                        <option value="Luc">Luc</option>
+                                    <label>Invite</label>
+                                    <select id="Invite<%= ""+i %>" class="form-control invites" multiple="multiple">
+                                        <% for(String employeeNameString : employeeList) {%>
+                                        <option value="<%=employeeNameString%>"><%=employeeNameString%></option>
+                                        <%
+                                            System.out.println("Made id: Invite" + i);
+                                            }
+                                        %>
+
+<%--                                        <% while (employeeResultSet.next()) { %>--%>
+<%--                                        <option value="<%=employeeResultSet.getString("firstname")%> <%=employeeResultSet.getString("lastname")%>"><%=employeeResultSet.getString("firstname")%> <%=employeeResultSet.getString("lastname")%></option>--%>
+<%--                                        <%--%>
+<%--                                            }--%>
+<%--                                        %>--%>
                                     </select>
                                 </div>
                             </div>
@@ -177,23 +222,79 @@
 
 
 <script>
+
+
+
+
+    // var Invite1;
+    // $("#Invite1").select2({
+    //     placeholder: 'Choose..',
+    // });
+    // console.log("man Current invite1")
+    // $("#Invite1").on("select2:select select2:unselect", function (e) {
+    //     //this returns all the selected item
+    //     Invite1 = $(this).val();
+    // });
+    // //console.log(Invite1)
+    //
+    //
+    // var Invite2;
+    // $("#Invite2").select2({
+    //     placeholder: 'Choose..',
+    // });
+    // console.log("man Current invite1")
+    // $("#Invite2").on("select2:select select2:unselect", function (e) {
+    //     //this returns all the selected item
+    //     Invite2 = $(this).val();
+    // });
+    // //console.log(Invite2)
+
+
+    var inviteArray = []
+    for (let i = 0; i < 14; i++) {
+        console.log("Start of script")
+
+        var curInvite = "#Invite" + i.toString()
+        $(curInvite).select2({
+            placeholder: 'Choose..',
+        });
+        console.log("Current invite "+ curInvite)
+        $(curInvite).on("select2:select select2:unselect", function (e) {
+            //this returns all the selected item
+            inviteArray[i] = $(this).val();
+        });
+        //console.log(inviteArray[i])
+    }
+    console.log("Affter invite library load")
+
+
+
+
+
+
+
     var date = new Date();
     var dateArray = []
     var count = 0;
 
-    var stored;
-    $('#Invite2').select2({
-        placeholder: 'Choose..'
-    });
-    //var stored = $('#Invite2').find(':selected');
 
     function onPlan2() {
+
+
+        // console.log("manual invite log1: " + Invite1)
+        // console.log("manual invite log2: " + Invite2)
+
+        for (let i = 0; i < 14; i++) {
+            console.log("loop invite log" + i + ": " + inviteArray[i])
+        }
+
         //send user details to server
         var redirectUrl = 'planSubmit';
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
 
 
+        //load email from google
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
 
@@ -201,16 +302,18 @@
         $('body').append(form);
 
 
-        var submitList = [];
 
+
+
+        // add submit days to json
+        var submitList = [];
         var elements = document.getElementById("planRequestForm").elements;
         var amountOFElements = elements.length;
-
         for(i = 0; i < amountOFElements; i++){
             console.log("current i: " + i.toString());
             element = elements[i];
             try {
-                if (document.getElementById('Timeslot' + i.toString()).value !== "Nothing planned") {
+                if (document.getElementById('Timeslot' + i.toString()).value) {
                     var entry = {
                         date: document.getElementById("Date" + i.toString()).innerText,
                         timeSlot: document.getElementById('Timeslot' + i.toString()).value,
@@ -229,10 +332,11 @@
             }
         }
 
+        //actually post data
         var sub = submitList.toString().replaceAll("\"", "'");
         console.log("submitList:" + sub);
         form.append('<input type="text" name="submission" value="' + sub + '" />');
-        form.submit();
+        //form.submit();
 
     }
 </script>
