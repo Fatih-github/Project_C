@@ -103,7 +103,7 @@
                                 new Reservation(plannedDates.getString(1),
                                 plannedDates.getString(2),
                                 plannedDates.getString(3));
-                        System.out.println("reservation: " + currentReservation);
+                        //System.out.println("reservation: " + currentReservation);
                         dateMap.put(plannedDates.getString(1), currentReservation);
                     }
 
@@ -114,7 +114,7 @@
                         Employee currentEmployee =
                                 new Employee(employeeResultSet.getString(1),
                                         employeeResultSet.getString(2));
-                        System.out.println("employee: " + currentEmployee);
+                        //System.out.println("employee: " + currentEmployee);
                         employeeList.add(currentEmployee.toString());
                     }
 
@@ -178,7 +178,7 @@
                                         <% for(String employeeNameString : employeeList) {%>
                                         <option value="<%=employeeNameString%>"><%=employeeNameString%></option>
                                         <%
-                                            System.out.println("Made id: Invite" + i);
+                                            //System.out.println("Made id: Invite" + i);
                                             }
                                         %>
 
@@ -224,32 +224,7 @@
 <script>
 
 
-
-
-    // var Invite1;
-    // $("#Invite1").select2({
-    //     placeholder: 'Choose..',
-    // });
-    // console.log("man Current invite1")
-    // $("#Invite1").on("select2:select select2:unselect", function (e) {
-    //     //this returns all the selected item
-    //     Invite1 = $(this).val();
-    // });
-    // //console.log(Invite1)
-    //
-    //
-    // var Invite2;
-    // $("#Invite2").select2({
-    //     placeholder: 'Choose..',
-    // });
-    // console.log("man Current invite1")
-    // $("#Invite2").on("select2:select select2:unselect", function (e) {
-    //     //this returns all the selected item
-    //     Invite2 = $(this).val();
-    // });
-    // //console.log(Invite2)
-
-
+    //initialize invite library
     var inviteArray = []
     for (let i = 0; i < 14; i++) {
         console.log("Start of script")
@@ -281,9 +256,6 @@
     function onPlan2() {
 
 
-        // console.log("manual invite log1: " + Invite1)
-        // console.log("manual invite log2: " + Invite2)
-
         for (let i = 0; i < 14; i++) {
             console.log("loop invite log" + i + ": " + inviteArray[i])
         }
@@ -303,8 +275,6 @@
 
 
 
-
-
         // add submit days to json
         var submitList = [];
         var elements = document.getElementById("planRequestForm").elements;
@@ -314,16 +284,19 @@
             element = elements[i];
             try {
                 if (document.getElementById('Timeslot' + i.toString()).value) {
+
+                    console.log("\tentry creation started for day:" + i.toString());
                     var entry = {
                         date: document.getElementById("Date" + i.toString()).innerText,
                         timeSlot: document.getElementById('Timeslot' + i.toString()).value,
-                        room: document.getElementById('Room' + i.toString()).value
-
+                        room: document.getElementById('Room' + i.toString()).value,
+                        invites: inviteArray[i]
                     };
                     console.log("\tentry creation complete for day:" + i.toString());
                     console.log("\t\tdate: " + entry["date"]);
                     console.log("\t\ttimeslot: " + entry["timeSlot"]);
                     console.log("\t\troom: " + entry["room"]);
+                    console.log("\t\tinvites: " + entry["invites"]);
                     console.log("\tentry: " + JSON.stringify(entry))
                     submitList.push(JSON.stringify(entry));
                 }
@@ -336,7 +309,7 @@
         var sub = submitList.toString().replaceAll("\"", "'");
         console.log("submitList:" + sub);
         form.append('<input type="text" name="submission" value="' + sub + '" />');
-        //form.submit();
+        form.submit();
 
     }
 </script>

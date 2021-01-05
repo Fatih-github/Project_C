@@ -86,12 +86,12 @@ class DatabaseManager {
         //*Can still be changed, work in progress*
         invitationTable = new Table("invitationTable",
                 "invitedBy varchar(35), " +
-                "invitee varchar(35), " +
+                "invitee text[], " +
+                "inviteeAccepted text[], " +
                 "emailAddress varchar(35), " +
                 "reservationID INT, " +
                 "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
-                "FOREIGN KEY(reservationID) REFERENCES reservationTable(reservationID), " +
-                "PRIMARY KEY(emailAddress, reservationID)");
+                "FOREIGN KEY(reservationID) REFERENCES reservationTable(reservationID)");
 
 
 
@@ -158,6 +158,16 @@ class DatabaseManager {
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        }
+    }
+
+
+    static boolean reservationExist(String email, String date) {
+        ResultSet rs = getResultsFromQuery("select emailAddress, date from reservationTable where emailAddress='" + email + "' and date='" + date + "'");
+        try {
+            return rs.next();
+        } catch (SQLException throwables) {
+            return false;
         }
     }
 

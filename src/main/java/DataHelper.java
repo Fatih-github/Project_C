@@ -25,7 +25,19 @@ public class DataHelper {
     }
 
     public static HashMap<String, String> getHashmapFromJsonString(String input){
+
+
         HashMap<String, String> out = new HashMap<>();
+        //temporary clean lists
+        boolean inlist = false;
+        StringBuilder cleanInputGen = new StringBuilder();
+        for(char c : input.toCharArray()){
+            if (c == '['){inlist = true;}
+            else if(c == ']'){inlist = false;}
+            cleanInputGen.append((inlist && c == ',')? '%' : c);
+        }
+        input = cleanInputGen.toString();
+
         String[] entries = input.replaceAll("'", "").replaceAll("\\{", "").replaceAll("}", "").split(",");
         System.out.println("\n\ninput " + input);
         for (String entry : entries){
@@ -34,6 +46,7 @@ public class DataHelper {
             System.out.println("entry after format " + entry);
             String[] kv = entry.split(":");
             System.out.println("Entry put as:  K: '" + kv[0] + "' V: '" + kv[1] + "'");
+            kv[1] = kv[1].replaceAll("%",",");
             out.put(kv[0], kv[1]);
         }
         return out;
@@ -47,4 +60,10 @@ public class DataHelper {
         }
         return out;
     }
+
+    public static String getAsDbArrayString(String input){
+        return input.replace("[", "{").replace("]", "}").replaceAll("%", ", ");
+    }
+
+
 }
