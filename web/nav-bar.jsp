@@ -64,6 +64,7 @@
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
+            '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();

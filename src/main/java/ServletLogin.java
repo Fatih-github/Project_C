@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ServletLogin extends HttpServlet{
 
@@ -22,6 +23,7 @@ public class ServletLogin extends HttpServlet{
         try {
 
             String name = req.getParameter("name");
+            String TeamSelect = req.getParameter("TeamSelect");
             String lastname = req.getParameter("lastname");
             String id_token = req.getParameter("id_token");
             String email = req.getParameter("email");
@@ -31,8 +33,13 @@ public class ServletLogin extends HttpServlet{
             System.out.println(email + " logged in with token " + id_token);
             DatabaseManager.loginTable.insertValues(email, name, "DEFAULT");
 
+            System.out.println("Teamselect: " + TeamSelect);
+            String[] TeamSelectArray = TeamSelect.split(",");
+            System.out.println("TeamselectArray" + Arrays.toString(TeamSelectArray));
+
         } catch (Exception e) {
             System.out.println("ServletLogin encountered failed login attempt");
+
         }
 
         RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.jsp");

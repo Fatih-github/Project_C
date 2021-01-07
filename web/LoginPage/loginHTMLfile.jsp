@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
     <meta name="google-signin-client_id" content="621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -59,7 +61,7 @@
 
         </div>
         <div class="team1 form-group col-md-2 mb-5">
-            <span STYLE="font-size: x-large" class="text-nowrap control-label">Create a team: (ctrl + click)</span> <br>
+            <span STYLE="font-size: x-large" class="text-nowrap control-label">Create a team:</span> <br>
             <%
                 rs.beforeFirst();
                 {%>
@@ -73,7 +75,7 @@
             }%>
 
             <input class="teamname form-control" type="text" placeholder="Team name...">
-            <button class="teamsubmit btn btn-sm" type="submit" value="Submit">Submit</button>
+            <button class="teamsubmit btn btn-sm" onclick="onTeam()" type="submit" value="Submit">Submit</button>
         </div>
 
 
@@ -138,6 +140,15 @@
         $("#nav-placeholder").load("nav-bar.jsp");
     });
 
+    var TeamSelect
+    $('#Invite').select2({
+        placeholder: 'Choose..',
+    });
+    $('#Invite').on("select2:select select2:unselect", function (e) {
+        //this returns all the selected item
+       TeamSelect = $(this).val();
+    });
+
     function onDelete() {
         var tableData;
 
@@ -187,6 +198,19 @@
             $('body').append(form);
             form.submit();
         });
+    }
+
+    function onTeam(){
+        var auth2 = gapi.auth2.getAuthInstance();
+        var profile = auth2.currentUser.get().getBasicProfile();
+        var redirectUrl = 'login';
+        //using jquery to post data dynamically
+        var form = $('<form action="' + redirectUrl + '" method="post">' +
+            '<input type="text" name="TeamSelect" value="' + TeamSelect + '" />' +
+            '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+            '</form>');
+        $('body').append(form);
+        form.submit();
     }
 
 </script>
