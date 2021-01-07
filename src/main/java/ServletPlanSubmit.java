@@ -66,35 +66,90 @@ public class ServletPlanSubmit extends HttpServlet{
                 }
 
             } catch (SQLException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
 
 
-            //Find difference in invitee's
 
 
-
+            // if there is no reservation at time
             if(!DatabaseManager.reservationExist(email, date)){
-                DatabaseManager.reservationTable.insertValues(nextId, room, email, "NULL", date, timeslot);
+                //insert invitations
+                if(!timeslot.equals("Nothing planned")) {
+                    DatabaseManager.reservationTable.insertValues(nextId, room, email, "NULL", date, timeslot);
+                    DatabaseManager.invitationTable.insertValues(userNameString + " " + userSurnameString, DataHelper.getAsDbArrayString(invites), "{}", email, nextId);
+                }
+            //if there is a standing reservation
             }else{
 
                 try {
-
-                    //update invation
-                    ResultSet arrayEqualsResult = DatabaseManager.getResultsFromQuery("select array_length(array" + DataHelper.getAsDbArrayString(invites) + " , 1) = array_length(inviteeaccepted || array['1'], 1) - 1 + array_length(invitee || array['1'], 1) - 1 and invitee || inviteeaccepted = array" + DataHelper.getAsDbArrayString(invites) + " from invitationtable" + "where reservationid='" +reservationId.trim()+ "'");
-                    if (arrayEqualsResult.next()){
-                        if (result.getString(1).equals("f")){
-
-                        }
-                    }
-
+                    int Id = 0;
                     //update reservation variables
                     ResultSet rs = DatabaseManager.getResultsFromQuery("select * from reservationTable where emailAddress='" + email + "' and date='" + date + "'");
                     if (rs.next()) {
-                        int Id = rs.getInt("reservationId");
-                        DatabaseManager.executeSQLstatement("update reservationTable set timeSlot='" + timeslot + "' where reservationId='" + Id + "'");
-                        DatabaseManager.executeSQLstatement("update reservationTable set reservationId='" + nextId + "'");
+                        Id = rs.getInt("reservationId");
+                        DatabaseManager.executeSQLstatement("update reservationTable set timeSlot='" + timeslot + "', roomid='" + room + "' where reservationId='" + Id + "'");
+                        if(!rs.getString("timeSlot").equals(timeslot)){
+                            DatabaseManager.executeSQLstatement("update invitationtable " + "set inviteeaccepted = '{}'::text[] " + "where reservationid='" + Id + "'");
+                            DatabaseManager.executeSQLstatement("update invitationtable set invitee='" + DataHelper.getAsDbArrayString(invites) + "' where reservationid='" + Id +"'");
+                        }
                     }
+
+//                    //Find difference in invitee's and update invations
+//                    boolean updateInvites = false;
+//                    ResultSet inviteeSet = DatabaseManager.getResultsFromQuery("select invitee, inviteeaccepted from invitationTable where reservationId=" + Id);
+//                    if (inviteeSet.next()) {
+//                        HashMap<String, Boolean> containsMap = new HashMap<>();
+//
+//                        try {
+//                            String[] a = (String[])rs.getArray(1).getArray();
+//                            for(String entry : a ){
+//                                containsMap.put(entry, false);
+//                            }
+//                        } catch (SQLException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                        try {
+//                            String[] b = (String[])rs.getArray(1).getArray();
+//                            for(String entry : b){
+//                                containsMap.put(entry, false);
+//                            }
+//                        } catch (SQLException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                        //get list of strings of new invitees
+//                        String invitesString = invites;
+//                        if(invites.equals("null")){
+//                            System.out.println("no invites found");
+//                        }else{
+//                            String[] invitesAsArray = invitesString.replace("[","").replace("]","").split(",");
+//                            for(String inv : invitesAsArray) {
+//                                if (containsMap.containsKey(inv)) {
+//                                    containsMap.put(inv, true);
+//                                }else{
+//                                    updateInvites = true;
+//                                }
+//                            }
+//                            if(containsMap.containsValue(false)){
+//                                updateInvites = true;
+//                            }
+//                        }
+//                    }
+
+
+
+//                    ResultSet arrayEqualsResult = DatabaseManager.getResultsFromQuery("select array_length(array" + DataHelper.getAsQueryString(invites) + " , 1) = array_length(inviteeaccepted || array['1'], 1) - 1 + array_length(invitee || array['1'], 1) - 1 and invitee || inviteeaccepted = array" + DataHelper.getAsQueryString(invites) + " from invitationtable where reservationid=" + Id + "");
+//
+//
+//                    if (arrayEqualsResult.next()){
+//                        if (arrayEqualsResult.getString(1).equals("f")){
+//                            DatabaseManager.executeSQLstatement("update invitationtable " + "set inviteeaccepted = '{}'::text[] " + "where reservationid='" + Id + "'");
+//                            DatabaseManager.executeSQLstatement("update invitationtable set invitee='" + DataHelper.getAsDbArrayString(invites) + "' where reservationid='" + Id +"'");
+//                        }
+//                    }
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -102,11 +157,6 @@ public class ServletPlanSubmit extends HttpServlet{
 
 
 
-
-            //insert invitations
-            if(!timeslot.equals("Nothing planned")) {
-                DatabaseManager.invitationTable.insertValues(userNameString + " " + userSurnameString, DataHelper.getAsDbArrayString(invites), "{}", email, nextId);
-            }
 
         }
 

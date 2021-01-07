@@ -41,11 +41,11 @@ public class DataHelper {
         String[] entries = input.replaceAll("'", "").replaceAll("\\{", "").replaceAll("}", "").split(",");
         System.out.println("\n\ninput " + input);
         for (String entry : entries){
-            System.out.println("entry before format " + entry);
+            //System.out.println("entry before format " + entry);
             entry.replaceAll("'", "").replaceAll("\\{", "").replaceAll("}", "");
-            System.out.println("entry after format " + entry);
+            //System.out.println("entry after format " + entry);
             String[] kv = entry.split(":");
-            System.out.println("Entry put as:  K: '" + kv[0] + "' V: '" + kv[1] + "'");
+            //System.out.println("Entry put as:  K: '" + kv[0] + "' V: '" + kv[1] + "'");
             kv[1] = kv[1].replaceAll("%",",");
             out.put(kv[0], kv[1]);
         }
@@ -61,9 +61,33 @@ public class DataHelper {
         return out;
     }
 
+    //for insert/json parsing
     public static String getAsDbArrayString(String input){
-        return input.replace("[", "{").replace("]", "}").replaceAll("%", ", ");
+        String out = "{noInvites}";
+        if(input == null){
+            return out;
+        }
+        System.out.println("getAsDbArrayString() input: " + input);
+        try {
+            return input.replace("[", "{").replace("]", "}").replaceAll("%", ", ");
+        } catch (Exception e) {
+            //e.printStackTrace();
+            return out;
+        }
     }
+
+//    //for update
+//    public static String getAsQueryString(String input){
+//        String out = "['']";
+//        try {
+//            System.out.println("input: " + input);
+//            out = input.replace("[", "['").replace("]", "']").replace(",", "','");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println("output: " + out);
+//        return out;
+//    }
 
 
 }

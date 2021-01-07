@@ -109,6 +109,17 @@ class DatabaseManager {
             }
         }
 
+
+        ResultSet rs = getResultsFromQuery("select roomID from roomTable where roomID= 'flex'");
+        try {
+            if (!rs.next())
+                roomTable.insertValues("flex", roomSlotAmount);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+
         System.out.println("Putting employee mock data into the database");
         createAccountIfNotExists("John", "Doe", "Johndoe@hr.nl");
         createAccountIfNotExists("Jane", "Smith", "Janesmith@hr.nl");
