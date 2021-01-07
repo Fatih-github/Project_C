@@ -37,10 +37,15 @@ public class ServletLogin extends HttpServlet{
             String[] TeamSelectArray = TeamSelect.split(",");
             System.out.println("TeamselectArray" + Arrays.toString(TeamSelectArray));
 
+            if (TeamSelect != null && !TeamSelect.equals("Choose..")){
+//                DatabaseManager.groupTable.insertValues("DEFAULT", Arrays.toString(TeamSelectArray).replace("[","{").replace("]","}"));
+            }
+
         } catch (Exception e) {
             System.out.println("ServletLogin encountered failed login attempt");
 
         }
+
 
         RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.jsp");
         view.forward(req, res);
