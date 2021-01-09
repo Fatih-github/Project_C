@@ -23,11 +23,10 @@
 
 <div class="container">
     <div class="card border-0 shadow my-5">
-        <div class="card-body mb-4 mt-3">
+        <div class="card-body mt-3">
             <%
-                String name = request.getParameter("name");
-                String id_token = request.getParameter("id_token");
                 String email = request.getParameter("email");
+
                 Connection database = null;
                 Statement st = null;
                 ResultSet rs = null;
@@ -54,72 +53,85 @@
                 }
             %>
 
-            <h5 class="text-justify">It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</h5>
-            <h5 class="text-justify">We hope to see you soon at the office!</h5>
-
-
-
         </div>
-        <div class="team1 form-group col-md-2 mb-5">
-            <span STYLE="font-size: x-large" class="text-nowrap control-label">Create a team:</span> <br>
+
+        <div class="team1 rounded p-4 bg-dark form-group mb-5 align-self-center">
+            <span STYLE="font-size: x-large" class="text-nowrap text-white control-label">Create a team:</span> <br>
             <%
-                rs.beforeFirst();
-                {%>
-            <select id="Invite" class="team form-control" multiple="multiple">
-                <% while (rs.next()) { %>
-                <option class="teamoptions"><%=rs.getString("loginname")%></option>
+                Connection database2 = null;
+                Statement st2 = null;
+                ResultSet rs2 = null;
+                try {
+                    Class.forName("org.postgresql.Driver");
+                    database2 = DriverManager
+                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                    "BaseFramePC", "none");
+                    st2 = database2.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                    String sql = "select * from employeetable";
+                    rs2 = st2.executeQuery(sql);
+                    rs2.next();
+            %>
+            <select style="font-size: large" id="Invite" class="team form-control" multiple="multiple">
+                <% while (rs2.next()) { %>
+                <option class="teamoptions"><%=rs2.getString("firstname")%></option>
                 <%
                     }
                 %>
             </select><%
+            } catch (Exception ex) {
+                System.out.println("Error: " + ex);
             }%>
 
-            <input class="teamname form-control" type="text" placeholder="Team name...">
-            <button class="teamsubmit btn btn-sm" onclick="onTeam()" type="submit" value="Submit">Submit</button>
+            <input style="font-size: large" class="teamname form-control" type="text" placeholder="Team name...">
+            <button style="font-size: large" class="teamsubmit btn btn-sm" onclick="onTeam()" type="submit" value="Submit">Submit</button>
         </div>
 
 
 
-        <div class="reservations form-group col-md-3">
+        <div class="reservations form-group col-md-6 align-self-center">
             <span STYLE="font-size: x-large" class="text-nowrap control-label label_info">Upcoming reservations:</span><br>
 
             <div class="container_reservations">
                 <div class="card border-0">
                     <div class="card-body p-0">
 
-                        <table STYLE="font-size: small" class="table m-7 table-bordered table-responsive-md table-hover table-dark table-md col-xs-7 col-sm-7 col-md-7">
+                        <table STYLE="font-size: large" class="table m-7 table-bordered table-responsive-md table-hover table-dark">
                             <thead>
                             <tr>
-                                <th>attime</th>
-                                <th>email</th>
-                                <th>loginname</th>
-                                <th width="10em">update</th>
-                                <th width="10em">delete</th>
+                                <th>Date</th>
+                                <th>Timeslot</th>
+                                <th>Room</th>
                             </tr>
                             </thead>
 
                             <tbody>
                             <tr class="table reservationtable">
                                     <%
-                                            rs.beforeFirst();
-                                            while (rs.next()){ %>
+                Connection database3 = null;
+                Statement st3 = null;
+                ResultSet rs3 = null;
+                try {
+                    Class.forName("org.postgresql.Driver");
+                    database3 = DriverManager
+                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                    "BaseFramePC", "none");
+                    st3 = database3.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                    String sql = "select * from reservationtable where emailaddress = '" + email + "'";
+                    rs3 = st3.executeQuery(sql);
+                                            while (rs3.next()){ %>
 
-                                <td class="table reservationtable"><%=rs.getString("timestamp")%></td>
-                                <td class="table reservationtable"><%=rs.getString("emailaddress")%></td>
-                                <td class="table reservationtable"><%=rs.getString("loginname")%></td>
-                                <td class="table reservationtable">
-                                    <a onclick="onUpdate()" style="color: white; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                </td>
-                                <td class="table reservationtable">
-                                    <a onclick="onDelete()" style="color: white; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
-                                </td>
+                                <td class="table reservationtable"><%=rs3.getString("date")%></td>
+                                <td class="table reservationtable"><%=rs3.getString("timeslot")%></td>
+                                <td class="table reservationtable"><%=rs3.getString("roomid")%></td>
                             </tbody>
-                            <%}%>
+                            <%}
+                            } catch (Exception ex) {
+                                System.out.println("Error: " + ex);
+                            }
+                            %>
 
                             </tr>
                         </table>
-                    </div>
-                    <div class="clear">
                     </div>
                 </div>
 
@@ -148,57 +160,6 @@
         //this returns all the selected item
        TeamSelect = $(this).val();
     });
-
-    function onDelete() {
-        var tableData;
-
-        $("tr.table").click(function () {
-            tableData = $(this).children("td").map(function () {
-                return $(this).text();
-            }).get();
-        });
-
-        $.confirm({
-            title: 'Delete Reservation',
-            content: 'Are you sure you want to delete this reservation?',
-            buttons: {
-                confirm: function () {
-                    var redirectUrl = 'linkDeleteReservations';
-                    //using jquery to post data dynamically
-                    var form = $('<form action="' + redirectUrl + '" method="post">' +
-                        '<input type="text" name="time" value="' + tableData[0] + '" />' +
-                        '<input type="text" name="email" value="' + tableData[1] + '" />' +
-                        '<input type="text" name="name" value="' + tableData[2] + '" />' +
-                        '</form>');
-                    $('body').append(form);
-                    form.submit();
-                },
-                cancel: function () {
-
-                }
-            }
-        });
-    }
-
-    function onUpdate() {
-        $("tr.table").click(function () {
-            var tableData = $(this).children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            // alert($.trim(tableData[0]) + " , " + $.trim(tableData[1]) + ", " + $.trim(tableData[2]));
-
-            var redirectUrl = 'linkUpdateReservations';
-            //using jquery to post data dynamically
-            var form = $('<form action="' + redirectUrl + '" method="post">' +
-                '<input type="text" name="time" value="' + tableData[0] + '" />' +
-                '<input type="text" name="email2" value="' + tableData[1] + '" />' +
-                '<input type="text" name="name" value="' + tableData[2] + '" />' +
-                '</form>');
-            $('body').append(form);
-            form.submit();
-        });
-    }
 
     function onTeam(){
         var auth2 = gapi.auth2.getAuthInstance();
@@ -252,10 +213,6 @@
 
     }
 
-    .clear{
-        clear: both;
-    }
-
     select option:hover,
     select option:active,
     select option:checked{
@@ -272,10 +229,6 @@
     select option:active{
         color:white;
         background: linear-gradient( #9f8974, #9f8974);
-    }
-
-    p{
-        margin-bottom: 0px;
     }
 
 

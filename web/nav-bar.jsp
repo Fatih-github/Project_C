@@ -65,6 +65,7 @@
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+            '<input type="text" name="name" value="' + profile.getGivenName() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();
