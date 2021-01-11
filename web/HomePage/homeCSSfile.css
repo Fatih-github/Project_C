@@ -114,3 +114,7 @@ select {
     color: black;
     border: 2px solid #000000;
 }
+
+.select2{
+    width: 100%;
+}

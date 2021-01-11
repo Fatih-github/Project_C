@@ -53,40 +53,8 @@
                 }
             %>
             <h5 class="text-justify">It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</h5>
-            <h5 class="text-justify">We hope to see you soon at the office!</h5>
+            <h5 class="text-justify mb-5">We hope to see you soon at the office!</h5>
         </div>
-
-        <div class="team1 rounded p-4 bg-dark form-group mb-5 align-self-center">
-            <span STYLE="font-size: x-large" class="text-nowrap text-white control-label">Create a team:</span> <br>
-            <%
-                Connection database2 = null;
-                Statement st2 = null;
-                ResultSet rs2 = null;
-                try {
-                    Class.forName("org.postgresql.Driver");
-                    database2 = DriverManager
-                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
-                                    "BaseFramePC", "none");
-                    st2 = database2.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                    String sql = "select * from employeetable";
-                    rs2 = st2.executeQuery(sql);
-                    rs2.next();
-            %>
-            <select style="font-size: large" id="Invite" class="team form-control" multiple="multiple">
-                <% while (rs2.next()) { %>
-                <option class="teamoptions"><%=rs2.getString("firstname")%></option>
-                <%
-                    }
-                %>
-            </select><%
-            } catch (Exception ex) {
-                System.out.println("Error: " + ex);
-            }%>
-
-            <input style="font-size: large" class="teamname form-control" type="text" placeholder="Team name...">
-            <button style="font-size: large" class="teamsubmit btn btn-sm" onclick="onTeam()" type="submit" value="Submit">Submit</button>
-        </div>
-
 
 
         <div class="reservations form-group col-md-6 align-self-center">
@@ -134,12 +102,53 @@
                             </tr>
                         </table>
                     </div>
+
+                    <span STYLE="font-size: x-large" class="text-nowrap text-black control-label mt-5">Create a team:</span>
+                    <div class="team1 rounded p-4 bg-dark form-group mb-5 align-self-center w-100">
+
+                        <%
+                            Connection database2 = null;
+                            Statement st2 = null;
+                            ResultSet rs2 = null;
+                            try {
+                                Class.forName("org.postgresql.Driver");
+                                database2 = DriverManager
+                                        .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                                "BaseFramePC", "none");
+                                st2 = database2.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                                String sql = "select * from employeetable";
+                                rs2 = st2.executeQuery(sql);
+                                rs2.next();
+                        %>
+                        <select style="font-size: large" id="Invite" class="team form-control" multiple="multiple">
+                            <% while (rs2.next()) { %>
+                            <option class="teamoptions"><%=rs2.getString("firstname")%></option>
+                            <%
+                                }
+                            %>
+                        </select><%
+                        } catch (Exception ex) {
+                            System.out.println("Error: " + ex);
+                        }%>
+
+                        <input style="font-size: large" class="teamname form-control" type="text" placeholder="Team name...">
+                        <button style="font-size: large" class="teamsubmit btn btn-sm" onclick="onTeam()" type="submit" value="Submit">Submit</button>
+                    </div>
+
+
                 </div>
 
 
                 <div style="height: 500px"></div>
             </div>
         </div>
+
+
+
+
+
+
+
     </div>
 </div>
 <%
@@ -230,6 +239,10 @@
     select option:active{
         color:white;
         background: linear-gradient( #9f8974, #9f8974);
+    }
+
+    .select2{
+        width: 100% !important;
     }
 
 
