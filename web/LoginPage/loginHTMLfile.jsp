@@ -133,8 +133,8 @@
                             System.out.println("Error: " + ex);
                         }%>
 
-                        <input style="font-size: large" class="teamname form-control" type="text" placeholder="Team name...">
-                        <button style="font-size: large" class="teamsubmit btn btn-sm" onclick="onTeam()" type="submit" value="Submit">Submit</button>
+                        <input style="font-size: large" id="teamName" class="teamname form-control" type="text" placeholder="Team name...">
+                        <button style="font-size: large" class="teamsubmit btn btn-sm" onclick="onTeam()" type="button">Submit</button>
                     </div>
 
 
@@ -176,12 +176,18 @@
     function onTeam(){
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
-        var redirectUrl = 'login';
+        var teamName = document.getElementById("teamName").value;
+        var redirectUrl = 'teamSubmit';
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
-            '<input type="text" name="TeamSelect" value="' + TeamSelect + '" />' +
+            '<input type="text" name="teamname" value="'+teamName+'" ' +
+            '<input type="text" name="teamselect" value="' + TeamSelect + '" />' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
             '</form>');
+        let nametest = teamName.value;
+        let teamtest = teamselect.value;
+        let emailtest = email.value;
+        console.log(teamtest, emailtest, nametest);
         $('body').append(form);
         form.submit();
     }

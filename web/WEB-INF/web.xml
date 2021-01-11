@@ -16,7 +16,7 @@
         <url-pattern>/plan</url-pattern>
     </servlet-mapping>
 
-    Template, COPY to use for your own servlet
+    <!--Template, COPY to use for your own servlet -->
     <servlet>
         <servlet-name>ServletPlanSubmit</servlet-name>
         <servlet-class>ServletPlanSubmit</servlet-class>
@@ -25,6 +25,17 @@
     <servlet-mapping>
         <servlet-name>ServletPlanSubmit</servlet-name>
         <url-pattern>/planSubmit</url-pattern>
+    </servlet-mapping>
+
+    <!--Fires when submit is pressed on team-->
+    <servlet>
+        <servlet-name>ServletTeamSubmit</servlet-name>
+        <servlet-class>ServletTeamSubmit</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletTeamSubmit</servlet-name>
+        <url-pattern>/teamSubmit</url-pattern>
     </servlet-mapping>
 
 
