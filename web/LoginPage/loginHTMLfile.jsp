@@ -184,10 +184,6 @@
             '<input type="text" name="teamselect" value="' + TeamSelect + '" />' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
             '</form>');
-        let nametest = teamName.value;
-        let teamtest = teamselect.value;
-        let emailtest = email.value;
-        console.log(teamtest, emailtest, nametest);
         $('body').append(form);
         form.submit();
     }
