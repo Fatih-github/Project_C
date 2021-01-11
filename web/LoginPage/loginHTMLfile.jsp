@@ -52,7 +52,8 @@
                     System.out.println("Error: " + ex);
                 }
             %>
-
+            <h5 class="text-justify">It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</h5>
+            <h5 class="text-justify">We hope to see you soon at the office!</h5>
         </div>
 
         <div class="team1 rounded p-4 bg-dark form-group mb-5 align-self-center">

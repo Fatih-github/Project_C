@@ -27,12 +27,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="">
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="Style Homepagina">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseFramePC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BaseFramePC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nav-bar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +247,8 @@
       <workItem from="1609884488657" duration="3919000" />
       <workItem from="1609967466600" duration="8258000" />
       <workItem from="1610191997014" duration="680000" />
-      <workItem from="1610192736842" duration="7840000" />
+      <workItem from="1610192736842" duration="9861000" />
+      <workItem from="1610362566951" duration="781000" />
     </task>
     <task id="LOCAL-00001" summary="Changes to the database">
       <created>1607861911491</created>
@@ -361,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609884320126</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Style Homepagina">
+      <created>1610201254314</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1610201254314</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -479,7 +487,8 @@
     <MESSAGE value="implemented some database changes" />
     <MESSAGE value="implemented some mockdata to rooms and employees" />
     <MESSAGE value="merging FatihXrest" />
-    <option name="LAST_COMMIT_MESSAGE" value="merging FatihXrest" />
+    <MESSAGE value="Style Homepagina" />
+    <option name="LAST_COMMIT_MESSAGE" value="Style Homepagina" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/note.json">
