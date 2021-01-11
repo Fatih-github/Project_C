@@ -10,7 +10,7 @@ class DatabaseManager {
     static Table loginTable;
     static Table employeeTable;
     static Table roomTable;
-    static Table groupTable;
+    static Table teamTable;
     static Table memberTable;
     static Table reservationTable;
     static Table invitationTable;
@@ -60,14 +60,16 @@ class DatabaseManager {
                 "slotAmount INT");
 
         //For creating a team number which can apply to all team members
-        groupTable = new Table("groupTable",
-                "groupID SERIAL PRIMARY KEY");
+        teamTable = new Table("teamTable",
+                "teamID SERIAL PRIMARY KEY, " +
+                        "teamName varchar(20), " +
+                        "invitedByEmail varchar(35)");
 
         //For referencing a member from a team
         memberTable = new Table("memberTable",
-                "groupID INT, " +
+                "teamID INT, " +
                 "emailAddress varchar(35), " +
-                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID), " +
+                "FOREIGN KEY(teamID) REFERENCES teamTable(teamID), " +
                 "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress)");
 
         //insert into reservationtable
@@ -77,11 +79,11 @@ class DatabaseManager {
                 "reservationID SERIAL PRIMARY KEY, " +
                 "roomID varchar(10), " +
                 "emailAddress varchar(35), " +
-                "groupID INT, " +
+                "teamID INT, " +
                 "date varchar(20), " +
                 "timeSlot varchar(20), " +
                 "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
-                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID)");
+                "FOREIGN KEY(teamID) REFERENCES teamTable(teamID)");
 
         //*Can still be changed, work in progress*
         invitationTable = new Table("invitationTable",
