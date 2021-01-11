@@ -26,6 +26,7 @@
                 String name = request.getParameter("name");
                 String id_token = request.getParameter("id_token");
                 String email = request.getParameter("email");
+                session.setAttribute("email", email);
                 Connection database = null;
                 Statement st = null;
                 ResultSet rs = null;

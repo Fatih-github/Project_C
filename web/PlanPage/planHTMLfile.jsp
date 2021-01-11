@@ -37,6 +37,50 @@
 <div class="container" style="min-height: 48em">
     <div class="card border-0 shadow my-5">
         <div class="card-body p-5" style="min-height: 46em">
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">officeMap</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="container modal-body" id="dynamic-content">
+                            <img src="PlanPage/Resources/officeMap.jpg" alt="officeMap" class="img-fluid">
+                            <div class="office1"><h3>1</h3></div>
+                            <div class="office2"><h3>2</h3></div>
+                            <div class="office3"><h3>3</h3></div>
+                            <div class="office4"><h3>4</h3></div>
+                            <div class="office5"><h3>5</h3></div>
+                            <div class="office6"><h3>6</h3></div>
+                            <div class="office7"><h3>7</h3></div>
+                            <div class="office8"><h3>8</h3></div>
+                            <div class="office9"><h3>9</h3></div>
+                            <div class="office10"><h3>10</h3></div>
+                            <div class="office11"><h3>11</h3></div>
+                            <div class="office12"><h3>12</h3></div>
+                            <div class="office13"><h3>13</h3></div>
+                            <div class="office14"><h3>14</h3></div>
+                            <div class="office15"><h3>15</h3></div>
+                            <div class="office16"><h3>16</h3></div>
+                            <div class="office17"><h3>17</h3></div>
+                            <div class="office18"><h3>18</h3></div>
+                            <div class="office19"><h3>19</h3></div>
+                            <div class="office20"><h3>20</h3></div>
+                            <div class="office21"><h3>21</h3></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <form id="planRequestForm">
             <%
                 //container class
@@ -159,17 +203,34 @@
                                     </select>
                                 </div>
 
+
+
                                 <div class="form-group col-md-3">
-                                    <label>Room</label>
+                                    <label>Room</label> <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModalCenter">?</button>
                                     <select id="Room<%= ""+i %>" class="form-control">
                                         <option selected><%= currentReservation.roomId%></option>
                                         <option value="Flex">Flex</option>
-                                        <option value="room1">room1</option>
                                         <option value="room1">room1</option>
                                         <option value="room2">room2</option>
                                         <option value="room3">room3</option>
                                         <option value="room4">room4</option>
                                         <option value="room5">room5</option>
+                                        <option value="room6">room6</option>
+                                        <option value="room7">room7</option>
+                                        <option value="room8">room8</option>
+                                        <option value="room9">room9</option>
+                                        <option value="room10">room10</option>
+                                        <option value="room11">room11</option>
+                                        <option value="room12">room12</option>
+                                        <option value="room13">room13</option>
+                                        <option value="room14">room14</option>
+                                        <option value="room15">room15</option>
+                                        <option value="room16">room16</option>
+                                        <option value="room17">room17</option>
+                                        <option value="room18">room18</option>
+                                        <option value="room19">room19</option>
+                                        <option value="room20">room20</option>
+                                        <option value="room21">room21</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -195,7 +256,7 @@
                         %>
                             <div class="Week-row">
                                 <div class="form-group col-md-3">
-                                    <h3 style="margin-top: 1.2em" id="DateW"><%=  "Week: " + weeknum%></h3>
+                                    <h3 style="margin-top: 1.2em" id="DateW"> . . .</h3>
                                 </div>
                             </div>
                         <%
@@ -207,6 +268,8 @@
                 <br>
                 <button type="button" class="btn btn-primary" onclick="onPlan2()">Submit</button>
             </form>
+
+
 
         </div>
     </div>

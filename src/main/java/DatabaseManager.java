@@ -96,7 +96,7 @@ class DatabaseManager {
 
 
         //Creating mockdata to test
-        int roomAmount = 6;
+        int roomAmount = 21;
         int roomSlotAmount = 5;
         System.out.println("Putting room mock data into the database");
         for(int i = 0; i < roomAmount; i++) {

@@ -1,0 +1,10 @@
+body {
+    background-image: url('Resources/blurred_desk1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+td.table:not(.command) {
+    width: 25% !important;
+}
