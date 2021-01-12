@@ -29,11 +29,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletInvitations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -108,11 +104,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="21" column="70" lean-forward="true" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -169,11 +174,11 @@
         <option value="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ServletInvitations.java" />
         <option value="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ServletDeclineInvites.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" />
       </list>
     </option>
   </component>
@@ -216,6 +221,24 @@
             <path>
               <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="artifacts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="artifacts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="BaseFramePC_war_exploded" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -427,7 +450,7 @@
       <workItem from="1610306061929" duration="6642000" />
       <workItem from="1610455039823" duration="825000" />
       <workItem from="1610456560294" duration="1295000" />
-      <workItem from="1610466604073" duration="9454000" />
+      <workItem from="1610466604073" duration="10351000" />
     </task>
     <task id="LOCAL-00001" summary="Changes to the database">
       <created>1607861911491</created>
@@ -590,15 +613,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610485847812</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="implemented AND tested invitation delete">
+      <created>1610486175155</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1610486175155</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97453000" />
+    <option name="totallyTimeSpent" value="98350000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -610,7 +639,7 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30444205" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.48970747" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -725,7 +754,8 @@
     <MESSAGE value="fixed overview" />
     <MESSAGE value="implemented but not tested servlet delete" />
     <MESSAGE value="implemented AND tested servlet delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented AND tested servlet delete" />
+    <MESSAGE value="implemented AND tested invitation delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented AND tested invitation delete" />
   </component>
   <component name="WindowStateProjectService">
     <state x="740" y="336" key="#BuildArtifactsBeforeRunChooser" />
@@ -1027,13 +1057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-352">
@@ -1073,6 +1096,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="21" column="70" lean-forward="true" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
         </state>
       </provider>
     </entry>

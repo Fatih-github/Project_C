@@ -14,7 +14,7 @@ public class ServletDeleteReservations extends HttpServlet{
         String reservationId = req.getParameter("reservationId");
         String tableEmail = req.getParameter("tableEmail");
 
-        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select firstname, lastnamefrom employeeTable where emailaddress='"+clientEmail+"'");
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select firstname, lastname from employeeTable where emailaddress='"+clientEmail+"'");
 
         String firstName = "";
         String lastName = "";
@@ -23,7 +23,6 @@ public class ServletDeleteReservations extends HttpServlet{
             if(resultSetId.next()) {
                 firstName = resultSetId.getString(1);
                 lastName = resultSetId.getString(2);
-                req.setAttribute("Id", resultSetId.getString(3));
                 System.out.println(firstName+" "+lastName);
             }
         } catch (SQLException throwables) {
