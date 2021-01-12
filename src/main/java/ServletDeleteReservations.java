@@ -9,16 +9,39 @@ import java.sql.*;
 
 public class ServletDeleteReservations extends HttpServlet{
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        String time = req.getParameter("time");
-        String email = req.getParameter("email");
-        String name = req.getParameter("name");
+        String invitedby = req.getParameter("invitedby");
+        String clientEmail = req.getParameter("email");
+        String reservationId = req.getParameter("reservationId");
+        String tableEmail = req.getParameter("tableEmail");
 
-        boolean rs = DatabaseManager.executeSQLstatement("delete from loginattempts where attime='" + time + "' and email='"+ email +"' and loginname='" + name + "'");
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select firstname, lastnamefrom employeeTable where emailaddress='"+clientEmail+"'");
 
-        System.out.println(time + " sent reservations request to ReservationServletasdasdsdasda");
-        System.out.println(email + " sent reservations request to ReservationServletasdasdsdasda");
-        System.out.println(name + " sent reservations request to ReservationServletasdasdsdasda");
+        String firstName = "";
+        String lastName = "";
 
+        try {
+            if(resultSetId.next()) {
+                firstName = resultSetId.getString(1);
+                lastName = resultSetId.getString(2);
+                req.setAttribute("Id", resultSetId.getString(3));
+                System.out.println(firstName+" "+lastName);
+            }
+        } catch (SQLException throwables) {
+            System.out.println("employee name is missing");
+            throwables.printStackTrace();
+        }
+
+        if (clientEmail.equals(tableEmail)) {
+            DatabaseManager.executeSQLstatement("delete from invitationtable where reservationid='" + reservationId + "'");
+            DatabaseManager.executeSQLstatement("delete from reservationtable where reservationid='" + reservationId + "'");
+        }
+        else {
+            DatabaseManager.executeSQLstatement("update invitationtable set inviteeaccepted = array_remove(inviteeaccepted, '" + firstName+" "+lastName + "')" + "where '" + firstName+" "+lastName + "' = any(inviteeaccepted) and reservationid='"+reservationId+"'");
+        }
+
+        System.out.println(invitedby + " invitedby");
+        System.out.println(clientEmail + " email");
+        System.out.println(reservationId + " reservationid");
         RequestDispatcher view = req.getRequestDispatcher("ReservationsPage/reservationsHTMLfile.jsp");
         view.forward(req, res);
     }

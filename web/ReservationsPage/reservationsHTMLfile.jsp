@@ -135,7 +135,7 @@
                         '<input type="text" name="reservationId" value="' + tableData[5] + '" />' +
                         '<input type="text" name="invitedby" value="' + tableData[6] + '" />' +
                         '<input type="text" name="roomId" value="' + tableData[7] + '" />' +
-                        '<input type="text" name="employeeId" value="' + tableData[8] + '" />' +
+                        '<input type="text" name="tableEmail" value="' + tableData[8] + '" />' +
                         '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                         '</form>');
                     $('body').append(form);

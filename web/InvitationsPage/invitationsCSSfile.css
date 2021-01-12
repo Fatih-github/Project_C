@@ -5,4 +5,6 @@ body {
     background-size: cover;
 }
 
-
+td.table:not(.command) {
+    width: 25% !important;
+}

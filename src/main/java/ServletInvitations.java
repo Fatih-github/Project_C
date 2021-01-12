@@ -12,7 +12,7 @@ public class ServletInvitations extends HttpServlet{
 
         System.out.println("\n\n ServletInvitations JAVA code");
 
-        RequestDispatcher view = req.getRequestDispatcher("InvitationsPage/invitationsHTMLfile.html");
+        RequestDispatcher view = req.getRequestDispatcher("InvitationsPage/invitationsHTMLfile.jsp");
         view.forward(req, res);
 
     }
