@@ -13,7 +13,6 @@ public class ServletAcceptInvites extends HttpServlet{
         String TimeSlot = req.getParameter("TimeSlot");
         String Room = req.getParameter("Room");
         String ReservationId = req.getParameter("ReservationId");
-        String WorkspaceId = req.getParameter("WorkspaceId");
 
         //boolean rs = DatabaseManager.executeSQLstatement("delete from loginattempts where attime='" + time + "' and email='"+ email +"' and loginname='" + name + "'");
 
@@ -21,20 +20,18 @@ public class ServletAcceptInvites extends HttpServlet{
         System.out.println(TimeSlot + " Timeslot accepted");
         System.out.println(Room + " room accepted");
         System.out.println(ReservationId + " ReservationId accepted");
-        System.out.println(WorkspaceId + " WorkspaceId accepted");
 
         String email = req.getParameter("email");
 
-        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select employeeID, firstname, lastname from employeeTable where emailAddress='"+email+"'");
+        ResultSet resultSetId = DatabaseManager.getResultsFromQuery("select  firstname, lastname from employeeTable where emailAddress='"+email+"'");
 
         String firstName = null;
         String lastName = null;
 
         try {
             if(resultSetId.next()) {
-                req.setAttribute("Id", resultSetId.getString(1));
-                firstName = resultSetId.getString(2);
-                lastName = resultSetId.getString(3);
+                firstName = resultSetId.getString(1);
+                lastName = resultSetId.getString(2);
             }
         } catch (SQLException throwables) {
             System.out.println("reservation id is missing");
