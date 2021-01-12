@@ -13,6 +13,29 @@ import java.util.HashSet;
 
 public class ServletPlanSubmit extends HttpServlet{
 
+    String dateStringToDateValue(String inp){
+        String[] tokens = inp.split(" ");
+        String out = tokens[1] + "/";
+        switch (tokens[2]){
+            case "jan.": out += "01/"; break;
+            case "feb.": out += "02/"; break;
+            case "mar.": out += "03/"; break;
+            case "apr.": out += "04/"; break;
+            case "may.": out += "05/"; break;
+            case "jun.": out += "06/"; break;
+            case "jul.": out += "07/"; break;
+            case "aug.": out += "08/"; break;
+            case "sep.": out += "09/"; break;
+            case "oct.": out += "10/"; break;
+            case "nov.": out += "11/"; break;
+            case "dec.": out += "12/"; break;
+        }
+        out += tokens[3];
+        return out;
+    }
+
+
+
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 
 
@@ -76,7 +99,7 @@ public class ServletPlanSubmit extends HttpServlet{
             if(!DatabaseManager.reservationExist(email, date)){
                 //insert invitations
                 if(!timeslot.equals("Nothing planned")) {
-                    DatabaseManager.reservationTable.insertValues(nextId, room, email, "NULL", date, timeslot);
+                    DatabaseManager.reservationTable.insertValues(nextId, room, email, "NULL", date, timeslot, "Placeholder calendar", dateStringToDateValue(date));
                     DatabaseManager.invitationTable.insertValues(userNameString + " " + userSurnameString, DataHelper.getAsDbArrayString(invites), "{}", email, nextId);
                 }
             //if there is a standing reservation

@@ -62,7 +62,16 @@
                                 .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                                         "BaseFramePC", "none");
                         st = database.createStatement();
-                        String sql = "select date, timeslot, invitee, inviteeaccepted, roomid, res.reservationid, invitedby, res.roomid, res.employeeid from reservationtable res join roomtable wrk on res.roomid=wrk.roomid join invitationtable inv on inv.reservationid=res.reservationid where (res.employeeid='"+Id+"' and date >= current_date) or ('" + name + "'=any(inviteeaccepted) and date >= current_date) order by res.date";
+                        //Query to get RoomId, date, timeslot, invitee accept invitee, reservation id, invited by, employee id, calender
+
+                        //String sql = "select date, timeslot, invitee, inviteeaccepted, roomid, res.reservationid, invitedby, res.roomid, res.employeeid from reservationtable res join roomtable wrk on res.roomid=wrk.roomid join invitationtable inv on inv.reservationid=res.reservationid where (res.employeeid='"+Id+"' and date >= current_date) or ('" + name + "'=any(inviteeaccepted) and date >= current_date) order by res.date";
+                        String sql = "select * from reservationtable r " +
+                                "join invitationtable i on r.reservationid = i.reservationid " +
+                                "where r.emailaddress = '" + email + "' and r.datevalue >= current_date " +
+                                "or '" + name + "' = any(i.inviteeaccepted) " +
+                                "and r.datevalue >= current_date " +
+                                "order by r.datevalue";
+                        System.out.println("Sql: " + sql);
                         ResultSet rs = st.executeQuery(sql);
                         while (rs.next()) {
                 %>
@@ -76,7 +85,7 @@
                     <td class="table" style="display: none"><%=rs.getString("reservationid")%></td>
                     <td class="table"><%=rs.getString("invitedby")%></td>
                     <td class="table" style="display: none"><%=rs.getString("roomid")%></td>
-                    <td class="table" style="display: none"><%=rs.getString("employeeid")%></td>
+                    <td class="table" style="display: none"><%=rs.getString("emailaddress")%></td>
                     <td class="table command">
                         <a onclick="onUpdate(this)" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                     </td>
@@ -148,7 +157,7 @@
             return $(this).text();
         }).get();
 
-        if( tableData[8] == <%=Id%>) {
+        if( tableData[8] == profile.getEmail()) {
             console.log("if statement");
             console.log(tableData);
             var redirectUrl = 'linkUpdateReservations';

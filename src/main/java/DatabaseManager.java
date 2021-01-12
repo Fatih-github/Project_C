@@ -80,6 +80,8 @@ class DatabaseManager {
                 "groupID INT, " +
                 "date varchar(20), " +
                 "timeSlot varchar(20), " +
+                "calendarId varchar(50), " +
+                "datevalue date, " +
                 "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
                 "FOREIGN KEY(groupID) REFERENCES groupTable(groupID)");
 
