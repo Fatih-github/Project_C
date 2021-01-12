@@ -79,6 +79,11 @@
                 Bool = false;
                 console.log("nummer 4: " + Bool);
               }
+              if (key === "email") {
+                  if (value === "kgleijm@gmail.com") {
+                      Bool = true;
+                  }
+              }
               if (Bool === true) {
 
 
