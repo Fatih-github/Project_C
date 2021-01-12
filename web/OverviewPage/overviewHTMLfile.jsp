@@ -52,9 +52,15 @@
                                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                                             "BaseFramePC", "none");
                             st = database.createStatement();
-                            String sql = "select to_char(date, 'Dy Mon DD YYYY') as date, timeslot, invitee, inviteeaccepted, roomid, res.reservationid, invitedby, res.roomid \n" +
-                                    "from reservationtable res join roomtable wrk on res.roomid=wrk.roomid join invitationtable inv on inv.reservationid=res.reservationid \n" +
-                                    "order by res.date";
+
+//                            String sql = "select to_char(date, 'Dy Mon DD YYYY') as date, timeslot, invitee, inviteeaccepted, roomid, res.reservationid, invitedby, res.roomid \n" +
+//                                    "from reservationtable res join roomtable wrk on res.roomid=wrk.roomid join invitationtable inv on inv.reservationid=res.reservationid \n" +
+//                                    "order by res.date";
+
+                            String sql = "select * from reservationtable r " +
+                                    "join invitationtable i on r.reservationid = i.reservationid " +
+                                    "order by r.datevalue";
+
                             ResultSet rs = st.executeQuery(sql);
                             while (rs.next()) {
                     %>
