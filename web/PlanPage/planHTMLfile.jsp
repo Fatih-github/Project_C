@@ -1,4 +1,6 @@
 <%@ page import="java.sql.*" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +21,6 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <link rel="stylesheet" type="text/css" href="PlanPage/planCSSfile.css"/>
-
 </head>
 
 <body>
@@ -87,7 +88,7 @@
                         <label>Invite</label>
                         <select id="Invite1" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -141,7 +142,7 @@
                         <label>Invite</label>
                         <select id="Invite2" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -195,7 +196,7 @@
                         <label>Invite</label>
                         <select id="Invite3" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -249,7 +250,7 @@
                         <label>Invite</label>
                         <select id="Invite4" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -303,7 +304,7 @@
                         <label>Invite</label>
                         <select id="Invite5" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -357,7 +358,7 @@
                         <label>Invite</label>
                         <select id="Invite6" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -411,7 +412,7 @@
                         <label>Invite</label>
                         <select id="Invite7" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -465,7 +466,7 @@
                         <label>Invite</label>
                         <select id="Invite8" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -519,7 +520,7 @@
                         <label>Invite</label>
                         <select id="Invite9" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -573,13 +574,16 @@
                         <label>Invite</label>
                         <select id="Invite10" class="form-control" multiple="multiple">
                             <% while (rs.next()) { %>
-                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                            <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                             <%
                                 }
                             %>
                         </select>
                     </div>
                 </div>
+                <%
+                    rs.beforeFirst();
+                %>
                 <br>
                 <button type="button" class="btn btn-primary" onclick="onPlan2()">Submit</button>
 
@@ -641,6 +645,22 @@
     $(function(){
         $("#nav-placeholder").load("nav-bar.jsp");
     });
+</script>
+
+<script type="text/javascript">
+    var CLIENT_ID = '621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyC3WIx6dVn9Auv9uvPLa9bpXS6cuh0EK5Q';
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+    var SCOPES = "https://www.googleapis.com/auth/calendar";
+
+    function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+    }
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
 
 <script>
@@ -762,7 +782,152 @@
         Invite10 = $(this).val();
     })
 
+    function initClient() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        }, function(error) {
+            console.log(error)
+        });
+    }
+
+    function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+            console.log("if signed in")
+        } else {
+            console.log("else not signed in")
+        }
+    }
+
+    // function load the calendar api and make the api call
+    function insertDate(dateFormat, index) {
+        return new Promise((resolve, reject) => {
+        var eventId = "";
+        gapi.client.load('calendar', 'v3', function() {					// load the calendar api (version 3)
+            var request = gapi.client.calendar.events.insert({
+                'calendarId':		'primary',	// calendar ID
+                "sendNotifications": true,
+                "resource":			dateFormat		// pass event details with api call
+            });
+
+            // handle the response from our api call
+            request.execute(function(resp) {
+                if(resp.status=='confirmed') {
+                    eventId = resp.id
+                    console.log("successfully inserted")
+                    resolve(eventId+"num"+index)
+                } else {
+                    console.log("failed to insert")
+                    resolve(-1)
+                }
+                console.log(resp);
+            });
+        });
+        });
+    }
+
     function onPlan2() {
+        console.log("Invite: " + Invite1)
+        var arrayInvites = [Invite1, Invite2, Invite3, Invite4, Invite5, Invite6, Invite7, Invite8, Invite9, Invite10];
+        console.log("main array: " + arrayInvites[0], arrayInvites[1], arrayInvites[2], arrayInvites[3], arrayInvites[4], arrayInvites[5])
+        var arrayInvitesSplit1 = [[], [], [], [], [], [], [], [], [], []];
+        var arrayInvitesSplit2 = [[], [], [], [], [], [], [], [], [], []];
+        console.log("first split array: " + arrayInvitesSplit1)
+        console.log("second split array: " + arrayInvitesSplit2)
+        console.log("lengte array " + arrayInvites.length)
+        for(let k = 0; k < arrayInvites.length; k++) {
+            console.log("in de eerste loop" + k + arrayInvites[k])
+            if(arrayInvites[k] !== undefined) {
+                for (let j = 0; j < arrayInvites[k].length; j++) {
+                    console.log(arrayInvites[k][j].split('-')[0] + "data")
+                    console.log(arrayInvites[k][j].split('-')[1] + "data2")
+                    arrayInvitesSplit1[k][j] = arrayInvites[k][j].split('-')[0]
+                    arrayInvitesSplit2[k][j] = arrayInvites[k][j].split('-')[1]
+                    console.log("first split array in loop: " + arrayInvitesSplit1[k][j])
+                    console.log("second split array in loop: " + arrayInvitesSplit2[k][j])
+                    console.log("---------------------------------------------------------")
+                }
+            }
+            else {
+                arrayInvitesSplit1[k] = []
+                arrayInvitesSplit2[k] = []
+            }
+        }
+        console.log("Split voor streep: " + arrayInvitesSplit1)
+        console.log("Split na streep: " + arrayInvitesSplit2)
+
+        for(var i = 1; i < 11; i++) {
+            if(document.getElementById('Room'+i).value !== null && document.getElementById('Room'+i).value !== "Choose...") {
+                console.log(document.getElementById('Room'+i).value)
+                var startTime;
+                var endTime;
+
+                if(document.getElementById('Timeslot'+i).value === "Morning") {
+                    startTime = "08:00";
+                    endTime = "12:00";
+                }
+                else if(document.getElementById('Timeslot'+i).value === "Afternoon") {
+                    startTime = "13:00";
+                    endTime = "17:00";
+                }
+                else {
+                    startTime = "08:00";
+                    endTime = "17:00";
+                }
+
+                var startDate = new Date(array[i-1] + " " + startTime);
+                let startDateString = startDate.toISOString();
+
+                var endDate = new Date(array[i-1] + " " + endTime);
+                let endDateString = endDate.toISOString();
+
+                console.log(array[i-1])
+                console.log(document.getElementById('Timeslot'+i).value)
+
+                var dateFormat = {
+                    "summary": "NGTI Reservation - " + document.getElementById('Room'+i).value,
+                    "start": {
+                        "dateTime": startDateString
+                    },
+                    "end": {
+                        "dateTime": endDateString
+                    },
+                    "attendees": [
+                        //{"email": "example@gmail.com"},
+                    ]
+                };
+
+                console.log("arrayInvitesSplit2[i-1]: " + arrayInvitesSplit2[i-1] + " length" + arrayInvitesSplit2[i-1].length)
+                for(var j = 0; arrayInvitesSplit2[i-1] !== [] && j < arrayInvitesSplit2[i-1].length; j++) {
+                    dateFormat.attendees.push(
+                        {
+                            "email": arrayInvitesSplit2[i-1][j].toString()
+                            // "responseStatus": 'accepted'
+                        }
+                    )
+                }
+                console.log("dateFormat attendees: " + dateFormat.attendees)
+
+                var eventIdArray = [];
+                var promises = [];
+                var value = "";
+
+                promises.push(insertDate(dateFormat, i));
+
+                Promise.allSettled(promises).then(function (results) {
+                    // 'results' is an array containing all the event IDs
+                    console.log(results[0].value);
+                    eventIdArray[results[0].value.split('num')[1]-1] = results[0].value.split('num')[0];
+                    console.log("eventIdArray: " + eventIdArray[results[0].value.split('num')[1]-1] + " index: " + (results[0].value.split('num')[1]-1));
+                });
+            }
+        }
+
         $.confirm({
             title: 'Reservation',
             content: 'Your reservation has been made',
@@ -779,52 +944,62 @@
                         '<input type="text" name="DateOne" value="' + array[0] + '" />' +
                         '<input type="text" name="Timeslot1" value="' + document.getElementById('Timeslot1').value + '" />' +
                         '<input type="text" name="Room1" value="' + document.getElementById('Room1').value + '" />' +
-                        '<input type="text" name="Invite1" value="' + Invite1 + '" />' +
+                        '<input type="text" name="Invite1" value="' + arrayInvitesSplit1[0] + '" />' +
+                        '<input type="text" name="calendarId1" value="' + eventIdArray[0] + '" />' +
 
                         '<input type="text" name="DateTwo" value="' + array[1] + '" />' +
                         '<input type="text" name="Timeslot2" value="' + document.getElementById('Timeslot2').value + '" />' +
                         '<input type="text" name="Room2" value="' + document.getElementById('Room2').value + '" />' +
-                        '<input type="text" name="Invite2" value="' + Invite2 + '" />' +
+                        '<input type="text" name="Invite2" value="' + arrayInvitesSplit1[1] + '" />' +
+                        '<input type="text" name="calendarId2" value="' + eventIdArray[1] + '" />' +
 
                         '<input type="text" name="DateThree" value="' + array[2] + '" />' +
                         '<input type="text" name="Timeslot3" value="' + document.getElementById('Timeslot3').value + '" />' +
                         '<input type="text" name="Room3" value="' + document.getElementById('Room3').value + '" />' +
-                        '<input type="text" name="Invite3" value="' + Invite3 + '" />' +
+                        '<input type="text" name="Invite3" value="' + arrayInvitesSplit1[2] + '" />' +
+                        '<input type="text" name="calendarId3" value="' + eventIdArray[2] + '" />' +
 
                         '<input type="text" name="DateFour" value="' + array[3] + '" />' +
                         '<input type="text" name="Timeslot4" value="' + document.getElementById('Timeslot4').value + '" />' +
                         '<input type="text" name="Room4" value="' + document.getElementById('Room4').value + '" />' +
-                        '<input type="text" name="Invite4" value="' + Invite4 + '" />' +
+                        '<input type="text" name="Invite4" value="' + arrayInvitesSplit1[3] + '" />' +
+                        '<input type="text" name="calendarId4" value="' + eventIdArray[3] + '" />' +
 
                         '<input type="text" name="DateFive" value="' + array[4] + '" />' +
                         '<input type="text" name="Timeslot5" value="' + document.getElementById('Timeslot5').value + '" />' +
                         '<input type="text" name="Room5" value="' + document.getElementById('Room5').value + '" />' +
-                        '<input type="text" name="Invite5" value="' + Invite5 + '" />' +
+                        '<input type="text" name="Invite5" value="' + arrayInvitesSplit1[4] + '" />' +
+                        '<input type="text" name="calendarId5" value="' + eventIdArray[4] + '" />' +
 
                         '<input type="text" name="DateSix" value="' + array[5] + '" />' +
                         '<input type="text" name="Timeslot6" value="' + document.getElementById('Timeslot6').value + '" />' +
                         '<input type="text" name="Room6" value="' + document.getElementById('Room6').value + '" />' +
-                        '<input type="text" name="Invite6" value="' + Invite6 + '" />' +
+                        '<input type="text" name="Invite6" value="' + arrayInvitesSplit1[5] + '" />' +
+                        '<input type="text" name="calendarId6" value="' + eventIdArray[5] + '" />' +
 
                         '<input type="text" name="DateSeven" value="' + array[6] + '" />' +
                         '<input type="text" name="Timeslot7" value="' + document.getElementById('Timeslot7').value + '" />' +
                         '<input type="text" name="Room7" value="' + document.getElementById('Room7').value + '" />' +
-                        '<input type="text" name="Invite7" value="' + Invite7 + '" />' +
+                        '<input type="text" name="Invite7" value="' + arrayInvitesSplit1[6] + '" />' +
+                        '<input type="text" name="calendarId7" value="' + eventIdArray[6] + '" />' +
 
                         '<input type="text" name="DateEight" value="' + array[7] + '" />' +
                         '<input type="text" name="Timeslot8" value="' + document.getElementById('Timeslot8').value + '" />' +
                         '<input type="text" name="Room8" value="' + document.getElementById('Room8').value + '" />' +
-                        '<input type="text" name="Invite8" value="' + Invite8 + '" />' +
+                        '<input type="text" name="Invite8" value="' + arrayInvitesSplit1[7] + '" />' +
+                        '<input type="text" name="calendarId8" value="' + eventIdArray[7] + '" />' +
 
                         '<input type="text" name="DateNine" value="' + array[8] + '" />' +
                         '<input type="text" name="Timeslot9" value="' + document.getElementById('Timeslot9').value + '" />' +
                         '<input type="text" name="Room9" value="' + document.getElementById('Room9').value + '" />' +
-                        '<input type="text" name="Invite9" value="' + Invite9 + '" />' +
+                        '<input type="text" name="Invite9" value="' + arrayInvitesSplit1[8] + '" />' +
+                        '<input type="text" name="calendarId9" value="' + eventIdArray[8] + '" />' +
 
                         '<input type="text" name="DateTen" value="' + array[9] + '" />' +
                         '<input type="text" name="Timeslot10" value="' + document.getElementById('Timeslot10').value + '" />' +
                         '<input type="text" name="Room10" value="' + document.getElementById('Room10').value + '" />' +
-                        '<input type="text" name="Invite10" value="' + Invite10 + '" />' +
+                        '<input type="text" name="Invite10" value="' + arrayInvitesSplit1[9] + '" />' +
+                        '<input type="text" name="calendarId10" value="' + eventIdArray[9] + '" />' +
                         '</form>');
                     $('body').append(form);
                     form.submit();

@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*" %>
+<%@ page import="java.util.Arrays" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +50,18 @@
                     else {
                         result = "";
                     }
+                    System.out.println("result" + result);
+                    System.out.println("Lengte result" + result.length());
+                    String[] ary = result.trim().split(", ");
+                    System.out.println("string[] ary " + ary);
+                    System.out.println("string[] ary lengte" + ary.length);
+                    Arrays.sort(ary);
+                    System.out.println("string[] ary sorted" + ary);
+                    String sortedArray = Arrays.toString(ary).replace("[", "").replace("]", "").replace(", ", ",").trim();
+                    System.out.println("newarrstring" + sortedArray);
+
+                    String calendarId = request.getParameter("calendarId");
+                    System.out.println("CalendarId: " + calendarId);
                     try {
                         Class.forName("org.postgresql.Driver");
                         database = DriverManager
@@ -104,14 +117,16 @@
                 <div class="form-group">
                     <label for="invitee">Invite</label>
                     <select class="form-control" id="invitee" multiple="multiple">
+                        <option id="selectedArray" selected><%=sortedArray%></option>
                         <% while (rs.next()) { %>
-                        <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
+                        <option value="<%=rs.getString("firstname")%> <%=rs.getString("lastname")%>-<%=rs.getString("emailaddress")%>"><%=rs.getString("firstname")%> <%=rs.getString("lastname")%></option>
                         <%
                             }
                         %>
                     </select>
                 </div>
                 <button type="button" onclick="onUpdate2()" class="btn btn-primary">Submit</button>
+                <div id="calendarId" style="display: none"><%=calendarId%></div>
                 <%
                     }
                     catch (Exception ex) {
@@ -123,6 +138,22 @@
     </div>
 </div>
 </body>
+
+<script type="text/javascript">
+    var CLIENT_ID = '621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyC3WIx6dVn9Auv9uvPLa9bpXS6cuh0EK5Q';
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+    var SCOPES = "https://www.googleapis.com/auth/calendar";
+
+    function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+    }
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
 
 <script>
     $(function(){
@@ -158,16 +189,215 @@
 
     var Invite;
     $('#invitee').select2({
-        placeholder: '<%=result%>'
+        placeholder: ''
     });
     $("#invitee").on("select2:select select2:unselect", function (e) {
         //this returns all the selected item
         Invite = $(this).val();
     })
 
+    function initClient() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        }, function(error) {
+            console.log(error)
+        });
+    }
+
+    function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+            console.log("if signed in")
+        } else {
+            console.log("else not signed in")
+        }
+    }
+
+    // function load the calendar api and make the api call
+    function updateDate(calendarid, dateFormat) {
+        gapi.client.load('calendar', 'v3', function() {					// load the calendar api (version 3)
+            var request = gapi.client.calendar.events.update({
+                'calendarId':		'primary',	// calendar ID
+                "eventId": calendarid,		// pass event id
+                "sendNotifications": true,
+                "resource":			dateFormat		// pass event details with api call
+            });
+
+            // handle the response from our api call
+            request.execute(function(resp) {
+                if(resp.error || resp == false) {
+                    console.log("failed to update")
+                } else {
+                    console.log("successfully updated")
+                }
+                console.log(resp);
+            });
+        });
+    }
+
+    // function load the calendar api and make the api call
+    function patchDate(calendarid, dateFormat) {
+        gapi.client.load('calendar', 'v3', function() {					// load the calendar api (version 3)
+            var request = gapi.client.calendar.events.patch({
+                'calendarId':		'primary',	// calendar ID
+                "eventId": calendarid,		// pass event id
+                "sendNotifications": true,
+                "resource":			dateFormat		// pass event details with api call
+            });
+
+            // handle the response from our api call
+            request.execute(function(resp) {
+                if(resp.error || resp == false) {
+                    console.log("failed to update")
+                } else {
+                    console.log("successfully updated")
+                }
+                console.log(resp);
+            });
+        });
+    }
+
     function onUpdate2() {
+        console.log("calendarId: " + document.getElementById('calendarId').innerText)
+        console.log("roomid " + document.getElementById('roomId').value)
+        console.log("selectedArray " + document.getElementById('selectedArray').value)
+        console.log("timeslot " + document.getElementById('timeSlot').value)
+        console.log("date " + document.getElementById('date').value)
+        console.log("invitee" + document.getElementById('invitee').value)
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
+
+        console.log("Invite: " + Invite)
+        var arrayInvites = Invite;
+        var arrayInvitesSplit1 = [];
+        var arrayInvitesSplit2 = [];
+        if(arrayInvites !== undefined && document.getElementById('selectedArray').value != arrayInvites) {
+            console.log("lengte array " + arrayInvites.length)
+            for (let j = 0; j < arrayInvites.length; j++) {
+                console.log(arrayInvites[j].split('-')[0] + "data")
+                console.log(arrayInvites[j].split('-')[1] + "data2")
+                arrayInvitesSplit1[j] = arrayInvites[j].split('-')[0]
+                arrayInvitesSplit2[j] = arrayInvites[j].split('-')[1]
+                console.log("first split array in loop: " + arrayInvitesSplit1[j])
+                console.log("second split array in loop: " + arrayInvitesSplit2[j])
+                console.log("---------------------------------------------------------")
+            }
+
+            var startTime;
+            var endTime;
+
+            if (document.getElementById('timeSlot').value === "Morning") {
+                startTime = "08:00";
+                endTime = "12:00";
+            } else if (document.getElementById('timeSlot').value === "Afternoon") {
+                startTime = "13:00";
+                endTime = "17:00";
+            } else {
+                startTime = "08:00";
+                endTime = "17:00";
+            }
+
+            var startDate = new Date(document.getElementById('date').value + " " + startTime);
+            let startDateString = startDate.toISOString();
+
+            var endDate = new Date(document.getElementById('date').value + " " + endTime);
+            let endDateString = endDate.toISOString();
+
+            var dateFormat = {
+                "summary": "NGTI Reservation - " + document.getElementById('roomId').value,
+                "start": {
+                    "dateTime": startDateString
+                },
+                "end": {
+                    "dateTime": endDateString
+                },
+                "attendees": [
+                    //{"email": "example@gmail.com"},
+                ]
+            };
+
+            for(var j = 0; arrayInvitesSplit2.length !== 0 && j < arrayInvitesSplit2.length; j++) {
+                dateFormat.attendees.push(
+                    {
+                        "email": arrayInvitesSplit2[j].toString()
+                    }
+                )
+            }
+            console.log("dateFormat attendees: " + dateFormat.attendees)
+            console.log("calendarId: " + document.getElementById('calendarId').innerText)
+            updateDate(document.getElementById('calendarId').innerText, dateFormat)
+
+            // if(arrayInvitesSplit1 == document.getElementById('selectedArray').value) {
+            //     console.log("gelijk aan elkaar")
+            // }
+            // else {
+            //     console.log("niet gelijk aan elkaar")
+            // }
+            //
+            // console.log("getelementbyid(inv):" + document.getElementById('selectedArray').value)
+            // console.log("arrayInvitesSplit1:" + arrayInvitesSplit1)
+            // console.log("arrayInvitesSplit2:" + arrayInvitesSplit2)
+        }
+        else {
+            var startTime;
+            var endTime;
+
+            if (document.getElementById('timeSlot').value === "Morning") {
+                startTime = "08:00";
+                endTime = "12:00";
+            } else if (document.getElementById('timeSlot').value === "Afternoon") {
+                startTime = "13:00";
+                endTime = "17:00";
+            } else {
+                startTime = "08:00";
+                endTime = "17:00";
+            }
+
+            var startDate = new Date(document.getElementById('date').value + " " + startTime);
+            let startDateString = startDate.toISOString();
+
+            var endDate = new Date(document.getElementById('date').value + " " + endTime);
+            let endDateString = endDate.toISOString();
+
+            var dateFormat = {
+                "summary": "NGTI Reservation - " + document.getElementById('roomId').value,
+                "start": {
+                    "dateTime": startDateString
+                },
+                "end": {
+                    "dateTime": endDateString
+                },
+            };
+            arrayInvitesSplit1 = arrayInvites;
+            console.log("calendarId: " + document.getElementById('calendarId').innerText)
+            patchDate(document.getElementById('calendarId').innerText, dateFormat)
+        }
+
+        // if(!document.getElementById('roomId').value.length > 0) {
+        //     console.log("roomid null")
+        // }
+        // else if(!document.getElementById('timeSlot').value.length > 0) {
+        //     console.log("timeSlot null")
+        // }
+        // else if(!document.getElementById('date').value.length > 0) {
+        //     console.log("date null")
+        // }
+        // else if(!document.getElementById('invitee').value.length > 0) {
+        //     console.log("invitee null")
+        // }
+        // else {
+        //     console.log("nothing is null")
+        //     console.log("roomid " + document.getElementById('roomId').value)
+        //     console.log("timeslot " + document.getElementById('timeSlot').value)
+        //     console.log("date " + document.getElementById('date').value)
+        //     console.log("invitee " + document.getElementById('invitee').value)
+        // }
+
 
         $.confirm({
             title: 'Changing Reservation',
@@ -181,7 +411,7 @@
                         '<input type="text" name="date" value="' + document.getElementById("date").value + '" />' +
                         '<input type="text" name="timeSlot" value="' + document.getElementById("timeSlot").value + '" />' +
                         '<input type="text" name="roomId" value="' + document.getElementById("roomId").value + '" />' +
-                        '<input type="text" name="invitee" value="' + Invite + '" />' +
+                        '<input type="text" name="invitee" value="' + arrayInvitesSplit1 + '" />' +
                         '<input type="text" name="oldDate" value=" <%=request.getParameter("date")%> " />' +
                         '<input type="text" name="oldTimeSlot" value=" <%=request.getParameter("timeSlot")%> " />' +
                         '<input type="text" name="oldRoomId" value=" <%=request.getParameter("roomId")%> " />' +

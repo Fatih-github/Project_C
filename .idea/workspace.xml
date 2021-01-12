@@ -29,14 +29,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/AdminPage/adminHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/AdminPage/adminHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletUpdateReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletUpdateReservations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/OverviewPage/overviewHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/OverviewPage/overviewHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/ReservationsPage/updateReservations.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/updateReservations.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +216,19 @@
       <workItem from="1609433954731" duration="37000" />
       <workItem from="1609505591938" duration="344000" />
       <workItem from="1609509019819" duration="292000" />
+      <workItem from="1609516101456" duration="141000" />
+      <workItem from="1609516304242" duration="85000" />
+      <workItem from="1609594102335" duration="110000" />
+      <workItem from="1609751011012" duration="16029000" />
+      <workItem from="1609879547337" duration="4606000" />
+      <workItem from="1609947515499" duration="1432000" />
+      <workItem from="1610023136036" duration="3619000" />
+      <workItem from="1610053447755" duration="757000" />
+      <workItem from="1610099753183" duration="4143000" />
+      <workItem from="1610200928140" duration="17338000" />
+      <workItem from="1610273130074" duration="27411000" />
+      <workItem from="1610353782278" duration="34256000" />
+      <workItem from="1610444714794" duration="6465000" />
     </task>
     <task id="LOCAL-00001" summary="reserveren en invites">
       <created>1607938576595</created>
@@ -229,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609149482962</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added more rooms to pick from&#10;Added page titles">
+      <created>1609516226557</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609516226557</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +287,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="reserveren en invites" />
     <MESSAGE value="finished reservation system&#10;Admin page has been made&#10;Overview page has been made" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished reservation system&#10;Admin page has been made&#10;Overview page has been made" />
+    <MESSAGE value="Added more rooms to pick from&#10;Added page titles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more rooms to pick from&#10;Added page titles" />
   </component>
 </project>

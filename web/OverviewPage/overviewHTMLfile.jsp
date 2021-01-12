@@ -25,6 +25,14 @@
     <div class="container" style="min-height: 48em">
         <div class="card border-0 shadow my-5">
             <div class="card-body p-5" style="min-height: 46em">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab"><button type="button" class="btn btn-primary">ship</button></a></li>
+                    <li><a href="#tab2" data-toggle="tab"><button type="button" style="margin-left: 1em" class="btn btn-primary">Quantities</button></a></li>
+                </ul>
+
+                <br>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
                 <input class="form-control" id="myInput" type="text" placeholder="Search for an user..">
                 <br>
                 <table id="adminTable" class="table table-bordered table-responsive-sm table-hover">
@@ -54,7 +62,7 @@
                             st = database.createStatement();
                             String sql = "select to_char(date, 'Dy Mon DD YYYY') as date, timeslot, invitee, inviteeaccepted, roomid, res.reservationid, invitedby, res.workspaceid \n" +
                                     "from reservationtable res join workspacetable wrk on res.workspaceid=wrk.workspaceid join invitationtable inv on inv.reservationid=res.reservationid \n" +
-                                    "order by res.date";
+                                    "where date >= current_date order by res.date";
                             ResultSet rs = st.executeQuery(sql);
                             while (rs.next()) {
                     %>
@@ -75,6 +83,11 @@
                         }
                     %>
                 </table>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                        <h3>hi</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

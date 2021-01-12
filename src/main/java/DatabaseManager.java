@@ -61,6 +61,7 @@ class DatabaseManager {
                         "employeeID INT, " +
                         "date date, " +
                         "timeSlot varchar(20), " +
+                        "calendarId varchar(), " +
                         "FOREIGN KEY(workspaceID) REFERENCES workspaceTable(workspaceID), " +
                         "FOREIGN KEY(employeeID) REFERENCES employeeTable(employeeID)");
 

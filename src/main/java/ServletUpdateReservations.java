@@ -26,6 +26,8 @@ public class ServletUpdateReservations extends HttpServlet{
         String oldTimeSlot = req.getParameter("oldTimeSlot");
         String oldRoomId = req.getParameter("oldRoomId");
         String oldInvitee = req.getParameter("oldInvitee");
+        String calendarId = req.getParameter("calendarId");
+        System.out.println("Calender in servlet: " + calendarId);
 
         if (date != null && timeSlot != null && roomId != null && invitee != null)
         {

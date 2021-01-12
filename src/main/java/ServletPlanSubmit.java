@@ -18,51 +18,61 @@ public class ServletPlanSubmit extends HttpServlet{
         String Timeslot1 = req.getParameter("Timeslot1");
         String Room1 = req.getParameter("Room1");
         String Invite1 = req.getParameter("Invite1");
+        String calendarId1 = req.getParameter("calendarId1");
 
         String DateTwo = req.getParameter("DateTwo");
         String Timeslot2 = req.getParameter("Timeslot2");
         String Room2 = req.getParameter("Room2");
         String Invite2 = req.getParameter("Invite2");
+        String calendarId2 = req.getParameter("calendarId2");
 
         String DateThree = req.getParameter("DateThree");
         String Timeslot3 = req.getParameter("Timeslot3");
         String Room3 = req.getParameter("Room3");
         String Invite3 = req.getParameter("Invite3");
+        String calendarId3 = req.getParameter("calendarId3");
 
         String DateFour = req.getParameter("DateFour");
         String Timeslot4 = req.getParameter("Timeslot4");
         String Room4 = req.getParameter("Room4");
         String Invite4 = req.getParameter("Invite4");
+        String calendarId4 = req.getParameter("calendarId4");
 
         String DateFive = req.getParameter("DateFive");
         String Timeslot5 = req.getParameter("Timeslot5");
         String Room5 = req.getParameter("Room5");
         String Invite5 = req.getParameter("Invite5");
+        String calendarId5 = req.getParameter("calendarId5");
 
         String DateSix = req.getParameter("DateSix");
         String Timeslot6 = req.getParameter("Timeslot6");
         String Room6 = req.getParameter("Room6");
         String Invite6 = req.getParameter("Invite6");
+        String calendarId6 = req.getParameter("calendarId6");
 
         String DateSeven = req.getParameter("DateSeven");
         String Timeslot7 = req.getParameter("Timeslot7");
         String Room7 = req.getParameter("Room7");
         String Invite7 = req.getParameter("Invite7");
+        String calendarId7 = req.getParameter("calendarId7");
 
         String DateEight = req.getParameter("DateEight");
         String Timeslot8 = req.getParameter("Timeslot8");
         String Room8 = req.getParameter("Room8");
         String Invite8 = req.getParameter("Invite8");
+        String calendarId8 = req.getParameter("calendarId8");
 
         String DateNine = req.getParameter("DateNine");
         String Timeslot9 = req.getParameter("Timeslot9");
         String Room9 = req.getParameter("Room9");
         String Invite9 = req.getParameter("Invite9");
+        String calendarId9 = req.getParameter("calendarId9");
 
         String DateTen = req.getParameter("DateTen");
         String Timeslot10 = req.getParameter("Timeslot10");
         String Room10 = req.getParameter("Room10");
         String Invite10 = req.getParameter("Invite10");
+        String calendarId10 = req.getParameter("calendarId10");
 
         String email = req.getParameter("email");
 
@@ -106,6 +116,17 @@ public class ServletPlanSubmit extends HttpServlet{
         String[] arrInvite10 = Invite10.split(",");
         System.out.println("arrInvite10: " + Arrays.toString(arrInvite10));
 
+        System.out.println("calendarId1: " + calendarId1);
+        System.out.println("calendarId2: " + calendarId2);
+        System.out.println("calendarId3: " + calendarId3);
+        System.out.println("calendarId4: " + calendarId4);
+        System.out.println("calendarId5: " + calendarId5);
+        System.out.println("calendarId6: " + calendarId6);
+        System.out.println("calendarId7: " + calendarId7);
+        System.out.println("calendarId8: " + calendarId8);
+        System.out.println("calendarId9: " + calendarId9);
+        System.out.println("calendarId10: " + calendarId10);
+
         ResultSet userId = DatabaseManager.getResultsFromQuery("select employeeid, firstname, lastname from employeetable where emailaddress = '"+email+"'");
 
         String userIdString = "";
@@ -130,7 +151,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room1, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateOne, Timeslot1);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateOne, Timeslot1, calendarId1);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite1).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 1 test");
         }
@@ -139,7 +160,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room2, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateTwo, Timeslot2);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateTwo, Timeslot2, calendarId2);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite2).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 2 test");
         }
@@ -148,7 +169,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room3, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateThree, Timeslot3);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateThree, Timeslot3, calendarId3);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite3).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 3 test");
         }
@@ -157,7 +178,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room4, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateFour, Timeslot4);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateFour, Timeslot4, calendarId4);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite4).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 4 test");
         }
@@ -166,7 +187,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room5, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateFive, Timeslot5);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateFive, Timeslot5, calendarId5);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite5).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 5 test");
         }
@@ -175,7 +196,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room6, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateSix, Timeslot6);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateSix, Timeslot6, calendarId6);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite6).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 6 test");
         }
@@ -184,7 +205,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room7, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateSeven, Timeslot7);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateSeven, Timeslot7, calendarId7);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite7).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 7 test");
         }
@@ -193,7 +214,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room8, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateEight, Timeslot8);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateEight, Timeslot8, calendarId8);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite8).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 8 test");
         }
@@ -202,7 +223,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room9, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateNine, Timeslot9);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateNine, Timeslot9, calendarId9);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite9).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 9 test");
         }
@@ -211,7 +232,7 @@ public class ServletPlanSubmit extends HttpServlet{
             int reservationId = ThreadLocalRandom.current().nextInt(10000, 99999);
             int workspaceId = ThreadLocalRandom.current().nextInt(10000, 99999);
             DatabaseManager.workspaceTable.insertValues(workspaceId, Room10, 10);
-            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateTen, Timeslot10);
+            DatabaseManager.reservationTable.insertValues(reservationId, workspaceId, userIdString, DateTen, Timeslot10, calendarId10);
             DatabaseManager.invitationTable.insertValues(userNameString+" "+userSurnameString, Arrays.toString(arrInvite10).replace("[", "{").replace("]", "}"), "{}" , userIdString, reservationId);
             System.out.println("Day 10 test");
         }
