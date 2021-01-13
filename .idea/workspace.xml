@@ -29,9 +29,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1073">
-              <caret line="283" column="69" lean-forward="true" selection-start-line="283" selection-start-column="69" selection-end-line="283" selection-end-column="69" />
+            <state relative-caret-position="265">
+              <caret line="121" selection-start-line="121" selection-end-line="121" />
               <folding>
                 <element signature="e#6626#6627#0#JAVA" expanded="true" />
                 <element signature="e#6689#6690#0#JAVA" expanded="true" />
@@ -100,7 +97,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="kevinXtony13-01-21" />
+        <entry key="$PROJECT_DIR$" value="kevinTonyDcrowdCheck" />
       </map>
     </option>
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
@@ -558,14 +555,29 @@
       <option name="project" value="LOCAL" />
       <updated>1610558439153</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="implemented crowdCheck!!!!!!!!!">
+      <created>1610565110612</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1610565110612</updated>
+    </task>
+    <task id="LOCAL-00027" summary="implemented crowdCheck and even admin interaction!!!!!!!!!">
+      <created>1610565928620</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610565928620</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105677000" />
+    <option name="totallyTimeSpent" value="107085000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13539445" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -694,7 +706,9 @@
     <MESSAGE value="implemented AND tested servlet delete" />
     <MESSAGE value="implemented AND tested invitation delete" />
     <MESSAGE value="implemented extra admin tab for max employees" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented extra admin tab for max employees" />
+    <MESSAGE value="implemented crowdCheck!!!!!!!!!" />
+    <MESSAGE value="implemented crowdCheck and even admin interaction!!!!!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented crowdCheck and even admin interaction!!!!!!!!!" />
   </component>
   <component name="WindowStateProjectService">
     <state x="740" y="336" key="#BuildArtifactsBeforeRunChooser" />
@@ -1052,8 +1066,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1073">
-          <caret line="283" column="69" lean-forward="true" selection-start-line="283" selection-start-column="69" selection-end-line="283" selection-end-column="69" />
+        <state relative-caret-position="265">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
           <folding>
             <element signature="e#6626#6627#0#JAVA" expanded="true" />
             <element signature="e#6689#6690#0#JAVA" expanded="true" />
