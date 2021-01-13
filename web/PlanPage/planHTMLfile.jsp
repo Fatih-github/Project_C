@@ -109,10 +109,9 @@
                     private int max = 0;
 
 
-                    public DateInfo(String date){
-
+                    public DateInfo(String dateString, Date dateValue){
                         try {
-                            String sql = "select timeslot, count(*) as reserved from reservationtable where date = '" + date + "' group by timeslot";
+
                             Connection database = null;
                             Statement st = null;
                             Class.forName("org.postgresql.Driver");
@@ -120,6 +119,15 @@
                                     .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                                             "BaseFramePC", "none");
                             st = database.createStatement();
+
+                            String sql = "select maxreservations from maxreservationtable where date='" + dateValue + "'";
+                            ResultSet dateMaxSet = st.executeQuery(sql);
+                            //store all planned dates in a HashMap
+                            while (dateMaxSet.next()){
+                                setMax(dateMaxSet.getInt("maxreservations"));
+                            }
+
+                            sql = "select timeslot, count(*) as reserved from reservationtable where date = '" + dateString + "' group by timeslot";
                             ResultSet dateinfoSet = st.executeQuery(sql);
                             //store all planned dates in a HashMap
                             while (dateinfoSet.next()){
@@ -251,6 +259,7 @@
                     int weeknum = cal.get(Calendar.WEEK_OF_YEAR) +1;
                     if (!(dayNum == 1 || dayNum == 7)){
 
+                        Date dateValue = Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS));
                         String dateString = new SimpleDateFormat("EEE dd MMM yyyy").format(Date.from(new Date().toInstant().plus(i, ChronoUnit.DAYS)));
                         Reservation currentReservation;
                         if (dateMap.containsKey(dateString)){
@@ -269,7 +278,7 @@
                                     <label>Timeslot</label>
 
                                     <%
-                                        DateInfo di = new DateInfo(dateString);
+                                        DateInfo di = new DateInfo(dateString, dateValue);
                                     %>
 
 
