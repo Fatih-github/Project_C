@@ -80,7 +80,7 @@
                 console.log("nummer 4: " + Bool);
               }
               if (key === "email") {
-                  if (value === "kgleijm@gmail.com") {
+                  if (value === "fatihc5314@gmail.com") {
                       Bool = true;
                   }
               }

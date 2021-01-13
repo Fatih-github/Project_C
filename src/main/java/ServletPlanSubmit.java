@@ -75,10 +75,12 @@ public class ServletPlanSubmit extends HttpServlet{
             String timeslot = subMap.get("timeSlot");
             String room = subMap.get("room");
             String invites = subMap.get("invites");
+            String eventId = subMap.get("eventId");
             System.out.println("date " +date);
             System.out.println("timeSlot " + timeslot);
             System.out.println("room " + room);
             System.out.println("invites " + invites);
+            System.out.println("eventId " + eventId);
 
             //get next ID number for insertion
             int nextId = 0;
@@ -99,7 +101,7 @@ public class ServletPlanSubmit extends HttpServlet{
             if(!DatabaseManager.reservationExist(email, date)){
                 //insert invitations
                 if(!timeslot.equals("Nothing planned")) {
-                    DatabaseManager.reservationTable.insertValues(nextId, room, email, "NULL", date, timeslot, "Placeholder calendar", dateStringToDateValue(date));
+                    DatabaseManager.reservationTable.insertValues(nextId, room, email, "NULL", date, timeslot, eventId, dateStringToDateValue(date));
                     DatabaseManager.invitationTable.insertValues(userNameString + " " + userSurnameString, DataHelper.getAsDbArrayString(invites), "{}", email, nextId);
                 }
             //if there is a standing reservation

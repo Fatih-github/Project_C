@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -27,14 +27,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="">
+    <list default="true" id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,14 +136,13 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="KevinLocal2021-1" />
+        <entry key="$PROJECT_DIR$" value="Fatih3" />
       </map>
     </option>
-    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -186,11 +187,6 @@
         <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -199,6 +195,10 @@
     <option name="height" value="1056" />
   </component>
   <component name="ProjectId" id="1hrTQ4q5261SFL3YyLwXy902aa8" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -269,18 +269,6 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.38" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -370,7 +358,7 @@
       </method>
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -680,14 +668,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -706,6 +687,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes to the database" />
@@ -727,92 +709,6 @@
     <MESSAGE value="implemented AND tested servlet delete" />
     <MESSAGE value="implemented AND tested invitation delete" />
     <option name="LAST_COMMIT_MESSAGE" value="implemented AND tested invitation delete" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="336" key="#BuildArtifactsBeforeRunChooser" />
-    <state x="740" y="336" key="#BuildArtifactsBeforeRunChooser/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state x="738" y="409" key="#Tomcat_Server" />
-    <state x="738" y="409" key="#Tomcat_Server/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
-    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state x="588" y="208" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" />
-    <state x="588" y="208" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state x="739" y="272" key="FileChooserDialogImpl" />
-    <state x="739" y="272" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.0.bottom" />
-    <state width="1293" height="223" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.0.center" />
-    <state width="1293" height="223" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.0.center/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.0.left" />
-    <state width="1293" height="223" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.0.left/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.0.right" />
-    <state width="1293" height="223" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.0.right/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.1.bottom" />
-    <state width="1293" height="223" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.1.center" />
-    <state width="1293" height="223" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.1.center/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.1.left" />
-    <state width="1293" height="223" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.1.left/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.1.right" />
-    <state width="1293" height="223" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.1.right/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.2.bottom" />
-    <state width="1293" height="223" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.2.center" />
-    <state width="1293" height="223" key="GridCell.Tab.2.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.2.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.2.center/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.2.left" />
-    <state width="1293" height="223" key="GridCell.Tab.2.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.2.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.2.left/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.2.right" />
-    <state width="1293" height="223" key="GridCell.Tab.2.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state width="1293" height="201" key="GridCell.Tab.2.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state width="1293" height="284" key="GridCell.Tab.2.right/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state x="-1736" y="85" key="MergeDialog" />
-    <state x="-1736" y="85" key="MergeDialog/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state x="461" y="164" key="SettingsEditor" />
-    <state x="461" y="164" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2" />
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" />
-    <state x="-1143" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" />
-    <state x="-1181" y="232" key="git4idea.branch.GitSmartOperationDialog" />
-    <state x="-1181" y="232" key="git4idea.branch.GitSmartOperationDialog/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@-1920.0.1920.1040" />
-    <state x="739" y="232" key="git4idea.branch.GitSmartOperationDialog/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp</url>
-          <line>399</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BaseFramePC$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1610456323836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -198,11 +198,15 @@
             content: 'Are you sure you want to accept this Invite?',
             buttons: {
                 confirm: function () {
-                    // var dateFormat = {
-                    //     "email": '0986192@hr.nl',
-                    //     "responseStatus": 'accepted'
-                    // };
-                    // patchDate(tableData[6], dateFormat)
+                    var dateFormat = {
+                        "attendees": [
+                            {
+                                "email": '0986192@hr.nl',
+                                "responseStatus": 'accepted'
+                            }
+                        ]
+                    };
+                    patchDate(tableData[6], dateFormat)
 
                     var redirectUrl = 'linkAcceptInvite';
                     //using jquery to post data dynamically
