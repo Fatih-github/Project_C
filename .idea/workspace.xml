@@ -27,9 +27,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="ServletTeamSubmit">
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="werkende ServletTeamSubmit (alleen TeamSelect moet nog)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletTeamSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletTeamSubmit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +224,7 @@
       <workItem from="1610192736842" duration="9861000" />
       <workItem from="1610362566951" duration="781000" />
       <workItem from="1610375130680" duration="5317000" />
-      <workItem from="1610388656366" duration="2354000" />
+      <workItem from="1610388656366" duration="7621000" />
     </task>
     <task id="LOCAL-00001" summary="Changes to the database">
       <created>1607861911491</created>
@@ -367,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610395690523</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="werkende ServletTeamSubmit (alleen TeamSelect moet nog)">
+      <created>1610398652179</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1610398652179</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +420,8 @@
     <MESSAGE value="Reservation team" />
     <MESSAGE value="reservation team" />
     <MESSAGE value="ServletTeamSubmit" />
-    <option name="LAST_COMMIT_MESSAGE" value="ServletTeamSubmit" />
+    <MESSAGE value="werkende ServletTeamSubmit (alleen TeamSelect moet nog)" />
+    <option name="LAST_COMMIT_MESSAGE" value="werkende ServletTeamSubmit (alleen TeamSelect moet nog)" />
   </component>
   <component name="masterDetails">
     <states>
