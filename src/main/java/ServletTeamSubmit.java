@@ -15,11 +15,16 @@ public class ServletTeamSubmit extends HttpServlet {
 
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 
+        String OwnName = req.getParameter("ownName");
+        String name = req.getParameter("name");
+        System.out.println(OwnName);
+        System.out.println(name);
 
         System.out.println("\n\n ServletTeamSubmit JAVA code");
 
         String teamname = req.getParameter("teamname");
         String teamselect = req.getParameter("teamselect");
+        String[] teaminvitesarray = teamselect.split(",");
         System.out.println("teamname: " + teamname);
         System.out.println("teamselect: " + teamselect);
         String email = req.getParameter("email");
@@ -54,7 +59,7 @@ public class ServletTeamSubmit extends HttpServlet {
         } catch (SQLException e) {
             //e.printStackTrace();
         }
-        DatabaseManager.teamTable.insertValues(nextId, teamname, userEmailString);
+        DatabaseManager.teamTable.insertValues(nextId, teamname,userEmailString, Arrays.toString(teaminvitesarray).replace("[","{").replace("]", "}"));
 
         RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.jsp");
         view.forward(req, res);

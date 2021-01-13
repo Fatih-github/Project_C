@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -110,6 +113,7 @@
 
                         <%
                             Connection database2 = null;
+                            String selectedname = request.getParameter("name");
                             Statement st2 = null;
                             ResultSet rs2 = null;
                             try {
@@ -118,11 +122,13 @@
                                         .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
                                                 "BaseFramePC", "none");
                                 st2 = database2.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                                String sql = "select * from employeetable";
+                                String sql = "select * from employeetable\n" +
+                                        "where firstname not like '"+selectedname+"'";
                                 rs2 = st2.executeQuery(sql);
                                 rs2.next();
                         %>
                         <select style="font-size: large" id="Invite" class="team form-control" multiple="multiple">
+                            <option id="ownname" class="ownname" selected><%=selectedname%></option>
                             <% while (rs2.next()) { %>
                             <option class="teamoptions"><%=rs2.getString("firstname")%></option>
                             <%
@@ -136,6 +142,54 @@
                         <input style="font-size: large" id="teamName" class="teamname form-control" type="text" placeholder="Team name...">
                         <button style="font-size: large" class="teamsubmit btn btn-sm" onclick="onTeam()" type="button">Submit</button>
                     </div>
+
+                    <div class="card-body p-0">
+
+                        <table STYLE="font-size: large" class="table m-7 table-bordered table-responsive-md table-hover table-dark">
+                            <thead>
+                            <tr>
+                                <th>Team name</th>
+                                <th>Team members</th>
+                                <th>Team organizer</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr class="table teamtable">
+                                    <%
+                Connection database4 = null;
+                Statement st4 = null;
+                ResultSet rs4 = null;
+                String name = request.getParameter("name");
+                try {
+                    Class.forName("org.postgresql.Driver");
+                    database4 = DriverManager
+                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                    "BaseFramePC", "none");
+                    st4 = database4.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                    String sql = "select * from teamtable\n" +
+                "where invitedbyemail = '"+ email +"' or  '"+name+"' = any(teaminvites)";
+                    rs4 = st4.executeQuery(sql);
+                                            while (rs4.next()){ %>
+
+                                <td class="table teamtable"><%=rs4.getString("teamname")%></td>
+                                <td class="table teamtable"><%=rs4.getString("teaminvites")%></td>
+                                <td class="table teamtable"><%=rs4.getString("invitedbyemail")%></td>
+                                        <td class="table teamtable">
+                                            <a onclick="onDelete()" style="color: white; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        </td>
+                            </tbody>
+                            <%}
+                            } catch (Exception ex) {
+                                System.out.println("Error: " + ex);
+                            }
+                            %>
+
+
+                            </tr>
+                        </table>
+                    </div>
+
 
 
                 </div>
@@ -172,21 +226,61 @@
         //this returns all the selected item
        TeamSelect = $(this).val();
     });
+    $('#Invite').val(request.getParameter("name"));
 
     function onTeam(){
         console.log(TeamSelect);
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
         var teamName = document.getElementById("teamName").value;
+        var ownName = document.getElementById("ownname").value;
+        TeamSelect.push(ownName);
         var redirectUrl = 'teamSubmit';
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
-            '<input type="text" name="teamname" value="'+teamName+'" ' +
-            '<input type="text" name="teamselect" value="' + TeamSelect + '" />' +
+            '<input type="text" name="name" value="'+profile.getGivenName()+'" />' +
+            '<input type="text" name="ownName" value="'+ownName+ '" />' +
+            '<input type="text" name="teamname" value="'+teamName+ '" />' +
+            '<input type="text" name="teamselect" value="' + TeamSelect.toString() + '" />' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();
+    }
+
+    function onDelete() {
+        var tableData;
+
+        $("tr.table").click(function () {
+            tableData = $(this).children("td").map(function () {
+                return $(this).text();
+            }).get();
+        });
+
+        $.confirm({
+            title: 'Delete Reservation',
+            content: 'Are you sure you want to delete this reservation?',
+            buttons: {
+                confirm: function () {
+                    var auth2 = gapi.auth2.getAuthInstance();
+                    var profile = auth2.currentUser.get().getBasicProfile();
+                    var redirectUrl = 'linkDeleteTeam';
+                    //using jquery to post data dynamically
+                    var form = $('<form action="' + redirectUrl + '" method="post">' +
+                        '<input type="text" name="name" value="'+profile.getGivenName()+'" />' +
+                        '<input type="text" name="teamname" value="' + tableData[0] + '" />' +
+                        '<input type="text" name="teaminvites" value="' + tableData[1] + '" />' +
+                        '<input type="text" name="invitedbyemail" value="' + tableData[2] + '" />' +
+                        '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+                        '</form>');
+                    $('body').append(form);
+                    form.submit();
+                },
+                cancel: function () {
+
+                }
+            }
+        });
     }
 
 </script>
@@ -223,6 +317,12 @@
     }
 
     .reservationtable{
+        color: white;
+        background-color: #9f8974;
+
+    }
+
+    .teamtable{
         color: white;
         background-color: #9f8974;
 

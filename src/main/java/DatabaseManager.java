@@ -63,7 +63,8 @@ class DatabaseManager {
         teamTable = new Table("teamTable",
                 "teamID SERIAL PRIMARY KEY, " +
                         "teamName varchar(20), " +
-                        "invitedByEmail varchar(35)");
+                        "invitedByEmail varchar(35), " +
+                        "teaminvites text[]");
 
         //For referencing a member from a team
         memberTable = new Table("memberTable",

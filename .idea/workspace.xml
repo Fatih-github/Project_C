@@ -27,11 +27,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="wit vlak weg">
+    <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="werkende ServletTeamSubmit (alleen TeamSelect moet nog)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ServletDeleteTeam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServletTeamSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletTeamSubmit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +119,17 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.38" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/BaseFramePC_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -228,6 +244,7 @@
       <workItem from="1610362566951" duration="781000" />
       <workItem from="1610375130680" duration="5317000" />
       <workItem from="1610388656366" duration="7621000" />
+      <workItem from="1610542740516" duration="11358000" />
     </task>
     <task id="LOCAL-00001" summary="Changes to the database">
       <created>1607861911491</created>
@@ -433,64 +450,6 @@
     <MESSAGE value="werkende ServletTeamSubmit (alleen TeamSelect moet nog)" />
     <MESSAGE value="wit vlak weg" />
     <option name="LAST_COMMIT_MESSAGE" value="wit vlak weg" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="932" height="357" key="GridCell.Tab.0.bottom" timestamp="1610541802889">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.0.bottom/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802889" />
-    <state width="932" height="357" key="GridCell.Tab.0.center" timestamp="1610541802888">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.0.center/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802888" />
-    <state width="932" height="357" key="GridCell.Tab.0.left" timestamp="1610541802888">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.0.left/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802888" />
-    <state width="932" height="357" key="GridCell.Tab.0.right" timestamp="1610541802888">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.0.right/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802888" />
-    <state width="932" height="357" key="GridCell.Tab.1.bottom" timestamp="1610541802513">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.1.bottom/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802513" />
-    <state width="932" height="357" key="GridCell.Tab.1.center" timestamp="1610541802512">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.1.center/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802512" />
-    <state width="932" height="357" key="GridCell.Tab.1.left" timestamp="1610541802512">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.1.left/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802512" />
-    <state width="932" height="357" key="GridCell.Tab.1.right" timestamp="1610541802513">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.1.right/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802513" />
-    <state width="932" height="357" key="GridCell.Tab.2.bottom" timestamp="1610541802516">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.2.bottom/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802516" />
-    <state width="932" height="357" key="GridCell.Tab.2.center" timestamp="1610541802515">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.2.center/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802515" />
-    <state width="932" height="357" key="GridCell.Tab.2.left" timestamp="1610541802515">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.2.left/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802515" />
-    <state width="932" height="357" key="GridCell.Tab.2.right" timestamp="1610541802516">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="932" height="357" key="GridCell.Tab.2.right/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541802516" />
-    <state x="184" y="86" key="MergeDialog" timestamp="1610539909777">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="184" y="86" key="MergeDialog/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610539909777" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1610541404212">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/-1920.4.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1610541404212" />
   </component>
   <component name="masterDetails">
     <states>
