@@ -27,76 +27,156 @@
     <div class="container" style="min-height: 48em">
         <div class="card border-0 shadow my-5">
             <div class="card-body p-5" style="min-height: 46em">
-                <input class="form-control" id="myInput" type="text" placeholder="Search for an user..">
-                <table id="adminTable" class="table table-bordered table-responsive-sm table-hover">
-                    <br>
-                    <thead>
-                    <tr>
-                        <th>Emailaddress</th>
-                        <th>Name</th>
-                        <th>Admin</th>
-                        <th>BHV'er</th>
-                    </tr>
-                    </thead>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab"><button type="button" class="btn btn-primary">Max Reservations</button></a></li>
+                    <li><a href="#tab2" data-toggle="tab"><button type="button" style="margin-left: 1em" class="btn btn-primary">Users</button></a></li>
+                </ul>
 
-                    <%
+                <br>
 
-                        System.out.println("\tInvitations JSP");
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <table id="adminTable2" class="table table-bordered table-responsive-sm table-hover">
+                            <br>
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Max Reservations</th>
+                            </tr>
+                            </thead>
 
-                        String name = request.getParameter("name");
-                        String email = request.getParameter("email");
 
-                        System.out.println("\t\tuser: " + name);
-                        System.out.println("\t\temail: " + email);
-                        Connection database = null;
-                        Statement st = null;
-                        try {
+                            <%
 
-                            System.out.println("\t\t InvitationsHTMLfile JAVA code");
+                                System.out.println("\tAdminSubmit JSP");
 
-                            Class.forName("org.postgresql.Driver");
-                            database = DriverManager
-                                    .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
-                                            "BaseFramePC", "none");
-                            st = database.createStatement();
-                            String sql = "select emailaddress, firstname||' '||lastname as name , isadmin::varchar, isbhv::varchar from employeetable \n" +
-                                    "except select emailaddress, firstname||' '||lastname as name , isadmin::varchar, isbhv::varchar from employeetable where emailaddress='" + email + "' order by name ";
-                            ResultSet rs = st.executeQuery(sql);
-                            while (rs.next()) {
-                    %>
-                    <tbody id="myTable">
-                        <tr class="table">
-                            <td class="table"><%=rs.getString("emailaddress")%></td>
-                            <td class="table"><%=rs.getString("name")%></td>
-                            <td class="table">
-                                <form>
-                                    <select class="isAdmin" onchange="onSubmit()">
-                                        <option disabled selected><%=rs.getString("isadmin")%></option>
-                                        <option value="false">false</option>
-                                        <option value="true">true</option>
-                                    </select>
-                                </form>
-                            </td>
-                            <td class="table">
-                                <form>
-                                    <select class="isBHV" onchange="onSubmit()">
-                                        <option disabled selected><%=rs.getString("isbhv")%></option>
-                                        <option value="false">false</option>
-                                        <option value="true">true</option>
-                                    </select>
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <%
-                            }
-                        }
-                        catch (Exception ex) {
-                            System.out.println("Error: " + ex);
-                        }
-                    %>
-                </table>
-<%--                <button type="button" onclick="onSubmit()" class="btn btn-primary">Submit</button>--%>
+                                String name2 = request.getParameter("name");
+                                String email2 = request.getParameter("email");
+
+                                System.out.println("\t\tuser: " + name2);
+                                System.out.println("\t\temail: " + email2);
+                                Connection database2 = null;
+                                Statement st2 = null;
+                                try {
+
+                                    System.out.println("\t\t InvitationsHTMLfile JAVA code");
+
+                                    Class.forName("org.postgresql.Driver");
+                                    database2 = DriverManager
+                                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                                    "BaseFramePC", "none");
+                                    st2 = database2.createStatement();
+                                    String sql2 = "select to_char(date, 'Dy Mon DD YYYY') as newdate, maxreservations from maxreservationtable where date > current_date order by date";
+                                    ResultSet rs2 = st2.executeQuery(sql2);
+                                    int i = 0;
+                                    while (rs2.next()) {
+                            %>
+
+                            <tbody id="myTable2">
+                            <tr class="table">
+                                <td class="table">
+                                    <h3><%=rs2.getString("newdate")%></h3>
+                                </td>
+                                <td class="table">
+                                    <input class="form-control" Id="maxamount<%=i%>" type="number" style="text-align: center" placeholder="<%=rs2.getString("maxreservations")%>">
+                                </td>
+                            </tr>
+                            </tbody>
+                            <%
+                                        i++;
+                                    }
+                                }
+                                catch (Exception ex) {
+                                    System.out.println("Error: " + ex);
+                                }
+                            %>
+                        </table>
+
+                        <table id="adminTable3" class="table table-bordered table-responsive-sm table-hover">
+                            <thead>
+                            <tr class="row">
+                                <th class="col">Change all amounts:</th>
+                                <th class="col"><input class="form-control" Id="totalamount" type="number" style="text-align: center"></th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <button type="button" class="btn btn-primary" onclick="onSubmitMaxEmployees()">Submit</button>
+                    </div>
+
+
+                    <div class="tab-pane" id="tab2">
+                        <input class="form-control" id="myInput" type="text" placeholder="Search for an user..">
+                        <table id="adminTable" class="table table-bordered table-responsive-sm table-hover">
+                            <br>
+                            <thead>
+                            <tr>
+                                <th>Emailaddress</th>
+                                <th>Name</th>
+                                <th>Admin</th>
+                                <th>BHV'er</th>
+                            </tr>
+                            </thead>
+
+                            <%
+
+                                System.out.println("\tInvitations JSP");
+
+                                String name = request.getParameter("name");
+                                String email = request.getParameter("email");
+
+                                System.out.println("\t\tuser: " + name);
+                                System.out.println("\t\temail: " + email);
+                                Connection database = null;
+                                Statement st = null;
+                                try {
+
+                                    System.out.println("\t\t InvitationsHTMLfile JAVA code");
+
+                                    Class.forName("org.postgresql.Driver");
+                                    database = DriverManager
+                                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                                    "BaseFramePC", "none");
+                                    st = database.createStatement();
+                                    String sql = "select emailaddress, firstname||' '||lastname as name , isadmin::varchar, isbhv::varchar from employeetable \n" +
+                                            "except select emailaddress, firstname||' '||lastname as name , isadmin::varchar, isbhv::varchar from employeetable where emailaddress='" + email + "' order by name ";
+                                    ResultSet rs = st.executeQuery(sql);
+                                    while (rs.next()) {
+                            %>
+                            <tbody id="myTable">
+                                <tr class="table">
+                                    <td class="table"><%=rs.getString("emailaddress")%></td>
+                                    <td class="table"><%=rs.getString("name")%></td>
+                                    <td class="table">
+                                        <form>
+                                            <select class="isAdmin" onchange="onSubmit()">
+                                                <option disabled selected><%=rs.getString("isadmin")%></option>
+                                                <option value="false">false</option>
+                                                <option value="true">true</option>
+                                            </select>
+                                        </form>
+                                    </td>
+                                    <td class="table">
+                                        <form>
+                                            <select class="isBHV" onchange="onSubmit()">
+                                                <option disabled selected><%=rs.getString("isbhv")%></option>
+                                                <option value="false">false</option>
+                                                <option value="true">true</option>
+                                            </select>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <%
+                                    }
+                                }
+                                catch (Exception ex) {
+                                    System.out.println("Error: " + ex);
+                                }
+                            %>
+                        </table>
+        <%--                <button type="button" onclick="onSubmit()" class="btn btn-primary">Submit</button>--%>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -162,6 +242,43 @@
             }
         });
     }
+
+    function onSubmitMaxEmployees() {
+        var array1 = []
+        for (let i = 0; i < 10; i++) {
+            if(document.getElementById("maxamount"+i).value.length > 0) {
+                array1[i] = document.getElementById("maxamount"+i).value;
+            }
+            else if (document.getElementById("totalamount").value.length > 0) {
+                array1[i] = document.getElementById("totalamount").value;
+            }
+            else {
+                array1[i] = -1;
+            }
+        }
+
+
+        $.confirm({
+            title: 'max employees',
+            content: 'Are you sure you want to change the max employees per day?',
+            buttons: {
+                confirm: function () {
+                    var redirectUrl = 'linkAdminSubmit';
+                    //using jquery to post data dynamically
+                    var form = $('<form action="' + redirectUrl + '" method="post">' +
+                        '<input type="text" name="employeeAmount" value="' + array1 + '" />' +
+                        '</form>');
+                    $('body').append(form);
+                    form.submit();
+                },
+                cancel: function () {
+
+                }
+            }
+        });
+    }
+
+
 </script>
 
 </html>

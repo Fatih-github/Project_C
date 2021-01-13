@@ -1,6 +1,7 @@
 import org.postgresql.util.PSQLException;
 
 import java.sql.*;
+import java.util.Calendar;
 
 
 class DatabaseManager {
@@ -14,6 +15,7 @@ class DatabaseManager {
     static Table memberTable;
     static Table reservationTable;
     static Table invitationTable;
+    static Table maxReservationTable;
 
     //Some comment to change a file for pushing
     public static void setup(){
@@ -96,6 +98,9 @@ class DatabaseManager {
                 "FOREIGN KEY(reservationID) REFERENCES reservationTable(reservationID)");
 
 
+        maxReservationTable = new Table("maxReservationTable",
+                        "date date, " +
+                        "maxReservations INT");
 
         //Creating mockdata to test
         int roomAmount = 21;
@@ -129,7 +134,24 @@ class DatabaseManager {
         createAccountIfNotExists("Mark", "Moe", "Markmoe@hr.nl");
         createAccountIfNotExists("Richard", "Miles", "Richardmiles@hr.nl");
 
+        //successfully executed: INSERT INTO maxReservationTable VALUES('Sun Jan 24 17:09:52 CET 2021', 10)
+        System.out.println("Putting max amount of reservations per day into the database");
+        int maxAmount = 10;
+        for (int i = 1; i < 15; i++) {
+            Calendar c = Calendar.getInstance();
+            c.add(Calendar.DATE, i);
+            if(c.get(Calendar.DAY_OF_WEEK) != 1 && c.get(Calendar.DAY_OF_WEEK) != 7) {
+                java.util.Date date = c.getTime();
+                ResultSet maxReservationSet = getResultsFromQuery("select date from maxreservationtable where date='" + date + "'");
+                try {
+                    if (!maxReservationSet.next())
+                        maxReservationTable.insertValues(date, maxAmount);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
 
+            }
+        }
         //setting up tables
         //setupLoginTable();
         //note2
