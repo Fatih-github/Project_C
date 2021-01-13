@@ -16,6 +16,7 @@ class DatabaseManager {
     static Table reservationTable;
     static Table invitationTable;
     static Table maxReservationTable;
+    static Table teamTable;
 
     //Some comment to change a file for pushing
     public static void setup(){
@@ -61,16 +62,22 @@ class DatabaseManager {
                 "roomID varchar(10) PRIMARY KEY, " +
                 "slotAmount INT");
 
-        //For creating a team number which can apply to all team members
-        groupTable = new Table("groupTable",
-                "groupID SERIAL PRIMARY KEY");
+//        //For creating a team number which can apply to all team members
+//        groupTable = new Table("groupTable",
+//                "groupID SERIAL PRIMARY KEY");
 
-        //For referencing a member from a team
-        memberTable = new Table("memberTable",
-                "groupID INT, " +
-                "emailAddress varchar(35), " +
-                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID), " +
-                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress)");
+//        //For referencing a member from a team
+//        memberTable = new Table("memberTable",
+//                "groupID INT, " +
+//                "emailAddress varchar(35), " +
+//                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID), " +
+//                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress)");
+
+        teamTable = new Table("teamTable",
+                "teamID SERIAL PRIMARY KEY, " +
+                        "teamName varchar(20), " +
+                        "invitedByEmail varchar(35), " +
+                        "teaminvites text[]");
 
         //insert into reservationtable
         //Values (ARRAY[1, 2, 3])
@@ -79,13 +86,13 @@ class DatabaseManager {
                 "reservationID SERIAL PRIMARY KEY, " +
                 "roomID varchar(10), " +
                 "emailAddress varchar(35), " +
-                "groupID INT, " +
+                "teamID INT, " +
                 "date varchar(20), " +
                 "timeSlot varchar(20), " +
                 "calendarId varchar(50), " +
                 "datevalue date, " +
                 "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
-                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID)");
+                "FOREIGN KEY(teamID) REFERENCES teamTable(teamID)");
 
         //*Can still be changed, work in progress*
         invitationTable = new Table("invitationTable",
