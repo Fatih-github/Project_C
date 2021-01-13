@@ -174,6 +174,7 @@
     });
 
     function onTeam(){
+        console.log(TeamSelect);
         var auth2 = gapi.auth2.getAuthInstance();
         var profile = auth2.currentUser.get().getBasicProfile();
         var teamName = document.getElementById("teamName").value;
