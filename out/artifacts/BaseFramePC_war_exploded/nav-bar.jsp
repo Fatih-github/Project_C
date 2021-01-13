@@ -122,6 +122,7 @@
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
             '<input type="text" name="name" value="' + profile.getName() + '" />' +
+            '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();
@@ -139,6 +140,7 @@
         //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+            '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();
@@ -157,6 +159,7 @@
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
             '<input type="text" name="name" value="' + profile.getName() + '" />' +
+            '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();
@@ -186,6 +189,7 @@
         var form = $('<form action="' + redirectUrl + '" method="post">' +
             '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
             '<input type="text" name="name" value="' + profile.getName() + '" />' +
+            '<input type="text" name="image" value="' + profile.getImageUrl() + '" />' +
             '</form>');
         $('body').append(form);
         form.submit();

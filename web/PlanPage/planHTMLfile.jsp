@@ -202,6 +202,23 @@
                 }
                 ArrayList<Employee> employeeList = new ArrayList<>();
 
+                //container class
+                class Team{
+                    String teamName;
+                    String teamInvites;
+
+                    public Team(String tName, String tInvites){
+                        teamName = tName;
+                        teamInvites = tInvites;
+                    }
+
+                    @Override
+                    public String toString() {
+                        return teamName + " " + teamInvites;
+                    }
+                }
+                ArrayList<Team> teamList = new ArrayList<>();
+
                 //ResultSet employeeResultSet = null;
                 // get reservations based on email adress
                 try {
@@ -246,7 +263,17 @@
                         employeeList.add(currentEmployee);
                     }
 
-
+                    //teams
+                    sql = "select teamname, teaminvites from teamtable where invitedbyemail='" + email + "'";
+                    ResultSet teamResultSet = st.executeQuery(sql);
+                    //store all emplyees in a HashMap
+                    while (teamResultSet.next()){
+                        Team currentTeam =
+                                new Team(teamResultSet.getString(1),
+                                        teamResultSet.getString(2));
+                        //System.out.println("employee: " + currentEmployee);
+                        teamList.add(currentTeam);
+                    }
 
 
 
@@ -336,6 +363,17 @@
                                 <div class="form-group col-md-3">
                                     <label>Invite</label>
                                     <select id="Invite<%= ""+i %>" class="form-control invites" multiple="multiple">
+                                        <% for(Team team : teamList) {
+                                            String teamName = team.teamName;
+                                            String teamInvites = team.teamInvites;
+                                            System.out.println("teaminvites: " + teamInvites);
+                                        %>
+                                        <option value="<%=teamInvites.replace("{", " ").replace("}", " ").replace("\"", "").replace(",", ", ")%>"><%=teamName%></option>
+                                        <%
+                                                //System.out.println("Made id: Invite" + i);
+                                            }
+                                        %>
+
                                         <% for(Employee employee : employeeList) {
                                         String employeeNameString = employee.toString();
                                         String employeeEmail = employee.eEmail;
@@ -425,7 +463,7 @@
             //this returns all the selected item
             inviteArray[i] = $(this).val();
         });
-        //console.log(inviteArray[i])
+        console.log(inviteArray[i])
     }
     console.log("Affter invite library load")
 
@@ -610,7 +648,9 @@
                 var promises = [];
                 var eventIdArray = [];
 
-                if(document.getElementById('calendarId'+i) != undefined && document.getElementById('calendarId'+i) != null) {
+                console.log(document.getElementById('calendarId'+i));
+
+                if(document.getElementById('calendarId'+i) == null || document.getElementById('calendarId'+i).value == "") {
                     promises.push(insertDate(dateFormat, i));
 
                     Promise.allSettled(promises).then(function (results) {
@@ -623,6 +663,8 @@
                     });
                 }
                 else {
+                    console.log("calenderid: " + document.getElementById('calendarId'+i).value);
+                    console.log("dateformat: " + dateFormat);
                     updateDate(document.getElementById('calendarId'+i).value, dateFormat)
                 }
             }

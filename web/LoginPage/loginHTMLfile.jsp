@@ -130,7 +130,7 @@
                         <select style="font-size: large" id="Invite" class="team form-control" multiple="multiple">
                             <option id="ownname" class="ownname" selected><%=selectedname%></option>
                             <% while (rs2.next()) { %>
-                            <option class="teamoptions"><%=rs2.getString("firstname")%></option>
+                            <option class="teamoptions"><%=rs2.getString("firstname")%> <%=rs2.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -173,8 +173,9 @@
                             <tbody>
                             <tr class="table teamtable">
                                 <td class="table teamtable"><%=rs4.getString("teamname")%></td>
-                                <td class="table teamtable"><%=rs4.getString("teaminvites")%></td>
+                                <td class="table teamtable"><%=rs4.getString("teaminvites").replace("{", " ").replace("}", " ").replace("\"", "").replace(",", ", ")%></td>
                                 <td class="table teamtable"><%=rs4.getString("invitedbyemail")%></td>
+                                <td class="table teamtable" style="display: none"><%=rs4.getString("teamid")%></td>
                                         <td class="table teamtable">
                                             <a onclick="onDelete()" style="color: white; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
                                         </td>
@@ -278,6 +279,7 @@
                         '<input type="text" name="teamname" value="' + tableData[0] + '" />' +
                         '<input type="text" name="teaminvites" value="' + tableData[1] + '" />' +
                         '<input type="text" name="invitedbyemail" value="' + tableData[2] + '" />' +
+                        '<input type="text" name="teamId" value="' + tableData[3] + '" />' +
                         '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                         '</form>');
                     $('body').append(form);

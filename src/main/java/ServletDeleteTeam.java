@@ -12,8 +12,9 @@ public class ServletDeleteTeam extends HttpServlet{
         String teamname = req.getParameter("teamname");
         String teaminvites = req.getParameter("teaminvites");
         String invitedbyemail = req.getParameter("invitedbyemail");
+        String teamId = req.getParameter("teamId");
 
-        boolean rs = DatabaseManager.executeSQLstatement("delete from teamtable where teamname='" + teamname + "' and teaminvites='"+ teaminvites +"' and invitedbyemail='" + invitedbyemail + "'");
+        DatabaseManager.executeSQLstatement("delete from teamtable where teamid='"+teamId+"'");
 
         System.out.println(teamname);
         System.out.println(teaminvites);

@@ -27,15 +27,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="">
+    <list default="true" id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="google calendar">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseFramePC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BaseFramePC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletInvitations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletPlan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/ServletReservations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/nav-bar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletDeleteTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletDeleteTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletInvitations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletInvitations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletPlan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServletReservations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServletReservations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +150,7 @@
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Fatih3" />
+        <entry key="$PROJECT_DIR$" value="KevinXFatih13-01-21" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -180,13 +191,6 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -254,6 +258,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -578,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610486887878</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="google calendar">
+      <created>1610572564801</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1610572564801</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -708,7 +720,8 @@
     <MESSAGE value="implemented but not tested servlet delete" />
     <MESSAGE value="implemented AND tested servlet delete" />
     <MESSAGE value="implemented AND tested invitation delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented AND tested invitation delete" />
+    <MESSAGE value="google calendar" />
+    <option name="LAST_COMMIT_MESSAGE" value="google calendar" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BaseFramePC$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1610456323836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
