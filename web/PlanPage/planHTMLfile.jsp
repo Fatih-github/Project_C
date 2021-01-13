@@ -1,9 +1,11 @@
+<%@ page import="java.util.Date" %>
 <%@ page import="java.time.temporal.TemporalUnit" %>
 <%@ page import="java.time.temporal.ChronoUnit" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Calendar" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.util.Date" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,21 +83,18 @@
 
             <form id="planRequestForm">
             <%
-
-
-
                 //container class
                 class Reservation{
                     String date;
                     String roomId;
                     String timeSlot;
-//                    String calendarId;
+                    String calendarId;
 
-                    public Reservation(String inp_date, String inp_roomId, String inp_timeSlot){
+                    public Reservation(String inp_date, String inp_roomId, String inp_timeSlot, String cId){
                         date = inp_date;
                         roomId = inp_roomId;
                         timeSlot = inp_timeSlot;
-//                        calendarId = inp_calendarId;
+                        calendarId = cId;
                     }
 
                     @Override
@@ -105,6 +104,84 @@
                 }
                 HashMap<String, Reservation> dateMap = new HashMap<>();
 
+
+                class DateInfo{
+                    private int morningAmount = 0;
+                    private int afternoonAmount = 0;
+                    private int max = 0;
+
+
+                    public DateInfo(String dateString, Date dateValue){
+                        try {
+
+                            Connection database = null;
+                            Statement st = null;
+                            Class.forName("org.postgresql.Driver");
+                            database = DriverManager
+                                    .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                            "BaseFramePC", "none");
+                            st = database.createStatement();
+
+                            String sql = "select maxreservations from maxreservationtable where date='" + dateValue + "'";
+                            ResultSet dateMaxSet = st.executeQuery(sql);
+                            //store all planned dates in a HashMap
+                            while (dateMaxSet.next()){
+                                setMax(dateMaxSet.getInt("maxreservations"));
+                            }
+
+                            sql = "select timeslot, count(*) as reserved from reservationtable where date = '" + dateString + "' group by timeslot";
+                            ResultSet dateinfoSet = st.executeQuery(sql);
+                            //store all planned dates in a HashMap
+                            while (dateinfoSet.next()){
+                                switch (dateinfoSet.getString("timeslot")){
+                                    case "morning": addMorning(dateinfoSet.getInt("reserved")); break;
+                                    case "afternoon": addAfternoon(dateinfoSet.getInt("reserved")); break;
+                                    case "day": addEntireday(dateinfoSet.getInt("reserved")); break;
+                                }
+                            }
+
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                    public void addMorning(int n){
+                        morningAmount+=n;
+                    }
+
+                    public void addAfternoon(int n){
+                        afternoonAmount+=n;
+                    }
+
+                    public void addEntireday(int n){
+                        morningAmount+=n;
+                        afternoonAmount+=n;
+                    }
+
+                    public void setMax(int inp){
+                        max = inp;
+                    }
+
+                    public String getAvailableOptions(){
+                        String out = "";
+                        if(morningAmount < max){
+                            out += "<option value=\"morning\">Morning</option>\n";
+                        }
+                        if(afternoonAmount < max){
+                            out += "<option value=\"afternoon\">Afternoon</option>\n";
+                        }
+                        if(afternoonAmount < max){
+                            out += "<option value=\"day\">Entire day</option>\n";
+                        }
+                        if(out.equals("")){
+                            out += "<option value=\"noneAvailable\">No room available</option>\n";
+                        }
+                        return out;
+                    }
+
+
+                }
 
                 //container class
                 class Employee{
@@ -125,15 +202,10 @@
                 }
                 ArrayList<Employee> employeeList = new ArrayList<>();
 
-
-
-
                 //ResultSet employeeResultSet = null;
                 // get reservations based on email adress
                 try {
                     System.out.println("\t\t planHTMLfile JSP/JAVA code");
-
-
 
 
                     //<editor-fold desc="database setup">
@@ -147,18 +219,21 @@
                     st = database.createStatement();
                     //</editor-fold>
 
-                    String sql = "select date, roomid, timeslot, calendarid from reservationtable where emailaddress='" + email + "'";
+                    //dates
+                    String sql = "select date, roomid, timeslot, calendarId from reservationtable where emailaddress='" + email + "'";
                     ResultSet plannedDates = st.executeQuery(sql);
                     //store all planned dates in a HashMap
                     while (plannedDates.next()){
                         Reservation currentReservation =
                                 new Reservation(plannedDates.getString(1),
                                 plannedDates.getString(2),
-                                plannedDates.getString(3));
+                                plannedDates.getString(3),
+                                plannedDates.getString(4));
                         //System.out.println("reservation: " + currentReservation);
                         dateMap.put(plannedDates.getString(1), currentReservation);
                     }
 
+                    //employees
                     sql = "select firstname, lastname, emailaddress from employeetable where emailaddress !='" + email + "'";
                     ResultSet employeeResultSet = st.executeQuery(sql);
                     //store all emplyees in a HashMap
@@ -171,15 +246,7 @@
                         employeeList.add(currentEmployee);
                     }
 
-//                    sql = "select invitee, inviteeaccepted from invitationtable where emailaddress ='" + email + "'";
-//                    ResultSet inviteResultSet = st.executeQuery(sql);
-//                    //store all invites in a HashMap
-//                    while (inviteResultSet.next()){
-//                        PreviousInvitees currentPrevInv =
-//                                new PreviousInvitees((String[])inviteResultSet.getArray(1).getArray(),
-//                                        (String[])inviteResultSet.getArray(2).getArray());
-//                        prevInviteesList.add(currentPrevInv);
-//                    }
+
 
 
 
@@ -198,27 +265,41 @@
                     int weeknum = cal.get(Calendar.WEEK_OF_YEAR) +1;
                     if (!(dayNum == 1 || dayNum == 7)){
 
+                        Date dateValue = Date.from(new Date().toInstant().plus(i+1, ChronoUnit.DAYS));
                         String dateString = new SimpleDateFormat("EEE dd MMM yyyy").format(Date.from(new Date().toInstant().plus(i+1, ChronoUnit.DAYS)));
                         Reservation currentReservation;
                         if (dateMap.containsKey(dateString)){
                             currentReservation = dateMap.get(dateString);
                         }else{
-                            currentReservation = new Reservation("n.a.", "Flex", "Nothing planned");
+                            //called when no date is planned
+                            currentReservation = new Reservation("n.a.", "Flex", "Nothing planned", "");
                         }
 
                         %>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <h3 class="dateHeader" style="margin-top: 1.2em" id="Date<%= ""+i %>"><%=dateString%></h3>
+                                    <h3 style="margin-top: 1.2em" id="Date<%= ""+i %>"><%=dateString%></h3>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Timeslot</label>
+
+                                    <%
+                                        DateInfo di = new DateInfo(dateString, dateValue);
+                                    %>
+
+
                                     <select id="Timeslot<%= ""+i %>" class="form-control">
                                         <option selected><%= currentReservation.timeSlot%></option>
-                                        <option value="morning">Morning</option>
-                                        <option value="afternoon">Afternoon</option>
-                                        <option value="day">Entire day</option>
-                                        <option value="Nothing planned">Nothing planned</option>
+<%--                                        <option value="Nothing planned">Nothing planned</option>--%>
+                                        <%
+                                            System.out.println("Timeslot in db:" + currentReservation.timeSlot);
+                                            if (!currentReservation.timeSlot.equals("Nothing planned")){
+                                            %><option value="Nothing planned">Nothing planned</option>--%><%
+                                        }%>
+                                        <%=di.getAvailableOptions()%>
+<%--                                        <option value="morning">Morning</option>--%>
+<%--                                        <option value="afternoon">Afternoon</option>--%>
+<%--                                        <option value="day">Entire day</option>--%>
                                     </select>
                                 </div>
 
@@ -255,23 +336,30 @@
                                 <div class="form-group col-md-3">
                                     <label>Invite</label>
                                     <select id="Invite<%= ""+i %>" class="form-control invites" multiple="multiple">
-
-
                                         <% for(Employee employee : employeeList) {
-                                            String employeeNameString = employee.toString();
-                                            String employeeEmail = employee.eEmail;
-
+                                        String employeeNameString = employee.toString();
+                                        String employeeEmail = employee.eEmail;
                                         %>
                                         <option value="<%=employeeNameString%>-<%=employeeEmail%>"><%=employeeNameString%></option>
-                                        <%}%>
+                                        <%
+                                            //System.out.println("Made id: Invite" + i);
+                                            }
+                                        %>
+
+<%--                                        <% while (employeeResultSet.next()) { %>--%>
+<%--                                        <option value="<%=employeeResultSet.getString("firstname")%> <%=employeeResultSet.getString("lastname")%>"><%=employeeResultSet.getString("firstname")%> <%=employeeResultSet.getString("lastname")%></option>--%>
+<%--                                        <%--%>
+<%--                                            }--%>
+<%--                                        %>--%>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3" style="display: none">
                                     <label>Invite</label>
                                     <select id="calendarId<%= ""+i %>" class="form-control invites" multiple="multiple">
-                                        <option selected><%=currentReservation.date%></option>
+                                        <option selected><%=currentReservation.calendarId%></option>
                                     </select>
                                 </div>
+
                             </div>
                         <%
                     }else if(dayNum == 1){ // not a workday
@@ -325,9 +413,6 @@
 
     //initialize invite library
     var inviteArray = []
-
-
-
     for (let i = 0; i < 14; i++) {
         console.log("Start of script")
 
@@ -340,11 +425,9 @@
             //this returns all the selected item
             inviteArray[i] = $(this).val();
         });
-        // console.log(inviteArray[i])
+        //console.log(inviteArray[i])
     }
     console.log("Affter invite library load")
-
-
 
 
     function initClient() {
@@ -417,10 +500,12 @@
         });
     }
 
-    var date = new Date();
-    var dateArray = [];
-    var count = 0;
 
+
+
+    var date = new Date();
+    var dateArray = []
+    var count = 0;
 
     function onPlan2() {
         var date = new Date();
@@ -566,47 +651,107 @@
                     $('body').append(form);
 
 
-        // add submit days to json
-        var submitList = [];
-        var elements = document.getElementById("planRequestForm").elements;
-        var amountOFElements = elements.length;
-        for(i = 0; i < amountOFElements; i++){
-            console.log("current i: " + i.toString());
-            console.log("eventid: " + eventIdArray[i]);
-            element = elements[i];
-            try {
-                if (document.getElementById('Timeslot' + i.toString()).value) {
+                    // add submit days to json
+                    var submitList = [];
+                    var elements = document.getElementById("planRequestForm").elements;
+                    var amountOFElements = elements.length;
+                    for(i = 0; i < amountOFElements; i++){
+                        console.log("current i: " + i.toString());
+                        console.log("eventid: " + eventIdArray[i]);
+                        element = elements[i];
+                        try {
+                            if (document.getElementById('Timeslot' + i.toString()).value) {
 
-                    console.log("\tentry creation started for day:" + i.toString());
-                    var entry = {
-                        date: document.getElementById("Date" + i.toString()).innerText,
-                        timeSlot: document.getElementById('Timeslot' + i.toString()).value,
-                        room: document.getElementById('Room' + i.toString()).value,
-                        invites: arrayInvitesSplit1[i],
-                        eventId: eventIdArray[i]
-                    };
-                    console.log("\tentry creation complete for day:" + i.toString());
-                    console.log("\t\tdate: " + entry["date"]);
-                    console.log("\t\ttimeslot: " + entry["timeSlot"]);
-                    console.log("\t\troom: " + entry["room"]);
-                    console.log("\t\tinvites: " + entry["invites"]);
-                    console.log("\tentry: " + JSON.stringify(entry))
-                    console.log("\t\teventid: " + entry["eventId"]);
-                    submitList.push(JSON.stringify(entry));
-                }
-            } catch (e) {
-                console.log("error in adding day at pos" + i.toString())
-            }
-        }
+                                console.log("\tentry creation started for day:" + i.toString());
+                                var entry = {
+                                    date: document.getElementById("Date" + i.toString()).innerText,
+                                    timeSlot: document.getElementById('Timeslot' + i.toString()).value,
+                                    room: document.getElementById('Room' + i.toString()).value,
+                                    invites: arrayInvitesSplit1[i],
+                                    eventId: eventIdArray[i]
+                                };
+                                console.log("\tentry creation complete for day:" + i.toString());
+                                console.log("\t\tdate: " + entry["date"]);
+                                console.log("\t\ttimeslot: " + entry["timeSlot"]);
+                                console.log("\t\troom: " + entry["room"]);
+                                console.log("\t\tinvites: " + entry["invites"]);
+                                console.log("\tentry: " + JSON.stringify(entry))
+                                console.log("\t\teventid: " + entry["eventId"]);
+                                submitList.push(JSON.stringify(entry));
+                            }
+                        } catch (e) {
+                            console.log("error in adding day at pos" + i.toString())
+                        }
+                    }
 
-        //actually post data
-        var sub = submitList.toString().replaceAll("\"", "'");
-        console.log("submitList:" + sub);
-        form.append('<input type="text" name="submission" value="' + sub + '" />');
-        form.submit();
+                    //actually post data
+                    var sub = submitList.toString().replaceAll("\"", "'");
+                    console.log("submitList:" + sub);
+                    form.append('<input type="text" name="submission" value="' + sub + '" />');
+                    form.submit();
                 }
             }
         });
     }
+
+    // function onPlan2() {
+    //
+    //
+    //     for (let i = 0; i < 14; i++) {
+    //         console.log("loop invite log" + i + ": " + inviteArray[i])
+    //     }
+    //
+    //     //send user details to server
+    //     var redirectUrl = 'planSubmit';
+    //     var auth2 = gapi.auth2.getAuthInstance();
+    //     var profile = auth2.currentUser.get().getBasicProfile();
+    //
+    //
+    //     //load email from google
+    //     var form = $('<form action="' + redirectUrl + '" method="post">' +
+    //         '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
+    //
+    //         '</form>');
+    //     $('body').append(form);
+    //
+    //
+    //
+    //     // add submit days to json
+    //     var submitList = [];
+    //     var elements = document.getElementById("planRequestForm").elements;
+    //     var amountOFElements = elements.length;
+    //     for(i = 0; i < amountOFElements; i++){
+    //         console.log("current i: " + i.toString());
+    //         element = elements[i];
+    //         try {
+    //             if (document.getElementById('Timeslot' + i.toString()).value) {
+    //
+    //                 console.log("\tentry creation started for day:" + i.toString());
+    //                 var entry = {
+    //                     date: document.getElementById("Date" + i.toString()).innerText,
+    //                     timeSlot: document.getElementById('Timeslot' + i.toString()).value,
+    //                     room: document.getElementById('Room' + i.toString()).value,
+    //                     invites: inviteArray[i]
+    //                 };
+    //                 console.log("\tentry creation complete for day:" + i.toString());
+    //                 console.log("\t\tdate: " + entry["date"]);
+    //                 console.log("\t\ttimeslot: " + entry["timeSlot"]);
+    //                 console.log("\t\troom: " + entry["room"]);
+    //                 console.log("\t\tinvites: " + entry["invites"]);
+    //                 console.log("\tentry: " + JSON.stringify(entry))
+    //                 submitList.push(JSON.stringify(entry));
+    //             }
+    //         } catch (e) {
+    //             console.log("error in adding day at pos" + i.toString())
+    //         }
+    //     }
+    //
+    //     //actually post data
+    //     var sub = submitList.toString().replaceAll("\"", "'");
+    //     console.log("submitList:" + sub);
+    //     form.append('<input type="text" name="submission" value="' + sub + '" />');
+    //     form.submit();
+    //
+    // }
 </script>
 </html>

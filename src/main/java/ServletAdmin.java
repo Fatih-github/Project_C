@@ -12,6 +12,11 @@ public class ServletAdmin extends HttpServlet{
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         System.out.println("\n\n ServletAdmin JAVA code");
 
+        try {
+            DatabaseManager.getResultsFromQuery("delete from maxreservationtable where date <= current_date");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
         RequestDispatcher view = req.getRequestDispatcher("AdminPage/adminHTMLfile.jsp");
         view.forward(req, res);

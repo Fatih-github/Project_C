@@ -1,6 +1,7 @@
 import org.postgresql.util.PSQLException;
 
 import java.sql.*;
+import java.util.Calendar;
 
 
 class DatabaseManager {
@@ -14,6 +15,8 @@ class DatabaseManager {
     static Table memberTable;
     static Table reservationTable;
     static Table invitationTable;
+    static Table maxReservationTable;
+    static Table teamTable;
 
     //Some comment to change a file for pushing
     public static void setup(){
@@ -59,16 +62,22 @@ class DatabaseManager {
                 "roomID varchar(10) PRIMARY KEY, " +
                 "slotAmount INT");
 
-        //For creating a team number which can apply to all team members
-        groupTable = new Table("groupTable",
-                "groupID SERIAL PRIMARY KEY");
+//        //For creating a team number which can apply to all team members
+//        groupTable = new Table("groupTable",
+//                "groupID SERIAL PRIMARY KEY");
 
-        //For referencing a member from a team
-        memberTable = new Table("memberTable",
-                "groupID INT, " +
-                "emailAddress varchar(35), " +
-                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID), " +
-                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress)");
+//        //For referencing a member from a team
+//        memberTable = new Table("memberTable",
+//                "groupID INT, " +
+//                "emailAddress varchar(35), " +
+//                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID), " +
+//                "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress)");
+
+        teamTable = new Table("teamTable",
+                "teamID SERIAL PRIMARY KEY, " +
+                        "teamName varchar(20), " +
+                        "invitedByEmail varchar(35), " +
+                        "teaminvites text[]");
 
         //insert into reservationtable
         //Values (ARRAY[1, 2, 3])
@@ -77,13 +86,13 @@ class DatabaseManager {
                 "reservationID SERIAL PRIMARY KEY, " +
                 "roomID varchar(10), " +
                 "emailAddress varchar(35), " +
-                "groupID INT, " +
+                "teamID INT, " +
                 "date varchar(20), " +
                 "timeSlot varchar(20), " +
                 "calendarId varchar(50), " +
                 "datevalue date, " +
                 "FOREIGN KEY(emailAddress) REFERENCES employeeTable(emailAddress), " +
-                "FOREIGN KEY(groupID) REFERENCES groupTable(groupID)");
+                "FOREIGN KEY(teamID) REFERENCES teamTable(teamID)");
 
         //*Can still be changed, work in progress*
         invitationTable = new Table("invitationTable",
@@ -96,6 +105,9 @@ class DatabaseManager {
                 "FOREIGN KEY(reservationID) REFERENCES reservationTable(reservationID)");
 
 
+        maxReservationTable = new Table("maxReservationTable",
+                        "date date, " +
+                        "maxReservations INT");
 
         //Creating mockdata to test
         int roomAmount = 21;
@@ -129,7 +141,24 @@ class DatabaseManager {
         createAccountIfNotExists("Mark", "Moe", "Markmoe@hr.nl");
         createAccountIfNotExists("Richard", "Miles", "Richardmiles@hr.nl");
 
+        //successfully executed: INSERT INTO maxReservationTable VALUES('Sun Jan 24 17:09:52 CET 2021', 10)
+        System.out.println("Putting max amount of reservations per day into the database");
+        int maxAmount = 10;
+        for (int i = 1; i < 15; i++) {
+            Calendar c = Calendar.getInstance();
+            c.add(Calendar.DATE, i);
+            if(c.get(Calendar.DAY_OF_WEEK) != 1 && c.get(Calendar.DAY_OF_WEEK) != 7) {
+                java.util.Date date = c.getTime();
+                ResultSet maxReservationSet = getResultsFromQuery("select date from maxreservationtable where date='" + date + "'");
+                try {
+                    if (!maxReservationSet.next())
+                        maxReservationTable.insertValues(date, maxAmount);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
 
+            }
+        }
         //setting up tables
         //setupLoginTable();
         //note2
