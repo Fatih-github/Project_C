@@ -175,7 +175,11 @@
                 '<input type="text" name="email" value="' + profile.getEmail() + '" />' +
                 '</form>');
             $('body').append(form);
-            form.submit();
+            console.log("accepted: ", tableData[3])
+            console.log("invited: ", tableData[4])
+
+
+            //form.submit();
         }
         else {
             console.log(tableData);

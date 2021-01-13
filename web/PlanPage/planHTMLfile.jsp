@@ -1,11 +1,9 @@
-<%@ page import="java.util.Date" %>
 <%@ page import="java.time.temporal.TemporalUnit" %>
 <%@ page import="java.time.temporal.ChronoUnit" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Calendar" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.util.Date" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,6 +81,9 @@
 
             <form id="planRequestForm">
             <%
+
+
+
                 //container class
                 class Reservation{
                     String date;
@@ -107,10 +108,12 @@
                 class Employee{
                     String eFirstname;
                     String eLastname;
+                    String eEmail;
 
-                    public Employee(String fName, String lName){
+                    public Employee(String fName, String lName, String email){
                         eFirstname = fName;
                         eLastname = lName;
+                        eEmail = email;
                     }
 
                     @Override
@@ -118,7 +121,10 @@
                         return eFirstname + " " + eLastname;
                     }
                 }
-                ArrayList<String> employeeList = new ArrayList<>();
+                ArrayList<Employee> employeeList = new ArrayList<>();
+
+
+
 
                 //ResultSet employeeResultSet = null;
                 // get reservations based on email adress
@@ -151,16 +157,27 @@
                         dateMap.put(plannedDates.getString(1), currentReservation);
                     }
 
-                    sql = "select firstname, lastname from employeetable where emailaddress !='" + email + "'";
+                    sql = "select firstname, lastname, emailaddress from employeetable where emailaddress !='" + email + "'";
                     ResultSet employeeResultSet = st.executeQuery(sql);
                     //store all emplyees in a HashMap
                     while (employeeResultSet.next()){
                         Employee currentEmployee =
                                 new Employee(employeeResultSet.getString(1),
-                                        employeeResultSet.getString(2));
+                                        employeeResultSet.getString(2),
+                                        employeeResultSet.getString(3));
                         //System.out.println("employee: " + currentEmployee);
-                        employeeList.add(currentEmployee.toString());
+                        employeeList.add(currentEmployee);
                     }
+
+//                    sql = "select invitee, inviteeaccepted from invitationtable where emailaddress ='" + email + "'";
+//                    ResultSet inviteResultSet = st.executeQuery(sql);
+//                    //store all invites in a HashMap
+//                    while (inviteResultSet.next()){
+//                        PreviousInvitees currentPrevInv =
+//                                new PreviousInvitees((String[])inviteResultSet.getArray(1).getArray(),
+//                                        (String[])inviteResultSet.getArray(2).getArray());
+//                        prevInviteesList.add(currentPrevInv);
+//                    }
 
 
 
@@ -190,7 +207,7 @@
                         %>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <h3 style="margin-top: 1.2em" id="Date<%= ""+i %>"><%=dateString%></h3>
+                                    <h3 class="dateHeader" style="margin-top: 1.2em" id="Date<%= ""+i %>"><%=dateString%></h3>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Timeslot</label>
@@ -236,18 +253,15 @@
                                 <div class="form-group col-md-3">
                                     <label>Invite</label>
                                     <select id="Invite<%= ""+i %>" class="form-control invites" multiple="multiple">
-                                        <% for(String employeeNameString : employeeList) {%>
-                                        <option value="<%=employeeNameString%>"><%=employeeNameString%></option>
-                                        <%
-                                            //System.out.println("Made id: Invite" + i);
-                                            }
-                                        %>
 
-<%--                                        <% while (employeeResultSet.next()) { %>--%>
-<%--                                        <option value="<%=employeeResultSet.getString("firstname")%> <%=employeeResultSet.getString("lastname")%>"><%=employeeResultSet.getString("firstname")%> <%=employeeResultSet.getString("lastname")%></option>--%>
-<%--                                        <%--%>
-<%--                                            }--%>
-<%--                                        %>--%>
+
+                                        <% for(Employee employee : employeeList) {
+                                            String employeeNameString = employee.toString();
+                                            String employeeEmail = employee.eEmail;
+
+                                        %>
+                                        <option value="<%=employeeNameString%>-<%=employeeEmail%>"><%=employeeNameString%></option>
+                                        <%}%>
                                     </select>
                                 </div>
                             </div>
@@ -282,13 +296,30 @@
     });
 </script>
 
+<script type="text/javascript">
+    var CLIENT_ID = '621238999880-9rj10o12b4dvsi92ou1m74s8tmmblp3c.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyC3WIx6dVn9Auv9uvPLa9bpXS6cuh0EK5Q';
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+    var SCOPES = "https://www.googleapis.com/auth/calendar";
 
+    function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+    }
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
 
 <script>
 
 
     //initialize invite library
     var inviteArray = []
+
+
+
     for (let i = 0; i < 14; i++) {
         console.log("Start of script")
 
@@ -308,7 +339,54 @@
 
 
 
+    function initClient() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        }, function(error) {
+            console.log(error)
+        });
+    }
 
+    function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+            console.log("if signed in")
+        } else {
+            console.log("else not signed in")
+        }
+    }
+
+    // function load the calendar api and make the api call
+    function insertDate(dateFormat, index) {
+        return new Promise((resolve, reject) => {
+            var eventId = "";
+            gapi.client.load('calendar', 'v3', function() {                    // load the calendar api (version 3)
+                var request = gapi.client.calendar.events.insert({
+                    'calendarId':        'primary',    // calendar ID
+                    "sendNotifications": true,
+                    "resource":            dateFormat        // pass event details with api call
+                });
+
+                // handle the response from our api call
+                request.execute(function(resp) {
+                    if(resp.status=='confirmed') {
+                        eventId = resp.id
+                        console.log("successfully inserted")
+                        resolve(eventId+"num"+index)
+                    } else {
+                        console.log("failed to insert")
+                        resolve(-1)
+                    }
+                    console.log(resp);
+                });
+            });
+        });
+    }
 
 
     var date = new Date();
@@ -317,6 +395,121 @@
 
 
     function onPlan2() {
+        var array = []
+        var count = 0
+        // var dateRows = document.getElementsByClassName("dateHeader");
+        // for(var r  = 0; r < dateRows.length; r++){
+        //     array[r] = dateRows[r].textContent
+        // }
+        //
+        // console.log("Daterows: \n", dateRows);
+        //
+        // // for(var i = 0; i < 10; i++) {
+        // //     try {
+        // //         if (document.getElementById('Date' + i).innerHTML != null) {
+        // //             array[count++] = [document.getElementById('Date' + i).innerHTML]
+        // //             console.log(array[i])
+        // //         }
+        // //     } catch (e) {
+        // //
+        // //     }
+        // // }
+        //
+        // console.log("Invite: " + Invite1)
+        // var arrayInvites = inviteArray;
+        // console.log("main array: " + arrayInvites[0], arrayInvites[1], arrayInvites[2], arrayInvites[3], arrayInvites[4], arrayInvites[5], arrayInvites[6], arrayInvites[7], arrayInvites[8])
+        // var arrayInvitesSplit1 = [[], [], [], [], [], [], [], [], [], []];
+        // var arrayInvitesSplit2 = [[], [], [], [], [], [], [], [], [], []];
+        // console.log("first split array: " + arrayInvitesSplit1)
+        // console.log("second split array: " + arrayInvitesSplit2)
+        // console.log("lengte array " + arrayInvites.length)
+        // for(let k = 0; k < arrayInvites.length; k++) {
+        //     console.log("in de eerste loop" + k + arrayInvites[k])
+        //     if(arrayInvites[k] !== undefined) {
+        //         for (let j = 0; j < arrayInvites[k].length; j++) {
+        //             console.log(arrayInvites[k][j].split('-')[0] + "data")
+        //             console.log(arrayInvites[k][j].split('-')[1] + "data2")
+        //             arrayInvitesSplit1[k][j] = arrayInvites[k][j].split('-')[0]
+        //             arrayInvitesSplit2[k][j] = arrayInvites[k][j].split('-')[1]
+        //             console.log("first split array in loop: " + arrayInvitesSplit1[k][j])
+        //             console.log("second split array in loop: " + arrayInvitesSplit2[k][j])
+        //             console.log("---------------------------------------------------------")
+        //         }
+        //     }
+        //     else {
+        //         arrayInvitesSplit1[k] = []
+        //         arrayInvitesSplit2[k] = []
+        //     }
+        // }
+        // console.log("Split voor streep: " + arrayInvitesSplit1)
+        // console.log("Split na streep: " + arrayInvitesSplit2)
+        //
+        // for(var i = 1; i < 11; i++) {
+        //     if(document.getElementById('Room'+i).value !== null && document.getElementById('Room'+i).value !== "Choose...") {
+        //         console.log(document.getElementById('Room'+i).value)
+        //         var startTime;
+        //         var endTime;
+        //
+        //         if(document.getElementById('Timeslot'+i).value === "Morning") {
+        //             startTime = "08:00";
+        //             endTime = "12:00";
+        //         }
+        //         else if(document.getElementById('Timeslot'+i).value === "Afternoon") {
+        //             startTime = "13:00";
+        //             endTime = "17:00";
+        //         }
+        //         else {
+        //             startTime = "08:00";
+        //             endTime = "17:00";
+        //         }
+        //
+        //         var startDate = new Date(array[i-1] + " " + startTime);
+        //         let startDateString = startDate.toISOString();
+        //
+        //         var endDate = new Date(array[i-1] + " " + endTime);
+        //         let endDateString = endDate.toISOString();
+        //
+        //         console.log(array[i-1])
+        //         console.log(document.getElementById('Timeslot'+i).value)
+        //
+        //         var dateFormat = {
+        //             "summary": "NGTI Reservation - " + document.getElementById('Room'+i).value,
+        //             "start": {
+        //                 "dateTime": startDateString
+        //             },
+        //             "end": {
+        //                 "dateTime": endDateString
+        //             },
+        //             "attendees": [
+        //                 //{"email": "example@gmail.com"},
+        //             ]
+        //         };
+        //
+        //         console.log("arrayInvitesSplit2[i-1]: " + arrayInvitesSplit2[i-1] + " length" + arrayInvitesSplit2[i-1].length)
+        //         for(var j = 0; arrayInvitesSplit2[i-1] !== [] && j < arrayInvitesSplit2[i-1].length; j++) {
+        //             dateFormat.attendees.push(
+        //                 {
+        //                     "email": arrayInvitesSplit2[i-1][j].toString()
+        //                     // "responseStatus": 'accepted'
+        //                 }
+        //             )
+        //         }
+        //         console.log("dateFormat attendees: " + dateFormat.attendees)
+        //
+        //         var eventIdArray = [];
+        //         var promises = [];
+        //         var value = "";
+        //
+        //         promises.push(insertDate(dateFormat, i));
+        //
+        //         Promise.allSettled(promises).then(function (results) {
+        //             // 'results' is an array containing all the event IDs
+        //             console.log(results[0].value);
+        //             eventIdArray[results[0].value.split('num')[1]-1] = results[0].value.split('num')[0];
+        //             console.log("eventIdArray: " + eventIdArray[results[0].value.split('num')[1]-1] + " index: " + (results[0].value.split('num')[1]-1));
+        //         });
+        //     }
+        // }
 
 
         for (let i = 0; i < 14; i++) {
