@@ -103,6 +103,76 @@
                 HashMap<String, Reservation> dateMap = new HashMap<>();
 
 
+                class DateInfo{
+                    private int morningAmount = 0;
+                    private int afternoonAmount = 0;
+                    private int max = 0;
+
+
+                    public DateInfo(String date){
+
+                        try {
+                            String sql = "select timeslot, count(*) as reserved from reservationtable where date = '" + date + "' group by timeslot";
+                            Connection database = null;
+                            Statement st = null;
+                            Class.forName("org.postgresql.Driver");
+                            database = DriverManager
+                                    .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                            "BaseFramePC", "none");
+                            st = database.createStatement();
+                            ResultSet dateinfoSet = st.executeQuery(sql);
+                            //store all planned dates in a HashMap
+                            while (dateinfoSet.next()){
+                                switch (dateinfoSet.getString("timeslot")){
+                                    case "morning": addMorning(dateinfoSet.getInt("reserved")); break;
+                                    case "afternoon": addAfternoon(dateinfoSet.getInt("reserved")); break;
+                                    case "day": addEntireday(dateinfoSet.getInt("reserved")); break;
+                                }
+                            }
+
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                    public void addMorning(int n){
+                        morningAmount+=n;
+                    }
+
+                    public void addAfternoon(int n){
+                        afternoonAmount+=n;
+                    }
+
+                    public void addEntireday(int n){
+                        morningAmount+=n;
+                        afternoonAmount+=n;
+                    }
+
+                    public void setMax(int inp){
+                        max = inp;
+                    }
+
+                    public String getAvailableOptions(){
+                        String out = "";
+                        if(morningAmount < max){
+                            out += "<option value=\"morning\">Morning</option>\n";
+                        }
+                        if(afternoonAmount < max){
+                            out += "<option value=\"afternoon\">Afternoon</option>\n";
+                        }
+                        if(afternoonAmount < max){
+                            out += "<option value=\"day\">Entire day</option>\n";
+                        }
+                        if(out.equals("")){
+                            out += "<option value=\"noneAvailable\">No room available</option>\n";
+                        }
+                        return out;
+                    }
+
+
+                }
+
                 //container class
                 class Employee{
                     String eFirstname;
@@ -126,8 +196,6 @@
                     System.out.println("\t\t planHTMLfile JSP/JAVA code");
 
 
-
-
                     //<editor-fold desc="database setup">
                     String email = request.getParameter("email");
                     Connection database = null;
@@ -139,6 +207,7 @@
                     st = database.createStatement();
                     //</editor-fold>
 
+                    //dates
                     String sql = "select date, roomid, timeslot from reservationtable where emailaddress='" + email + "'";
                     ResultSet plannedDates = st.executeQuery(sql);
                     //store all planned dates in a HashMap
@@ -151,6 +220,7 @@
                         dateMap.put(plannedDates.getString(1), currentReservation);
                     }
 
+                    //employees
                     sql = "select firstname, lastname from employeetable where emailaddress !='" + email + "'";
                     ResultSet employeeResultSet = st.executeQuery(sql);
                     //store all emplyees in a HashMap
@@ -161,6 +231,8 @@
                         //System.out.println("employee: " + currentEmployee);
                         employeeList.add(currentEmployee.toString());
                     }
+
+
 
 
 
@@ -184,6 +256,7 @@
                         if (dateMap.containsKey(dateString)){
                             currentReservation = dateMap.get(dateString);
                         }else{
+                            //called when no date is planned
                             currentReservation = new Reservation("n.a.", "Flex", "Nothing planned");
                         }
 
@@ -194,12 +267,24 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Timeslot</label>
+
+                                    <%
+                                        DateInfo di = new DateInfo(dateString);
+                                    %>
+
+
                                     <select id="Timeslot<%= ""+i %>" class="form-control">
                                         <option selected><%= currentReservation.timeSlot%></option>
-                                        <option value="morning">Morning</option>
-                                        <option value="afternoon">Afternoon</option>
-                                        <option value="day">Entire day</option>
-                                        <option value="Nothing planned">Nothing planned</option>
+<%--                                        <option value="Nothing planned">Nothing planned</option>--%>
+                                        <%
+                                            System.out.println("Timeslot in db:" + currentReservation.timeSlot);
+                                            if (!currentReservation.timeSlot.equals("Nothing planned")){
+                                            %><option value="Nothing planned">Nothing planned</option>--%><%
+                                        }%>
+                                        <%=di.getAvailableOptions()%>
+<%--                                        <option value="morning">Morning</option>--%>
+<%--                                        <option value="afternoon">Afternoon</option>--%>
+<%--                                        <option value="day">Entire day</option>--%>
                                     </select>
                                 </div>
 

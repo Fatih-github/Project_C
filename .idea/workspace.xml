@@ -29,7 +29,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f76d20b8-18c7-40c8-be8d-3990aadcb3c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BaseFramePC_war_exploded/WEB-INF/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,72 +63,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServletInvitations.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/ReservationsPage/updateReservations.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServletReservations.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServletDeclineInvites.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="70" lean-forward="true" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java">
+        <entry file="file://$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
+            <state relative-caret-position="1073">
+              <caret line="283" column="69" lean-forward="true" selection-start-line="283" selection-start-column="69" selection-end-line="283" selection-end-column="69" />
+              <folding>
+                <element signature="e#6626#6627#0#JAVA" expanded="true" />
+                <element signature="e#6689#6690#0#JAVA" expanded="true" />
+                <element signature="e#6738#6739#0#JAVA" expanded="true" />
+                <element signature="e#6803#6804#0#JAVA" expanded="true" />
+                <element signature="e#7008#7009#0#JAVA" expanded="true" />
+                <element signature="e#7065#7066#0#JAVA" expanded="true" />
+                <element signature="e#8289#8290#0#JAVA" expanded="true" />
+                <element signature="e#8372#8373#0#JAVA" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,7 +100,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="KevinLocal2021-1" />
+        <entry key="$PROJECT_DIR$" value="kevinXtony13-01-21" />
       </map>
     </option>
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
@@ -163,11 +114,9 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/cbc43a67-40c0-4239-98a7-e7320ad134d4/console.sql" />
         <option value="$PROJECT_DIR$/web/PlanPage/planCSSfile.css" />
         <option value="$PROJECT_DIR$/src/main/java/DataHelper.java" />
-        <option value="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" />
         <option value="$PROJECT_DIR$/web/nav-bar.jsp" />
         <option value="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" />
         <option value="$PROJECT_DIR$/web/ReservationsPage/reservationsCSSfile.css" />
-        <option value="$PROJECT_DIR$/src/main/java/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServletOverview.java" />
         <option value="$PROJECT_DIR$/web/OverviewPage/overviewHTMLfile.jsp" />
@@ -179,6 +128,11 @@
         <option value="$PROJECT_DIR$/src/main/java/ServletDeclineInvites.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServletDeleteReservations.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DatabaseManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServletAdminSubmit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServletAdmin.java" />
+        <option value="$PROJECT_DIR$/web/AdminPage/adminHTMLfile.jsp" />
+        <option value="$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp" />
       </list>
     </option>
   </component>
@@ -202,8 +156,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-511" />
+    <option name="y" value="-17" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -213,32 +167,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
               <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="artifacts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="artifacts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="BaseFramePC_war_exploded" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -267,24 +201,20 @@
               <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="InvitationsPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="AdminPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ReservationsPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="BaseFramePC" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="BaseFramePC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="WEB-INF" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="PlanPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -304,6 +234,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -620,16 +551,23 @@
       <option name="project" value="LOCAL" />
       <updated>1610486175155</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="implemented extra admin tab for max employees">
+      <created>1610558439153</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1610558439153</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98350000" />
+    <option name="totallyTimeSpent" value="105677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13539445" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -639,7 +577,7 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.48970747" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30552545" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -755,7 +693,8 @@
     <MESSAGE value="implemented but not tested servlet delete" />
     <MESSAGE value="implemented AND tested servlet delete" />
     <MESSAGE value="implemented AND tested invitation delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented AND tested invitation delete" />
+    <MESSAGE value="implemented extra admin tab for max employees" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented extra admin tab for max employees" />
   </component>
   <component name="WindowStateProjectService">
     <state x="740" y="336" key="#BuildArtifactsBeforeRunChooser" />
@@ -925,27 +864,6 @@
     <entry file="file://$PROJECT_DIR$/web/PlanPage/Confirmation.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/AdminPage/adminHTMLfile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="95" lean-forward="true" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServletAdmin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServletAdminSubmit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/nav-bar.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -990,30 +908,6 @@
     <entry file="file://$PROJECT_DIR$/web/OverviewPage/overviewCSSfile.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
-          <caret line="205" selection-start-line="205" selection-end-line="205" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="83" column="36" lean-forward="true" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="82" column="46" lean-forward="true" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
-          <folding>
-            <element signature="e#4298#4371#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServletOverview.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1028,9 +922,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/InvitationsPage/invitationsHTMLfile.html" />
     <entry file="file://$PROJECT_DIR$/web/InvitationsPage/invitationsCSSfile.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1047,7 +939,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/ReservationsPage/updateReservations.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102" />
+        <state relative-caret-position="646">
+          <caret line="38" column="110" selection-start-line="38" selection-start-column="110" selection-end-line="38" selection-end-column="110" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServletReservations.java">
@@ -1085,13 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServletAcceptInvites.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1103,6 +990,80 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="83" column="19" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServletUpdateReservations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServletPlanSubmit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="114" column="69" selection-start-line="114" selection-start-column="53" selection-end-line="114" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServletAdminSubmit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/AdminPage/adminHTMLfile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1819">
+          <caret line="58" column="53" lean-forward="true" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#th#1;n#tr#0;n#thead#0;n#table#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServletAdmin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/PlanPage/planHTMLfile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1073">
+          <caret line="283" column="69" lean-forward="true" selection-start-line="283" selection-start-column="69" selection-end-line="283" selection-end-column="69" />
+          <folding>
+            <element signature="e#6626#6627#0#JAVA" expanded="true" />
+            <element signature="e#6689#6690#0#JAVA" expanded="true" />
+            <element signature="e#6738#6739#0#JAVA" expanded="true" />
+            <element signature="e#6803#6804#0#JAVA" expanded="true" />
+            <element signature="e#7008#7009#0#JAVA" expanded="true" />
+            <element signature="e#7065#7066#0#JAVA" expanded="true" />
+            <element signature="e#8289#8290#0#JAVA" expanded="true" />
+            <element signature="e#8372#8373#0#JAVA" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
