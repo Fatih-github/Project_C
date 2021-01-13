@@ -265,8 +265,8 @@
         });
 
         $.confirm({
-            title: 'Delete Reservation',
-            content: 'Are you sure you want to delete this reservation?',
+            title: 'Delete Team',
+            content: 'Are you sure you want to delete this Team?',
             buttons: {
                 confirm: function () {
                     console.log(tableData);
