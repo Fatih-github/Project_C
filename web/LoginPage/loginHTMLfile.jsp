@@ -21,9 +21,9 @@
 <body>
 <div id="nav-placeholder"></div>
 
-<div class="container">
+<div class="container" style="min-height: 48em">
     <div class="card border-0 shadow my-5">
-        <div class="card-body mt-3">
+        <div class="card-body p-5">
             <%
                 String email = request.getParameter("email");
 
@@ -141,7 +141,7 @@
                 </div>
 
 
-                <div style="height: 500px"></div>
+
             </div>
         </div>
 
