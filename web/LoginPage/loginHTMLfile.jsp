@@ -154,24 +154,24 @@
                             </tr>
                             </thead>
 
+                            <%
+                                Connection database4 = null;
+                                Statement st4 = null;
+                                ResultSet rs4 = null;
+                                String name = request.getParameter("name");
+                                try {
+                                    Class.forName("org.postgresql.Driver");
+                                    database4 = DriverManager
+                                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
+                                                    "BaseFramePC", "none");
+                                    st4 = database4.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                                    String sql = "select * from teamtable\n" +
+                                            "where invitedbyemail = '"+ email +"' or  '"+name+"' = any(teaminvites)";
+                                    rs4 = st4.executeQuery(sql);
+                                    while (rs4.next()){ %>
+
                             <tbody>
                             <tr class="table teamtable">
-                                    <%
-                Connection database4 = null;
-                Statement st4 = null;
-                ResultSet rs4 = null;
-                String name = request.getParameter("name");
-                try {
-                    Class.forName("org.postgresql.Driver");
-                    database4 = DriverManager
-                            .getConnection("jdbc:postgresql://localhost:5432/officePlanagerData",
-                                    "BaseFramePC", "none");
-                    st4 = database4.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                    String sql = "select * from teamtable\n" +
-                "where invitedbyemail = '"+ email +"' or  '"+name+"' = any(teaminvites)";
-                    rs4 = st4.executeQuery(sql);
-                                            while (rs4.next()){ %>
-
                                 <td class="table teamtable"><%=rs4.getString("teamname")%></td>
                                 <td class="table teamtable"><%=rs4.getString("teaminvites")%></td>
                                 <td class="table teamtable"><%=rs4.getString("invitedbyemail")%></td>
@@ -262,6 +262,7 @@
             content: 'Are you sure you want to delete this reservation?',
             buttons: {
                 confirm: function () {
+                    console.log(tableData);
                     var auth2 = gapi.auth2.getAuthInstance();
                     var profile = auth2.currentUser.get().getBasicProfile();
                     var redirectUrl = 'linkDeleteTeam';

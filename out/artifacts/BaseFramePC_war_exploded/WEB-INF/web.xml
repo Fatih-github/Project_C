@@ -38,6 +38,16 @@
         <url-pattern>/teamSubmit</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ServletDeleteTeam</servlet-name>
+        <servlet-class>ServletDeleteTeam</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletDeleteTeam</servlet-name>
+        <url-pattern>/linkDeleteTeam</url-pattern>
+    </servlet-mapping>
+
 
 <!--Fires on login with google-->
     <servlet>
