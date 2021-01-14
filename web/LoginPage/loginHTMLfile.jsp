@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*" %>
+<%@ page import="java.util.Arrays" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,9 +129,9 @@
                                 rs2.next();
                         %>
                         <select style="font-size: large" id="Invite" class="team form-control" multiple="multiple">
-                            <option id="ownname" class="ownname" selected><%=selectedname%></option>
+<%--                            <option id="ownname" class="ownname" selected><%=selectedname%></option>--%>
                             <% while (rs2.next()) { %>
-                            <option class="teamoptions"><%=rs2.getString("firstname")%> <%=rs2.getString("lastname")%></option>
+                            <option value="<%=rs2.getString("firstname")%> <%=rs2.getString("lastname")%>-<%=rs2.getString("emailaddress")%>" class="teamoptions"><%=rs2.getString("firstname")%> <%=rs2.getString("lastname")%></option>
                             <%
                                 }
                             %>
@@ -168,12 +169,31 @@
                                     String sql = "select * from teamtable\n" +
                                             "where invitedbyemail = '"+ email +"' or  '"+name+"' = any(teaminvites)";
                                     rs4 = st4.executeQuery(sql);
-                                    while (rs4.next()){ %>
+
+                                    while (rs4.next()){
+                                        String countComma = rs4.getString("teaminvites");
+                                        int wordCounter = 1;
+                                        for(int i = 0; i < countComma.length(); i++) {
+                                            if(countComma.charAt(i) == ',') {
+                                                wordCounter++;
+                                                System.out.println("wordcounter " + wordCounter);
+                                            }
+                                        }
+                                        String[] arr = new String[wordCounter];
+                                        System.out.println("arr length: " + arr.length);
+                                        int count = 0;
+                                        for(int i = 0; i < arr.length; i++) {
+                                            String splitComma = rs4.getString("teaminvites").replace("{", " ").replace("}", " ").replace("\"", "").replace(",", ", ").split(",")[i];
+                                            System.out.println("splitComma " + splitComma + " index" + i);
+                                            arr[count++] = splitComma.split("-")[0];
+                                            System.out.println("in loop " + arr[i] + " index" + i);
+                                        }
+                                        %>
 
                             <tbody>
                             <tr class="table teamtable">
                                 <td class="table teamtable"><%=rs4.getString("teamname")%></td>
-                                <td class="table teamtable"><%=rs4.getString("teaminvites").replace("{", " ").replace("}", " ").replace("\"", "").replace(",", ", ")%></td>
+                                <td class="table teamtable"><%=Arrays.toString(arr).replace("[", " ").replace("]", " ")%></td>
                                 <td class="table teamtable"><%=rs4.getString("invitedbyemail")%></td>
                                 <td class="table teamtable" style="display: none"><%=rs4.getString("teamid")%></td>
                                         <td class="table teamtable">

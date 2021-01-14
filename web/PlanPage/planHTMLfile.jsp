@@ -368,7 +368,7 @@
                                             String teamInvites = team.teamInvites;
                                             System.out.println("teaminvites: " + teamInvites);
                                         %>
-                                        <option value="<%=teamInvites.replace("{", " ").replace("}", " ").replace("\"", "").replace(",", ", ")%>"><%=teamName%></option>
+                                        <option value="<%=teamInvites.replace("{", "").replace("}", "").replace("\"", "").replace(",", ",")%>"><%=teamName%></option>
                                         <%
                                                 //System.out.println("Made id: Invite" + i);
                                             }
@@ -562,8 +562,13 @@
             console.log("day number: " + date.getDay());
         }
 
-        console.log("Invite: " + Invite1)
         var arrayInvites = inviteArray;
+        for(var l = 0; l < arrayInvites.length; l++) {
+            if(arrayInvites[l] !== undefined && arrayInvites[l].length == 1) {
+                console.log("invitearray[l]length " + arrayInvites[l].length)
+                arrayInvites[l] = arrayInvites[l][0].split(",")
+            }
+        }
         console.log("main array: " + arrayInvites[0], arrayInvites[1], arrayInvites[2], arrayInvites[3], arrayInvites[4], arrayInvites[5], arrayInvites[6], arrayInvites[7], arrayInvites[8])
         var arrayInvitesSplit1 = [[], [], [], [], [], [], [], [], [], [], [], [], [], []];
         var arrayInvitesSplit2 = [[], [], [], [], [], [], [], [], [], [], [], [], [], []];
@@ -574,6 +579,15 @@
             console.log("in de eerste loop" + k + arrayInvites[k])
             if(arrayInvites[k] !== undefined) {
                 for (let j = 0; j < arrayInvites[k].length; j++) {
+                    if(arrayInvites[k][j].split(",").length > 1) {
+                        console.log("in split if")
+                        arrayInvitesSplit1[k][j] = arrayInvites[k][j].split(",")
+                    }
+                    console.log("arrayInvites[k].length == 1 " + arrayInvites[k].length == 1)
+                    console.log("arrayinvites[k].length: " + arrayInvites[k].length)
+                    console.log("arrayinvites[k][j]: " + arrayInvites[k][j].split(","))
+                    console.log("arrayinvites[k][j]length: " + arrayInvites[k][j].split(",").length)
+                    console.log("arrayinvites[k][0]length: " + arrayInvites[k][0].split(",").length)
                     console.log(arrayInvites[k][j].split('-')[0] + "data")
                     console.log(arrayInvites[k][j].split('-')[1] + "data2")
                     arrayInvitesSplit1[k][j] = arrayInvites[k][j].split('-')[0]
