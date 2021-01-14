@@ -185,7 +185,7 @@ public class ServletPlanSubmit extends HttpServlet{
 
         }
 
-        RequestDispatcher view = req.getRequestDispatcher("LoginPage/loginHTMLfile.jsp");
+        RequestDispatcher view = req.getRequestDispatcher("ReservationsPage/reservationsHTMLfile.jsp");
         view.forward(req, res);
     }
 }

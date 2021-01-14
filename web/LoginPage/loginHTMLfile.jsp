@@ -74,7 +74,7 @@
                                 <th>Date</th>
                                 <th>Timeslot</th>
                                 <th>Room</th>
-                                <th>Team</th>
+<%--                                <th>Team</th>--%>
                             </tr>
                             </thead>
 
@@ -97,7 +97,7 @@
                                 <td class="table reservationtable"><%=rs3.getString("date")%></td>
                                 <td class="table reservationtable"><%=rs3.getString("timeslot")%></td>
                                 <td class="table reservationtable"><%=rs3.getString("roomid")%></td>
-                                <td class="table reservationtable"><%=rs3.getString("teamid")%></td>
+<%--                                <td class="table reservationtable"><%=rs3.getString("teamid")%></td>--%>
                             </tbody>
                             <%}
                             } catch (Exception ex) {
