@@ -148,7 +148,7 @@
                                     <td class="table"><%=rs.getString("name")%></td>
                                     <td class="table">
                                         <form>
-                                            <select class="isAdmin" onchange="onSubmit()">
+                                            <select class="isAdmin">
                                                 <option disabled selected><%=rs.getString("isadmin")%></option>
                                                 <option value="false">false</option>
                                                 <option value="true">true</option>
@@ -157,7 +157,7 @@
                                     </td>
                                     <td class="table">
                                         <form>
-                                            <select class="isBHV" onchange="onSubmit()">
+                                            <select class="isBHV">
                                                 <option disabled selected><%=rs.getString("isbhv")%></option>
                                                 <option value="false">false</option>
                                                 <option value="true">true</option>
@@ -174,7 +174,7 @@
                                 }
                             %>
                         </table>
-        <%--                <button type="button" onclick="onSubmit()" class="btn btn-primary">Submit</button>--%>
+                        <button type="button" onclick="onSubmit()" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </div>

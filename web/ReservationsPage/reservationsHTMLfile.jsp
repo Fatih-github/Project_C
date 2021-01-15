@@ -34,7 +34,7 @@
                     <th>Room</th>
                     <th>Attendees</th>
                     <th>Organizer</th>
-                    <th>update</th>
+<%--                    <th>update</th>--%>
                     <th>delete</th>
                 </tr>
                 </thead>
@@ -87,9 +87,9 @@
                     <td class="table" style="display: none"><%=rs.getString("roomid")%></td>
                     <td class="table" style="display: none"><%=rs.getString("emailaddress")%></td>
                     <td class="table" style="display: none"><%=rs.getString("calendarid")%></td>
-                    <td class="table command">
-                        <a onclick="onUpdate(this)" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                    </td>
+<%--                    <td class="table command">--%>
+<%--                        <a onclick="onUpdate(this)" style="color: #007bff; cursor: pointer"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>--%>
+<%--                    </td>--%>
                     <td class="table command">
                         <a onclick="onDelete()" style="color: #007bff; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
                     </td>
