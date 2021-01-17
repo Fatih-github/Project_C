@@ -56,17 +56,15 @@
                     System.out.println("Error: " + ex);
                 }
             %>
+
             <h5 class="text-justify">It is nice seeing you again! On this page you can create a team and see your upcoming reservations.</h5>
             <h5 class="text-justify mb-5">We hope to see you soon at the office!</h5>
-        </div>
 
 
-        <div class="reservations form-group col-md-6 align-self-center">
+
             <span STYLE="font-size: x-large" class="text-nowrap control-label label_info">Upcoming reservations:</span><br>
 
-            <div class="container_reservations">
-                <div class="card border-0">
-                    <div class="card-body p-0">
+
 
                         <table STYLE="font-size: large" class="table m-7 table-bordered table-responsive-md table-hover table-dark">
                             <thead>
@@ -107,10 +105,9 @@
 
                             </tr>
                         </table>
-                    </div>
 
                     <span STYLE="font-size: x-large" class="text-nowrap text-black control-label mt-5">Create a team:</span>
-                    <div class="team1 rounded p-4 bg-dark form-group mb-5 align-self-center w-100">
+                    <div class="team1 rounded p-4 bg-dark form-group mb-5 w-100">
 
                         <%
                             Connection database2 = null;
@@ -144,7 +141,6 @@
                         <button style="font-size: large" class="teamsubmit btn btn-sm" onclick="onTeam()" type="button">Submit</button>
                     </div>
 
-                    <div class="card-body p-0">
 
                         <table STYLE="font-size: large" class="table m-7 table-bordered table-responsive-md table-hover table-dark">
                             <thead>
@@ -152,6 +148,7 @@
                                 <th>Team name</th>
                                 <th>Team members</th>
                                 <th>Team organizer</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
 
@@ -196,7 +193,7 @@
                                 <td class="table teamtable"><%=Arrays.toString(arr).replace("[", " ").replace("]", " ")%></td>
                                 <td class="table teamtable"><%=rs4.getString("invitedbyemail")%></td>
                                 <td class="table teamtable" style="display: none"><%=rs4.getString("teamid")%></td>
-                                        <td class="table teamtable">
+                                        <td class="table teamtable command">
                                             <a onclick="onDelete()" style="color: white; cursor: pointer"> <i class="fa fa-trash" aria-hidden="true"></i></a>
                                         </td>
                             </tbody>
@@ -209,23 +206,7 @@
 
                             </tr>
                         </table>
-                    </div>
-
-
-
-                </div>
-
-
-
-            </div>
         </div>
-
-
-
-
-
-
-
     </div>
 </div>
 <%
@@ -322,6 +303,10 @@
 
     .team1{
         width: 280px;
+    }
+
+    td.table:not(.command) {
+        width: 35% !important;
     }
 
     .team

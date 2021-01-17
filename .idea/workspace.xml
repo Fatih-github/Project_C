@@ -28,8 +28,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1629cae-4a65-471b-b6be-971cf4720ef0" name="Default Changelist" comment="finalv2">
+      <change afterPath="$PROJECT_DIR$/web/PlanPage/Resources/officeMap.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ReservationsPage/reservationsHTMLfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/LoginPage/loginCSSfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginCSSfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/LoginPage/loginHTMLfile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,6 +242,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -259,6 +262,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.38" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/BaseFramePC_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -391,7 +405,9 @@
       <workItem from="1610525608778" duration="301000" />
       <workItem from="1610529387552" duration="8244000" />
       <workItem from="1610613197971" duration="15758000" />
-      <workItem from="1610742055038" duration="445000" />
+      <workItem from="1610742055038" duration="1431000" />
+      <workItem from="1610809011100" duration="602000" />
+      <workItem from="1610899235211" duration="4661000" />
     </task>
     <task id="LOCAL-00001" summary="Changes to the database">
       <created>1607861911491</created>
@@ -603,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610635927881</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fixes">
+      <created>1610742816993</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1610742816993</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -715,6 +738,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Changes to the database" />
     <MESSAGE value="finished reservations to database" />
     <MESSAGE value="cleaned up reservations to database" />
@@ -737,7 +761,8 @@
     <MESSAGE value="finalbranchmaybe" />
     <MESSAGE value="final" />
     <MESSAGE value="finalv2" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalv2" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BaseFramePC$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1610456323836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
